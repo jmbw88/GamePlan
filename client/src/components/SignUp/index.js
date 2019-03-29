@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Axios from "axios";
 import { Redirect } from "react-router-dom";
+import "./style.css";
 
 class SignUp extends Component {
   constructor(props) {
@@ -164,7 +165,7 @@ class SignUp extends Component {
                         name="password"
                         value={this.state.password}
                         onChange={this.handleChange}
-                        className="form-control"
+                        className={"form-control" + (this.passwordsMatch() ? " border border-success" : "")}
                   />
                   <small id="passwordHelp" className="form-text text-muted">Password must be at least 8 characters</small>
                 </div>
@@ -175,7 +176,7 @@ class SignUp extends Component {
                         name="confirmPassword"
                         value={this.confirmPassword}
                         onChange={this.handleChange}
-                        className="form-control"
+                        className={"form-control" + (this.passwordsMatch() ? " border border-success" : "")}
                   />
                   {this.passwordsMatch() ? (
                     <small className="form-text text-success">Passwords match</small>
