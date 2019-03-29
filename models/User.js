@@ -53,6 +53,24 @@ const UserSchema = new Schema({
   }]
 });
 
+UserSchema.methods = {
+  checkPassword: function(inputPassword) {
+    return bcrypt.compareSync(inputPassword, this.account.password);
+  },
+  hashPassword: (plainTextPassword) => bcrypt.hashSync(plainTextPassword, 10)
+}
+
+// May need to redo if we are going to offer other forms of auth through facebook or google
+UserSchema.pre("save", function(next) {
+  if (!this.account.password) {
+    console.log("models/user.js NO PASSWORD PROVIDED");
+    next();
+  } else {
+    console.log("models/user.js hashPassword in pre save");
+    this.account.password = this.hashPassword(this.account.password);
+    next();
+  }
+});
 
 const User = mongoose.model("User", UserSchema);
 

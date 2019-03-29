@@ -9,6 +9,8 @@ const logger = require("morgan");
 
 const mongoose = require("mongoose");
 
+const passport = require("passport");
+
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -22,6 +24,10 @@ app.use(
   saveUninitialized: false
   })
 );
+
+// Passport
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Log sessions
 app.use( (req, res, next) => {
