@@ -77,63 +77,65 @@ class SignUpForm extends Component {
   }
 
   handleSubmit = (event) => {
-    event.preventDefault();
-		console.log('sign-up-form, username: ');
-		console.log(this.state.username);
-		//request to server here
-		Axios.post('/user/', {
-			username: this.state.username,
-			password: this.state.password
-		})
-			.then(response => {
-				console.log(response);
-				if (!response.data.errmsg) {
-					console.log('successful signup');
-					this.setState({
-						redirectTo: '/login'
-					});
-				} else {
-					console.log('username already taken');
-				}
-			});
     // event.preventDefault();
-    // if(this.validateForm()) {
-    //   Axios.post("/user", {
-    //     email: this.state.email,
-    //     username: this.state.username,
-    //     password: this.state.password
-    //   }).then((res) => {
-    //     if(!res.data.error) {
-    //       Axios.post("/user/login", {
-    //         username: this.state.username,
-    //         password: this.state.password
-    //       })
-    //       .then((res) => {
-    //         if(res.status === 200) {
-    //           this.props.updateUser({
-    //             loggedIn: true,
-    //             username: res.data.username
-    //           });
-    //           this.setState({
-    //             redirectTo: "/"
-    //           });
-    //         }
-    //       }).catch((err) => {
-    //         console.log("Server Login Error");
-    //         console.log(err);
-    //       });
-    //     }
-    //     else {
-    //       console.log("Sign-up error");
-    //       this.setState({
-    //         errorMsg: res.data.error
-    //       });
-    //     }
-    //   }).catch((err) => {
-    //     console.log("Sign up server error");
-    //     console.log(err);
-    //   });
-    // }
+		// console.log('sign-up-form, username: ');
+		// console.log(this.state.username);
+		// //request to server here
+		// Axios.post('/user/', {
+		// 	username: this.state.username,
+		// 	password: this.state.password
+		// })
+		// 	.then(response => {
+		// 		console.log(response);
+		// 		if (!response.data.errmsg) {
+		// 			console.log('successful signup');
+		// 			this.setState({
+		// 				redirectTo: '/login'
+		// 			});
+		// 		} else {
+		// 			console.log('username already taken');
+		// 		}
+    // 	});
+    
+    event.preventDefault();
+    if(this.validateForm()) {
+      Axios.post("/user", {
+        email: this.state.email,
+        username: this.state.username,
+        password: this.state.password
+      }).then((res) => {
+        console.log(res);
+        if(!res.data.error) {
+          Axios.post("/user/login", {
+            username: this.state.username,
+            password: this.state.password
+          })
+          .then((res) => {
+            if(res.status === 200) {
+              this.props.updateUser({
+                loggedIn: true,
+                username: res.data.username
+              });
+              this.setState({
+                redirectTo: "/"
+              });
+            }
+          }).catch((err) => {
+            console.log("Server Login Error");
+            console.log(err);
+          });
+        }
+        else {
+          console.log("Sign-up error");
+          this.setState({
+            errorMsg: res.data.error
+          });
+        }
+      }).catch((err) => {
+        console.log("Sign up server error");
+        console.log(err);
+      });
+    }
   }
 
   render() {

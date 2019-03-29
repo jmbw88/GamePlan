@@ -6,7 +6,6 @@ const UserSchema = new Schema({
   account: {
     username: {
       type: String,
-      required: true,
       unique: true
     },
     email: {
@@ -15,7 +14,6 @@ const UserSchema = new Schema({
     },
     password: {
       type: String,
-      required: true
     },
     createdAt: {
       type: Date,
@@ -29,7 +27,6 @@ const UserSchema = new Schema({
   profile: {
     name: {
       type: String,
-      required: true
     },
     sex: {
       type: String,
@@ -37,7 +34,6 @@ const UserSchema = new Schema({
     },
     zipcode: {
       type: String,
-      required: true
     },
     about: {
       type: String,
