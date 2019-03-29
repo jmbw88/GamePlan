@@ -3,7 +3,7 @@ import Axios from "axios";
 import { Redirect } from "react-router-dom";
 import "./style.css";
 
-class SignUp extends Component {
+class SignUpForm extends Component {
   constructor(props) {
     super(props);
 
@@ -211,4 +211,4 @@ class SignUp extends Component {
   }
 }
 
-export default SignUp;
+export default SignUpForm;
