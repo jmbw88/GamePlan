@@ -1,16 +1,33 @@
+require("dotenv").config();
 const express = require("express");
 const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
 const routes = require("./routes");
-
+const session = require('express-session')
 const logger = require("morgan");
+
 const mongoose = require("mongoose");
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(logger('dev'));
+
+// Sessions
+app.use(
+  session({
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: false
+  })
+);
+
+// Log sessions
+app.use( (req, res, next) => {
+  console.log('req.session', req.session);
+  return next();
+});
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
