@@ -77,44 +77,44 @@ class SignUp extends Component {
   }
 
   handleSubmit = (event) => {
-    event.preventDefault();
-    if(this.validateForm()) {
-      Axios.post("/user", {
-        email: this.state.email,
-        username: this.state.username,
-        password: this.state.password
-      }).then((res) => {
-        if(!res.data.error) {
-          Axios.post("/user/login", {
-            username: this.state.username,
-            password: this.state.password
-          })
-          .then((res) => {
-            if(res.status === 200) {
-              this.props.updateUser({
-                loggedIn: true,
-                username: res.data.username
-              });
-              this.setState({
-                redirectTo: "/"
-              });
-            }
-          }).catch((err) => {
-            console.log("Server Login Error");
-            console.log(err);
-          });
-        }
-        else {
-          console.log("Sign-up error");
-          this.setState({
-            errorMsg: res.data.error
-          });
-        }
-      }).catch((err) => {
-        console.log("Sign up server error");
-        console.log(err);
-      });
-    }
+    // event.preventDefault();
+    // if(this.validateForm()) {
+    //   Axios.post("/user", {
+    //     email: this.state.email,
+    //     username: this.state.username,
+    //     password: this.state.password
+    //   }).then((res) => {
+    //     if(!res.data.error) {
+    //       Axios.post("/user/login", {
+    //         username: this.state.username,
+    //         password: this.state.password
+    //       })
+    //       .then((res) => {
+    //         if(res.status === 200) {
+    //           this.props.updateUser({
+    //             loggedIn: true,
+    //             username: res.data.username
+    //           });
+    //           this.setState({
+    //             redirectTo: "/"
+    //           });
+    //         }
+    //       }).catch((err) => {
+    //         console.log("Server Login Error");
+    //         console.log(err);
+    //       });
+    //     }
+    //     else {
+    //       console.log("Sign-up error");
+    //       this.setState({
+    //         errorMsg: res.data.error
+    //       });
+    //     }
+    //   }).catch((err) => {
+    //     console.log("Sign up server error");
+    //     console.log(err);
+    //   });
+    // }
   }
 
   render() {
