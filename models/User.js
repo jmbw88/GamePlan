@@ -26,7 +26,7 @@ const UserSchema = new Schema({
       default: Date.now
     }
   },
-  Profile: {
+  profile: {
     name: {
       type: String,
       required: true
