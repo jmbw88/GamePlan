@@ -38,6 +38,7 @@ class LoginForm extends Component {
         });
       }
     }).catch((err) => {
+      console.log(err);
       this.setState({
         errorMsg: "Login failed."
       });

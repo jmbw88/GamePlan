@@ -38,7 +38,8 @@ module.exports = {
   },
 
   completeLogin: (req, res) => {
-    res.send({ username: req.user.username });
+    console.log("usercontroller req" + req.user);
+    res.send({ username: req.user.account.username });
   },
 
   getCurrentUser: (req, res, next) => {

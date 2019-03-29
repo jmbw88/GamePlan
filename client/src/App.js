@@ -26,10 +26,11 @@ class App extends Component {
 
   getUser = () => {
     Axios.get("/user").then((res) => {
+      console.log(res.data.user);
       if (res.data.user) {
         this.setState({
           loggedIn: true,
-          username: res.data.user.account.username
+          username: res.data.user.username
         });
       } else {
         this.setState({
@@ -41,13 +42,16 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.state);
     return (
       <Router>
         <Switch>
           <div class="container">
+          {/* JUST TESTING */}
+            {this.state.loggedIn ? <p>Hello {this.state.username}</p> : ""}
             <Route exact path="/" component={Home} />
             <Route exact path="/signup" render={() => <SignUpForm />} />
-            <Route exact path="/login" render={() => <LoginForm />} />
+            <Route exact path="/login" render={() => <LoginForm updateUser={this.updateUser}/>} />
           </div>
         </Switch>
       </Router>

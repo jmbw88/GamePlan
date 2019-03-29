@@ -6,7 +6,7 @@ const Stategy = new LocalStrategy(
     usernameField: "username"
   },
   function(username, password, done) {
-    User.findOne({ account: { username: username } }, (err, user) => {
+    User.findOne({ "account.username": username }, (err, user) => {
       if (err) {
         return done(err);
       }
