@@ -50,7 +50,7 @@ class App extends Component {
           {/* JUST TESTING */}
             {this.state.loggedIn ? <p>Hello {this.state.username}</p> : ""}
             <Route exact path="/" component={Home} />
-            <Route exact path="/signup" render={() => <SignUpForm />} />
+            <Route exact path="/signup" render={() => <SignUpForm updateUser={this.updateUser}/>} />
             <Route exact path="/login" render={() => <LoginForm updateUser={this.updateUser}/>} />
           </div>
         </Switch>
