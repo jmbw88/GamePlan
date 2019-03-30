@@ -2,23 +2,23 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const GameSchema = new Schema({
-    title : {
+    title: {
         type: String,
         required: true
     },
-    description : {
-            difficulty : {
+    description: {
+            difficulty: {
                 type: String,
                 enum: ["Beginner", "Experienced", "Challenger"]
             },
-            uniqueness : {
+            uniqueness: {
                 type: String,
                 enum: ["Standard", "Unique", "That's Crazy!"]
             },
-            cooperative : {
+            cooperative: {
                 type: Boolean
             },
-            length : {
+            length: {
                 type: String,
                 enum: ["15min-1hr", "1hr-2hr", "4+ hrs"]
             }
