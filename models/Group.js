@@ -6,14 +6,14 @@ const GroupSchema = new Schema ({
         type: String,
         required: true
     },
-    admin: {
+    admin: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
-    },
-    events: {
+    }],
+    events: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Event'
-    },
+    }],
     public: {
         type: Boolean,
         required: true
