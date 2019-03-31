@@ -11,12 +11,8 @@ Router.route("/:id")
 Router.route("/username/:username")
     .get(userController.findByUsername);
 
-// TODO
 Router.route("/profile/:id")
     .put(userController.updateProfileById);
-
-// Router.route("/profile/:id")
-//   .get(userController.getProfile);
 
 // Router.route("/invite/groups/:groupid")
 //   .put(userController.acceptGroup)
