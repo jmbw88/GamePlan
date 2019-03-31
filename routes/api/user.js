@@ -8,15 +8,16 @@ Router.route("/")
 Router.route("/:id")
     .get(userController.findById);
 
+Router.route("/username/:username")
+    .get(userController.findByUsername);
+
+// TODO
 Router.route("/profile")
     .put(userController.updateProfile)
     .get(userController.getProfile);
 
 // Router.route("/profile/:id")
 //   .get(userController.getProfile);
-
-// Router.route("/:id")
-//   .get(userController.getID)
 
 // Router.route("/username/:username")
 //   .get(userController.getUser)

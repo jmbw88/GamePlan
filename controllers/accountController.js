@@ -3,8 +3,7 @@ const db = require("../models");
 module.exports = {
   createUser: (req, res) => {
     const { email, username, password } = req.body;
-    console.log(req.body);
-    db.User.findOne({ account: { username: username } }, (err, user) => {
+    db.User.findOne({ "account.username": username }, (err, user) => {
       if (err) {
         console.log("User.js POST ERROR: ", err);
       }

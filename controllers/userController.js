@@ -1,17 +1,18 @@
 const db = require("../models");
 
+filterUserAccountInfo = (user) => {
+  user.account = { 
+    username: user.account.username, 
+    createdAt: user.account.createdAt, 
+    lastActive: user.account.lastActive 
+  };
+  return user;
+}
+
 module.exports = {
   findAll: (req, res) => {
     db.User.find({}).then((dbUser) => {
-      dbUser = dbUser.map((user) => {
-        user.account = { 
-          username: user.account.username, 
-          createdAt: user.account.createdAt, 
-          lastActive: user.account.lastActive 
-        };
-        return user;
-      });
-      res.json(dbUser);
+      res.json(dbUser.map(filterUserAccountInfo));
     }).catch((err) => {
       res.status(422).json(err);
     });
@@ -20,12 +21,16 @@ module.exports = {
   findById: (req, res) => {
     const userID = req.params.id;
     db.User.findById(userID).then((dbUser) => {
-      dbUser.account = {
-        username: dbUser.account.username, 
-        createdAt: dbUser.account.createdAt, 
-        lastActive: dbUser.account.lastActive 
-      };
-      res.json(dbUser);
+      res.json(filterUserAccountInfo(dbUser));
+    }).catch((err) => {
+      res.status(422).json(err);
+    });
+  },
+
+  findByUsername: (req, res) => {
+    const username = req.params.username;
+    db.User.findOne({ "account.username": username }).then((dbUser) => {
+      res.json(filterUserAccountInfo(dbUser));
     }).catch((err) => {
       res.status(422).json(err);
     });
