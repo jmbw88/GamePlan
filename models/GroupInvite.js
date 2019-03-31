@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-const InviteSchema = new Schema ({
+const GroupInviteSchema = new Schema ({
     Users: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
@@ -10,12 +10,8 @@ const InviteSchema = new Schema ({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Group'
     },
-    EventID: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Event'
-    }
 });
 
-const Invite = mongoose.model("Invite", InviteSchema);
+const GroupInvite = mongoose.model("GroupInvite", GroupInviteSchema);
 
-module.exports = Invite;
+module.exports = GroupInvite;
