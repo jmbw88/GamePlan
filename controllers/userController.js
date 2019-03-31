@@ -15,5 +15,29 @@ module.exports = {
     }).catch((err) => {
       res.status(422).json(err);
     });
-  }
+  },
+
+  findById: (req, res) => {
+    const userID = req.params.id;
+    db.User.findById(userID).then((dbUser) => {
+      dbUser.account = {
+        username: dbUser.account.username, 
+        createdAt: dbUser.account.createdAt, 
+        lastActive: dbUser.account.lastActive 
+      };
+      res.json(dbUser);
+    }).catch((err) => {
+      res.status(422).json(err);
+    });
+  },
+
+  getProfile: (req, res) => {
+
+  },
+
+  updateProfile: (req, res) => {
+
+  },
+
+
 }

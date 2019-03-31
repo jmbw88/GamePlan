@@ -5,21 +5,15 @@ const userController = require("../../controllers/userController");
 Router.route("/")
     .get(userController.findAll);
 
-// Router.route("/")
-//   .post(userController.createUser)
-//   .get(userController.getCurrentUser);
+Router.route("/:id")
+    .get(userController.findById);
 
-// Router.route("/login")
-//   .post(userController.attemptLogin, passport.authenticate("local"), userController.completeLogin);
-  
-// Router.route("/logout").post(userController.logout);
-
-// Router.route("/profile")
-//   .post(userController.updateProfile)
-//   .get(userController.getProfile);
+Router.route("/profile")
+    .put(userController.updateProfile)
+    .get(userController.getProfile);
 
 // Router.route("/profile/:id")
-//   .get(userController.getProfile)
+//   .get(userController.getProfile);
 
 // Router.route("/:id")
 //   .get(userController.getID)
