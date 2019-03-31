@@ -12,6 +12,6 @@ const BlockSchema = new Schema ({
     }
 });
 
-const Group = mongoose.model("Group", GroupSchema);
+const Block = mongoose.model("Block", BlockSchema);
 
-module.exports = Group;
+module.exports = Block;

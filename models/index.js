@@ -3,6 +3,8 @@ module.exports = {
   Event: require("./Event"),
   Game: require("./Game"),
   Group: require("./Group"),
-  Invite: require("./Invite"),
-  Message: require("./Message")
+  Message: require("./Message"),
+  GroupInvite: require("./GroupInvite"),
+  EventInvite: require("./EventInvite"),
+  Blocked: require("./Blocked")
 }
