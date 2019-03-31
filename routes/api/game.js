@@ -1,2 +1,4 @@
 const Router = require("express").Router();
-const msgController = require("../controllers/msgController");
+const gamesController = require("../../controllers/gamesController");
+
+module.exports = Router;
