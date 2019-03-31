@@ -1,12 +1,12 @@
 const mongoose = require("mongoose");
-const { Schema } = mongoogse;
+const { Schema } = mongoose;
 
 const EventSchema = new Schema ({
     title: {
         type : String,
         required: true
     },
-    zip : {
+    zip: {
         type: String,
         required: true,
     },

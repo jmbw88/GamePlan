@@ -4,6 +4,7 @@ import Axios from "axios";
 import Home from "../src/pages/Home";
 import SignUpForm from "../src/components/SignUpForm"
 import LoginForm from "../src/components/LoginForm";
+import NavBar from "../src/components/NavBar";
 
 class App extends Component {
   constructor() {
@@ -45,12 +46,13 @@ class App extends Component {
     console.log(this.state);
     return (
       <Router>
-        <Switch>
+          <NavBar username={this.state.username} 
+                  loggedIn={this.state.loggedIn} 
+                  updateUser={this.updateUser} />
+          <Switch>
           <div class="container">
-          {/* JUST TESTING */}
-            {this.state.loggedIn ? <p>Hello {this.state.username}</p> : ""}
             <Route exact path="/" component={Home} />
-            <Route exact path="/signup" render={() => <SignUpForm />} />
+            <Route exact path="/signup" render={() => <SignUpForm updateUser={this.updateUser}/>} />
             <Route exact path="/login" render={() => <LoginForm updateUser={this.updateUser}/>} />
           </div>
         </Switch>
