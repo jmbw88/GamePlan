@@ -1,26 +1,26 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-const MsgSchema = new Scema ({
-    to : {
+const MsgSchema = new Schema ({
+    to: {
         type: String,
         required: true
     },
-    from : {
+    from: {
         type: String,
         required: true
     },
-    body : {
+    body: {
         type: String,
         required: true
     },
-    read : {
+    read: {
         type: Boolean,
         default: false,
         required: true
     }
 });
 
-const Message = mongoose.model("Message", MsgScema);
+const Message = mongoose.model("Message", MsgSchema);
 
 module.exports = Message;
