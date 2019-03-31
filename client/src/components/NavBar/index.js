@@ -11,7 +11,7 @@ class Nav extends Component {
 
   logout = (event) => {
     event.preventDefault();
-    Axios.post("/user/logout").then((res) => {
+    Axios.post("/account/logout").then((res) => {
       if (res.status === 200) {
         this.props.updateUser({
           loggedIn: false,
