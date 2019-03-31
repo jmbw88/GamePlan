@@ -8,6 +8,8 @@ const invite = require("./invite");
 const message = require("./message");
 const user = require("./user");
 
+Router.use("/user", user);
+
 // For anything else, render the html page
 Router.use(function(req, res) {
   res.sendFile(path.join(__dirname, "../../client/build/index.html"));

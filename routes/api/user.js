@@ -2,6 +2,9 @@ const Router = require("express").Router();
 const userController = require("../../controllers/userController");
 // const passport = require("../passport");
 
+Router.route("/")
+    .get(userController.findAll);
+
 // Router.route("/")
 //   .post(userController.createUser)
 //   .get(userController.getCurrentUser);
