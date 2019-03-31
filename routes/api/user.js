@@ -12,15 +12,11 @@ Router.route("/username/:username")
     .get(userController.findByUsername);
 
 // TODO
-Router.route("/profile")
-    .put(userController.updateProfile)
-    .get(userController.getProfile);
+Router.route("/profile/:id")
+    .put(userController.updateProfileById);
 
 // Router.route("/profile/:id")
 //   .get(userController.getProfile);
-
-// Router.route("/username/:username")
-//   .get(userController.getUser)
 
 // Router.route("/invite/groups/:groupid")
 //   .put(userController.acceptGroup)
