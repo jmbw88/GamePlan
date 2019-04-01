@@ -2,6 +2,10 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const GroupSchema = new Schema ({
+    name: {
+        type: String,
+        required: true
+    },
     description: {
         type: String,
         required: true
@@ -18,7 +22,7 @@ const GroupSchema = new Schema ({
         type: Boolean,
         required: true
     },
-    zip: {
+    zipcode: {
         type: String,
         required: function() { return this.public === true; }
     }

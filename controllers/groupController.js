@@ -10,6 +10,10 @@ module.exports = {
   },
 
   create: (req, res) => {
-
+    db.Group.create(req.body).then((dbGroup) => {
+      res.json(dbGroup);
+    }).catch((err) => {
+      res.status(422).json(err);
+    });
   }
 }
