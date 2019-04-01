@@ -36,6 +36,7 @@ module.exports = {
     });
   },
 
+  // add if req.user
   updateProfileById: (req, res) => {
     const userID = req.params.id;
     db.User.findOneAndUpdate({ _id: userID }, { profile: req.body }, { new: true }).then((dbUser) => {

@@ -1,9 +1,9 @@
 const Router = require("express").Router();
 const groupController = require("../../controllers/groupController");
 
-// Router.route("/")
-//     .get(groupController.findAllGroups)
-//     .post(groupController.createNewGroup);
+Router.route("/")
+    .get(groupController.findAll)
+    .post(groupController.create);
 
 // Router.route("/users/:groupid")
 //     .get(groupController.findThisGroup);
