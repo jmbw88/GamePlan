@@ -1,63 +1,44 @@
 const db = require("../models");
+const util = require("../utils/userUtils");
 
 module.exports = {
-  createUser: (req, res) => {
-    const { email, username, password } = req.body;
-    console.log(req.body);
-    db.User.findOne({ account: { username: username } }, (err, user) => {
-      if (err) {
-        console.log("User.js POST ERROR: ", err);
-      }
-      else if (user) {
-        res.json({
-          error: "A user already exists with that username/email"
-        });
-      }
-      else {
-        const newUser = new db.User(
-          {account : {
-            email: email,
-            username: username,
-            password: password
-          }}
-          );
-        console.log(newUser);
-        newUser.save((err, savedUser) => {
-          if (err) {
-            console.log(err);
-            return res.json(err);
-          } 
-          res.json(savedUser);
-        });
-      }
+  findAll: (req, res) => {
+    db.User.find({}).then((dbUser) => {
+      res.json(dbUser.map(util.filterUserAccountInfo));
+    }).catch((err) => {
+      res.status(422).json(err);
     });
   },
 
-  attemptLogin: (req, res, next) => {
-    next();
+  findById: (req, res) => {
+    const userID = req.params.id;
+    db.User.findById(userID).then((dbUser) => {
+      res.json(util.filterUserAccountInfo(dbUser));
+    }).catch((err) => {
+      res.status(422).json(err);
+    });
   },
 
-  completeLogin: (req, res) => {
-    console.log("usercontroller req" + req.user);
-    res.send({ username: req.user.account.username });
+  findByUsername: (req, res) => {
+    const username = req.params.username;
+    db.User.findOne({ "account.username": username }).then((dbUser) => {
+      res.json(util.filterUserAccountInfo(dbUser));
+    }).catch((err) => {
+      res.status(422).json(err);
+    });
   },
 
-  getCurrentUser: (req, res, next) => {
-    if (req.user) {
-      res.json({ user: req.user });
-    }
-    else {
-      res.json({ user: null });
-    }
+  // add if req.user
+  updateProfileById: (req, res) => {
+    const userID = req.params.id;
+    db.User.findOneAndUpdate({ _id: userID }, { profile: req.body }, { new: true }).then((dbUser) => {
+      res.json(util.filterUserAccountInfo(dbUser));
+    }).catch((err) => {
+      res.status(422).json(err);
+    });
   },
 
-  logout: (req, res) => {
-    if (req.user) {
-      req.logout();
-      res.send({ msg: "Logging out" });
-    }
-    else {
-      res.send({ msg: "No user to log out" });
-    }
-  }
+  // TODO ADD GROUP, ADD EVENT
+
+
 }

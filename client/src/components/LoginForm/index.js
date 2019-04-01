@@ -23,7 +23,7 @@ class LoginForm extends Component {
     this.setState({
       errorMsg: ""
     });
-    Axios.post("/user/login", {
+    Axios.post("/account/login", {
       username: this.state.username,
       password: this.state.password
     })

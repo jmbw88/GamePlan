@@ -1,16 +1,28 @@
 const Router = require("express").Router();
-const groupController = require("../controllers/groupController");
+const groupController = require("../../controllers/groupController");
 
 Router.route("/")
-    .get(groupController.findAllGroups)
-    .post(groupController.createNewGroup)
+    .get(groupController.findAll)
+    .post(groupController.create);
 
-Router.route("/users/:groupid")
-    .get(groupController.findThisGroup)
+Router.route("/:id")
+    .get(groupController.findById)
+    .put(groupController.update);
 
-Router.route("/:groupid")
-    .get(groupController.findOneGroup)
+Router.route("/:id/admins")
+    .get(groupController.getAdmins)
+    .put(groupController.addAdmin);
 
-Router.route("/admin/:groupid")
-    .put(groupController.groupProfile)
+Router.route("/admins/:id")
+    .get(groupController.findGroupsUserAdmins);
 
+// Router.route("/users/:groupid")
+//     .get(groupController.findThisGroup);
+
+// Router.route("/:groupid")
+//     .get(groupController.findOneGroup);
+
+// Router.route("/admin/:groupid")
+//     .put(groupController.groupProfile);
+
+module.exports = Router;
