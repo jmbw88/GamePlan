@@ -10,7 +10,8 @@ Router.route("/:id")
     .put(groupController.update);
 
 Router.route("/:id/admins")
-    .get(groupController.getAdmins);
+    .get(groupController.getAdmins)
+    .put(groupController.addAdmin);
 
 // Router.route("/users/:groupid")
 //     .get(groupController.findThisGroup);

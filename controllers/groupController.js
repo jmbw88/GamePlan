@@ -1,4 +1,5 @@
 const db = require("../models");
+const util = require("../utils/userUtils");
 
 module.exports = {
   findAll: (req, res) => {
@@ -35,7 +36,15 @@ module.exports = {
   },
 
   getAdmins: (req, res) => {
-    db.Group.findOne({ _id: req.params.id }).then((dbGroup) => {
+    db.Group.findOne({ _id: req.params.id }).populate("admins").then((dbGroup) => {
+      res.json(dbGroup.admins.map(util.filterUserAccountInfo));
+    }).catch((err) => {
+      res.status(422).json(err);
+    });
+  },
+
+  addAdmin: (req, res) => {
+    db.Group.findOneAndUpdate({ _id: req.params.id }, { $push: { admins: req.body } }, { new: true }).then((dbGroup) => {
       res.json(dbGroup.admins);
     }).catch((err) => {
       res.status(422).json(err);
