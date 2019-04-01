@@ -9,6 +9,14 @@ module.exports = {
     });
   },
 
+  findById: (req, res) => {
+    db.Group.findById(req.params.id).then((dbGroup) => {
+      res.json(dbGroup);
+    }).catch((err) => {
+      res.status(422).json(err);
+    });
+  },
+
   create: (req, res) => {
     db.Group.create(req.body).then((dbGroup) => {
       res.json(dbGroup);

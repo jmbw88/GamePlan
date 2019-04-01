@@ -5,6 +5,9 @@ Router.route("/")
     .get(groupController.findAll)
     .post(groupController.create);
 
+Router.route("/:id")
+    .get(groupController.findById);
+
 // Router.route("/users/:groupid")
 //     .get(groupController.findThisGroup);
 
