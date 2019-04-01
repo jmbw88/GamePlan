@@ -13,6 +13,9 @@ Router.route("/:id/admins")
     .get(groupController.getAdmins)
     .put(groupController.addAdmin);
 
+Router.route("/admins/:id")
+    .get(groupController.findGroupsUserAdmins);
+
 // Router.route("/users/:groupid")
 //     .get(groupController.findThisGroup);
 

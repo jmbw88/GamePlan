@@ -49,5 +49,21 @@ module.exports = {
     }).catch((err) => {
       res.status(422).json(err);
     });
+  },
+
+  findGroupsUserAdmins: (req, res) => {
+    db.Group.find({ admins: { "$in": [req.params.id] } }).then((dbGroup) => {
+      res.json(dbGroup);
+    }).catch((err) => {
+      res.status(422).json(err);
+    });
+  },
+
+  getEvents: (req, res) => {
+
+  },
+
+  addEvent: (req, res) => {
+
   }
 }
