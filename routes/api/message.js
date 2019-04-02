@@ -2,9 +2,11 @@ const Router = require("express").Router();
 const msgController = require("../../controllers/msgController");
 
 Router.route("/")
-    .get(msgController.findAll);
+    .get(msgController.findAll)
+    .post(msgController.sendMsg);
 
-Router.route("/:userid/:")
+Router.route("/:userid/:otherid")
+    .get(msgController.findThread)
 
 // Router.route("/:userid")
 //   .get(msgController.getThread)
