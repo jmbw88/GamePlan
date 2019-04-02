@@ -6,7 +6,10 @@ const EventSchema = new Schema ({
         type : String,
         required: true
     },
-    zip: {
+    description: {
+        type: String
+    },
+    zipcode: {
         type: String,
         required: true,
     },
