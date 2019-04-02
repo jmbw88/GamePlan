@@ -10,6 +10,14 @@ module.exports = {
     });
   },
 
+  findPublic: (req, res) => {
+    db.Group.find({ public: true }).then((dbGroup) => {
+      res.json(dbGroup);
+    }).catch((err) => {
+      res.status(422).json(err);
+    });
+  },
+
   findById: (req, res) => {
     db.Group.findById(req.params.id).then((dbGroup) => {
       res.json(dbGroup);
@@ -35,7 +43,7 @@ module.exports = {
     });
   },
 
-  getAdmins: (req, res) => {
+  findAdmins: (req, res) => {
     db.Group.findOne({ _id: req.params.id }).populate("admins").then((dbGroup) => {
       res.json(dbGroup.admins.map(util.filterUserAccountInfo));
     }).catch((err) => {
@@ -59,20 +67,19 @@ module.exports = {
     });
   },
 
-  getEvents: (req, res) => {
-      db.Event.find({public:true}).then((dbEvent) => {
-        res.json(dbEvent);
-      }).catch((err) => {
-        res.status(422).json(err);
-      });
-    },
-  
-
-  addEvent: (req, res) => {
-    db.Event.create(req.body).then((dbEvent) => {
-      res.json(dbEvent);
+  findGroupEvents: (req, res) => {
+    db.Group.findById(req.params.id).populate("events").then((dbGroup) => {
+      res.json(dbGroup.events);
     }).catch((err) => {
       res.status(422).json(err);
     });
+  },
+  
+  addGroupEvent: (req, res) => {
+    // db.Event.create(req.body).then((dbEvent) => {
+    //   res.json(dbEvent);
+    // }).catch((err) => {
+    //   res.status(422).json(err);
+    // });
   }
 }
