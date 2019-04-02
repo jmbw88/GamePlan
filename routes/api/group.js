@@ -5,24 +5,25 @@ Router.route("/")
     .get(groupController.findAll)
     .post(groupController.create);
 
+Router.route("/public")
+    .get(groupController.findPublic);
+
 Router.route("/:id")
     .get(groupController.findById)
     .put(groupController.update);
 
 Router.route("/:id/admins")
-    .get(groupController.getAdmins)
+    .get(groupController.findAdmins)
     .put(groupController.addAdmin);
 
 Router.route("/admins/:id")
     .get(groupController.findGroupsUserAdmins);
 
-// Router.route("/users/:groupid")
-//     .get(groupController.findThisGroup);
+Router.route("/:id/events/")
+    .get(groupController.findGroupEvents);
 
-// Router.route("/:groupid")
-//     .get(groupController.findOneGroup);
+Router.route("/:groupId/events/:eventId")
+    .put(groupController.addGroupEvent); // TODO
 
-// Router.route("/admin/:groupid")
-//     .put(groupController.groupProfile);
 
 module.exports = Router;

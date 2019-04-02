@@ -1,7 +1,7 @@
 const path = require("path");
 const Router = require("express").Router();
-const block = require("./block");
-const event = require("./event");
+const blocks = require("./block");
+const events = require("./event");
 const games = require("./game");
 const groups = require("./group");
 const invite = require("./invite");
@@ -11,6 +11,8 @@ const user = require("./user");
 Router.use("/user", user);
 Router.use("/games", games);
 Router.use("/groups", groups);
+Router.use("/events", events);
+Router.use("/blocks", blocks);
 
 // For anything else, render the html page
 Router.use(function(req, res) {

@@ -25,6 +25,10 @@ const GroupSchema = new Schema ({
     zipcode: {
         type: String,
         required: function() { return this.public === true; }
+    },
+    createdBy: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User"
     }
 });
 

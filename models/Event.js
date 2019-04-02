@@ -6,7 +6,10 @@ const EventSchema = new Schema ({
         type : String,
         required: true
     },
-    zip: {
+    description: {
+        type: String
+    },
+    zipcode: {
         type: String,
         required: true,
     },
@@ -21,6 +24,10 @@ const EventSchema = new Schema ({
     createdAt: {
         type: Date,
         default: Date.now
+    },
+    createdBy: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User"
     }
 })
 
