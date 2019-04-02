@@ -6,5 +6,5 @@ module.exports = {
   Message: require("./Message"),
   GroupInvite: require("./GroupInvite"),
   EventInvite: require("./EventInvite"),
-  Blocked: require("./Blocked")
+  Blocked: require("./Block")
 }
