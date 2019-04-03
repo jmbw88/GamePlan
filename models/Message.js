@@ -4,12 +4,12 @@ const { Schema } = mongoose;
 const MsgSchema = new Schema ({
     to: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Receiver",
+        ref: "User",
         required: true
     },
     from: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Sender",
+        ref: "User",
         required: true
     },
     body: {
