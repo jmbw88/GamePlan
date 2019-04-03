@@ -5,8 +5,12 @@ Router.route("/")
     .get(msgController.findAll)
     .post(msgController.sendMsg);
 
+Router.route("/:userid")
+    .put(msgController.markRead)
+
 Router.route("/:userid/:otherid")
     .get(msgController.findThread)
+    
 
 // Router.route("/:userid")
 //   .get(msgController.getThread)
