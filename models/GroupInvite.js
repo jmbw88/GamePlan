@@ -2,11 +2,11 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const GroupInviteSchema = new Schema ({
-    Users: {
+    user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     },
-    GroupID: {
+    group: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Group'
     },
