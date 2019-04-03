@@ -28,8 +28,13 @@ module.exports = {
         } else {
           return {username: msg.to.account.username, id: msg.to._id};
         }
-      });
-      res.json([...new Set(users)]);
+      }).reduce((unique, o) => {
+        if(!unique.some(obj => obj.username === o.username)) {
+          unique.push(o);
+        }
+        return unique
+      }, []);
+      res.json(users);
     }).catch((err) => {
       res.status(422).json(err);
     });
