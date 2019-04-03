@@ -10,6 +10,10 @@ const EventInviteSchema = new Schema ({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Event'
     },
+    createdAt: {
+        type: Date,
+        default: Date.now
+    }
 });
 
 const EventInvite = mongoose.model("EventInvite", EventInviteSchema);
