@@ -36,6 +36,7 @@ module.exports = {
     next();
   },
 
+  // TODO UPDATE LAST ACTIVE
   completeLogin: (req, res) => {
     console.log("usercontroller req" + req.user);
     res.send({ username: req.user.account.username });

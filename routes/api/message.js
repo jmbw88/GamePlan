@@ -6,8 +6,10 @@ Router.route("/")
     .post(msgController.sendMsg);
 
 Router.route("/:userid/:otherid")
-    .get(msgController.findThread)
+    .get(msgController.findThread);
 
+Router.route("/:id")
+    .get(msgController.findContacts);
 // Router.route("/:userid")
 //   .get(msgController.getThread)
 //   .delete(msgController.deleteMessage)
