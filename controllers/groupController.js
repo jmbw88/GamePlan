@@ -26,6 +26,7 @@ module.exports = {
     });
   },
 
+  // TODO Add user who created it
   create: (req, res) => {
     db.Group.create(req.body).then((dbGroup) => {
       res.json(dbGroup);
@@ -75,6 +76,7 @@ module.exports = {
     });
   },
   
+  // TODO write this
   addGroupEvent: (req, res) => {
     // db.Event.create(req.body).then((dbEvent) => {
     //   res.json(dbEvent);

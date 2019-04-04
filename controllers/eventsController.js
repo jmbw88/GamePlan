@@ -1,4 +1,5 @@
 const db = require("../models");
+const momentTZ = require("moment-timezone");
 
 module.exports = {
   findAll: (req, res) => {
@@ -25,11 +26,16 @@ module.exports = {
     });
   },
 
-  // TODO UPDATE THIS FOR DATE
   create: (req, res) => {
+    req.body.date = new Date(req.body.date);
+    let event;
     db.Event.create(req.body).then((dbEvent) => {
-      res.json(dbEvent);
-    }).catch((err) => {
+      event = dbEvent;
+      return db.User.findByIdAndUpdate(req.body.createdBy, { $push: { events: dbEvent._id } }, { new: true });
+    }).then(() => {
+      res.json(event);
+    })
+    .catch((err) => {
       res.status(422).json(err);
     });
   }

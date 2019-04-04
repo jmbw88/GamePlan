@@ -1,6 +1,8 @@
 const db = require("../models");
 
 module.exports = {
+  // req.body has user and group
+  // update user by pushing this group id to its array
   groupInvite: (req, res) => {
 
   },
@@ -21,6 +23,8 @@ module.exports = {
 
   },
 
+  // req.body has user and group
+  // update user by pushing this event id to its array
   eventInvite: (req, res) => {
 
   },
@@ -38,7 +42,7 @@ module.exports = {
   },
 
   declineEventInvite: (req, res) => {
-    
+
   }
 
 }
