@@ -76,12 +76,19 @@ module.exports = {
     });
   },
   
-  // TODO write this
   addGroupEvent: (req, res) => {
-    // db.Event.create(req.body).then((dbEvent) => {
-    //   res.json(dbEvent);
-    // }).catch((err) => {
-    //   res.status(422).json(err);
-    // });
+    const id = req.params.id;
+    req.body.date = new Date(req.body.date);
+    let event;
+    db.Event.create(req.body).then((dbEvent) => {
+      event = dbEvent;
+      return db.User.findByIdAndUpdate(req.body.createdBy, { $push: { events: dbEvent._id } });
+    }).then(() => {
+      return db.Group.findByIdAndUpdate(id, { $push: { events: event._id } });
+    }).then(() => {
+      res.json(event);
+    }).catch((err) => {
+      res.status(422).json(err);
+    });
   }
 }
