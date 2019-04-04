@@ -2,7 +2,8 @@ const db = require("../models");
 
 module.exports = {
   // req.body has user and group
-  // update user by pushing this group id to its array
+  // check to see if user is already in group or invited
+  // check if user making request is admin of group
   groupInvite: (req, res) => {
 
   },
@@ -24,7 +25,6 @@ module.exports = {
   },
 
   // req.body has user and group
-  // update user by pushing this event id to its array
   eventInvite: (req, res) => {
 
   },

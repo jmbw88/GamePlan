@@ -1,0 +1,801 @@
+{
+	"info": {
+		"_postman_id": "c5642492-76c2-4df2-90d6-67a83e3454e0",
+		"name": "Gameplan",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:3000/api/user",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:3000/api/user",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"user"
+					]
+				},
+				"description": "Find all users"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/api/user/5ca0e06570b4ec44906c5846",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:3000/api/user/5ca0e06570b4ec44906c5846",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"user",
+						"5ca0e06570b4ec44906c5846"
+					]
+				},
+				"description": "Find user by ID"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/api/user/username/dylan",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:3000/api/user/username/dylan",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"user",
+						"username",
+						"dylan"
+					]
+				},
+				"description": "Find user by username"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/api/user/profile/5c9e90c73fc5f80a6cb13c34",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\n\"name\": \"Dylan J Thomson\",\n\"sex\": \"Male\",\n\"zipcode\": \"44060\",\n\"about\": \"Casual board game player.\"\n\n\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/api/user/profile/5c9e90c73fc5f80a6cb13c34",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"user",
+						"profile",
+						"5c9e90c73fc5f80a6cb13c34"
+					]
+				},
+				"description": "Update user profile by id"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/api/games",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:3000/api/games/5ca236c57c892560ec950d24",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"games",
+						"5ca236c57c892560ec950d24"
+					]
+				},
+				"description": "find all games"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/api/games",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\": \"Monopoly\",\n\t\"description\": {\n\t\t\"difficulty\": \"Beginner\",\n\t\t\"uniqueness\": \"Standard\",\n\t\t\"cooperative\": false,\n\t\t\"length\": \"1hr-2hr\"\n\t}\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/api/games",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"games"
+					]
+				},
+				"description": "Post game"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/api/games/5ca236c57c892560ec950d24",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:3000/api/games/5ca236c57c892560ec950d24",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"games",
+						"5ca236c57c892560ec950d24"
+					]
+				},
+				"description": "find by id"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/api/games",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:3000/api/games",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"games"
+					]
+				},
+				"description": "find all games"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/api/groups",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:3000/api/groups",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"groups"
+					]
+				},
+				"description": "find all groups"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/api/groups",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Test group\",\n\t\"description\": \"Test group created for dev\",\n\t\"public\": true,\n\t\"zipcode\": \"44060\"\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/api/groups/5ca24ab1866f8055b0bbb057",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"groups",
+						"5ca24ab1866f8055b0bbb057"
+					]
+				},
+				"description": "create group"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/api/groups/5ca24ab1866f8055b0bbb057",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"zipcode\": \"44077\"\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/api/groups/5ca24ab1866f8055b0bbb057",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"groups",
+						"5ca24ab1866f8055b0bbb057"
+					]
+				},
+				"description": "update group\n"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/api/groups/",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Test group\",\n\t\"description\": \"Test group created for dev\",\n\t\"public\": true,\n\t\"zipcode\": \"44060\"\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/api/groups/",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"groups",
+						""
+					]
+				},
+				"description": "add group\n"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/api/groups/5ca24ab1866f8055b0bbb057/admins",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:3000/api/groups/5ca24ab1866f8055b0bbb057/admins",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"groups",
+						"5ca24ab1866f8055b0bbb057",
+						"admins"
+					]
+				},
+				"description": "get admins"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/api/groups/5ca24ab1866f8055b0bbb057/admins",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"_id\": \"5c9e90c73fc5f80a6cb13c34\"\n\t\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/api/groups/5ca24ab1866f8055b0bbb057/admins",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"groups",
+						"5ca24ab1866f8055b0bbb057",
+						"admins"
+					]
+				},
+				"description": "add admin"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/api/messages",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"to:\" \"5c9e90c73fc5f80a6cb13c34\",\n\t\"from\": \"5ca0e597e1b7a522f04f3586\"\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/api/messages/",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"messages",
+						""
+					]
+				},
+				"description": "get all messages"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/api/groups/5ca24ab1866f8055b0bbb057/events",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:3000/api/groups/5ca24ab1866f8055b0bbb057/events",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"groups",
+						"5ca24ab1866f8055b0bbb057",
+						"events"
+					]
+				},
+				"description": "get group events\n"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/api/groups/public",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:3000/api/groups/public",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"groups",
+						"public"
+					]
+				},
+				"description": "get public groups"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/api/messages",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:3000/api/messages",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"messages"
+					]
+				},
+				"description": "get all messages"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/api/messages/",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"to\": \"5c9e90c73fc5f80a6cb13c34\",\n\t\"from\": \"5ca0e597e1b7a522f04f3586\",\n\t\"body\": \"Hey!\"\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/api/messages/",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"messages",
+						""
+					]
+				},
+				"description": "send message from hailey to dylan"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/api/messages/5ca0e597e1b7a522f04f3586/5c9e90c73fc5f80a6cb13c34",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"to\": \"5c9e90c73fc5f80a6cb13c34\",\n\t\"from\": \"5ca0e597e1b7a522f04f3586\",\n\t\"body\": \"Hey!\"\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/api/messages/5ca0e597e1b7a522f04f3586/5c9e90c73fc5f80a6cb13c34",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"messages",
+						"5ca0e597e1b7a522f04f3586",
+						"5c9e90c73fc5f80a6cb13c34"
+					]
+				},
+				"description": "get thread"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/api/messages/",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"to\": \"5c9e90c73fc5f80a6cb13c34\",\n\t\"from\": \"5ca0e597e1b7a522f04f3586\",\n\t\"body\": \"nmu\"\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/api/messages/",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"messages",
+						""
+					]
+				},
+				"description": "send message"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/api/messages/5c9e90c73fc5f80a6cb13c34",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"to\": \"5c9e90c73fc5f80a6cb13c34\",\n\t\"from\": \"5ca0e597e1b7a522f04f3586\",\n\t\"body\": \"Hey!\"\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/api/messages/5c9e90c73fc5f80a6cb13c34",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"messages",
+						"5c9e90c73fc5f80a6cb13c34"
+					]
+				},
+				"description": "find contacts"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/api/events",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:3000/api/events",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"events"
+					]
+				},
+				"description": "get all events"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/api/events",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\": \"Help\",\n\t\"description\": \"There is so much to do haha\",\n\t\"zipcode\": \"44060\",\n\t\"public\": true,\n\t\"date\": \"April 17, 2019 05:24:00\",\n\t\"createdBy\": \"5c9e90c73fc5f80a6cb13c34\"\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/api/events",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"events"
+					]
+				},
+				"description": "create event"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/api/groups/5ca24ab1866f8055b0bbb057/events",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\": \"Death March 2\",\n\t\"description\": \"Will we survive?\",\n\t\"zipcode\": \"44060\",\n\t\"public\": true,\n\t\"date\": \"April 16, 2019 05:24:00\",\n\t\"createdBy\": \"5c9e90c73fc5f80a6cb13c34\"\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/api/groups/5ca24ab1866f8055b0bbb057/events",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"groups",
+						"5ca24ab1866f8055b0bbb057",
+						"events"
+					]
+				},
+				"description": "post group event"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/api/user/5ca0e06570b4ec44906c5846/events/5ca61bf553c98b3ccc10d4c9",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:3000/api/user/5ca0e06570b4ec44906c5846/events/5ca61bf553c98b3ccc10d4c9",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"user",
+						"5ca0e06570b4ec44906c5846",
+						"events",
+						"5ca61bf553c98b3ccc10d4c9"
+					]
+				},
+				"description": "add event to user"
+			},
+			"response": []
+		}
+	]
+}
