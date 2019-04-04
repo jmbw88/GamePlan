@@ -2,14 +2,18 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const EventInviteSchema = new Schema ({
-    Users: {
+    user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     },
-    EventID: {
+    event: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Event'
     },
+    createdAt: {
+        type: Date,
+        default: Date.now
+    }
 });
 
 const EventInvite = mongoose.model("EventInvite", EventInviteSchema);

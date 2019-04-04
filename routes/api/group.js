@@ -19,11 +19,8 @@ Router.route("/:id/admins")
 Router.route("/admins/:id")
     .get(groupController.findGroupsUserAdmins);
 
-Router.route("/:id/events/")
-    .get(groupController.findGroupEvents);
-
-Router.route("/:groupId/events/:eventId")
-    .put(groupController.addGroupEvent); // TODO
-
+Router.route("/:id/events")
+    .get(groupController.findGroupEvents)
+    .post(groupController.addGroupEvent); // TODO
 
 module.exports = Router;
