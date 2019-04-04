@@ -38,7 +38,20 @@ module.exports = {
     });
   },
 
-  // TODO ADD GROUP, ADD EVENT
-
-
+  joinGroup: (req, res) => {
+    db.User.findByIdAndUpdate(req.params.id, { $addToSet: { groups: req.params.groupid } }, { new: true }).then((dbUser) => {
+      res.json(dbUser);
+    }).catch((err) => {
+      res.status(422).json(err);
+    });
+  },
+  
+  joinEvent: (req, res) => {
+    db.User.findByIdAndUpdate(req.params.id, { $addToSet: { events: req.params.eventid } }, { new: true }).then((dbUser) => {
+      res.json(dbUser);
+    }).catch((err) => {
+      res.status(422).json(err);
+    });
+  },
+    
 }

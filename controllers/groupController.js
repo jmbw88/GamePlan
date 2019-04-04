@@ -26,7 +26,7 @@ module.exports = {
     });
   },
 
-  // TODO Add user who created it
+  // TODO Add user who created it and add as admin
   create: (req, res) => {
     db.Group.create(req.body).then((dbGroup) => {
       res.json(dbGroup);
@@ -76,6 +76,7 @@ module.exports = {
     });
   },
   
+  // Create new event, save to group, save to user creating it
   addGroupEvent: (req, res) => {
     const id = req.params.id;
     req.body.date = new Date(req.body.date);
