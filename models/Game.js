@@ -9,11 +9,11 @@ const GameSchema = new Schema({
     description: {
             difficulty: {
                 type: String,
-                enum: ["Beginner", "Experienced", "Challenger"]
+                enum: ["Beginner", "Experienced", "Challenging"]
             },
             uniqueness: {
                 type: String,
-                enum: ["Standard", "Unique", "That's Crazy!"]
+                enum: ["Standard", "Unique", "Very Unique"]
             },
             cooperative: {
                 type: Boolean
@@ -22,7 +22,10 @@ const GameSchema = new Schema({
                 type: String,
                 enum: ["15min-1hr", "1hr-2hr", "4+ hrs"]
             }
-        }
+        },
+    img: {
+        type: String
+    }
 });
 
 const Game = mongoose.model("Game", GameSchema);
