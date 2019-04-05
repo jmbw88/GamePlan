@@ -6,6 +6,7 @@ import Profile from "../src/pages/Profile";
 import Groups from "../src/pages/Groups";
 import Events from "../src/pages/Events";
 import Messages from "../src/pages/Messages";
+import Search from "../src/pages/Search";
 import SignUpForm from "../src/components/SignUpForm"
 import LoginForm from "../src/components/LoginForm";
 import NavBar from "../src/components/NavBar";
@@ -62,6 +63,7 @@ class App extends Component {
             <Route exact path="/profile" render={() => <Profile updateUser={this.updateUser} loggedIn={this.state.loggedIn} username={this.state.username}/>} />
             <Route exact path="/groups" render={() => <Groups updateUser={this.updateUser} loggedIn={this.state.loggedIn}/>} />
             <Route exact path="/events" render={() => <Events updateUser={this.updateUser} loggedIn={this.state.loggedIn}/>} />
+            <Route exact path="/search" render={() => <Search updateUser={this.updateUser} loggedIn={this.state.loggedIn}/>} />
           </div>
         </Switch>
       </Router>

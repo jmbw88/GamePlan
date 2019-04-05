@@ -53,6 +53,9 @@ class Nav extends Component {
                   <Link className="nav-link" to="/groups">Groups</Link>
                 </li>
                 <li className="nav-item">
+                  <Link className="nav-link" to="/search">Search</Link>
+                </li>
+                <li className="nav-item">
                   <p className="nav-link m-0" id="logout-link" onClick={this.logout}>Logout</p>
                 </li>
                 
