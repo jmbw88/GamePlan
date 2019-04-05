@@ -32,6 +32,7 @@ class Nav extends Component {
   }
   
   render() {
+    // Triggers a warning so maybe figure out another way to do this :)
     if(this.state.redirectTo) {
       let redirect = this.state.redirectTo;
       this.setState({

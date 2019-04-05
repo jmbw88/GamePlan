@@ -19,6 +19,8 @@ class App extends Component {
       username: null
     }
 
+    // this.getUser();
+
     this.componentDidMount = this.componentDidMount.bind(this);
   }
 
@@ -68,18 +70,18 @@ class App extends Component {
           <NavBar username={this.state.username} 
                   loggedIn={this.state.loggedIn} 
                   updateUser={this.updateUser} />
-          <Switch>
-          <div class="container">
-            <Route exact path="/" component={Home} />
-            <Route exact path="/signup" render={() => <SignUpForm updateUser={this.updateUser}/>} />
-            <Route exact path="/login" render={() => <LoginForm updateUser={this.updateUser}/>} />
-            <Route exact path="/messages" render={() => <Messages updateUser={this.updateUser} loggedIn={this.state.loggedIn} username={this.state.username}/>} />
-            <Route exact path="/profile" render={() => <Profile updateUser={this.updateUser} loggedIn={this.state.loggedIn} username={this.state.username}/>} />
-            <Route exact path="/groups" render={() => <Groups updateUser={this.updateUser} loggedIn={this.state.loggedIn}/>} />
-            <Route exact path="/events" render={() => <Events updateUser={this.updateUser} loggedIn={this.state.loggedIn}/>} />
-            <Route exact path="/search" render={() => <Search updateUser={this.updateUser} loggedIn={this.state.loggedIn}/>} />
-          </div>
-        </Switch>
+          <div className="container">
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/signup" render={() => <SignUpForm updateUser={this.updateUser}/>} />
+              <Route exact path="/login" render={() => <LoginForm updateUser={this.updateUser}/>} />
+              <Route exact path="/messages" render={() => <Messages updateUser={this.updateUser} loggedIn={this.state.loggedIn} username={this.state.username}/>} />
+              <Route exact path="/profile" render={() => <Profile updateUser={this.updateUser} loggedIn={this.state.loggedIn} username={this.state.username}/>} />
+              <Route exact path="/groups" render={() => <Groups updateUser={this.updateUser} loggedIn={this.state.loggedIn}/>} />
+              <Route exact path="/events" render={() => <Events updateUser={this.updateUser} loggedIn={this.state.loggedIn}/>} />
+              <Route exact path="/search" render={() => <Search updateUser={this.updateUser} loggedIn={this.state.loggedIn}/>} />
+          </Switch>
+        </div>
       </Router>
     );
   }

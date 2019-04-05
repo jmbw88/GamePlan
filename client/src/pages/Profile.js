@@ -29,9 +29,7 @@ class Profile extends Component {
       this.getProfile();
   }
 
-  getProfile = () => {
-      console.log(this.props.loggedIn);
-      
+  getProfile = () => {      
       if(this.props.loggedIn) {
         Axios.get(`/api/user/username/${this.props.username}`).then((res) => {
             this.setState({
@@ -48,8 +46,6 @@ class Profile extends Component {
   }
 
   render() {
-    // console.log(this.props.location.query);
-    // console.log(this.state.profile);
     return (
       <React.Fragment>
         <h1>Profile</h1>
@@ -57,10 +53,6 @@ class Profile extends Component {
         <p>{this.state.about}</p>
         <p>{this.state.sex}</p>
         <p>{this.state.zipcode}</p>
-        {/* <p>{this.state.profile.about}</p>
-        <p>{this.state.profile.name}</p>
-        <p>{this.state.profile.sex}</p>
-        <p>{this.state.profile.zipcode}</p> */}
       </React.Fragment>
     )
   }

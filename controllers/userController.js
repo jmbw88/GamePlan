@@ -20,6 +20,7 @@ module.exports = {
   },
 
   findByUsername: (req, res) => {
+    console.log("user",req.user);
     const username = req.params.username;
     db.User.findOne({ "account.username": username }).then((dbUser) => {
       res.json(util.filterUserAccountInfo(dbUser));
