@@ -36,6 +36,9 @@ const UserSchema = new Schema({
     },
     about: {
       type: String,
+    },
+    img: {
+      type: String
     }
   },
   groups: [{
