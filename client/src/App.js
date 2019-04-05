@@ -12,17 +12,28 @@ import LoginForm from "../src/components/LoginForm";
 import NavBar from "../src/components/NavBar";
 import EditProfileForm from "../src/components/EditProfileForm";
 
+
+// TODO FIX SO THAT IF USER SESSION IS NOT ON SERVER IT REFLECTS THAT ON THE CLIENT
 class App extends Component {
   constructor() {
     super();
-    this.state = {
-      loggedIn: false,
-      username: null,
-      userid: null
+    const user = JSON.parse(sessionStorage.getItem("user"));
+    const userid = JSON.parse(sessionStorage.getItem("userid"));
+    if(user && userid) {
+      this.state = {
+        loggedIn: true,
+        username: user,
+        userid: userid
+      }
     }
-
-    // this.getUser();
-
+    else {
+      this.state = {
+        loggedIn: false,
+        username: null,
+        userid: null
+      }
+      this.getUser();
+    }
     this.componentDidMount = this.componentDidMount.bind(this);
   }
 
