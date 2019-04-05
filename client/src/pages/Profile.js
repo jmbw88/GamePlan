@@ -11,7 +11,8 @@ class Profile extends Component {
           name: profile.name,
           about: profile.about,
           sex: profile.sex,
-          zipcode: profile.zipcode
+          zipcode: profile.zipcode,
+          img: profile.img
       }
     }
     else {
@@ -19,7 +20,8 @@ class Profile extends Component {
           name: null,
           about: null,
           sex: null,
-          zipcode: null
+          zipcode: null,
+          img: null
       }
       
     }
@@ -50,6 +52,7 @@ class Profile extends Component {
     return (
       <React.Fragment>
         <h1>Profile</h1>
+        <img className="float-left" src={this.state.img}></img>
         <p>{this.state.name}</p>
         <p>{this.state.about}</p>
         <p>{this.state.sex}</p>

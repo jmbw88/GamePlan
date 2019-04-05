@@ -7,122 +7,58 @@ class EditProfileForm extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      // email: "",
-      // username: "",
-      // password: "",
-      // confirmPassword: "",
-      // errorMsg: "",
-      // redirectTo: null
+    const profile = JSON.parse(sessionStorage.getItem("profile"));
+    if(profile) {
+      this.state = {
+          name: profile.name,
+          about: profile.about,
+          sex: profile.sex,
+          zipcode: profile.zipcode,
+          img: profile.img,
+          errorMsg: "",
+          redirectTo: null
+      }
     }
+    else {
+      this.state = {
+          name: null,
+          about: null,
+          sex: null,
+          zipcode: null,
+          img: null,
+          errorMsg: "",
+          redirectTo: null       
+     }
   }
-
-  // Validate form on submit
-  // validateForm = () => {
-  //   this.setState({
-  //     errorMsg: ""
-  //   });
-  //   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.state.email)){
-  //     this.setState({
-  //       errorMsg: "Email is invalid."
-  //     });
-  //     return false;
-  //   }
-  //   else if (this.state.email.length < 1 || this.state.username.length < 1) {
-  //     this.setState({
-  //       errorMsg: "All fields are required."
-  //     });
-  //     return false;
-  //   }
-  //   else if (this.state.password.length < 8) {
-  //     this.setState({
-  //       errorMsg: "Password must be at least 8 characters."
-  //     });
-  //     return false;
-  //   }
-  //   else if (this.state.password.search(/[a-z]/i) < 0) {
-  //     this.setState({
-  //       errorMsg: "Password must contain at least one letter."
-  //     });
-  //     return false;
-  //   }
-  //   else if (this.state.password.search(/[0-9]/) < 0) {
-  //     this.setState({
-  //       errorMsg: "Password must contain at least one digit."
-  //     });
-  //     return false;
-  //   }
-  //   else if (this.state.password !== this.state.confirmPassword) {
-  //     this.setState({
-  //       errorMsg: "Passwords must match."
-  //     });
-  //     return false;
-  //   }
-  //   return true;
-  // }
-
-  // passwordsMatch = () => (
-  //   this.state.password.length > 0 &&
-  //   this.state.password === this.state.confirmPassword
-  // );
+}
 
   handleChange = (event) => {
     let { name, value } = event.target;
-    if (name === "username") {
-      value = value.substring(0,15);
-    }
     this.setState( {
       [name]: value
     });
   }
 
-  // handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   if(this.validateForm()) {
-  //     Axios.post("/account", {
-  //       email: this.state.email,
-  //       username: this.state.username,
-  //       password: this.state.password
-  //     }).then((res) => {
-  //       console.log(res);
-  //       if(!res.data.error) {
-  //         Axios.post("/account/login", {
-  //           username: this.state.username,
-  //           password: this.state.password
-  //         })
-  //         .then((res) => {
-  //           if(res.status === 200) {
-  //             this.props.updateUser({
-  //               loggedIn: true,
-  //               username: res.data.username
-  //             });
-  //             sessionStorage.setItem("user", JSON.stringify(res.data.username));
-  //             this.setState({
-  //               redirectTo: "/"
-  //             });
-  //           }
-  //         }).catch((err) => {
-  //           console.log("Server Login Error");
-  //           console.log(err);
-  //         });
-  //       }
-  //       else {
-  //         console.log("Sign-up error");
-  //         this.setState({
-  //           errorMsg: res.data.error
-  //         });
-  //       }
-  //     }).catch((err) => {
-  //       console.log("Sign up server error");
-  //       console.log(err);
-  //     });
-  //   }
-  // }
+  handleSubmit = (event) => {
+    event.preventDefault();
+    const userid = JSON.parse(sessionStorage.getItem("userid"));
+    Axios.put(`/api/user/profile/${userid}`, {
+      name: this.state.name,
+      zipcode: this.state.zipcode,
+      about: this.state.about,
+      img: this.state.img
+    }).then((res) => {
+      console.log(res);
+      this.setState({
+        redirectTo: "/profile"
+      });
+    });
+  }
 
   render() {
-    // if(this.state.redirectTo) {
-    //   return <Redirect to={{ pathname: this.state.redirectTo }}/>
-    // }
+    if(this.state.redirectTo) {
+      return <Redirect to={{ pathname: this.state.redirectTo }}/>
+    }
     return (
       <div className="row">
         <div className="col-12 mx-auto my-5">
@@ -163,28 +99,21 @@ class EditProfileForm extends Component {
                   <label htmlFor="updateAbout">About</label>
                   <input type="text" 
                         id="updateAbout" 
-                        // aria-describedby="passwordHelp"
-                        name="password"
-                        value={this.state.password}
+                        name="about"
+                        value={this.state.about}
                         onChange={this.handleChange}
                         className="form-control"
-                        // className={"form-control" + (this.passwordsMatch() ? " border border-success" : "")}
                         />
-                  {/* <small id="passwordHelp" className="form-text text-muted">Password must be at least 8 characters</small> */}
                 </div>
                 <div className="form-group">
                   <label htmlFor="updateImg">Image Link</label>
                   <input type="text" 
                         id="updateImg"
                         name="img"
-                        value={this.img}
+                        value={this.state.img}
                         onChange={this.handleChange}
                         className="form-control"
-                        // className={"form-control" + (this.passwordsMatch() ? " border border-success" : "")}
                   />
-                  {/* {this.passwordsMatch() ? (
-                    <small className="form-text text-success">Passwords match</small>
-                  ) : ""} */}
                 </div>
                 <button className="btn btn-primary float-right" onClick={this.handleSubmit}>Submit</button>
               </form>

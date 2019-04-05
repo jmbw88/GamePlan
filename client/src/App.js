@@ -17,7 +17,8 @@ class App extends Component {
     super();
     this.state = {
       loggedIn: false,
-      username: null
+      username: null,
+      userid: null
     }
 
     // this.getUser();
@@ -34,16 +35,20 @@ class App extends Component {
   }
 
   getUser = () => {
-
     const user = JSON.parse(sessionStorage.getItem("user"));
+    const userid = JSON.parse(sessionStorage.getItem("userid"));
     if(user) {
+      console.log("GET FROM SESSION STORAGE");
+      console.log(user);
       this.setState({
         loggedIn: true,
-        username: user
+        username: user,
+        userid: userid
       });
     } else {
+      console.log("GET FROM SERVER");
       Axios.get("/user").then((res) => {
-        console.log(res.data.user);
+        console.log("RES",res);
         if (res.data.user) {
           this.setState({
             loggedIn: true,
