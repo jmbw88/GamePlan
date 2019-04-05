@@ -39,7 +39,8 @@ class Profile extends Component {
                 name: res.data.profile.name,
                 about: res.data.profile.about,
                 sex: res.data.profile.sex,
-                zipcode: res.data.profile.zipcode
+                zipcode: res.data.profile.zipcode,
+                img: res.data.profile.img
             });
             sessionStorage.setItem("profile", JSON.stringify(res.data.profile));
         }).catch((err) => {
