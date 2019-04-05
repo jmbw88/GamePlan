@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Axios from "axios";
+import { Link, Redirect } from "react-router-dom";
 
 class Profile extends Component {
   constructor(props) {
@@ -53,6 +54,7 @@ class Profile extends Component {
         <p>{this.state.about}</p>
         <p>{this.state.sex}</p>
         <p>{this.state.zipcode}</p>
+        <Link to="/profile/edit">Edit</Link>
       </React.Fragment>
     )
   }

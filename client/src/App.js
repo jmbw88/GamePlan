@@ -10,6 +10,7 @@ import Search from "../src/pages/Search";
 import SignUpForm from "../src/components/SignUpForm"
 import LoginForm from "../src/components/LoginForm";
 import NavBar from "../src/components/NavBar";
+import EditProfileForm from "../src/components/EditProfileForm";
 
 class App extends Component {
   constructor() {
@@ -80,6 +81,7 @@ class App extends Component {
               <Route exact path="/groups" render={() => <Groups updateUser={this.updateUser} loggedIn={this.state.loggedIn}/>} />
               <Route exact path="/events" render={() => <Events updateUser={this.updateUser} loggedIn={this.state.loggedIn}/>} />
               <Route exact path="/search" render={() => <Search updateUser={this.updateUser} loggedIn={this.state.loggedIn}/>} />
+              <Route exact path="/profile/edit" render={() => <EditProfileForm updateUser={this.updateUser} loggedIn={this.state.loggedIn}/>} />
           </Switch>
         </div>
       </Router>
