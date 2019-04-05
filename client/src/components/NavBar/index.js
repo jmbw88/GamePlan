@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import Axios from "axios";
 import "./style.css";
 
@@ -7,6 +7,9 @@ class Nav extends Component {
   constructor(props) {
     super();
     this.logout = this.logout.bind(this);
+    this.state = {
+      redirectTo: null
+    }
   }
 
   logout = (event) => {
@@ -17,6 +20,10 @@ class Nav extends Component {
           loggedIn: false,
           username: null
         });
+        sessionStorage.clear();
+        this.setState({
+          redirectTo: "/"
+        });
       }
     }).catch((err) => {
       console.log("Logout error");
@@ -25,6 +32,13 @@ class Nav extends Component {
   }
   
   render() {
+    if(this.state.redirectTo) {
+      let redirect = this.state.redirectTo;
+      this.setState({
+        redirectTo: null
+      })
+      return <Redirect to={{ pathname: redirect }}/>
+    }
     const loggedIn = this.props.loggedIn;
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light">

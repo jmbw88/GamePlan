@@ -31,20 +31,34 @@ class App extends Component {
   }
 
   getUser = () => {
-    Axios.get("/user").then((res) => {
-      console.log(res.data.user);
-      if (res.data.user) {
-        this.setState({
-          loggedIn: true,
-          username: res.data.user.username
-        });
-      } else {
-        this.setState({
-          loggedIn: false,
-          username: null
-        });
-      }
-    });
+
+    const user = JSON.parse(sessionStorage.getItem("user"));
+    if(user) {
+      this.setState({
+        loggedIn: true,
+        username: user
+      });
+    } else {
+      Axios.get("/user").then((res) => {
+        console.log(res.data.user);
+        if (res.data.user) {
+          this.setState({
+            loggedIn: true,
+            username: res.data.user.username
+          });
+          sessionStorage.setItem("user", JSON.stringify(res.data.username));
+        } else {
+          this.setState({
+            loggedIn: false,
+            username: null
+          });
+        }
+      });
+      // this.setState({
+      //   loggedIn: false,
+      //   username: null
+      // });
+    }
   }
 
   render() {

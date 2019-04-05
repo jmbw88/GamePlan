@@ -33,6 +33,7 @@ class LoginForm extends Component {
           loggedIn: true,
           username: res.data.username
         });
+        sessionStorage.setItem("user", JSON.stringify(res.data.username));
         this.setState({
           redirectTo: "/"
         });
