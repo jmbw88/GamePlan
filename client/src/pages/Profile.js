@@ -33,20 +33,18 @@ class Profile extends Component {
   }
 
   getProfile = () => {      
-      if(this.props.loggedIn) {
-        Axios.get(`/api/user/username/${this.props.username}`).then((res) => {
-            this.setState({
-                name: res.data.profile.name,
-                about: res.data.profile.about,
-                sex: res.data.profile.sex,
-                zipcode: res.data.profile.zipcode,
-                img: res.data.profile.img
-            });
-            sessionStorage.setItem("profile", JSON.stringify(res.data.profile));
-        }).catch((err) => {
-            console.log(err);
-        });
-      }
+      Axios.get(`/api/user/username/${this.props.username}`).then((res) => {
+          this.setState({
+              name: res.data.profile.name,
+              about: res.data.profile.about,
+              sex: res.data.profile.sex,
+              zipcode: res.data.profile.zipcode,
+              img: res.data.profile.img
+          });
+          sessionStorage.setItem("profile", JSON.stringify(res.data.profile));
+      }).catch((err) => {
+          console.log(err);
+      });
   }
 
   render() {

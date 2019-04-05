@@ -16,22 +16,13 @@ class Messages extends Component {
   }
   
   getContacts = () => {
-
+    const userid = JSON.parse(sessionStorage.getItem("userid"));
+    Axios.get(`/api/messages/${userid}`).then((res) => {
+      console.log(res);
+    }).catch((err) => {
+      console.log(err);
+    });
   }
-
-//   getProfile = () => {
-//       console.log(this.props.loggedIn);
-//       if(this.props.loggedIn) {
-//         Axios.get(`/api/user/username/${this.props.username}`).then((res) => {
-//             console.log(res);
-//             this.setState({
-//                 profile: res.data.profile
-//             });
-//         }).catch((err) => {
-//             console.log(err);
-//         });
-//       }
-//   }
 
   render() {
     if (!this.props.loggedIn) {
