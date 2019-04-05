@@ -50,6 +50,9 @@ class Profile extends Component {
   }
 
   render() {
+    if(!this.props.loggedIn) {
+      return <Redirect to={{ pathname: "/login" }}/>
+    }
     return (
       <React.Fragment>
         <h1>Profile</h1>

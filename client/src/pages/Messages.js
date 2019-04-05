@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Axios from "axios";
+import { Redirect } from "react-router-dom";
 
 class Messages extends Component {
   constructor(props) {
@@ -11,7 +12,11 @@ class Messages extends Component {
   }
   
   componentDidMount() {
-    //   this.getProfile();
+    this.getContacts();
+  }
+  
+  getContacts = () => {
+
   }
 
 //   getProfile = () => {
@@ -29,6 +34,9 @@ class Messages extends Component {
 //   }
 
   render() {
+    if (!this.props.loggedIn) {
+      return <Redirect to={{ pathname: "/login" }}/>
+    }
     return (
       <React.Fragment>
         <h1>Messages</h1>

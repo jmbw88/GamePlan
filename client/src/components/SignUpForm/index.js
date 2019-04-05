@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Axios from "axios";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import "./style.css";
 
 class SignUpForm extends Component {
@@ -187,6 +187,7 @@ class SignUpForm extends Component {
                 </div>
                 <button className="btn btn-primary float-right" onClick={this.handleSubmit}>Submit</button>
               </form>
+              <p>Already have an account? <Link to="/login">Login here.</Link></p>
             </div>
           </div>
         </div>

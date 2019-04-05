@@ -58,6 +58,9 @@ class EditProfileForm extends Component {
   render() {
     if(this.state.redirectTo) {
       return <Redirect to={{ pathname: this.state.redirectTo }}/>
+    } 
+    if(!this.props.loggedIn) {
+      return <Redirect to={{ pathname: "/login" }}/>
     }
     return (
       <div className="row">

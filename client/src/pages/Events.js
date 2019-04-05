@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
 
 class Events extends Component {
   // constructor() {
@@ -6,6 +7,9 @@ class Events extends Component {
   // }
 
   render() {
+    if (!this.props.loggedIn) {
+      return <Redirect to={{ pathname: "/login" }}/>
+    }
     return (
       <React.Fragment>
         <h1>Events</h1>
