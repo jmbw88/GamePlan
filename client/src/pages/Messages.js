@@ -39,6 +39,7 @@ class Messages extends Component {
       console.log(res);
       this.setState({
         thread: res.data,
+        contact: otherid
       });
     }).catch((err) => {
       console.log(err);
@@ -54,7 +55,20 @@ class Messages extends Component {
 
   sendMessage = (event) => {
     event.preventDefault();
-
+    //to, from, body
+    const userid = JSON.parse(sessionStorage.getItem("userid"));
+    console.log(this.state.contact);
+    console.log(userid);
+    const message = {
+      to: this.state.contact,
+      from: userid,
+      body: this.state.message,
+    }
+    Axios.post("/api/messages", message).then((res) => {
+      console.log(res);
+    }).catch((err) => {
+      console.log(err);
+    });
   }
 
   render() {

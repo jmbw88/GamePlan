@@ -46,6 +46,7 @@ module.exports = {
   },
 
   sendMsg: (req, res) => {
+    console.log(req.body);
     db.Message.create(req.body).then((dbMsg) => {
       res.json(dbMsg);
     }).catch((err) => {
