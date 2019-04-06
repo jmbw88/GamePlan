@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import Axios from "axios";
 
 class LoginForm extends Component {
@@ -33,8 +33,10 @@ class LoginForm extends Component {
           loggedIn: true,
           username: res.data.username
         });
+        sessionStorage.setItem("user", JSON.stringify(res.data.username));
+        sessionStorage.setItem("userid", JSON.stringify(res.data.id));
         this.setState({
-          redirectTo: "/"
+          redirectTo: "/profile"
         });
       }
     }).catch((err) => {
@@ -86,6 +88,7 @@ class LoginForm extends Component {
                 </div>
                 <button className="btn btn-primary float-right" onClick={this.handleSubmit}>Submit</button>
               </form>
+              <p>Don't have an account? <Link to="/signup">Sign up here.</Link></p>
             </div>
           </div>
         </div>

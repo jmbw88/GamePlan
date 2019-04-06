@@ -39,7 +39,7 @@ module.exports = {
   // TODO UPDATE LAST ACTIVE
   completeLogin: (req, res) => {
     console.log("usercontroller req" + req.user);
-    res.send({ username: req.user.account.username });
+    res.send({ username: req.user.account.username, id: req.user._id });
   },
 
   getCurrentUser: (req, res, next) => {

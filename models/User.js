@@ -48,6 +48,10 @@ const UserSchema = new Schema({
   events: [{
     type: Schema.Types.ObjectId,
     ref: "Event"
+  }],
+  games: [{
+    type: Schema.Types.ObjectId,
+    ref: "Game"
   }]
 });
 

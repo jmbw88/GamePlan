@@ -20,6 +20,7 @@ module.exports = {
   },
 
   findByUsername: (req, res) => {
+    console.log("user",req.user);
     const username = req.params.username;
     db.User.findOne({ "account.username": username }).then((dbUser) => {
       res.json(util.filterUserAccountInfo(dbUser));
@@ -28,14 +29,22 @@ module.exports = {
     });
   },
 
-  // add if req.user
   updateProfileById: (req, res) => {
-    const userID = req.params.id;
-    db.User.findOneAndUpdate({ _id: userID }, { profile: req.body }, { new: true }).then((dbUser) => {
-      res.json(util.filterUserAccountInfo(dbUser));
-    }).catch((err) => {
-      res.status(422).json(err);
-    });
+    if(req.user) {
+      if(String(req.user._id) === req.params.id) {
+        console.log("typeof _id", typeof req.user._id);
+        const userID = req.params.id;
+        db.User.findOneAndUpdate({ _id: userID }, { profile: req.body }, { new: true }).then((dbUser) => {
+          res.json(util.filterUserAccountInfo(dbUser));
+        }).catch((err) => {
+          res.status(422).json(err);
+        });
+      } else {
+        res.status(403);
+      }
+    } else {
+      res.status(403);
+    }
   },
 
   joinGroup: (req, res) => {

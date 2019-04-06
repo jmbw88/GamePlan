@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
 
 class Search extends Component {
   // constructor() {
@@ -6,6 +7,9 @@ class Search extends Component {
   // }
 
   render() {
+    if(!this.props.loggedIn) {
+      return <Redirect to={{ pathname: "/login" }}/>
+    }
     return (
       <React.Fragment>
         <h1>Search</h1>
