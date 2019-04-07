@@ -54,3 +54,5 @@ module.exports = {
     });
   }
 }
+
+// get messages to me search for any read messages and send back boolean with user id and displaying on page

@@ -65,7 +65,11 @@ class Messages extends Component {
       body: this.state.message,
     }
     Axios.post("/api/messages", message).then((res) => {
-      console.log(res);
+      console.log(res.data);
+      this.setState({
+        thread: [...this.state.thread, res.data],
+        message: ""
+      });
     }).catch((err) => {
       console.log(err);
     });
@@ -85,7 +89,7 @@ class Messages extends Component {
         )) : ""}
         {this.state.thread ? this.state.thread.map((msg) => (
           // <p className={msg.to === JSON.parse(sessionStorage.getItem("userid")) ? "text-left" : "text-right"}>{msg.body}</p>
-          <p>{msg.body}</p>
+          <p className={msg.to === JSON.parse(sessionStorage.getItem("userid")) ? "text-info" : "text-danger"}>{msg.to === JSON.parse(sessionStorage.getItem("userid")) ? this.state.contacts.filter((contact) => contact.id === this.state.contact)[0].username : this.props.username}: {msg.body} {msg.createdAt}</p>
         )): ""}
         <input type="text" 
                       id="chatMsg" 
