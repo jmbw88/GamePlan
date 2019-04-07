@@ -73,10 +73,6 @@ class App extends Component {
           });
         }
       });
-      // this.setState({
-      //   loggedIn: false,
-      //   username: null
-      // });
     }
   }
 
@@ -87,7 +83,7 @@ class App extends Component {
           <NavBar username={this.state.username} 
                   loggedIn={this.state.loggedIn} 
                   updateUser={this.updateUser} />
-          <div className="container">
+          {/* <div className="container"> */}
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/signup" render={() => <SignUpForm updateUser={this.updateUser}/>} />
@@ -99,7 +95,7 @@ class App extends Component {
               <Route exact path="/search" render={() => <Search updateUser={this.updateUser} loggedIn={this.state.loggedIn}/>} />
               <Route exact path="/profile/edit" render={() => <EditProfileForm updateUser={this.updateUser} loggedIn={this.state.loggedIn}/>} />
           </Switch>
-        </div>
+        {/* </div> */}
       </Router>
     );
   }

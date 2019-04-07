@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Redirect, Link } from "react-router-dom";
 import Axios from "axios";
+import "./style.css";
 
 class LoginForm extends Component {
   constructor() {
@@ -51,49 +52,52 @@ class LoginForm extends Component {
       return <Redirect to={{ pathname: this.state.redirectTo }}/>
     }
     return (
-      <div className="row">
-        <div className="col-12 mx-auto my-5">
-          <div className="card">
-            <div className="card-header">
-             <h2 className="text-center">Login</h2>
-            
-            </div>
-            <div className="card-body">
-              {this.state.errorMsg ? (
-                <div className="alert alert-danger" role="alert">
-                  {this.state.errorMsg}
-                </div>
-              ) : ""}
-              <form>
-                <div className="form-group">
-                <label htmlFor="loginUsername">Username</label>
-                <input type="text" 
-                      id="loginUsername" 
-                      placeholder="Enter username"
-                      name="username"
-                      value={this.state.username}
-                      onChange={this.handleChange}
-                      className="form-control"
-                      />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="loginPassword">Password</label>
-                  <input type="password" 
-                        id="loginPassword" 
-                        name="password"
-                        value={this.state.password}
-                        onChange={this.handleChange}
-                        className="form-control"
-                  />
-                </div>
-                <button className="btn btn-primary float-right" onClick={this.handleSubmit}>Submit</button>
-              </form>
-              <p>Don't have an account? <Link to="/signup">Sign up here.</Link></p>
-            </div>
-          </div>
-        </div>
 
+      
+      <div id="login">
+      <div id="logo">
+          <img src="assets/images/logo2.png"/>
       </div>
+      <div className="container">
+          <div id="login-row" className="row justify-content-center align-items-center">
+              <div id="login-column" className="col-md-6">
+                  <div id="login-box">
+                      <form id="login-form" className="form" action="" method="post">
+                          <h3 className="text-center text-info">Sign In</h3>
+                          {this.state.errorMsg ? (
+                            <div classNameName="alert alert-danger" role="alert">
+                              {this.state.errorMsg}
+                            </div>) : ""}
+                          <div className="form-group">
+                              <label for="loginUsername" className="text-info">Username:</label><br/>
+                              <input id="loginUsername" 
+                                    placeholder="Enter username"
+                                    name="username"
+                                    value={this.state.username}
+                                    onChange={this.handleChange}
+                                    classNameName="form-control"/>
+                          </div>
+                          <div className="form-group">
+                              <label for="password" className="text-info">Password:</label><br/>
+                              <input type="password" 
+                                      id="loginPassword" 
+                                      name="password"
+                                      value={this.state.password}
+                                      onChange={this.handleChange}
+                                      classNameName="form-control"/>
+                          </div>
+                          <div className="submitBtn">
+                            <button classNameName="btn btn-info float-right mb-2" onClick={this.handleSubmit}>Submit</button>
+                          </div>
+                          <div id="signUp" className="text-center">
+                              <Link to="/signup" className="text-info">New to GamePlan? Sign Up here!</Link>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
     );
   }
 }
