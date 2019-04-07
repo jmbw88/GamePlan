@@ -1,4 +1,5 @@
 const db = require("../models");
+const moment = require("moment-timezone");
 
 module.exports = {
   findAll: (req, res) => {
@@ -14,6 +15,13 @@ module.exports = {
     const userid = req.params.userid;
     const otherid = req.params.otherid;
     db.Message.find({ $or: [{ to: userid, from: otherid }, { to: otherid, from: userid }] }).sort("createdAt").then((dbMsg) => {
+      // console.log(dbMsg.map((msg) => msg.createdAt));
+      dbMsg = dbMsg.map((msg) => {
+        msg = msg.toJSON();
+        msg.createdAt = moment(msg.createdAt).calendar();
+        console.log(msg);
+        return msg;
+      });
       res.json(dbMsg);
     }).catch((err) => {
       res.status(422).json(err);
@@ -48,6 +56,8 @@ module.exports = {
   sendMsg: (req, res) => {
     console.log(req.body);
     db.Message.create(req.body).then((dbMsg) => {
+      dbMsg = dbMsg.toJSON();
+      dbMsg.createdAt = moment(dbMsg.createdAt).calendar();
       res.json(dbMsg);
     }).catch((err) => {
       res.status(422).json(err);
