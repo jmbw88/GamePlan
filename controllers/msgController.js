@@ -46,6 +46,7 @@ module.exports = {
   },
 
   sendMsg: (req, res) => {
+    console.log(req.body);
     db.Message.create(req.body).then((dbMsg) => {
       res.json(dbMsg);
     }).catch((err) => {
@@ -53,3 +54,5 @@ module.exports = {
     });
   }
 }
+
+// get messages to me search for any read messages and send back boolean with user id and displaying on page
