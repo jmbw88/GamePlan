@@ -13,11 +13,7 @@
 	--color-text: #13324C;
 }
 
-/* To call color */
-/* color: var(--color-lightBlue); */
-
 html {
-  /* background-image: url(../images/cubes.jpg); */
   background-image: url(../../assets/images/cubes.png);
 }
 
@@ -31,7 +27,6 @@ body {
   position: relative;
   width: 100%;
   overflow: hidden;
-  /* background: url(../images/bgTop.jpg) center center no-repeat; */
   background: url(../../assets/images/bgTop.jpg) center center no-repeat;
   background-size: cover;
 }
@@ -154,7 +149,6 @@ body {
 
   #menuF {
     opacity: 0 !important;
-    /*display:none !important;*/
   }
 }
 
@@ -234,8 +228,6 @@ body {
 .games {
   margin-top: 201px;
   margin-bottom: 133px;
-  /*	margin-top: 241px;
-	margin-bottom: 94px;*/
 }
 
 @media screen and (min-device-width:1919px) {
@@ -271,7 +263,6 @@ body {
   width: 100%;
   overflow: hidden;
   height: 100%;
-  /* background: url(../images/bgTop.jpg) center center no-repeat; */
   background: url(../../assets/images/bgTop.jpg) center center no-repeat;
   background-size: cover;
 }
@@ -365,7 +356,6 @@ body {
   width: 100%;
   overflow: hidden;
   height: 100%;
-  /* background: url(../images/bgFooter.png) no-repeat; */
   background: url(../../assets/images/bgBeforFooter.png) no-repeat;
   background: var(--color-darkBlue);
 }
@@ -475,14 +465,6 @@ body {
   .cont {
     margin-top: 124px;
   }
-
-  /* .line6 iframe {
-    height: 750px;
-  }
-
-  .line6 {
-    height: 350px;
-  } */
 }
 
 .default {
