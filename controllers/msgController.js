@@ -11,11 +11,18 @@ module.exports = {
   },
 
   // Find all messages user has sent/received for a particular user
+  // TODO If user clicks thread, mark all messages with to: userid to read
   findThread: (req, res) => {
     const userid = req.params.userid;
     const otherid = req.params.otherid;
     db.Message.find({ $or: [{ to: userid, from: otherid }, { to: otherid, from: userid }] }).sort("createdAt").then((dbMsg) => {
-      // console.log(dbMsg.map((msg) => msg.createdAt));
+      // console.log(dbMsg);
+      // const received = dbMsg.filter((msg) => String(msg.to) === userid);
+      // console.log("received", received);
+      // received.forEach((msg) => {
+      //   msg.update({read: true});
+      // });
+
       dbMsg = dbMsg.map((msg) => {
         msg = msg.toJSON();
         msg.createdAt = moment(msg.createdAt).calendar();
@@ -29,6 +36,7 @@ module.exports = {
   },
 
   // Return username and id for all users that this user has sent a message to or received a message from
+  // TODO if contact has unread messages by user, send that info to the client
   findContacts: (req, res) => {
     const id = req.params.id;
     // Find all messages that user has sent or received
