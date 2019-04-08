@@ -19,9 +19,7 @@ class Messages extends Component {
   }
   
   getContacts = () => {
-    // const userid = JSON.parse(sessionStorage.getItem("userid"));
     Axios.get(`/api/messages/${this.props.userid}`).then((res) => {
-      console.log(res);
       this.setState({
         contacts: res.data
       });
@@ -32,9 +30,7 @@ class Messages extends Component {
   }
 
   getThread = (otherid) => {
-    const userid = JSON.parse(sessionStorage.getItem("userid"));
-    Axios.get(`/api/messages/${userid}/${otherid}`).then((res) => {
-      console.log(res);
+    Axios.get(`/api/messages/${this.props.userid}/${otherid}`).then((res) => {
       this.setState({
         thread: res.data,
         contact: otherid
@@ -53,17 +49,12 @@ class Messages extends Component {
 
   sendMessage = (event) => {
     event.preventDefault();
-    //to, from, body
-    const userid = JSON.parse(sessionStorage.getItem("userid"));
-    console.log(this.state.contact);
-    console.log(userid);
     const message = {
       to: this.state.contact,
-      from: userid,
+      from: this.props.userid,
       body: this.state.message,
     }
     Axios.post("/api/messages", message).then((res) => {
-      console.log(res.data);
       this.setState({
         thread: [...this.state.thread, res.data],
         message: ""
@@ -89,7 +80,9 @@ class Messages extends Component {
           </React.Fragment>
         )) : ""}
         {this.state.thread ? this.state.thread.map((msg) => (
-          <p className={msg.to === JSON.parse(sessionStorage.getItem("userid")) ? "text-info" : "text-danger"}>{msg.to === JSON.parse(sessionStorage.getItem("userid")) ? this.state.contacts.filter((contact) => contact.id === this.state.contact)[0].username : this.props.username}: {msg.body} {msg.createdAt}</p>
+          <p className={msg.to === this.props.userid ? "text-info" : "text-danger"}>
+            {msg.to === this.props.userid ? this.state.contacts.filter((contact) => contact.id === this.state.contact)[0].username : this.props.username}: {msg.body} {msg.createdAt}
+          </p>
         )) 
         : ""}
         {this.state.thread ? (
