@@ -61,7 +61,7 @@ class LoginForm extends Component {
               <div id="login-column" className="col-md-6">
                   <div id="login-box">
                       <form id="login-form" className="form p-1" action="" method="post">
-                          <h3 className="text-center text-info">Sign In</h3>
+                          <h3 className="text-center">Sign In</h3>
                           {this.state.errorMsg ? (
                             <div className="alert alert-danger" role="alert">
                               {this.state.errorMsg}

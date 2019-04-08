@@ -78,10 +78,10 @@ class Nav extends Component {
             ) : (
               <React.Fragment>
                 <li className="nav-item">
-                  <Link className="nav-link menu" to="/signup">Signup</Link>
+                  <Link className="nav-link menu" to="/signup">Sign Up</Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link menu" to="/login">Login</Link>
+                  <Link className="nav-link menu" to="/login">Sign In</Link>
                 </li>
               </React.Fragment>
             )}

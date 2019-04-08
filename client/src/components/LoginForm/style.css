@@ -60,7 +60,7 @@ body {
 .form-group {
     align-content: center;
     color: var(--color-darkBlue);
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'raleway', 'sans-serif';
 }
 
 #login .container #login-row #login-column #login-box #login-form #register-link {
@@ -77,12 +77,13 @@ body {
 .submitBtn {
     color: var(--color-darkBlue);
     font-family: 'raleway', 'sans-serif';
+    float: right;
+    margin-right: 15px;
 }
 
 .btn-info {
     color: #fff;
     background-color:var(--color-darkBlue);
-    border-color: var(--color-darkBlue);
     cursor: url(../../assets/images/cursors/select.cur), pointer;
   }
 

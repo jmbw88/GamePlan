@@ -7,10 +7,10 @@
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    color: var(--color-darkBlue);
-    cursor: url(../../assets/images/cursors/default.cur), default;
+  margin: 0;
+  padding: 0;
+  color: var(--color-darkBlue);
+  cursor: url(../../assets/images/cursors/default.cur), default;
 } 
 
 h4 {
@@ -22,73 +22,89 @@ h4 {
     color: var(--color-darkBlue)!important;
 }
 
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 30%;
+#logo img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
 }
 
 #signup {
   background-image: url(../../assets/images/bgTop.jpg);
   min-height: calc(100vh - 56px);
+  background-size: cover
 }
 
 #signup .container #signup-row #signup-column #signup-box {
-    margin-top: 20px;
-    max-width: 600px;
-    border: 1px solid #adcce9EA;
-    background-color: #adcce9EA;
-    color: var(--color-darkBlue);
-    border-radius: 30px;
-    font-family: 'Lobster Two', cursive;
-    font-size: 18px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  max-width: 600px;
+  background-color: rgba(173, 204, 233, 0.753);
+  border-radius: 20px;
+  font-family: 'Lobster Two', cursive;
+  color: var(--color-darkBlue);
+  font-size: 18px;
+  padding: 20px 0 20px 0;
 }
 
-#signup h3 {
-    font-size: 45px;
-}
-
-#signup .container #signup-row #signup-column #signup-box #signup-form {
-    /* padding: 30px; */
-    color: var(--color-darkBlue);
+#signup-form h3 {
+  font-size: 45px;
+  text-align: center;
+  align-content: center;
 }
 
 .form-group {
-    align-content: center;
-    margin: 15px;
-    color: var(--color-darkBlue);
-    font-family: Arial, Helvetica, sans-serif;
+  align-content: center;
+  margin: 15px;
+  color: var(--color-darkBlue);
+  font-family: 'raleway', 'sans-serif';
+}
+
+.form-control {
+  font-family: 'raleway', 'sans-serif';
 }
 
 #signup .container #signup-row #signup-column #signup-box #signup-form #register-link {
-    margin: 10px 5px 10px 5px;
-    color: var(--color-darkBlue);
-    font-size: 22px;
+  margin: 10px 5px 10px 5px;
+  color: var(--color-darkBlue);
+  font-size: 22px;
 }
 
 .submitBtn {
   color: var(--color-darkBlue);
-  font-family: Arial, Helvetica, sans-serif;
-    
+  font-family: 'raleway', 'sans-serif';
+  float: right;
+  margin-right: 15px;
 }
+
 .btn-info {
-    color: #fff;
-    background-color:var(--color-darkBlue);
-    border-color: var(--color-darkBlue);
-    cursor: url(../../assets/images/cursors/select.cur), pointer;
-  }
-  .btn-info:hover{
-    background: var(--color-text);
-    cursor: url(../../assets/images/cursors/select.cur), pointer;
-  }
+  color: #fff;
+  background-color:var(--color-darkBlue);
+  cursor: url(../../assets/images/cursors/select.cur), pointer;
+}
+
+.btn-info:hover{
+  background: var(--color-text);
+  cursor: url(../../assets/images/cursors/select.cur), pointer;
+}
   
-  #signIn a {
-    cursor: url(../../assets/images/cursors/select.cur), pointer;
+#signIn a {
+  cursor: url(../../assets/images/cursors/select.cur), pointer;
+  font-family: 'Lobster Two', cursive;
+  color: var(--color-darkBlue) !important;
+}
+
+#signIn a:hover {
+  color: var(--color-pink) !important;
+  text-decoration: none;
 }
 
 #signIn {
   clear: both;
+}
+
+#signup-form #passwordHelp .form-text .text-muted{
+  color: #fff !important;
 }

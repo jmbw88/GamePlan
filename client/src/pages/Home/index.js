@@ -146,7 +146,7 @@ class Home extends Component {
                   <div className="col-md-6 text-right dm">
                     <ul id="downMenu">
                       <li><Link to="/signup">Sign Up</Link></li>
-                      <li><Link to="/login">Login</Link></li>
+                      <li><Link to="/login">Sign In</Link></li>
                     </ul>
                   </div>
                 </div>

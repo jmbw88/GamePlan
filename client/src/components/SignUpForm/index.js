@@ -126,15 +126,15 @@ class SignUpForm extends Component {
     }
     return (
       <div id="signup">
-        <div id="logo">
+        {/* <div id="logo">
             <img src="assets/images/logo2.png"/>
-        </div>
+        </div> */}
         <div className="container">
             <div id="signup-row" className="row justify-content-center align-items-center">
                 <div id="signup-column" className="col-md-6">
                     <div id="signup-box" className="col-md-12">
                         <form id="signup-form" className="form p-1" action="" method="post">
-                                <h4>Please fill in the form below to get started!</h4>
+                                <h3>Fill out the form <br></br>to get started!</h3>
                                 {this.state.errorMsg ? (
                                   <div className="alert alert-danger" role="alert">
                                     {this.state.errorMsg}
@@ -202,7 +202,7 @@ class SignUpForm extends Component {
                                     </div>
                                     {/* <p>Already have an account? <Link to="/login">Login here.</Link></p> */}
                                     <div id="signIn" className="text-center">
-                                        <Link to="/login" className="text-info">Already have an account? Login here!</Link>
+                                        <Link to="/login" className="text-info sign-up">Already have an account? Login here!</Link>
                                     </div>
                         </form>
                     </div>
