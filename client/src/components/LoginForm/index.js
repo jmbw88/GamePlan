@@ -37,7 +37,7 @@ class LoginForm extends Component {
         sessionStorage.setItem("user", JSON.stringify(res.data.username));
         sessionStorage.setItem("userid", JSON.stringify(res.data.id));
         this.setState({
-          redirectTo: "/profile"
+          redirectTo: `/profile/${res.data.username}`
         });
       }
     }).catch((err) => {

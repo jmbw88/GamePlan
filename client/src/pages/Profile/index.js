@@ -29,7 +29,9 @@ class Profile extends Component {
   }
   
   componentDidMount() {
-      this.getProfile();
+    // const { username } = this.props.match.params;
+    const { match: { params } } = this.props;
+    this.getProfile();
   }
 
   getProfile = () => {      

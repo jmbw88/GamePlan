@@ -56,7 +56,7 @@ class Nav extends Component {
                   <p className="navbar-text m-0 px-1">Hi {this.props.username}!</p>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/profile">Profile</Link>
+                  <Link className="nav-link" to={`/profile/${this.props.username}`}>Profile</Link>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/messages">Messages</Link>
