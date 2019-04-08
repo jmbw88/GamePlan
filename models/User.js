@@ -5,7 +5,8 @@ const UserSchema = new Schema({
   account: {
     username: {
       type: String,
-      unique: true
+      unique: true,
+      collation:{ locale: "en", strength: 2 }
     },
     email: {
       type: String,

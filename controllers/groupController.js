@@ -19,7 +19,7 @@ module.exports = {
   },
 
   findById: (req, res) => {
-    db.Group.findById(req.params.id).then((dbGroup) => {
+    db.Group.findById(req.params.id).populate("events admins").then((dbGroup) => {
       res.json(dbGroup);
     }).catch((err) => {
       res.status(422).json(err);

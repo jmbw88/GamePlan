@@ -29,11 +29,22 @@ class Profile extends Component {
   }
   
   componentDidMount() {
-      this.getProfile();
+    const { match: { params } } = this.props;
+    console.log(params.id);
+    this.getProfile(params.id);
   }
 
-  getProfile = () => {      
-      Axios.get(`/api/user/username/${this.props.username}`).then((res) => {
+  componentWillReceiveProps(nextProps) {
+    // get new user if route param changes
+    const newLocation = nextProps.location.pathname;
+    const oldLocation = this.props.location.pathname;
+    if(newLocation !== oldLocation) {
+      this.getProfile(newLocation.substr(newLocation.lastIndexOf("/") + 1));
+    }
+  }
+
+  getProfile = (id) => {      
+      Axios.get(`/api/user/${id}`).then((res) => {
           this.setState({
               name: res.data.profile.name,
               about: res.data.profile.about,
@@ -51,6 +62,7 @@ class Profile extends Component {
     if(!this.props.loggedIn) {
       return <Redirect to={{ pathname: "/login" }}/>
     }
+    console.log(this.props.userid, this.props.match.params.id);
     return (
       <React.Fragment>
         <h1>Profile</h1>
@@ -59,7 +71,7 @@ class Profile extends Component {
         <p>{this.state.about}</p>
         <p>{this.state.sex}</p>
         <p>{this.state.zipcode}</p>
-        <Link to="/profile/edit">Edit</Link>
+        {this.props.userid === this.props.match.params.id ? <Link to="/profile/edit">Edit</Link> : ""}
       </React.Fragment>
     )
   }

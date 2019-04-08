@@ -11,7 +11,7 @@ module.exports = {
   },
 
   findById: (req, res) => {
-    db.Event.findById(req.params.id).then((dbEvent) => {
+    db.Event.findById(req.params.id).populate("createdBy").then((dbEvent) => {
       res.json(dbEvent);
     }).catch((err) => {
       res.status(422).json(err);

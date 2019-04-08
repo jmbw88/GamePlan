@@ -7,6 +7,8 @@ import Groups from "../src/pages/Groups";
 import Events from "../src/pages/Events";
 import Messages from "../src/pages/Messages";
 import Search from "../src/pages/Search";
+import Group from "../src/pages/Group";
+import Event from "../src/pages/Event";
 import SignUpForm from "../src/components/SignUpForm"
 import LoginForm from "../src/components/LoginForm";
 import NavBar from "../src/components/NavBar";
@@ -81,21 +83,23 @@ class App extends Component {
     return (
       <Router>
           <NavBar username={this.state.username} 
+                  userid={this.state.userid}
                   loggedIn={this.state.loggedIn} 
                   updateUser={this.updateUser} />
-          {/* <div className="container"> */}
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/signup" render={() => <SignUpForm updateUser={this.updateUser}/>} />
               <Route exact path="/login" render={() => <LoginForm updateUser={this.updateUser}/>} />
-              <Route exact path="/messages" render={() => <Messages updateUser={this.updateUser} loggedIn={this.state.loggedIn} username={this.state.username}/>} />
-              <Route exact path="/profile" render={() => <Profile updateUser={this.updateUser} loggedIn={this.state.loggedIn} username={this.state.username}/>} />
-              <Route exact path="/groups" render={() => <Groups updateUser={this.updateUser} loggedIn={this.state.loggedIn} userid={this.state.userid}/>} />
-              <Route exact path="/events" render={() => <Events updateUser={this.updateUser} loggedIn={this.state.loggedIn} userid={this.state.userid}/>} />
-              <Route exact path="/search" render={() => <Search updateUser={this.updateUser} loggedIn={this.state.loggedIn}/>} />
-              <Route exact path="/profile/edit" render={() => <EditProfileForm updateUser={this.updateUser} loggedIn={this.state.loggedIn}/>} />
+              <Route exact path="/messages" render={() => <Messages loggedIn={this.state.loggedIn} username={this.state.username} userid={this.state.userid}/>} />
+              {/* <Route exact path="/profile" render={() => <Profile loggedIn={this.state.loggedIn} username={this.state.username}/>} /> */}
+              <Route exact path="/profile/edit" render={() => <EditProfileForm loggedIn={this.state.loggedIn} username={this.state.username} />} />
+              <Route exact path="/groups" render={() => <Groups loggedIn={this.state.loggedIn} userid={this.state.userid}/>} />
+              <Route exact path="/groups/:id" render={(props) => <Group {...props} loggedIn={this.state.loggedIn} userid={this.state.userid}/>} />
+              <Route exact path="/events" render={() => <Events loggedIn={this.state.loggedIn} userid={this.state.userid}/>} />
+              <Route exact path="/events/:id" render={(props) => <Event {...props} loggedIn={this.state.loggedIn} userid={this.state.userid}/>} />
+              <Route exact path="/search" render={() => <Search loggedIn={this.state.loggedIn}/>} />
+              <Route path="/:id" render={(props) => <Profile {...props} loggedIn={this.state.loggedIn} username={this.state.username} userid={this.state.userid}/>} />
           </Switch>
-        {/* </div> */}
       </Router>
     );
   }
