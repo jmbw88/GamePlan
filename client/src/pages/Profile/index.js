@@ -30,8 +30,8 @@ class Profile extends Component {
   
   componentDidMount() {
     const { match: { params } } = this.props;
-    console.log(params.username);
-    this.getProfile(params.username);
+    console.log(params.id);
+    this.getProfile(params.id);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -43,8 +43,8 @@ class Profile extends Component {
     }
   }
 
-  getProfile = (username) => {      
-      Axios.get(`/api/user/username/${username}`).then((res) => {
+  getProfile = (id) => {      
+      Axios.get(`/api/user/${id}`).then((res) => {
           this.setState({
               name: res.data.profile.name,
               about: res.data.profile.about,
@@ -71,7 +71,7 @@ class Profile extends Component {
         <p>{this.state.about}</p>
         <p>{this.state.sex}</p>
         <p>{this.state.zipcode}</p>
-        {this.props.username === this.props.match.params.username ? <Link to="/profile/edit">Edit</Link> : ""}
+        {this.props.userid === this.props.match.params.userid ? <Link to="/profile/edit">Edit</Link> : ""}
       </React.Fragment>
     )
   }

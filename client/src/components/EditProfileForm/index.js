@@ -50,7 +50,7 @@ class EditProfileForm extends Component {
     }).then((res) => {
       console.log(res);
       this.setState({
-        redirectTo: `/profile/${this.props.username}`
+        redirectTo: `/${userid}`
       });
     });
   }
