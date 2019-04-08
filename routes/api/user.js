@@ -14,6 +14,13 @@ Router.route("/username/:username")
 Router.route("/profile/:id")
     .put(userController.updateProfileById);
 
+
+Router.route("/:id/groups")
+    .get(userController.getUsersGroups);
+
+Router.route("/:id/events")
+    .get(userController.getUsersEvents);
+
 Router.route("/:id/groups/:groupid")
     .put(userController.joinGroup);
 

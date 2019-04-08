@@ -9,10 +9,7 @@
 body {
     margin: 0;
     padding: 0;
-    /* background-image: url(../images/bgTop.jpg); */
-    /* background-image: url(../../assets/images/bgTop.jpg); */
     color: var(--color-darkBlue);
-    /* cursor: url(../images/cursors/default.cur), default; */
     cursor: url(../../assets/images/cursors/default.cur), default;
 } 
 
@@ -29,10 +26,6 @@ img {
     width: 30%;
 }
 
-#logo {
-    /* margin: 70px 50px 10px 50px; */
-}
-
 #login {
     background-image: url(../../assets/images/bgTop.jpg);
     min-height: calc(100vh - 56px);
@@ -41,7 +34,7 @@ img {
 #login .container #login-row #login-column #login-box {
     margin-top: 20px;
     max-width: 600px;
-    height: 400px;
+    /* height: 400px; */
     border: 1px solid #adcce9EA;
     background-color: #adcce9EA;
     color: var(--color-darkBlue);
@@ -55,13 +48,12 @@ img {
 }
 
 #login .container #login-row #login-column #login-box #login-form {
-    padding: 1.5em;
+    /* padding: 1.5em; */
     color: var(--color-darkBlue);
 }
 
 .form-group {
     align-content: center;
-    /* margin: 15px; */
     color: var(--color-darkBlue);
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -71,13 +63,8 @@ img {
     color: var(--color-darkBlue);
     font-size: 22px;
 }
-/* .form-control {
-    cursor: url(../images/cursors/text.cur), text;
-} */
 
 .submitBtn {
-    /* align-content:center; */
-    /* margin-left: 192px; */
     color: var(--color-darkBlue);
     font-family: Arial, Helvetica, sans-serif;
     
@@ -86,17 +73,14 @@ img {
     color: #fff;
     background-color:var(--color-darkBlue);
     border-color: var(--color-darkBlue);
-    /* cursor: url(../images/cursors/select.cur), pointer; */
     cursor: url(../../assets/images/cursors/select.cur), pointer;
   }
   .btn-info:hover{
     background: var(--color-text);
-    /* cursor: url(../images/cursors/select.cur), pointer; */
     cursor: url(../../assets/images/cursors/select.cur), pointer;
   }
   
   #signUp a {
-    /* cursor: url(../images/cursors/select.cur), pointer; */
     cursor: url(../../assets/images/cursors/select.cur), pointer;
 }
 

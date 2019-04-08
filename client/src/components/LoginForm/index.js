@@ -52,8 +52,6 @@ class LoginForm extends Component {
       return <Redirect to={{ pathname: this.state.redirectTo }}/>
     }
     return (
-
-      
       <div id="login">
       <div id="logo">
           <img src="assets/images/logo2.png"/>
@@ -62,10 +60,10 @@ class LoginForm extends Component {
           <div id="login-row" className="row justify-content-center align-items-center">
               <div id="login-column" className="col-md-6">
                   <div id="login-box">
-                      <form id="login-form" className="form" action="" method="post">
+                      <form id="login-form" className="form p-1" action="" method="post">
                           <h3 className="text-center text-info">Sign In</h3>
                           {this.state.errorMsg ? (
-                            <div classNameName="alert alert-danger" role="alert">
+                            <div className="alert alert-danger" role="alert">
                               {this.state.errorMsg}
                             </div>) : ""}
                           <div className="form-group">
@@ -75,7 +73,7 @@ class LoginForm extends Component {
                                     name="username"
                                     value={this.state.username}
                                     onChange={this.handleChange}
-                                    classNameName="form-control"/>
+                                    className="form-control"/>
                           </div>
                           <div className="form-group">
                               <label for="password" className="text-info">Password:</label><br/>
@@ -84,10 +82,10 @@ class LoginForm extends Component {
                                       name="password"
                                       value={this.state.password}
                                       onChange={this.handleChange}
-                                      classNameName="form-control"/>
+                                      className="form-control"/>
                           </div>
                           <div className="submitBtn">
-                            <button classNameName="btn btn-info float-right mb-2" onClick={this.handleSubmit}>Submit</button>
+                            <button className="btn btn-info float-right mb-2" onClick={this.handleSubmit}>Submit</button>
                           </div>
                           <div id="signUp" className="text-center">
                               <Link to="/signup" className="text-info">New to GamePlan? Sign Up here!</Link>
