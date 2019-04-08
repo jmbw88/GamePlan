@@ -1,9 +1,72 @@
+:root {
+	--color-lightBlue: #AECCE9;
+	--color-darkBlue: #265C91;
+	--color-pink: #F38072;
+	--color-yellow: #F4D81E;
+	--color-text: #13324C;
+}
+
 #logout-link:hover {
-    cursor: pointer;
+  cursor: url(../../assets/images/cursors/select.cur), pointer;
 }
 
 .navbar {
   position: sticky;
   top: 0;
   z-index: 2;
+  background-color: var(--color-darkBlue);
+  cursor: url(../../assets/images/cursors/default.cur), default;
+}
+
+.navbar-nav {
+  margin-right: 80px;
+}
+
+.navbar-brand img {
+  width: 20%;
+  margin-left: 100px;
+  cursor: url(../../assets/images/cursors/select.cur), pointer;
+}
+
+.menu a:active {
+	color: var(--color-lightBlue);;
+}
+
+.menu select {
+  display: none;
+}
+
+.menu .active a {
+  border: 0;
+  color: var(--color-lightBlue);
+}
+
+.menu li {
+  border-right: 1px solid var(--color-text);
+  padding-left: 17px;
+  float: left;
+  font-family: 'raleway', 'sans-serif';
+  font-size: 14px;
+  color: #fff;
+  list-style: none;
+  text-transform: uppercase;
+  font-weight: 700;
+  width: 110px;
+}
+
+.menu li:last-child {
+  border-right: 0;
+  padding-right: 0px;
+}
+
+.menu li a {
+  color: #fff;
+  text-decoration: none;
+  cursor: url(../../assets/images/cursors/select.cur), pointer;
+}
+
+.menu li a:hover {
+  border: none;
+  outline: none;
+	color: var(--color-pink);
 }

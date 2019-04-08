@@ -12,18 +12,18 @@ body {
     background-image: url(../images/bgTop.jpg);
     color: var(--color-darkBlue);
     cursor: url(../images/cursors/default.cur), default;
+    font-family: 'raleway', 'sans-serif';
 } 
 
 h4 {
     text-align: center;
-    font-size: 22px;
 }
 
 .text-info {
     color: var(--color-darkBlue)!important;
 }
 
-img {
+#logo img {
     max-width: 100%;
     height: auto;
     display: block;

@@ -53,20 +53,20 @@ class LoginForm extends Component {
     }
     return (
       <div id="login">
-      <div id="logo">
+      {/* <div id="logo">
           <img src="assets/images/logo2.png"/>
-      </div>
+      </div> */}
       <div className="container">
           <div id="login-row" className="row justify-content-center align-items-center">
               <div id="login-column" className="col-md-6">
                   <div id="login-box">
                       <form id="login-form" className="form p-1" action="" method="post">
-                          <h3 className="text-center text-info">Sign In</h3>
+                          <h3 className="text-center">Sign In</h3>
                           {this.state.errorMsg ? (
                             <div className="alert alert-danger" role="alert">
                               {this.state.errorMsg}
                             </div>) : ""}
-                          <div className="form-group">
+                          <div className="form-group ">
                               <label for="loginUsername" className="text-info">Username:</label><br/>
                               <input id="loginUsername" 
                                     placeholder="Enter username"
@@ -88,7 +88,7 @@ class LoginForm extends Component {
                             <button className="btn btn-info float-right mb-2" onClick={this.handleSubmit}>Submit</button>
                           </div>
                           <div id="signUp" className="text-center">
-                              <Link to="/signup" className="text-info">New to GamePlan? Sign Up here!</Link>
+                              <Link to="/signup" className="sign-up">New to GamePlan? Sign Up here!</Link>
                           </div>
                       </form>
                   </div>
