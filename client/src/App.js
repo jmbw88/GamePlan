@@ -7,6 +7,7 @@ import Groups from "../src/pages/Groups";
 import Events from "../src/pages/Events";
 import Messages from "../src/pages/Messages";
 import Search from "../src/pages/Search";
+import Group from "../src/pages/Group";
 import SignUpForm from "../src/components/SignUpForm"
 import LoginForm from "../src/components/LoginForm";
 import NavBar from "../src/components/NavBar";
@@ -92,6 +93,7 @@ class App extends Component {
               {/* <Route exact path="/profile" render={() => <Profile loggedIn={this.state.loggedIn} username={this.state.username}/>} /> */}
               <Route exact path="/profile/edit" render={() => <EditProfileForm loggedIn={this.state.loggedIn} username={this.state.username} />} />
               <Route exact path="/groups" render={() => <Groups loggedIn={this.state.loggedIn} userid={this.state.userid}/>} />
+              <Route exact path="/groups/:id" render={(props) => <Group {...props} loggedIn={this.state.loggedIn} userid={this.state.userid}/>} />
               <Route exact path="/events" render={() => <Events loggedIn={this.state.loggedIn} userid={this.state.userid}/>} />
               <Route exact path="/search" render={() => <Search loggedIn={this.state.loggedIn}/>} />
               <Route path="/:id" render={(props) => <Profile {...props} loggedIn={this.state.loggedIn} username={this.state.username} userid={this.state.userid}/>} />

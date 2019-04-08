@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import Axios from "axios";
 
 class Groups extends Component {
@@ -40,7 +40,7 @@ class Groups extends Component {
         <h1>Groups</h1>
         {this.state.groups ? this.state.groups.map((group) => (
           <div>
-            <h4>{group.name}</h4>
+            <h4><Link to={`/groups/${group._id}`}>{group.name}</Link></h4>
             <p className="text-center">{group.description}</p>
             <p className="text-center">{group.zipcode}</p>
           </div>
