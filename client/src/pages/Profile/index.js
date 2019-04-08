@@ -62,7 +62,7 @@ class Profile extends Component {
     if(!this.props.loggedIn) {
       return <Redirect to={{ pathname: "/login" }}/>
     }
-    console.log(this.state, this.props);
+    console.log(this.props.userid, this.props.match.params.id);
     return (
       <React.Fragment>
         <h1>Profile</h1>
@@ -71,7 +71,7 @@ class Profile extends Component {
         <p>{this.state.about}</p>
         <p>{this.state.sex}</p>
         <p>{this.state.zipcode}</p>
-        {this.props.userid === this.props.match.params.userid ? <Link to="/profile/edit">Edit</Link> : ""}
+        {this.props.userid === this.props.match.params.id ? <Link to="/profile/edit">Edit</Link> : ""}
       </React.Fragment>
     )
   }

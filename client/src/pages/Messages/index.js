@@ -19,8 +19,8 @@ class Messages extends Component {
   }
   
   getContacts = () => {
-    const userid = JSON.parse(sessionStorage.getItem("userid"));
-    Axios.get(`/api/messages/${userid}`).then((res) => {
+    // const userid = JSON.parse(sessionStorage.getItem("userid"));
+    Axios.get(`/api/messages/${this.props.userid}`).then((res) => {
       console.log(res);
       this.setState({
         contacts: res.data
@@ -32,8 +32,6 @@ class Messages extends Component {
   }
 
   getThread = (otherid) => {
-    // console.log(userid);
-    // /:userid/:otherid"
     const userid = JSON.parse(sessionStorage.getItem("userid"));
     Axios.get(`/api/messages/${userid}/${otherid}`).then((res) => {
       console.log(res);
@@ -91,7 +89,6 @@ class Messages extends Component {
           </React.Fragment>
         )) : ""}
         {this.state.thread ? this.state.thread.map((msg) => (
-          // <p className={msg.to === JSON.parse(sessionStorage.getItem("userid")) ? "text-left" : "text-right"}>{msg.body}</p>
           <p className={msg.to === JSON.parse(sessionStorage.getItem("userid")) ? "text-info" : "text-danger"}>{msg.to === JSON.parse(sessionStorage.getItem("userid")) ? this.state.contacts.filter((contact) => contact.id === this.state.contact)[0].username : this.props.username}: {msg.body} {msg.createdAt}</p>
         )) 
         : ""}

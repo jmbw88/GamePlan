@@ -88,13 +88,13 @@ class App extends Component {
               <Route exact path="/" component={Home} />
               <Route exact path="/signup" render={() => <SignUpForm updateUser={this.updateUser}/>} />
               <Route exact path="/login" render={() => <LoginForm updateUser={this.updateUser}/>} />
-              <Route exact path="/messages" render={() => <Messages loggedIn={this.state.loggedIn} username={this.state.username}/>} />
+              <Route exact path="/messages" render={() => <Messages loggedIn={this.state.loggedIn} username={this.state.username} userid={this.state.userid}/>} />
               {/* <Route exact path="/profile" render={() => <Profile loggedIn={this.state.loggedIn} username={this.state.username}/>} /> */}
-              <Route exact path="/profile/edit" render={() => <EditProfileForm loggedIn={this.state.loggedIn} username={this.state.username} userid={this.state.userid}/>} />
+              <Route exact path="/profile/edit" render={() => <EditProfileForm loggedIn={this.state.loggedIn} username={this.state.username} />} />
               <Route exact path="/groups" render={() => <Groups loggedIn={this.state.loggedIn} userid={this.state.userid}/>} />
               <Route exact path="/events" render={() => <Events loggedIn={this.state.loggedIn} userid={this.state.userid}/>} />
               <Route exact path="/search" render={() => <Search loggedIn={this.state.loggedIn}/>} />
-              <Route path="/:id" render={(props) => <Profile {...props} loggedIn={this.state.loggedIn} username={this.state.username}/>} />
+              <Route path="/:id" render={(props) => <Profile {...props} loggedIn={this.state.loggedIn} username={this.state.username} userid={this.state.userid}/>} />
           </Switch>
       </Router>
     );
