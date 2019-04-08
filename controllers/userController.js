@@ -47,6 +47,24 @@ module.exports = {
     }
   },
 
+  getUsersGroups: (req, res) => {
+    db.User.findById(req.params.id).populate("groups").then((dbUser) => {
+      console.log(dbUser);
+      res.json(dbUser.groups);
+    }).catch((err) => {
+      res.status(422).json(err);
+    });
+  },
+
+  getUsersEvents: (req, res) => {
+    db.User.findById(req.params.id).populate("events").then((dbUser) => {
+      console.log(dbUser);
+      res.json(dbUser.events);
+    }).catch((err) => {
+      res.status(422).json(err);
+    });
+  },
+
   joinGroup: (req, res) => {
     db.User.findByIdAndUpdate(req.params.id, { $addToSet: { groups: req.params.groupid } }, { new: true }).then((dbUser) => {
       res.json(dbUser);

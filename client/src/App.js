@@ -90,8 +90,8 @@ class App extends Component {
               <Route exact path="/login" render={() => <LoginForm updateUser={this.updateUser}/>} />
               <Route exact path="/messages" render={() => <Messages updateUser={this.updateUser} loggedIn={this.state.loggedIn} username={this.state.username}/>} />
               <Route exact path="/profile" render={() => <Profile updateUser={this.updateUser} loggedIn={this.state.loggedIn} username={this.state.username}/>} />
-              <Route exact path="/groups" render={() => <Groups updateUser={this.updateUser} loggedIn={this.state.loggedIn}/>} />
-              <Route exact path="/events" render={() => <Events updateUser={this.updateUser} loggedIn={this.state.loggedIn}/>} />
+              <Route exact path="/groups" render={() => <Groups updateUser={this.updateUser} loggedIn={this.state.loggedIn} userid={this.state.userid}/>} />
+              <Route exact path="/events" render={() => <Events updateUser={this.updateUser} loggedIn={this.state.loggedIn} userid={this.state.userid}/>} />
               <Route exact path="/search" render={() => <Search updateUser={this.updateUser} loggedIn={this.state.loggedIn}/>} />
               <Route exact path="/profile/edit" render={() => <EditProfileForm updateUser={this.updateUser} loggedIn={this.state.loggedIn}/>} />
           </Switch>
