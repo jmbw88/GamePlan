@@ -1,9 +1,84 @@
+:root {
+	--color-lightBlue: #AECCE9;
+	--color-darkBlue: #265C91;
+	--color-pink: #F38072;
+	--color-yellow: #F4D81E;
+	--color-text: #13324C;
+}
+
 #logout-link:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .navbar {
   position: sticky;
   top: 0;
   z-index: 2;
+  background-color: var(--color-darkBlue);
+}
+
+.navbar-brand img {
+  width: 20%
+}
+
+.menu a:active {
+	color: var(--color-lightBlue);;
+}
+
+.menu select {
+  display: none;
+}
+
+.menu .active a {
+  border: 0;
+  color: var(--color-lightBlue);
+}
+
+.menu .active a:focus {
+  outline: none;
+  border: none;
+}
+
+.menu .active a:active {
+  outline: none;
+  border: none;
+}
+
+.menu .active a:link {
+  outline: none;
+  border: none;
+}
+
+.menu .active a:visited {
+  outline: none;
+  border: none;
+}
+
+.menu li {
+  border-right: 1px solid var(--color-text);
+  padding-left: 17px;
+  padding-right: 16px;
+  float: left;
+  font-family: 'raleway', 'sans-serif';
+  font-size: 14px;
+  color: #fff;
+  list-style: none;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.menu li:last-child {
+  border-right: 0;
+  padding-right: 0px;
+}
+
+.menu li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.menu li a:hover {
+  border: none;
+  outline: none;
+	color: var(--color-pink);
 }

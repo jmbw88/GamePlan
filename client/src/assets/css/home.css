@@ -16,9 +16,9 @@
 /* To call color */
 /* color: var(--color-lightBlue); */
 
-html {
+/* html {
   background-image: url(../images/cubes.jpg);
-}
+} */
 
 body {
 	font-family: 'raleway', 'sans-serif';
@@ -84,7 +84,7 @@ body {
 }
 
 #menu li {
-  border-right: 1px solid #000;
+  border-right: 1px solid var(--color-text);
   padding-left: 17px;
   padding-right: 16px;
   float: left;

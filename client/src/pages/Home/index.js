@@ -12,9 +12,9 @@ class Home extends Component {
                 <div className="container">
                   <div className="row">
                     <div className="logo col-md-4">
-                        <Link to="/">
+                        {/* <Link to="/">
                           <img src="assets/images/logo.png" style={{width: "250px"}}/>
-                        </Link>
+                        </Link> */}
                     </div>
                     {/* <div className="col-md-8">
                       <div className="navmenu text-center">
@@ -145,7 +145,6 @@ class Home extends Component {
                   </div>
                   <div className="col-md-6 text-right dm">
                     <ul id="downMenu">
-                      <li className="active"><Link to="/">About</Link></li>
                       <li><Link to="/signup">Sign Up</Link></li>
                       <li><Link to="/login">Login</Link></li>
                     </ul>

@@ -14,10 +14,11 @@ body {
 } 
 
 .text-info {
-    color: var(--color-darkBlue)!important;
+    color: var(--color-text)!important;
+    font-family: 'raleway', 'sans-serif';
 }
 
-img {
+#logo img {
     max-width: 100%;
     height: auto;
     display: block;
@@ -28,19 +29,23 @@ img {
 
 #login {
     background-image: url(../../assets/images/bgTop.jpg);
+    background-size: cover;
     min-height: calc(100vh - 56px);
 }
 
 #login .container #login-row #login-column #login-box {
-    margin-top: 20px;
+    margin-top: 60px;
     max-width: 600px;
-    /* height: 400px; */
-    border: 1px solid #adcce9EA;
-    background-color: #adcce9EA;
-    color: var(--color-darkBlue);
-    border-radius: 30px;
+    background-color: rgba(173, 204, 233, 0.753);
+    border-radius: 20px;
     font-family: 'Lobster Two', cursive;
+    color: var(--color-darkBlue);
     font-size: 18px;
+    padding: 20px 0 20px 0;
+}
+
+#loginPassword, #loginUsername {
+    width: 100%
 }
 
 #login h3 {
@@ -63,25 +68,39 @@ img {
     color: var(--color-darkBlue);
     font-size: 22px;
 }
+.form-control {
+    /* cursor: url(../images/cursors/text.cur), text; */
+    font-family: 'raleway', 'sans-serif';
+    width: 100%;
+}
 
 .submitBtn {
     color: var(--color-darkBlue);
-    font-family: Arial, Helvetica, sans-serif;
-    
+    font-family: 'raleway', 'sans-serif';
 }
+
 .btn-info {
     color: #fff;
     background-color:var(--color-darkBlue);
     border-color: var(--color-darkBlue);
     cursor: url(../../assets/images/cursors/select.cur), pointer;
   }
-  .btn-info:hover{
+
+.btn-info:hover{
     background: var(--color-text);
     cursor: url(../../assets/images/cursors/select.cur), pointer;
-  }
+}
   
-  #signUp a {
+#signUp a {
+    /* cursor: url(../images/cursors/select.cur), pointer; */
     cursor: url(../../assets/images/cursors/select.cur), pointer;
+    color: var(--color-darkBlue);
+}
+#signUp a:hover {
+    /* cursor: url(../images/cursors/select.cur), pointer; */
+    cursor: url(../../assets/images/cursors/select.cur), pointer;
+    color: var(--color-pink);
+    text-decoration: none;
 }
 
 #signUp {

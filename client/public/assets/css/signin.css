@@ -12,13 +12,14 @@ body {
     background-image: url(../images/bgTop.jpg);
     color: var(--color-darkBlue);
     cursor: url(../images/cursors/default.cur), default;
+    font-family: 'raleway', 'sans-serif';
 } 
 
 .text-info {
     color: var(--color-darkBlue)!important;
 }
 
-img {
+#logo img {
     max-width: 100%;
     height: auto;
     display: block;

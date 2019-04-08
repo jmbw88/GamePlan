@@ -2,8 +2,8 @@ body{
     margin: 20px;
     padding: 20px;
     background-image: url("../images/cubes.png");
-    background-repeat: repeat|repeat-x|repeat-y|no-repeat|initial|inherit;
-    }
+    /* background-repeat: repeat-x|repeat-y|no-repeat|initial|inherit; */
+}
 .profile{
     padding: 3%;
     margin-top: 3%;
