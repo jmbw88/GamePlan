@@ -3,20 +3,6 @@ import { Redirect } from "react-router-dom";
 import Axios from "axios";
 
 class Events extends Component {
-  // constructor() {
-  //   super();
-  // }
-
-  // render() {
-  //   if (!this.props.loggedIn) {
-  //     return <Redirect to={{ pathname: "/login" }}/>
-  //   }
-  //   return (
-  //     <React.Fragment>
-  //       <h1>Events</h1>
-  //     </React.Fragment>
-  //   )
-  // }
   constructor(props) {
     super();
     const events = JSON.parse(sessionStorage.getItem("events"));
