@@ -5,7 +5,6 @@ import Axios from "axios";
 class Group extends Component {
   constructor(props) {
     super();
-    super();
     const group = JSON.parse(sessionStorage.getItem("group"));
     if(group) {
       this.state = {
@@ -62,17 +61,17 @@ class Group extends Component {
         <p>{this.state.description}</p>
         <p>{this.state.zipcode}</p>
         <h2>Events</h2>
-        {this.state.events.map((event) => (
+        {this.state.events ? this.state.events.map((event) => (
           // TODO ADD LINK TO EVENT PAGE
           <React.Fragment>
-            <p>{event.title}</p>
+            <p><Link to={`/events/${event._id}`}>{event.title}</Link></p>
             <p>{event.date}</p>
           </React.Fragment>
-        ))}
+        )) : <p>No events</p>}
         <h2>Admins</h2>
-        {this.state.admins.map((admin) => (
+        {this.state.admins ? this.state.admins.map((admin) => (
           <p><Link to={`/${admin._id}`}>{admin.account.username}</Link></p>
-        ))}
+        )) : <p>No admins</p>}
       </React.Fragment>
     )
   }
