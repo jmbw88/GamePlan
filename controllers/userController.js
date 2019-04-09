@@ -13,7 +13,7 @@ module.exports = {
 
   findById: (req, res) => {
     const userID = req.params.id;
-    db.User.findById(userID).then((dbUser) => {
+    db.User.findById(userID).populate("games").then((dbUser) => {
       res.json(util.filterUserAccountInfo(dbUser));
     }).catch((err) => {
       res.status(422).json(err);
@@ -87,4 +87,15 @@ module.exports = {
     });
   },
     
+  addGame: (req, res) => {
+    db.User.findByIdAndUpdate(req.params.id, { $addToSet: { games: req.params.gameid } }, { new: true }).then((dbUser) => {
+      res.json(dbUser);
+    }).catch((err) => {
+      res.status(422).json(err);
+    });
+  },
+
+  // getGames: (req, res) => {
+  //   db
+  // }
 }
