@@ -3,65 +3,6 @@ import Axios from "axios";
 import { Redirect } from "react-router-dom";
 // import "./style.css";
 import Autosuggest from 'react-autosuggest';
-const languages = [
-  {
-    name: 'C',
-    year: 1972
-  },
-  {
-    name: 'C#',
-    year: 2000
-  },
-  {
-    name: 'C++',
-    year: 1983
-  },
-  {
-    name: 'Clojure',
-    year: 2007
-  },
-  {
-    name: 'Elm',
-    year: 2012
-  },
-  {
-    name: 'Go',
-    year: 2009
-  },
-  {
-    name: 'Haskell',
-    year: 1990
-  },
-  {
-    name: 'Java',
-    year: 1995
-  },
-  {
-    name: 'Javascript',
-    year: 1995
-  },
-  {
-    name: 'Perl',
-    year: 1987
-  },
-  {
-    name: 'PHP',
-    year: 1995
-  },
-  {
-    name: 'Python',
-    year: 1991
-  },
-  {
-    name: 'Ruby',
-    year: 1995
-  },
-  {
-    name: 'Scala',
-    year: 2003
-  }
-];
-
 let games = [];
 
 // https://developer.mozilla.org/en/docs/Web/JavaScript/Guide/Regular_Expressions#Using_Special_Characters
@@ -136,9 +77,15 @@ class AddGameForm extends Component {
     });
   }
 
-  addGame = (id) => {
+  addGame = (selection) => {
+    console.log(selection);
+    const id = games.filter((game) => game.name === selection)[0].id;
+    console.log(id);
     Axios.put(`/api/user/${this.props.userid}/games/${id}`).then((res) => {
       console.log(res);
+      this.setState({
+        value: ""
+      });
     }).catch((err) => {
       console.log(err);
     });
@@ -165,12 +112,13 @@ class AddGameForm extends Component {
         getSuggestionValue={getSuggestionValue}
         renderSuggestion={renderSuggestion}
         inputProps={inputProps} />
-          {this.state.games ? this.state.games.map((game) => (
+        <button className="btn btn-primary" onClick={() => this.addGame(this.state.value)}>Submit</button>
+          {/* {this.state.games ? this.state.games.map((game) => (
             <React.Fragment>
               <p>{game.title}</p> 
               <button className="btn btn-primary" onClick={() => this.addGame(game._id)}>Add</button>
             </React.Fragment>
-          )) : ""}
+          )) : ""} */}
       </React.Fragment>
     );
   }
