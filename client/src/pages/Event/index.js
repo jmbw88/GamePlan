@@ -61,7 +61,7 @@ class Event extends Component {
         <p>{this.state.description}</p>
         <p>Date: {this.state.date}</p>
         <p>Zipcode: {this.state.zipcode}</p>
-        <p>Created by: <Link to={`/${this.state.createdBy._id}`}>{this.state.createdBy.account.username}</Link></p>
+        {this.state.createdBy ? <p>Created by: <Link to={`/${this.state.createdBy._id}`}>{this.state.createdBy.account.username}</Link></p> : ""}
       </React.Fragment>
     )
   }
