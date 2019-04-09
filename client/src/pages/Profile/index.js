@@ -5,26 +5,27 @@ import { Link, Redirect } from "react-router-dom";
 class Profile extends Component {
   constructor(props) {
     super();
+    // TODO FIX ISSUE WHERE IF USER DOESNT HAVE PROFILE IT SHOWS OLD PROFILE
     const profile = JSON.parse(sessionStorage.getItem("profile"));
-    if(profile) {
-      this.state = {
-          name: profile.name,
-          about: profile.about,
-          sex: profile.sex,
-          zipcode: profile.zipcode,
-          img: profile.img
-      }
-    }
-    else {
-      this.state = {
-          name: null,
-          about: null,
-          sex: null,
-          zipcode: null,
-          img: null
-      }
+    // if(profile) {
+    //   this.state = {
+    //       name: profile.name,
+    //       about: profile.about,
+    //       sex: profile.sex,
+    //       zipcode: profile.zipcode,
+    //       img: profile.img
+    //   }
+    // }
+    // else {
       
-    }
+    // }
+        this.state = {
+            name: null,
+            about: null,
+            sex: null,
+            zipcode: null,
+            img: null
+        }
     this.componentDidMount = this.componentDidMount.bind(this);
   }
   
