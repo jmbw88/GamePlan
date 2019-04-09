@@ -45,6 +45,8 @@ class Profile extends Component {
 
   getProfile = (id) => {      
       Axios.get(`/api/user/${id}`).then((res) => {
+        console.log(res);
+        if(res.data.profile) {
           this.setState({
               name: res.data.profile.name,
               about: res.data.profile.about,
@@ -53,6 +55,7 @@ class Profile extends Component {
               img: res.data.profile.img
           });
           sessionStorage.setItem("profile", JSON.stringify(res.data.profile));
+        }
       }).catch((err) => {
           console.log(err);
       });
@@ -66,11 +69,12 @@ class Profile extends Component {
     return (
       <React.Fragment>
         <h1>Profile</h1>
-        <img className="float-left" src={this.state.img}></img>
-        <p>{this.state.name}</p>
-        <p>{this.state.about}</p>
-        <p>{this.state.sex}</p>
-        <p>{this.state.zipcode}</p>
+        {this.state.img ? <img className="float-left" src={this.state.img}></img> : ""}
+        {this.state.name ? <p>{this.state.name}</p> : ""}
+        {this.state.about ? <p>{this.state.about}</p> : ""}
+        {this.state.sex ? <p>{this.state.sex}</p> : ""}
+        {this.state.zipcode ? <p>{this.state.zipcode}</p> : ""}
+        
         {this.props.userid === this.props.match.params.id ? <Link to="/profile/edit">Edit</Link> : ""}
       </React.Fragment>
     )
