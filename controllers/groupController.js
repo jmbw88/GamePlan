@@ -1,5 +1,6 @@
 const db = require("../models");
 const util = require("../utils/userUtils");
+const moment = require("moment-timezone");
 
 module.exports = {
   findAll: (req, res) => {
@@ -19,9 +20,17 @@ module.exports = {
   },
 
   findById: (req, res) => {
-    db.Group.findById(req.params.id).then((dbGroup) => {
+    db.Group.findById(req.params.id).populate("events admins").then((dbGroup) => {
+      dbGroup = dbGroup.toJSON();
+      console.log("BEFORE\n",dbGroup);
+      dbGroup.events = dbGroup.events.map((event) => {
+        event.date = moment(event.date).format("MMMM Do YYYY, h:mm a");
+        return event;
+      });
+      console.log("AFTER\n",dbGroup);
       res.json(dbGroup);
     }).catch((err) => {
+      console.log(err);
       res.status(422).json(err);
     });
   },
@@ -70,7 +79,13 @@ module.exports = {
 
   findGroupEvents: (req, res) => {
     db.Group.findById(req.params.id).populate("events").then((dbGroup) => {
-      res.json(dbGroup.events);
+      console.log("events",dbGroup.events);
+      events = dbGroup.events.map((event) => {
+        event = event.toJSON();
+        event.date = moment(event.date).format("MMMM Do YYYY, h:mm a");
+        return event;
+      });
+      res.json(events);
     }).catch((err) => {
       res.status(422).json(err);
     });

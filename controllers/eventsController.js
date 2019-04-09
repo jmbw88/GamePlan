@@ -1,9 +1,14 @@
 const db = require("../models");
-const momentTZ = require("moment-timezone");
+const moment = require("moment-timezone");
 
 module.exports = {
   findAll: (req, res) => {
     db.Event.find({}).then((dbEvent) => {
+      dbEvent = dbEvent.map((event) => {
+        event = event.toJSON();
+        event.date = moment(event.date).format("MMMM Do YYYY, h:mm a");
+        return event;
+      });
       res.json(dbEvent);
     }).catch((err) => {
       res.status(422).json(err);
@@ -11,7 +16,9 @@ module.exports = {
   },
 
   findById: (req, res) => {
-    db.Event.findById(req.params.id).then((dbEvent) => {
+    db.Event.findById(req.params.id).populate("createdBy").then((dbEvent) => {
+      dbEvent = dbEvent.toJSON();
+      dbEvent.date = moment(dbEvent.date).format("MMMM Do YYYY, h:mm a");
       res.json(dbEvent);
     }).catch((err) => {
       res.status(422).json(err);

@@ -16,13 +16,6 @@ module.exports = {
     const userid = req.params.userid;
     const otherid = req.params.otherid;
     db.Message.find({ $or: [{ to: userid, from: otherid }, { to: otherid, from: userid }] }).sort("createdAt").then((dbMsg) => {
-      // console.log(dbMsg);
-      // const received = dbMsg.filter((msg) => String(msg.to) === userid);
-      // console.log("received", received);
-      // received.forEach((msg) => {
-      //   msg.update({read: true});
-      // });
-
       dbMsg = dbMsg.map((msg) => {
         msg = msg.toJSON();
         msg.createdAt = moment(msg.createdAt).calendar();

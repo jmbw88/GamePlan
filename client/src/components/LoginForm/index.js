@@ -32,12 +32,13 @@ class LoginForm extends Component {
       if(res.status === 200) {
         this.props.updateUser({
           loggedIn: true,
-          username: res.data.username
+          username: res.data.username,
+          userid: res.data.id
         });
         sessionStorage.setItem("user", JSON.stringify(res.data.username));
         sessionStorage.setItem("userid", JSON.stringify(res.data.id));
         this.setState({
-          redirectTo: "/profile"
+          redirectTo: `/${res.data.id}`
         });
       }
     }).catch((err) => {
