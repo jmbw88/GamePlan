@@ -1,5 +1,6 @@
 const db = require("../models");
 const util = require("../utils/userUtils");
+const moment = require("moment-timezone");
 
 module.exports = {
   findAll: (req, res) => {
@@ -59,7 +60,12 @@ module.exports = {
   getUsersEvents: (req, res) => {
     db.User.findById(req.params.id).populate("events").then((dbUser) => {
       console.log(dbUser);
-      res.json(dbUser.events);
+      events = dbUser.events.map((event) => {
+        event = event.toJSON();
+        event.date = moment(event.date).format("MMMM Do YYYY, h:mm a");
+        return event;
+      });
+      res.json(events);
     }).catch((err) => {
       res.status(422).json(err);
     });
