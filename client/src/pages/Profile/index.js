@@ -52,7 +52,8 @@ class Profile extends Component {
               about: res.data.profile.about,
               sex: res.data.profile.sex,
               zipcode: res.data.profile.zipcode,
-              img: res.data.profile.img
+              img: res.data.profile.img,
+              games: res.data.games
           });
           sessionStorage.setItem("profile", JSON.stringify(res.data.profile));
         }
@@ -74,8 +75,16 @@ class Profile extends Component {
         {this.state.about ? <p>{this.state.about}</p> : ""}
         {this.state.sex ? <p>{this.state.sex}</p> : ""}
         {this.state.zipcode ? <p>{this.state.zipcode}</p> : ""}
+        {this.state.games ? this.state.games.map((game) => (
+          <p>{game.title}</p>
+        )) : ""}
         
-        {this.props.userid === this.props.match.params.id ? <Link to="/profile/edit">Edit</Link> : ""}
+        {this.props.userid === this.props.match.params.id ? (
+          <React.Fragment>
+            <Link to="/profile/edit">Edit</Link><br></br> 
+            <Link to="/profile/addGame">Add Game</Link>
+          </React.Fragment>
+        ): ""}
       </React.Fragment>
     )
   }

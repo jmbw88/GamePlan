@@ -27,6 +27,11 @@ Router.route("/:id/groups/:groupid")
 Router.route("/:id/events/:eventid")
     .put(userController.joinEvent);
 
+// Router.route("/:id/games")
+//     .get(userController.getGames);
+
+Router.route("/:id/games/:gameid")
+    .put(userController.addGame);
 // Router.route("/invite/groups/:groupid")
 //   .put(userController.acceptGroup)
 
