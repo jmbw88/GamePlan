@@ -79,17 +79,22 @@ class Search extends Component {
 
   // get users by game
   getUsersByGame = () => {
-    const id = games.filter((game) => game.name === this.state.value)[0].id;
-    Axios.get(`/api/user/games/${id}`).then((res) => {
-      console.log(res.data);
-      this.setState({
-        users: res.data,
-        groups: null,
-        events: null
+    const gameNames = games.map((game) => game.name);
+    if(gameNames.includes(this.state.value)) {
+      const id = games.filter((game) => game.name === this.state.value)[0].id;
+      Axios.get(`/api/user/games/${id}`).then((res) => {
+        console.log(res.data);
+        this.setState({
+          users: res.data,
+          groups: null,
+          events: null
+        });
+      }).catch((err) => {
+        console.log(err);
       });
-    }).catch((err) => {
-      console.log(err);
-    });
+    } else {
+      alert("Pick a game from the list");
+    }
   }
 
   getGroups = () => {

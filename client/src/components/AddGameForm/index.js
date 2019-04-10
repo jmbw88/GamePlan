@@ -77,17 +77,22 @@ class AddGameForm extends Component {
   }
 
   addGame = (selection) => {
-    console.log(selection);
-    const id = games.filter((game) => game.name === selection)[0].id;
-    console.log(id);
-    Axios.put(`/api/user/${this.props.userid}/games/${id}`).then((res) => {
-      console.log(res);
-      this.setState({
-        value: ""
+    const gameNames = games.map((game) => game.name);
+    if(gameNames.includes(this.state.value)) {
+      console.log(selection);
+      const id = games.filter((game) => game.name === selection)[0].id;
+      console.log(id);
+      Axios.put(`/api/user/${this.props.userid}/games/${id}`).then((res) => {
+        console.log(res);
+        this.setState({
+          value: ""
+        });
+      }).catch((err) => {
+        console.log(err);
       });
-    }).catch((err) => {
-      console.log(err);
-    });
+    } else {
+      alert("Please select a game from the list");
+    }
   }
 
   render() {
