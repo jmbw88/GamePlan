@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Axios from "axios";
 import { Redirect } from "react-router-dom";
 // import "./style.css";
-import Autosuggest from 'react-autosuggest';
+import Autosuggest from "react-autosuggest";
 let games = [];
 
 // https://developer.mozilla.org/en/docs/Web/JavaScript/Guide/Regular_Expressions#Using_Special_Characters

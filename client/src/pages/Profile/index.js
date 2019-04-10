@@ -90,7 +90,6 @@ class Profile extends Component {
             <Link to="/profile/addGame">Add Game</Link>
           </React.Fragment>
         ): ""}
-];
 
       </React.Fragment>
     )
