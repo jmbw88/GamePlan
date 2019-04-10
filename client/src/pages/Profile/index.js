@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Axios from "axios";
 import { Link, Redirect } from "react-router-dom";
 
+
 class Profile extends Component {
   constructor(props) {
     super();
@@ -24,11 +25,13 @@ class Profile extends Component {
             about: null,
             sex: null,
             zipcode: null,
-            img: null
+            img: null,
+            
         }
     this.componentDidMount = this.componentDidMount.bind(this);
   }
   
+
   componentDidMount() {
     const { match: { params } } = this.props;
     console.log(params.id);
@@ -64,6 +67,7 @@ class Profile extends Component {
   }
 
   render() {
+    
     if(!this.props.loggedIn) {
       return <Redirect to={{ pathname: "/login" }}/>
     }
@@ -86,6 +90,8 @@ class Profile extends Component {
             <Link to="/profile/addGame">Add Game</Link>
           </React.Fragment>
         ): ""}
+];
+
       </React.Fragment>
     )
   }

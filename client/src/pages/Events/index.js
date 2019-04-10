@@ -1,17 +1,36 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import Axios from "axios";
+import Calendar from "react-big-calendar";
+import moment from "moment";
+import "react-big-calendar/lib/css/react-big-calendar.css";
+
+const localizer = Calendar.momentLocalizer(moment);
 
 class Events extends Component {
   constructor(props) {
     super();
     const events = JSON.parse(sessionStorage.getItem("events"));
-    this.state = {};
+    this.state = { };
     if(events) {
       this.state = {
         events: events
       }
     }
+    this.state = {
+    events2: [
+      {
+        start: new Date(),
+        end: new Date(moment().add(1, "hour")),
+        title: "GAME NIGHT!"
+      },
+      {
+        start: new Date(moment().add(3, 'days')),
+        end: new Date(moment().add(1, "hour")),
+        title: "GAME NIGHT!"
+      }
+    ]
+  }
     this.componentDidMount = this.componentDidMount.bind(this);
   }
   
@@ -46,7 +65,17 @@ class Events extends Component {
             <p className="text-center">{event.zipcode}</p>
             {/* <Link to="/events/eventid" */}
           </div>
+          
         )) : ""}
+        <div className="container App">
+        <Calendar
+          localizer={localizer}
+          defaultDate={new Date()}
+          defaultView="month"
+          events={this.state.events2}
+          style={{ height: "100vh" }}
+        />
+      </div>
       </React.Fragment>
     )
   }
