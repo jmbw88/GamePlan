@@ -14,7 +14,6 @@ Router.route("/username/:username")
 Router.route("/profile/:id")
     .put(userController.updateProfileById);
 
-
 Router.route("/:id/groups")
     .get(userController.getUsersGroups);
 
@@ -27,8 +26,8 @@ Router.route("/:id/groups/:groupid")
 Router.route("/:id/events/:eventid")
     .put(userController.joinEvent);
 
-// Router.route("/:id/games")
-//     .get(userController.getGames);
+Router.route("/games/:id")
+    .get(userController.getUsersByGame)
 
 Router.route("/:id/games/:gameid")
     .put(userController.addGame);
