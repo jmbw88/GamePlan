@@ -47,7 +47,16 @@ class Group extends Component {
     }).catch((err) => {
       console.log(err);
     });
+  }
 
+  joinGroup = () => {
+    const { match: { params } } = this.props;
+    const id = params.id;
+    Axios.put(`/api/user/${this.props.userid}/groups/${id}`).then((res) => {
+      console.log(res);
+    }).catch((err) => {
+      console.log(err);
+    });
   }
 
   render() {
@@ -72,6 +81,7 @@ class Group extends Component {
         {this.state.admins ? this.state.admins.map((admin) => (
           <p><Link to={`/${admin._id}`}>{admin.account.username}</Link></p>
         )) : <p>No admins</p>}
+        <button className="btn btn-primary" onClick={this.joinGroup}>Join Group</button>
       </React.Fragment>
     )
   }
