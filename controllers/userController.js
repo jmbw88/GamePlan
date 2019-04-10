@@ -95,6 +95,14 @@ module.exports = {
     });
   },
 
+  getUsersByGame: (req, res) => {
+    db.User.find({ games: req.params.id }).then((dbUser) => {
+      res.json(dbUser);
+    }).catch((err) => {
+      res.status(422).json(err);
+    });
+  }
+
   // getGames: (req, res) => {
   //   db
   // }

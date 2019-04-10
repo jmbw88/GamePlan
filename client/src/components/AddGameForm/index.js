@@ -5,7 +5,6 @@ import { Redirect } from "react-router-dom";
 import Autosuggest from "react-autosuggest";
 let games = [];
 
-// https://developer.mozilla.org/en/docs/Web/JavaScript/Guide/Regular_Expressions#Using_Special_Characters
 function escapeRegexCharacters(str) {
   return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
