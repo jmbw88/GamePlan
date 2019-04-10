@@ -93,18 +93,22 @@ module.exports = {
   
   // Create new event, save to group, save to user creating it
   addGroupEvent: (req, res) => {
-    const id = req.params.id;
-    req.body.date = new Date(req.body.date);
-    let event;
-    db.Event.create(req.body).then((dbEvent) => {
-      event = dbEvent;
-      return db.User.findByIdAndUpdate(req.body.createdBy, { $push: { events: dbEvent._id } });
-    }).then(() => {
-      return db.Group.findByIdAndUpdate(id, { $push: { events: event._id } });
-    }).then(() => {
-      res.json(event);
+    db.Group.findByIdAndUpdate(req.params.id, { $addToSet: { events: req.params.eventID } }, { new: true }).then((dbGroup) => {
+      res.json(dbGroup);
     }).catch((err) => {
       res.status(422).json(err);
-    });
+    })
+    // req.body.date = new Date(req.body.date);
+    // let event;
+    // db.Event.create(req.body).then((dbEvent) => {
+    //   event = dbEvent;
+    //   return db.User.findByIdAndUpdate(req.body.createdBy, { $push: { events: dbEvent._id } });
+    // }).then(() => {
+    //   return db.Group.findByIdAndUpdate(id, { $push: { events: event._id } });
+    // }).then(() => {
+    //   res.json(event);
+    // }).catch((err) => {
+    //   res.status(422).json(err);
+    // });
   }
 }
