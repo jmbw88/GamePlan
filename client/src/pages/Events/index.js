@@ -19,12 +19,6 @@ class Events extends Component {
     // }
     this.state = {
     events2: [
-      {
-        start: new Date('2019-04-09T14:40:00'),
-        end: new Date('2019-04-09T18:40:00'),
-        title: "GAME NIGHT!"
-      },
-
     ]
   }
     this.componentDidMount = this.componentDidMount.bind(this);
@@ -67,9 +61,10 @@ class Events extends Component {
     Axios.get(`/api/user/${this.props.userid}/events`).then((res) => {
       console.log(res);
       const calendarEvents = res.data.map((event) => {
+        console.log(event.date);
         return {
-          start: Date(event.date),
-          end: Date(event.date),
+          start: new Date(event.date),
+          end: new Date(event.date),
           title: event.title
         }
       });
@@ -132,16 +127,6 @@ class Events extends Component {
             <button className="btn btn-info float-right mb-2" onClick={this.handleSubmit}>Submit</button>
           </div>
         </form>
-        {this.state.events ? this.state.events.map((event) => (
-          <div>
-            <h4>{event.title}</h4>
-            <p className="text-center">{event.date}</p>
-            <p className="text-center">{event.description}</p>
-            <p className="text-center">{event.zipcode}</p>
-            {/* <Link to="/events/eventid" */}
-          </div>
-          
-        )) : ""}
 
         <div className="container App">
         <h2>My Events</h2>
