@@ -68,6 +68,7 @@ class Groups extends Component {
     console.log(this.state);
     return (
       <React.Fragment>
+        <div className="container">
         <h2>Create New Group</h2>
         <form>
           <div className="form-group">
@@ -109,6 +110,8 @@ class Groups extends Component {
             <p className="text-center">{group.zipcode}</p>
           </div>
         )) : ""}
+        
+        </div>
       </React.Fragment>
     )
   }

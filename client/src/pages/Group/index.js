@@ -103,6 +103,7 @@ class Group extends Component {
     }
     console.log(this.state);
     return (
+      <div className="container">
       <React.Fragment>
         <h2>Create Group Event</h2>
         <form>
@@ -163,6 +164,8 @@ class Group extends Component {
         )) : <p>No admins</p>}
         <button className="btn btn-primary" onClick={this.joinGroup}>Join Group</button>
       </React.Fragment>
+      
+      </div>
     )
   }
 }
