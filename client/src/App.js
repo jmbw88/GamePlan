@@ -9,6 +9,7 @@ import Messages from "../src/pages/Messages";
 import Search from "../src/pages/Search";
 import Group from "../src/pages/Group";
 import Event from "../src/pages/Event";
+import Game from "../src/pages/Game";
 import SignUpForm from "../src/components/SignUpForm"
 import LoginForm from "../src/components/LoginForm";
 import NavBar from "../src/components/NavBar";
@@ -100,6 +101,7 @@ class App extends Component {
               <Route exact path="/events" render={() => <Events loggedIn={this.state.loggedIn} userid={this.state.userid}/>} />
               <Route exact path="/events/:id" render={(props) => <Event {...props} loggedIn={this.state.loggedIn} userid={this.state.userid}/>} />
               <Route exact path="/search" render={() => <Search loggedIn={this.state.loggedIn}/>} />
+              <Route exact path="/games/:id" render={(props) => <Game {...props} loggedIn={this.state.loggedIn}/>} />
               <Route path="/:id" render={(props) => <Profile {...props} loggedIn={this.state.loggedIn} username={this.state.username} userid={this.state.userid}/>} />
           </Switch>
       </Router>
