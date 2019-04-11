@@ -13,7 +13,7 @@ module.exports = {
 
   findById: (req, res) => {
     const userID = req.params.id;
-    db.User.findById(userID).populate("games").then((dbUser) => {
+    db.User.findById(userID).populate("games events groups").then((dbUser) => {
       res.json(util.filterUserAccountInfo(dbUser));
     }).catch((err) => {
       res.status(422).json(err);
