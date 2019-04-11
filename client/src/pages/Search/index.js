@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Redirect, Link } from "react-router-dom";
 import Axios from "axios";
+import "./style.css";
 
 class Search extends Component {
   constructor() {
@@ -53,20 +54,21 @@ class Search extends Component {
     }
     return (
       <React.Fragment>
-        <h1>Search</h1>
-        <button className="btn btn-primary" onClick={this.getUsers}>Users</button>
-        <button className="btn btn-primary" onClick={this.getGroups}>Groups</button>
-        <button className="btn btn-primary" onClick={this.getEvents}>Events</button>
-        {this.state.users ? this.state.users.map((user) => (
-          <Link to={`/${user._id}`}><p>{user.account.username}</p></Link>
-        )) : ""}
-        {this.state.groups ? this.state.groups.map((group) => (
-          <Link to={`/groups/${group._id}`}><p>{group.name}</p></Link>
-        )) : ""}
-        {this.state.events ? this.state.events.map((event) => (
-          <Link to={`/events/${event._id}`}><p>{event.title}</p></Link>
-        )) : ""}
-
+        <body className="searchPage" id="search">
+          <h1>Search</h1>
+          <button className="btn btn-primary" onClick={this.getUsers}>Users</button>
+          <button className="btn btn-primary" onClick={this.getGroups}>Groups</button>
+          <button className="btn btn-primary" onClick={this.getEvents}>Events</button>
+          {this.state.users ? this.state.users.map((user) => (
+            <Link to={`/${user._id}`}><p>{user.account.username}</p></Link>
+          )) : ""}
+          {this.state.groups ? this.state.groups.map((group) => (
+            <Link to={`/groups/${group._id}`}><p>{group.name}</p></Link>
+          )) : ""}
+          {this.state.events ? this.state.events.map((event) => (
+            <Link to={`/events/${event._id}`}><p>{event.title}</p></Link>
+          )) : ""}
+        </body>
       </React.Fragment>
     )
   }

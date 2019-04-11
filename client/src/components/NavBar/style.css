@@ -18,14 +18,34 @@
   cursor: url(../../assets/images/cursors/default.cur), default;
 }
 
+.navbar-brand {
+  max-width: 250px;
+}
+
 .navbar-nav {
-  margin-right: 80px;
+  max-width: 800px;
+  overflow:hidden;
 }
 
 .navbar-brand img {
-  width: 20%;
-  margin-left: 100px;
+  width: 70%;
+  height: 70%;
   cursor: url(../../assets/images/cursors/select.cur), pointer;
+  float:right;
+  margin-right: 20px
+}
+
+#navbarNav {
+  margin-left: 200px;
+}
+
+.navbar-toggler {
+  /* src: url(../../assets/images/icon.png); */
+  /* background-color: red; */
+  background-image: url(../../assets/images/icon-01.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-right: 40px;
 }
 
 .menu a:active {
