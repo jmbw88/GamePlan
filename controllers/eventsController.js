@@ -38,7 +38,7 @@ module.exports = {
     let event;
     db.Event.create(req.body).then((dbEvent) => {
       event = dbEvent;
-      return db.User.findByIdAndUpdate(req.body.createdBy, { $push: { events: dbEvent._id } }, { new: true });
+      return db.User.findByIdAndUpdate(req.body.createdBy, { $addToSet: { events: dbEvent._id } }, { new: true });
     }).then(() => {
       res.json(event);
     })

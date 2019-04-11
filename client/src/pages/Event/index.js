@@ -50,6 +50,16 @@ class Event extends Component {
     });
   }
 
+  joinEvent = () => {
+    const { match: { params } } = this.props;
+    const id = params.id;
+    Axios.put(`/api/user/${this.props.userid}/events/${id}`).then((res) => {
+      console.log(res);
+    }).catch((err) => {
+      console.log(err);
+    });
+  }
+
   render() {
     if(!this.props.loggedIn) {
       return <Redirect to={{ pathname: "/login" }}/>
@@ -61,7 +71,8 @@ class Event extends Component {
         <p>{this.state.description}</p>
         <p>Date: {this.state.date}</p>
         <p>Zipcode: {this.state.zipcode}</p>
-        <p>Created by: <Link to={`/${this.state.createdBy._id}`}>{this.state.createdBy.account.username}</Link></p>
+        {this.state.createdBy ? <p>Created by: <Link to={`/${this.state.createdBy._id}`}>{this.state.createdBy.account.username}</Link></p> : ""}
+        <button className="btn btn-primary" onClick={this.joinEvent}>Join Event</button>
       </React.Fragment>
     )
   }

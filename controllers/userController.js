@@ -60,12 +60,12 @@ module.exports = {
   getUsersEvents: (req, res) => {
     db.User.findById(req.params.id).populate("events").then((dbUser) => {
       console.log(dbUser);
-      events = dbUser.events.map((event) => {
-        event = event.toJSON();
-        event.date = moment(event.date).format("MMMM Do YYYY, h:mm a");
-        return event;
-      });
-      res.json(events);
+      // events = dbUser.events.map((event) => {
+      //   event = event.toJSON();
+      //   event.date = moment(event.date).format("MMMM Do YYYY, h:mm a");
+      //   return event;
+      // });
+      res.json(dbUser.events);
     }).catch((err) => {
       res.status(422).json(err);
     });
@@ -94,6 +94,14 @@ module.exports = {
       res.status(422).json(err);
     });
   },
+
+  getUsersByGame: (req, res) => {
+    db.User.find({ games: req.params.id }).then((dbUser) => {
+      res.json(dbUser);
+    }).catch((err) => {
+      res.status(422).json(err);
+    });
+  }
 
   // getGames: (req, res) => {
   //   db

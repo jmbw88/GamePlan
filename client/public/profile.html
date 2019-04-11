@@ -1,102 +1,129 @@
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<link rel="stylesheet" href="assets/css/profile.css">
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9F1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-</script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-</script>
-<script src="jquery-3.3.1.min.js"></script>
+<!DOCTYPE html>
+<html lang="en">
 
-<!------ Include the above in your HEAD tag ---------->
+<head>
+    <title>Profile</title>
+    <meta charset="UTF-8">
+    <!-- <--stylesheets-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="assets/css/profile.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+        integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous">
+    </script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto:300,400|Yellowtail" rel="stylesheet">
+</head>
 
-<div class="profile">
-    <form method="post">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="profile-img">
-                    <img src="https://via.placeholder.com/200.png/" alt="" />
-                    <div class="file btn btn-lg btn-primary">
-                        Update Profile Picture
-                        <input type="file" name="file" />
+<body>
+    <div id="home">
+        <div class="headerLine">
+            <div id="menuF" class="default">
+                <div class="container">
+                    <div class="row">
+                        <div class="logo col-md-4">
+                            <a href="home.html">
+                                <img src="assets/images/logo.png" style="width: 250px">
+                            </a>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="navmenu" style="text-align: center;">
+                                <ul id="menu">
+                                    <li class="active"><a href=profile.html">My Profile</a></li>
+                                    <li><a href="editprofile.html">Edit Profile</a></li>
+                                    <li><a href="search.html">Search</a></li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md6">
-                <div class="profile-header">
-                    <h5>My Name</h5>
-                    <h6>Cleveland, Ohio</h6>
-                    <ul class="nav nav-tabs" id="myTab" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
-                                aria-controls="home" aria-selected="true">About Me</a>
+        </div>
+    </div>
+
+    <div class="block container">
+        <div class="block profile-card">
+
+            <div class="message-button">
+                <button type="button" class="btn btn-secondary" id="messageBtn">
+                    <i class="far fa-envelope fa-2x"></i>
+                    <div class="button-text">Message Me</div>
+                </button></div>
+
+            <div class="profile-pic" id="profile_pic"></div>
+            <div class="block profile-name-container">
+                <div class="block user-name" id="user_name">Username</div>
+                <div class="block first-name" id="first_name">Name</div>
+                <div class="block user-desc" id="user_description">About</div>
+                <div class="block user-location" id="user_location">Location</div>
+            </div>
+        </div>
+
+        <div class="block content" id="fave-games">
+            <br>
+            <h4 align="center">My Favorite Games:</h4>
+            <br>
+            <div class="inline image" id="game-1"></div>
+            <div class="inline image" id="game-2"></div>
+            <div class="inline image" id="game-3"></div>
+        </div>
+   
+    <div class="block container text-left">
+        <div class="block events-card">
+            <div class="row">
+                <div class="column col-md-6">
+                    <h4 align="center">My Upcoming Events:</h4>
+                    <br>
+                    <ul>
+                        <li>
+                            <div class="block event" id="eventTwo"><a href="#">Event Title</a></div>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
-                                aria-controls="profile" aria-selected="false">My Interests</a>
+                        <li>
+                            <div class="block event" id="eventTwo"><a href="#">Event Title</a></div>
+                        </li>
+                        <li>
+                            <div class="block event" id="eventTwo"><a href="#">Event Title</a></div>
                         </li>
                     </ul>
                 </div>
-            </div>
-            <div class="col-md-2">
-                <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile" />
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="profile-games">
-                    <p>GAMES I LIKE</p>
-                    <a href="">Citadels</a><br />
-                    <a href="">Flux</a><br />
-                    <a href="">Dungeons & Dragons</a>
-                    <p>GAMES I WANT TO PLAY</p>
-                    <a href="">Settlers of Catan</a><br />
-                    <a href="">Ticket to Ride</a><br />
-                    <a href="">Pandemic</a><br />
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="tab-content profile-tab" id="myTabContent">
-                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Username</label>
-                            </div>
-                            <div class="col-md-6">
-                                <p>GamePlan01</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Name</label>
-                            </div>
-                            <div class="col-md-6">
-                                <p>John Doe</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Email Address</label>
-                            </div>
-                            <div class="col-md-6">
-                                <p>admin@clevelandgameplan.com</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <label>Profession</label>
-                        </div>
-                        <div class="col-md-6">
-                            <p>Web Developer</p>
-                        </div>
-                    </div>
+                <div class="column col-md-6">
+                    <h4 align="center">My Groups:</h4>
+                    <br>
+                    <ul>
+                        <li>
+                            <div class="block event" id="eventTwo"><a href="#">Group Name</a></div>
+                        </li>
+                        <li>
+                            <div class="block event" id="eventTwo"><a href="#">Group Name</a></div>
+                        </li>
+                        <li>
+                            <div class="block event" id="eventTwo"><a href="#">Group Name</a></div>
+                        </li>
+
+                    </ul>
                 </div>
             </div>
         </div>
-    </form>
-</div>
+    </div>
+
+    <div class="lineBlack">
+        <div class="container">
+            <div class="row downLine">
+                <div class="col-md-6 text-left copy">
+                    <p>Copyright GamePlan &copy; 2019. All Rights Reserved.</p>
+                </div>
+                <div class="col-md-6 text-right dm">
+                    <ul id="downMenu">
+                        <li class="active"><a href="home.html">Home</a></li>
+                        <li><a href="editprofile.html">Edit Profile</a></li>
+                        <li><a href="search.html">Search</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
