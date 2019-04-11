@@ -20,15 +20,11 @@ class Events extends Component {
     this.state = {
     events2: [
       {
-        start: new Date(),
-        end: new Date(moment().add(1, "hour")),
+        start: new Date('2019-04-09T14:40:00'),
+        end: new Date('2019-04-09T18:40:00'),
         title: "GAME NIGHT!"
       },
-      {
-        start: new Date(moment().add(3, 'days')),
-        end: new Date(moment().add(1, "hour")),
-        title: "GAME NIGHT!"
-      }
+
     ]
   }
     this.componentDidMount = this.componentDidMount.bind(this);
@@ -145,6 +141,7 @@ class Events extends Component {
           localizer={localizer}
           defaultDate={new Date()}
           defaultView="month"
+          views={['month', 'week', 'day']}
           events={this.state.events2}
           style={{ height: "100vh" }}
         />
