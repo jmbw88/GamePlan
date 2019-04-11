@@ -10,13 +10,13 @@ const localizer = Calendar.momentLocalizer(moment);
 class Events extends Component {
   constructor(props) {
     super();
-    const events = JSON.parse(sessionStorage.getItem("events"));
-    this.state = { };
-    if(events) {
-      this.state = {
-        events: events
-      }
-    }
+    // const events = JSON.parse(sessionStorage.getItem("events"));
+    // this.state = { };
+    // if(events) {
+    //   this.state = {
+    //     events: events
+    //   }
+    // }
     this.state = {
     events2: [
       {
@@ -66,8 +66,16 @@ class Events extends Component {
   getEvents = () => {      
     Axios.get(`/api/user/${this.props.userid}/events`).then((res) => {
       console.log(res);
+      const calendarEvents = res.data.map((event) => {
+        return {
+          start: Date(event.date),
+          end: Date(event.date),
+          title: event.title
+        }
+      });
       this.setState({
-        events: res.data
+        events: res.data,
+        events2: calendarEvents
       });
       sessionStorage.setItem("events", JSON.stringify(res.data));
     }).catch((err) => {
