@@ -81,7 +81,7 @@ class Profile extends Component {
         {this.state.sex ? <p>{this.state.sex}</p> : ""}
         {this.state.zipcode ? <p>{this.state.zipcode}</p> : ""}
         {this.state.games ? this.state.games.map((game) => (
-          <p>{game.title}</p>
+          <p><Link to={`/games/${game._id}`}>{game.title}</Link></p>
         )) : ""}
         
         {this.props.userid === this.props.match.params.id ? (
