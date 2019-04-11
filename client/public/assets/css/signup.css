@@ -12,7 +12,6 @@ body {
     background-image: url(../images/bgTop.jpg);
     color: var(--color-darkBlue);
     cursor: url(../images/cursors/default.cur), default;
-    font-family: 'raleway', 'sans-serif';
 } 
 
 h4 {
@@ -24,7 +23,7 @@ h4 {
     color: var(--color-darkBlue)!important;
 }
 
-#logo img {
+img {
     max-width: 100%;
     height: auto;
     display: block;

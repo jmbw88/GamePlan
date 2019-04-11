@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Edit Profile</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="assets/css/editprofile.css">
+</head>
+
+<body>
+    <div id="home">
+        <div class="headerLine">
+            <div id="menuF" class="default">
+                <div class="container">
+                    <div class="row">
+                        <div class="logo col-md-4">
+                            <a href="home.html">
+                                <img src="assets/images/logo.png" style="width: 250px">
+                            </a>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="navmenu" style="text-align: center;">
+                                <ul id="menu">
+                                    <li><a href=home.html">About</a></li>
+                                    <li><a href="profile.html">My Profile</a></li>
+                                    <li class="active"><a href="editprofile.html">Edit Profile</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container" id="edit-block">
+            <div class="pageTitle">
+                <br>
+                <h2>Edit Profile</h2>
+                <hr>
+            </div>
+            <div class="row">
+                <!-- left column -->
+                <div class="col-md-3" id="profImage">
+                    <div class="text-center">
+                        <img src="https://via.placeholder.com/200" class="avatar img-circle" alt="avatar">
+                        <!-- <h6>Upload a Profile Image</h6>
+                        <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg, image/jpg"> -->
+                    </div>
+                </div>
+
+                <!-- edit form column -->
+                <div class="col-md-9 personal-info">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Name:</label>
+                            <div class="col-lg-8">
+                                <input class="form-control" type="text" value="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Zipcode:</label>
+                            <div class="col-lg-8">
+                                <input class="form-control" type="text" value="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">About:</label>
+                            <div class="col-lg-8">
+                                <input class="form-control" type="text" value="">
+                            </div>
+                        </div>
+                        <!-- <div class="form-group">
+                            <label class="col-lg-3 control-label">Time Zone:</label>
+                            <div class="col-lg-8">
+                                <div class="ui-select">
+                                    <select id="user_time_zone" class="form-control">
+                                        <option value="Hawaii">(GMT-10:00) Hawaii</option>
+                                        <option value="Alaska">(GMT-09:00) Alaska</option>
+                                        <option value="Pacific Time (US &amp; Canada)">(GMT-08:00) Pacific Time (US
+                                            &amp;
+                                            Canada)</option>
+                                        <option value="Arizona">(GMT-07:00) Arizona</option>
+                                        <option value="Mountain Time (US &amp; Canada)">(GMT-07:00) Mountain Time
+                                            (US &amp;
+                                            Canada)</option>
+                                        <option value="Central Time (US &amp; Canada)" selected="selected">
+                                            (GMT-06:00) Central
+                                            Time (US &amp; Canada)</option>
+                                        <option value="Eastern Time (US &amp; Canada)">(GMT-05:00) Eastern Time (US
+                                            &amp;
+                                            Canada)</option>
+                                        <option value="Indiana (East)">(GMT-05:00) Indiana (East)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div> -->
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Image Link:</label>
+                            <div class="col-md-8">
+                                <input class="form-control" type="text" value="">
+                            </div>
+                        </div>
+                        <!-- <div class="form-group">
+                            <label class="col-md-3 control-label">Password:</label>
+                            <div class="col-md-8">
+                                <input class="form-control" type="password" value="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Confirm password:</label>
+                            <div class="col-md-8">
+                                <input class="form-control" type="password" value="">
+                            </div>
+                        </div> -->
+                        <div class="form-group">
+                            <label class="col-md-3 control-label"></label>
+                            <div class="col-md-8">
+                                <input type="button" class="btn btn-primary" id="saveBtn" value="Save Changes">
+                                <span></span>
+                                <input type="reset" class="btn btn-primary" id="cancelBtn" value="Cancel">
+                            </div>
+                        </div>
+                    </form>
+                    <br>
+                </div>
+            </div>
+        </div>
+
+        <div class="lineBlack">
+            <div class="container">
+                <div class="row downLine">
+                    <div class="col-md-6 text-left copy">
+                        <p>Copyright GamePlan &copy; 2019. All Rights Reserved.</p>
+                    </div>
+                    <div class="col-md-6 text-right dm">
+                        <ul id="downMenu">
+                            <li><a href="home.html">About</a></li>
+                            <li><a href="profile.html">My Profile</a></li>
+                            <li class="active"><a href="editprofile.html">Edit Profile</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
