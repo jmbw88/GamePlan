@@ -18,7 +18,7 @@ class Events extends Component {
     //   }
     // }
     this.state = {
-    events2: [
+    calendarEvents: [
     ]
   }
     this.componentDidMount = this.componentDidMount.bind(this);
@@ -61,16 +61,17 @@ class Events extends Component {
     Axios.get(`/api/user/${this.props.userid}/events`).then((res) => {
       console.log(res);
       const calendarEvents = res.data.map((event) => {
-        console.log(event.date);
+        console.log(event._id);
         return {
           start: new Date(event.date),
           end: new Date(event.date),
-          title: event.title
+          title: event.title,
+          id: event._id
         }
       });
       this.setState({
         events: res.data,
-        events2: calendarEvents
+        calendarEvents: calendarEvents
       });
       sessionStorage.setItem("events", JSON.stringify(res.data));
     }).catch((err) => {
@@ -78,9 +79,18 @@ class Events extends Component {
     });
   }
 
+  viewEvent = (id) => {
+    this.setState({
+      redirectTo: `/events/${id}`
+    })
+  }
+
   render() {
     if (!this.props.loggedIn) {
       return <Redirect to={{ pathname: "/login" }}/>
+    }
+    if(this.state.redirectTo) {
+      return <Redirect to={{ pathname: this.state.redirectTo }}/>
     }
     console.log(this.state);
     return (
@@ -135,8 +145,9 @@ class Events extends Component {
           defaultDate={new Date()}
           defaultView="month"
           views={['month', 'week', 'day']}
-          events={this.state.events2}
+          events={this.state.calendarEvents}
           style={{ height: "100vh" }}
+          onSelectEvent={(event) => this.viewEvent(event.id)}
         />
       </div>
       </React.Fragment>
