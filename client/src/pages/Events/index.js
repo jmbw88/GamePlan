@@ -10,21 +10,15 @@ const localizer = Calendar.momentLocalizer(moment);
 class Events extends Component {
   constructor(props) {
     super();
-    const events = JSON.parse(sessionStorage.getItem("events"));
-    this.state = { };
-    if(events) {
-      this.state = {
-        events: events
-      }
-    }
+    // const events = JSON.parse(sessionStorage.getItem("events"));
+    // this.state = { };
+    // if(events) {
+    //   this.state = {
+    //     events: events
+    //   }
+    // }
     this.state = {
-    events2: [
-      {
-        start: new Date('2019-04-09T14:40:00'),
-        end: new Date('2019-04-09T18:40:00'),
-        title: "GAME NIGHT!"
-      },
-
+    calendarEvents: [
     ]
   }
     this.componentDidMount = this.componentDidMount.bind(this);
@@ -66,8 +60,18 @@ class Events extends Component {
   getEvents = () => {      
     Axios.get(`/api/user/${this.props.userid}/events`).then((res) => {
       console.log(res);
+      const calendarEvents = res.data.map((event) => {
+        console.log(event._id);
+        return {
+          start: new Date(event.date),
+          end: new Date(event.date),
+          title: event.title,
+          id: event._id
+        }
+      });
       this.setState({
-        events: res.data
+        events: res.data,
+        calendarEvents: calendarEvents
       });
       sessionStorage.setItem("events", JSON.stringify(res.data));
     }).catch((err) => {
@@ -75,9 +79,18 @@ class Events extends Component {
     });
   }
 
+  viewEvent = (id) => {
+    this.setState({
+      redirectTo: `/events/${id}`
+    })
+  }
+
   render() {
     if (!this.props.loggedIn) {
       return <Redirect to={{ pathname: "/login" }}/>
+    }
+    if(this.state.redirectTo) {
+      return <Redirect to={{ pathname: this.state.redirectTo }}/>
     }
     console.log(this.state);
     return (
@@ -124,16 +137,6 @@ class Events extends Component {
             <button className="btn btn-info float-right mb-2" onClick={this.handleSubmit}>Submit</button>
           </div>
         </form>
-        {this.state.events ? this.state.events.map((event) => (
-          <div>
-            <h4>{event.title}</h4>
-            <p className="text-center">{event.date}</p>
-            <p className="text-center">{event.description}</p>
-            <p className="text-center">{event.zipcode}</p>
-            {/* <Link to="/events/eventid" */}
-          </div>
-          
-        )) : ""}
 
         <div className="container App">
         <h2>My Events</h2>
@@ -142,8 +145,9 @@ class Events extends Component {
           defaultDate={new Date()}
           defaultView="month"
           views={['month', 'week', 'day']}
-          events={this.state.events2}
+          events={this.state.calendarEvents}
           style={{ height: "100vh" }}
+          onSelectEvent={(event) => this.viewEvent(event.id)}
         />
       </div>
       </React.Fragment>
