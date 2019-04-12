@@ -80,6 +80,9 @@ class Group extends Component {
         console.log(res);
         Axios.put(`/api/groups/${this.state.id}/events/${eventID}`).then((res) => {
           console.log(res);
+          this.setState({
+            redirectTo: `/events/${res.data._id}`
+          });
         }).catch((err) => {
           console.log(err);
         });
@@ -100,6 +103,9 @@ class Group extends Component {
   render() {
     if(!this.props.loggedIn) {
       return <Redirect to={{ pathname: "/login" }}/>
+    }
+    if(this.state.redirectTo) {
+      return <Redirect to={{ pathname: this.state.redirectTo }}/>
     }
     console.log(this.state);
     return (

@@ -49,6 +49,9 @@ class Events extends Component {
       console.log(res);
       Axios.put(`/api/user/${this.props.userid}/events/${res.data._id}`).then((res) => {
         console.log(res);
+        this.setState({
+          redirectTo: `/events/${res.data._id}`
+        });
       }).catch((err) => {
         console.log(err);
       });
