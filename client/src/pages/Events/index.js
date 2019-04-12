@@ -49,6 +49,9 @@ class Events extends Component {
       console.log(res);
       Axios.put(`/api/user/${this.props.userid}/events/${res.data._id}`).then((res) => {
         console.log(res);
+        this.setState({
+          redirectTo: `/events/${res.data._id}`
+        });
       }).catch((err) => {
         console.log(err);
       });
@@ -95,6 +98,7 @@ class Events extends Component {
     console.log(this.state);
     return (
       <React.Fragment>
+        <div className="container">
         <h2>Create New Event</h2>
         <form>
           <div className="form-group">
@@ -138,7 +142,7 @@ class Events extends Component {
           </div>
         </form>
 
-        <div className="container App">
+        <div className="App">
         <h2>My Events</h2>
         <Calendar
           localizer={localizer}
@@ -150,6 +154,8 @@ class Events extends Component {
           onSelectEvent={(event) => this.viewEvent(event.id)}
         />
       </div>
+        
+        </div>
       </React.Fragment>
     )
   }

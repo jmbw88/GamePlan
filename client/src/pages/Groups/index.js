@@ -53,6 +53,9 @@ class Groups extends Component {
       console.log(res);
       Axios.put(`/api/user/${this.props.userid}/groups/${res.data._id}`).then((res) => {
         console.log(res);
+        this.setState({
+          redirectTo: `/groups/${res.data._id}`
+        });
       }).catch((err) => {
         console.log(err);
       });
@@ -65,9 +68,13 @@ class Groups extends Component {
     if (!this.props.loggedIn) {
       return <Redirect to={{ pathname: "/login" }}/>
     }
+    if(this.state.redirectTo) {
+      return <Redirect to={{ pathname: this.state.redirectTo }}/>
+    }
     console.log(this.state);
     return (
       <React.Fragment>
+        <div className="container">
         <h2>Create New Group</h2>
         <form>
           <div className="form-group">
@@ -109,6 +116,8 @@ class Groups extends Component {
             <p className="text-center">{group.zipcode}</p>
           </div>
         )) : ""}
+        
+        </div>
       </React.Fragment>
     )
   }
