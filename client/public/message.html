@@ -13,7 +13,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
         integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous">
     </script>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto:300,400|Yellowtail" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" type="text/css"
         rel="stylesheet">
 </head>
@@ -22,24 +21,23 @@
 
 <body>
     <div class="container">
-        <br>
-        <h3 class=" text-center">Messages</h3>
-        <br>
         <div class="messaging">
             <div class="inbox_msg">
+                <h3 class="text-left">Inbox</h3>
+                <hr>
                 <div class="inbox_people">
                     <div class="heading_srch">
                         <div class="recent_heading">
                             <h4>Recent</h4>
                         </div>
-                        <div class="srch_bar">
+                        <!-- <div class="srch_bar">
                             <div class="stylish-input-group">
                                 <input type="text" class="search-bar" placeholder="Search">
                                 <span class="input-group-addon">
                                     <button type="button"> <i class="fa fa-search" aria-hidden="true"></i></button>
                                 </span>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="inbox_chat">
                         <div class="chat_list active_chat">
@@ -76,6 +74,24 @@
                                 <div class="chat_ib">
                                     <h5>Username<span class="timestamp">TIMESTAMP</span></h5>
                                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chat_list">
+                            <div class="chat_people">
+                                <div class="chat_img"><img src="https://via.placeholder.com/100" alt="avatar"></div>
+                                <div class="chat_ib">
+                                    <h5>Username<span class="timestamp">TIMESTAMP</span></h5>
+                                    <p>Tenetur maxime eaque illum natus.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chat_list">
+                            <div class="chat_people">
+                                <div class="chat_img"><img src="https://via.placeholder.com/100" alt="avatar"></div>
+                                <div class="chat_ib">
+                                    <h5>Username<span class="timestamp">TIMESTAMP</span></h5>
+                                    <p>Tenetur maxime eaque illum natus.</p>
                                 </div>
                             </div>
                         </div>
@@ -137,21 +153,57 @@
                                 </div>
                             </div>
                         </div>
-                    
-                
-                <div class="type_msg">
-                    <div class="input_msg_write">
-                        <input type="text" class="write_msg" placeholder="Type a message">
-                        <button class="msg_send_btn" type="button"><i class="far fa-envelope fa-2"
-                                aria-hidden="true"></i></button>
+                        <div class="incoming_msg">
+                            <div class="incoming_msg_img"> <img src="https://via.placeholder.com/100" alt="avatar">
+                            </div>
+                            <div class="received_msg">
+                                <div class="received_withd_msg">
+                                    <p>Distinctio nesciunt rerum voluptas!</p>
+                                    <span class="timestamp">TIMESTAMP</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="incoming_msg">
+                            <div class="incoming_msg_img"> <img src="https://via.placeholder.com/100" alt="avatar">
+                            </div>
+                            <div class="received_msg">
+                                <div class="received_withd_msg">
+                                    <p>Distinctio nesciunt rerum voluptas!</p>
+                                    <span class="timestamp">TIMESTAMP</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+
+                    <div class="type_msg">
+                        <div class="input_msg_write">
+                            <input type="text" class="write_msg" placeholder="Type a message">
+                            <button class="msg_send_btn" type="submit"><i class="far fa-envelope fa-2"
+                                    aria-hidden="true"></i></button>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
     </div>
-</div>
-</div>
-
+    <div class="lineBlack">
+        <div class="container">
+            <div class="row downLine">
+                <div class="col-md-6 text-left copy">
+                    <p>Copyright GamePlan &copy; 2019. All Rights Reserved.</p>
+                </div>
+                <div class="col-md-6 text-right dm">
+                    <ul id="downMenu">
+                        <li><a href="home.html">About</a></li>
+                        <li><a href="profile.html">My Profile</a></li>
+                        <li class="active"><a href="editprofile.html">Edit Profile</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
 </body>
 
 </html>

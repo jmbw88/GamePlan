@@ -1,26 +1,43 @@
+@import url('https://fonts.googleapis.com/css?family=Lobster+Two:700|Open+Sans:700|Raleway:300');
+
+
 :root {
     --color-lightBlue: #AECCE9;
     --color-darkBlue: #265C91;
     --color-pink: #F38072;
     --color-yellow: #F4D81E;
     --color-text: #13324C;
-  }
+}
 
 body {
     background-image: url(../images/bgTop.jpg);
+    font-family: Raleway;
 }
 
 h3 {
     color: #AECCE9;
+    background-color: #265C91;
+    padding-left: 12px;
+    margin: 0px;
+    font-size: 35px;
+    border-color: #265C91;
+    font-family: 'Lobster Two';
+    font-weight: normal;
+}
+
+hr {
+    background-color: lightgray;
+    margin: 0;
 }
 
 .container {
-    max-width: 1170px;
+    max-width: 1100px;
     margin: auto;
 }
 
 img {
     max-width: 100%;
+    border-radius: 50%;
 }
 
 .inbox_people {
@@ -29,12 +46,14 @@ img {
     overflow: hidden;
     width: 40%;
     border-right: 1px solid #c4c4c4;
+    padding: 2.5px;
 }
 
 .inbox_msg {
-    border: 1px solid #c4c4c4;
     clear: both;
     overflow: hidden;
+    border-radius: 15px;
+    margin-top: 100px;
 }
 
 .top_spac {
@@ -65,15 +84,15 @@ img {
     margin: auto;
 }
 
-.srch_bar input {
+/* .srch_bar input {
     border: 1px solid #cdcdcd;
     border-width: 0 0 1px 0;
     width: 80%;
     padding: 2px 0 4px 6px;
     background: none;
-}
+} */
 
-.srch_bar .input-group-addon button {
+/* .srch_bar .input-group-addon button {
     background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
     border: medium none;
     padding: 0;
@@ -83,7 +102,7 @@ img {
 
 .srch_bar .input-group-addon {
     margin: 0 0 0 -27px;
-}
+} */
 
 .chat_ib h5 {
     font-size: 15px;
@@ -116,7 +135,6 @@ img {
 .chat_people {
     overflow: hidden;
     clear: both;
-    background-color: 
 }
 
 .chat_list {
@@ -125,12 +143,12 @@ img {
 }
 
 .inbox_chat {
-    height: 495px;
+    height: 550px;
     overflow-y: scroll;
 }
 
 .active_chat {
-    background:  #AECCE9;
+    background: #AECCE9;
 }
 
 .incoming_msg_img {
@@ -168,7 +186,7 @@ img {
 
 .messages {
     float: left;
-    padding: 30px 15px 0 25px;
+    padding: 30px 10px 0px 10px;
     width: 60%;
     background-color: white;
 }
@@ -195,15 +213,15 @@ img {
 
 .input_msg_write input {
     background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
-    border: medium none;
     color: #4c4c4c;
     font-size: 15px;
-    min-height: 48px;
+    min-height: 50px;
     width: 100%;
+    border-radius: 10px;
+    outline: none;
 }
 
 .type_msg {
-    border-top: 1px solid #c4c4c4;
     position: relative;
 }
 
@@ -219,13 +237,139 @@ img {
     right: 0;
     top: 11px;
     width: 33px;
+    padding: 5px;
+    margin-right: 8px;
 }
 
 .messaging {
-    padding: 0 0 50px 0;
+    box-shadow: 8px 8px 8px 3px #1f2021;
+    border-radius: 20px;
 }
 
 .msg_history {
-    height: 516px;
+    height: 521px;
     overflow-y: auto;
+}
+
+.lineBlack {
+    position: relative;
+    background: url(../images/bgTop.jpg) center center no-repeat;
+}
+
+.downLine {
+    margin-bottom: 35px;
+    margin-top: 127px;
+}
+
+.downLine p {
+    font-size: 16px;
+    font-family: 'raleway', 'sans-serif';
+    color: #fff;
+}
+
+#downMenu {
+    float: right;
+}
+
+#downMenu li {
+    height: 16px;
+    border-right: 1px solid var(--color-darkBlue);
+    float: left;
+    list-style: none;
+}
+
+#downMenu li:last-child {
+    border-right: none;
+}
+
+#downMenu li a {
+    padding: 15px;
+    text-decoration: none;
+    font-size: 16px;
+    font-family: 'raleway', 'sans-serif';
+    font-weight: 300;
+    color: #fff;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#downMenu li:last-child a {
+    padding-right: 0;
+}
+
+#downMenu li a:hover {
+    color: var(--color-pink);
+}
+
+.copy {
+    margin-top: 29px;
+}
+
+.dm {
+    margin-top: 29px;
+}
+
+#saveBtn {
+    background-color: var(--color-darkBlue);
+    border-color: var(--color-darkBlue);
+}
+
+#cancelBtn {
+    background-color: #AECCE9;
+    border-color: #AECCE9;
+}
+
+#avatar {
+    margin-left: 15px;
+}
+
+/* media queries */
+
+@media screen and (max-width: 1190px) {
+    .horL {
+        display: none;
+    }
+
+}
+
+@media screen and (max-width: 991px) {
+    .copy p {
+        text-align: center;
+    }
+
+    #downMenu ul li {
+        float: none;
+        text-align: center;
+    }
+
+    .downLine input {
+        margin-top: 25px;
+    }
+
+    .footer .fEmail {
+        float: left;
+        max-width: 350px;
+        max-width: 163px;
+    }
+
+    #downMenu li a {
+        padding: 5px;
+    }
+
+    .cont {
+        margin-top: 124px;
+    }
+}
+
+.default {
+    transition-duration: 1s;
+}
+
+.fixed {
+    transition-duration: 1s;
+    z-index: 999;
+    position: fixed;
+    top: -65px;
+    padding: 20px 0;
+    width: 100%;
 }
