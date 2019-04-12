@@ -85,7 +85,8 @@ class AddGameForm extends Component {
       Axios.put(`/api/user/${this.props.userid}/games/${id}`).then((res) => {
         console.log(res);
         this.setState({
-          value: ""
+          value: "",
+          redirectTo: `/${this.props.userid}`
         });
       }).catch((err) => {
         console.log(err);
@@ -98,6 +99,9 @@ class AddGameForm extends Component {
   render() {
     if(!this.props.loggedIn) {
       return <Redirect to={{ pathname: "/login" }}/>
+    }
+    if(this.state.redirectTo) {
+      return <Redirect to={{ pathname: this.state.redirectTo }}/>
     }
 
     const { value, suggestions } = this.state;

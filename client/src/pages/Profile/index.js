@@ -135,7 +135,7 @@ class Profile extends Component {
                                title={game.title} 
                                style={ { backgroundImage: `url(${game.img || "http://www.stleos.uq.edu.au/wp-content/uploads/2016/08/image-placeholder-350x350.png"})` }}/>
                         </Link>
-                      )) : <p className="text-center">No Favorite Games Yet</p>}
+                      )) : ""}
                       {/* <div className="inline image" id="game-1"></div>
                       <div className="inline image" id="game-2"></div>
                       <div className="inline image" id="game-3"></div> */}
