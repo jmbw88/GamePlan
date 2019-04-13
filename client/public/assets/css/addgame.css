@@ -8,26 +8,6 @@
     --color-yellow: #F4D81E;
     --color-text: #13324C;
 }
-
-.headerLine {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    background-size: cover;
-    padding: 15px;
-}
-
-.headerLine:after {
-    content: "";
-    position: absolute;
-    z-index: 1;
-    pointer-events: none;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-size: cover;
-}
-
 .logo {
     margin-top: 60px;
 }
@@ -183,6 +163,7 @@ html {
 }
 
 body {
+    align-content: center;
     background-color: transparent;
     font-family: 'raleway', 'sans-serif';
     font-size: 18px;
@@ -191,24 +172,40 @@ body {
     line-height: 24px;
 }
 
+h4 {
+    margin: auto;
+    font-family: 'Lobster Two';
+    font-size: 35px;
+    line-height: 35px;
+    background-image: url(../images/meeples2.jpg);
+    width: 80%;
+    text-align: center;
+    color: white;
+    padding: 10px;
+    margin: 0px 0px 0px 0px;
+}
+
 .block {
     display: block;
     position: relative;
-    margin: auto;
     padding: 2px;
 }
 
-#fave-games {
-    width: calc(100% - 40px);
+.container {
+    margin: auto;
+}
+
+#game-library-block {
+    align-content: center;
+}
+
+#game-library {
+    width: 80%;
     align-content: center;
     text-align: center;
     background-image: url(../images/cubes.png);
     background-repeat: repeat;
     color: #13324C;
-    padding-top: 20px;
-    margin: 70px auto 30px;
-    margin-top: 50px;
-    margin-bottom: 0;
     box-shadow: 0 2px 6px -2px rgba(0, 0, 0, 0.26);
 }
 
@@ -230,61 +227,49 @@ body {
     background-image: url(https://images-na.ssl-images-amazon.com/images/I/81yob9x41dL._SY550_.jpg);
 }
 
+#game-4 {
+    background-image: url("https://cf.geekdo-images.com/imagepage/img/VrePp6I9_HXw_NtBe4NFcwF5dRQ=/fit-in/900x600/filters:no_upscale()/pic3163924.jpg")
+}
+
+#game-5{
+    background-image: url("https://cf.geekdo-images.com/imagepage/img/JS90_q_U-h5Xe9Dn2jTTky-FqOs=/fit-in/900x600/filters:no_upscale()/pic1356616.jpg");
+}
+
+#game-6{
+    background-image: url("https://cf.geekdo-images.com/imagepage/img/p5cFyzJjEeXzBwfg2vof3R8h4Ac=/fit-in/900x600/filters:no_upscale()/pic3146943.png");
+}
+
+#game-7{
+    background-image: url("https://cf.geekdo-images.com/imagepage/img/YwXMZ0QbFGuiD6iWZFVu8KmSnfg=/fit-in/900x600/filters:no_upscale()/pic4459753.jpg");
+}
+
+#game-8{
+    background-image: url("https://cf.geekdo-images.com/imagepage/img/iCiVQ8UnKtO4wt9wBYS51_DXTFo=/fit-in/900x600/filters:no_upscale()/pic860217.jpg");
+}
+
+#game-9{
+    background-image: url("https://cf.geekdo-images.com/imagepage/img/HR1V4BanUbsX5iBMhN6G0gmCCJI=/fit-in/900x600/filters:no_upscale()/pic2278942.jpg");
+}
+
+#game-10{
+    background-image: url("https://cf.geekdo-images.com/imagepage/img/_ggLHVsBgMyFjSMJJNYAuNkFtKE=/fit-in/900x600/filters:no_upscale()/pic3880340.jpg");
+}
+
+#game-11{
+    background-image: url("https://cf.geekdo-images.com/imagepage/img/zemPGqup_Yeve-4N-H0ufktr9Fg=/fit-in/900x600/filters:no_upscale()/pic2055255.jpg");
+}
+
+#game-12{
+    background-image: url("https://cf.geekdo-images.com/imagepage/img/P3lT-iY1cp6aJBXQMD0Ol2KG2uw=/fit-in/900x600/filters:no_upscale()/pic2591224.png");
+}
+
 .profile-card {
     width: calc(100% - 40px);
     padding-top: 25px;
     margin: 70px auto 30px;
     box-shadow: 0 2px 6px -2px rgba(0, 0, 0, 0.26);
-    background-image: url(../images/cubes.png);
+    background-image: url();(../images/cubes.png);
     background-repeat: repeat;
-}
-
-.profile-pic {
-    display: false;
-    position: absolute;
-    margin: false;
-    top: -90px;
-    left: 50%;
-    right: false;
-    bottom: false;
-    -webkit-transform: translateX(-50%);
-    transform: translateX(-50%);
-    height: 250px;
-    width: 250px;
-    border: 10px solid #fff;
-    border-radius: 100%;
-    background: url("http://www.stleos.uq.edu.au/wp-content/uploads/2016/08/image-placeholder.png") center no-repeat;
-    background-size: cover;
-}
-
-.profile-name-container {
-    text-align: center;
-    padding-top: 35px;
-}
-
-.user-name {
-    font-family: 'raleway', 'sans-serif';
-    font-size: 22px;
-    font-weight: 800;
-    line-height: 35px;
-    padding-top: 80px;
-    margin-bottom: 6px;
-}
-
-.user-location {
-    margin-bottom: 5px;
-}
-
-.user-desc {
-    letter-spacing: 1px;
-    color: #999;
-}
-
-.profile-card-stats {
-    height: 75px;
-    padding: 10px 0px;
-    text-align: center;
-    overflow: hidden;
 }
 
 .image {
@@ -306,54 +291,6 @@ body {
     -webkit-transform: scale(1.06);
     transform: scale(1.06);
     box-shadow: 0 2px 18px -2px rgba(0, 0, 0, 0.3);
-}
-
-.events-card {
-    width: calc(100% - 40px);
-    padding: 50px;
-    margin-top: 50px;
-    background-image: url(../images/cubes.png);
-    background-repeat: repeat;
-    box-shadow: 0 2px 6px -2px rgba(0, 0, 0, 0.26);
-    align-content: center;
-    text-align: center;
-}
-
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-a {
-    color: #265C91;
-}
-
-#messageBtn {
-    padding-right: 20px;
-    background-color: #265C91;
-    color: white;
-    position: relative;
-    line-height: 1px;
-    border-radius: 10%;
-    float: right;
-    
-}
-
-.message-button {
-    padding: 10px;
-    margin: 5px;
-    margin-right: 20px;
-    text-align: center;
-    line-height: 1px;
-    position: relative;
-}
-
-.button-text {
-    text-align: right;
-    margin: 5px;
-    padding: 5px;
-
 }
 
 /* media queries */
