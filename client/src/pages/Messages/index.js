@@ -117,7 +117,7 @@ class Messages extends Component {
   }
 
   setActive = (target) => {
-    const chatPeople = Array.from(document.querySelectorAll(".chatPeople"));
+    const chatPeople = Array.from(document.querySelectorAll(".chat_people"));
     chatPeople.forEach((person) => {
       person.classList.remove("active_chat");
     });
@@ -171,7 +171,7 @@ class Messages extends Component {
                               this.setActive(event.currentTarget);
                             }}>
                               <div class="chat_img">
-                                <img class="msg-img" src={contact.img} alt="avatar"/>
+                                <img class="msg-img" src={contact.img || "https://via.placeholder.com/100"} alt="avatar"/>
                               </div>
                               <div class="chat_ib">
                                 <h5>{contact.username} <span class="timestamp">{contact.newest ? contact.newest.createdAt : ""}</span></h5>
