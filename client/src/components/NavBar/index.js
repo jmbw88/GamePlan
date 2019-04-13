@@ -57,7 +57,7 @@ class Nav extends Component {
           {loggedIn ? (
               <React.Fragment>
                 <li className="nav-item">
-                  <p className="navbar-text m-0 px-1">Hi {this.props.username}!</p>
+                  <p className="navbar-text m-0 px-1 username">Hi {this.props.username}!</p>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to={`/${this.props.userid}`}>Profile</Link>
@@ -75,7 +75,7 @@ class Nav extends Component {
                   <Link className="nav-link" to="/search">Search</Link>
                 </li>
                 <li className="nav-item">
-                  <p className="nav-link m-0" id="logout-link" onClick={this.logout}>Logout</p>
+                  <p className="nav-link m-0 logout" id="logout-link" onClick={this.logout}>Sign Out</p>
                 </li>
                 
               </React.Fragment>

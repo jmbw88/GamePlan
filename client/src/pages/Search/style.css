@@ -25,7 +25,7 @@ h4 {
   width: 100%;
 }
 
-.autosuggest .btn.btn-primary {
+.btn.btn-primary {
   float: right;
   font-family: 'raleway', 'sans-serif';
   color: #fff;
@@ -35,7 +35,7 @@ h4 {
   margin: 10px 0 0 10px;
 }
 
-.autosuggest .btn.btn-primary:hover{
+ .btn.btn-primary:hover{
   background: var(--color-text);
   border-color: var(--color-text);
   cursor: url(../../assets/images/cursors/select.cur), pointer;

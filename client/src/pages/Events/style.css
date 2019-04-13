@@ -9,6 +9,7 @@
 #signup-box {
   margin-top: 40px;
   margin-bottom: 40px;
+  height: auto;
   background-color: rgba(173, 204, 233, 0.753);
   border-radius: 20px;
   color: var(--color-darkBlue);
@@ -36,4 +37,49 @@ h2.myEvents  {
   border-radius: 20px;
   margin-bottom: 50px;
   padding: 0 30px 30px 30px;
+}
+
+h3.eventForm {
+  font-size: 45px;
+  text-align: center;
+  align-content: center;
+  font-family: 'Lobster Two', cursive;
+  clear: both;
+}
+
+#signup-box h4 {
+  font-size: 30px;
+  font-family: 'Lobster Two', cursive;
+  clear: both;
+}
+
+p.description {
+  text-align: center;
+}
+
+p {
+  color: var(--color-text);
+}
+
+#button-row.row.justify-content-center.align-items-center {
+  clear: both;
+}
+ 
+.eventBtn.btn.btn-primary {
+  margin-top: 30px;
+}
+
+.date {
+  float:left;
+  text-align: center;
+}
+
+.zip {
+  float: left;
+  text-align: center;
+}
+
+.creator {
+  float:right;
+  text-align: center
 }
