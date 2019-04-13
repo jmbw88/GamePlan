@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Axios from "axios";
 import { Redirect, Link } from "react-router-dom";
+import { animateScroll } from "react-scroll";
 import "./style.css";
 
 class Messages extends Component {
@@ -21,6 +22,11 @@ class Messages extends Component {
   
   componentDidMount() {
     this.getContacts();
+  }
+
+  componentDidUpdate() {
+    // const chatbox = document.getElementsByClassName("msg_history");
+    // chatbox.scrollTop = chatbox.scrollHeight;
   }
   
   getContacts = () => {
@@ -78,7 +84,7 @@ class Messages extends Component {
       this.setState({
         thread: res.data,
         contact: otherid
-      });
+      }, this.scrollToBottom);
     }).catch((err) => {
       console.log(err);
     });
@@ -102,7 +108,9 @@ class Messages extends Component {
       this.setState({
         thread: [...this.state.thread, res.data],
         message: ""
-      });
+      }, this.scrollToBottom);
+      // const chatbox = document.getElementsByClassName("msg_history");
+      // chatbox.scrollTop = chatbox.scrollHeight;
     }).catch((err) => {
       console.log(err);
     });
@@ -116,11 +124,22 @@ class Messages extends Component {
     target.classList.add("active_chat");
   }
 
+  scrollToBottom() {
+    animateScroll.scrollToBottom({
+      containerId: "chatbox",
+      duration: 5
+  });
+
+
+}
+
   render() {
     console.log(this.state);
     if (!this.props.loggedIn) {
       return <Redirect to={{ pathname: "/login" }}/>
     }
+      //     const chatbox = document.getElementsByClassName("msg_history");
+      // chatbox.scrollTop = chatbox.scrollHeight;
     return (
       <div class="msg p-5">
           <div class="container msg-container p-0">
@@ -219,8 +238,33 @@ class Messages extends Component {
                         </div>
                     </div>
                     <div class="messages">
-                        <div class="msg_history">
+                        <div class="msg_history" id="chatbox">
+                        {this.state.thread ? this.state.thread.map((msg) => (
+                          msg.to === this.props.userid ? (
                             <div class="incoming_msg">
+                              <div class="incoming_msg_img">
+                                <Link to={`/${this.state.contact}`}>
+                                  <img class="msg-img" src={this.state.contacts.filter((contact) => contact.id === this.state.contact)[0].img || "https://via.placeholder.com/100"} alt="avatar"/>
+                                </Link>
+                              </div>
+                              <div class="received_msg">
+                                    <div class="received_withd_msg">
+                                        <p>{msg.body}</p>
+                                        <span class="timestamp">{msg.createdAt}</span>
+                                    </div>
+                                </div>
+                            </div>
+                          ) : (
+                            <div class="outgoing_msg">
+                                <div class="sent_msg">
+                                    <p>{msg.body}</p>
+                                    <span class="timestamp">{msg.createdAt}</span>
+                                </div>
+                            </div>
+                          )
+                        )) 
+                        : ""}
+                            {/* <div class="incoming_msg">
                                 <div class="incoming_msg_img"> <img class="msg-img" src="https://via.placeholder.com/100" alt="avatar"/>
                                 </div>
                                 <div class="received_msg">
@@ -281,14 +325,27 @@ class Messages extends Component {
                                         <span class="timestamp">TIMESTAMP</span>
                                     </div>
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
-
+                        {/* <input type="text" 
+                          id="chatMsg" 
+                          placeholder="Enter message"
+                          name="message"
+                          value={this.state.message}
+                          onChange={this.handleChange}/>
+            <button className="btn btn-secondary" onClick={this.sendMessage}>Submit</button> */}
                         <div class="type_msg">
                             <div class="input_msg_write">
-                                <input type="text" class="write_msg" placeholder="Type a message"/>
-                                <button class="msg_send_btn" type="submit"><i class="far fa-envelope fa-2"
-                                        aria-hidden="true"></i></button>
+                                <input type="text" 
+                                      class="write_msg" 
+                                      placeholder="Type a message"
+                                      name="message"
+                                      value={this.state.message}
+                                      onChange={this.handleChange}
+                                />
+                                <button class="msg_send_btn" onClick={this.sendMessage}>
+                                  <i class="far fa-envelope fa-2"aria-hidden="true"></i>
+                                </button>
                             </div>
                         </div>
 
@@ -297,7 +354,7 @@ class Messages extends Component {
             </div>
         </div>
       
-      <React.Fragment>
+      {/* <React.Fragment>
         <h1>Messages</h1>
         <h3>Contacts</h3>
         {this.state.contacts ? this.state.contacts.map((contact) => (
@@ -323,7 +380,7 @@ class Messages extends Component {
             <button className="btn btn-secondary" onClick={this.sendMessage}>Submit</button>
           </React.Fragment>
         ) : ""}
-      </React.Fragment>
+      </React.Fragment> */}
       </div>
     )
   }
