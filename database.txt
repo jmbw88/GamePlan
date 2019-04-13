@@ -1,0 +1,319 @@
+title: Settlers of Catan
+    description: {
+            difficulty: {
+                type: String,
+                enum: ["Beginner", "Experienced", "Challenging"]
+            },
+            uniqueness: {
+                type: String,
+                enum: ["Standard", "Unique", "Very Unique"]
+            },
+            cooperative: {
+                type: Boolean
+            },
+            length: {
+                type: String,
+                enum: ["15min-1hr", "1hr-2hr", "4+ hrs"]
+            }
+        },
+    img: {
+        type: String
+    }
+	
+	title: "Settlers of Catan",
+	description: {
+			description: "Experienced",
+            uniqueness: "Unique",
+            cooperative: true,
+            length: "4+ hrs"
+        },
+    img: "https://vignette.wikia.nocookie.net/catan/images/7/7d/Settlers4thcover.jpg/revision/latest?cb=20080925155701"
+	
+	title: Gloomhaven,
+	description: {
+			description: "Challenging",
+            uniqueness: "Unique",
+            cooperative: true,
+            length: "1hr-2hr"
+        },
+    img: "http://maltageekparadise.com/wp-content/uploads/2017/12/gloomhaven.jpg"
+	
+	title: "Pandemic",
+	description: {
+			description: "Beginner",
+            uniqueness: "Unique",
+            cooperative: true,
+            length: "15min-1hr"
+        },
+    img: "http://www.ultraboardgames.com/img/slideshow/pandemic.jpg"
+	
+	title: "Through the Ages: A New Story of Civilization",
+	description: {
+			description: "Challenging",
+            uniqueness: "Very Unique",
+            cooperative: false,
+            length: "1hr-2hr"
+        },
+    img: "https://cf.geekdo-images.com/imagepage/img/lewVt7gXhfpps_hIHU5mrP75ypY=/fit-in/900x600/filters:no_upscale()/pic2663291.jpg"
+	
+	title: "Terraforming Mars",
+	description: {
+			description: "Challenging",
+            uniqueness: "Very Unique",
+            cooperative: true,
+            length: "1hr-2hr"
+        },
+    img: "https://cf.geekdo-images.com/imagepage/img/sgZLoyg3KKeHvyHel8tZ2TIkXRw=/fit-in/900x600/filters:no_upscale()/pic3536616.jpg"
+	
+	title: "Twilight Struggle",
+	description: {
+			description: "Challenging",
+            uniqueness: "Very Unique",
+            cooperative: false,
+            length: "4+ hrs"
+        },
+    img: "https://cf.geekdo-images.com/imagepage/img/LiVktx6kjqelxE1gB8EIVP8ZHYM=/fit-in/900x600/filters:no_upscale()/pic361592.jpg"
+	
+	
+	title: "Star Wars: Rebellion",
+	description: {
+			description: "Challenging",
+            uniqueness: "Unique",
+            cooperative: false,
+            length: "4+ hrs"
+        },
+    img: "https://cf.geekdo-images.com/imagepage/img/tFfwdX2zyujVuYPFyvSiQwVV03Y=/fit-in/900x600/filters:no_upscale()/pic4325841.jpg"
+	
+	title: "Star Wars: Rebellion",
+	description: {
+			description: "Challenging",
+            uniqueness: "Unique",
+            cooperative: false,
+            length: "4+ hrs"
+        },
+    img: "https://cf.geekdo-images.com/imagepage/img/tFfwdX2zyujVuYPFyvSiQwVV03Y=/fit-in/900x600/filters:no_upscale()/pic4325841.jpg"
+	
+	title: "Gaia Project",
+	description: {
+			description: "Very Challenging",
+            uniqueness: " Very Unique",
+            cooperative: false,
+            length: "4+ hrs"
+        },
+    img: "https://cf.geekdo-images.com/imagepagezoom/img/elnyqFGM7RCVuCwvSJx-iIqNDbI=/fit-in/1200x900/filters:no_upscale()/pic3763556.jpg"
+	
+	title: "Scyth",
+	description: {
+			description: "Challenging",
+            uniqueness: "Unique",
+            cooperative: false,
+            length: "1hr-2hr"
+        },
+    img: "https://cf.geekdo-images.com/imagepage/img/VrePp6I9_HXw_NtBe4NFcwF5dRQ=/fit-in/900x600/filters:no_upscale()/pic3163924.jpg"
+	
+	title: "Great Western Trail",
+	description: {
+			description: "Challenging",
+            uniqueness: "Unique",
+            cooperative: false,
+            length: "1hr-2hr"
+        },
+    img: "https://cf.geekdo-images.com/imagepage/img/yb940ZsNQPpjUX7PK7Jx9YH_87o=/fit-in/900x600/filters:no_upscale()/pic3113247.jpg"
+	
+	title: "Twilight Imperium",
+	description: {
+			description: "Very Challenging",
+            uniqueness: "Unique",
+            cooperative: false,
+            length: "4+ hrs"
+        },
+    img: "https://cf.geekdo-images.com/imagepagezoom/img/iwUFAXkFH8iBxSvDp8jntOLCYyE=/fit-in/1200x900/filters:no_upscale()/pic3727516.jpg"
+	
+	title: "War of the Ring",
+	description: {
+			description: "Very Challenging",
+            uniqueness: "Standard",
+            cooperative: false,
+            length: "1hr-2hr"
+        },
+    img: "https://cf.geekdo-images.com/imagepage/img/lNWZYfar3SvlCC310G_YRVx05L4=/fit-in/900x600/filters:no_upscale()/pic1215633.jpg"
+	
+	
+	title: "War of the Ring",
+	description: {
+			description: "Challenging",
+            uniqueness: "Unique",
+            cooperative: false,
+            length: "1hr-2hr"
+        },
+    img: "https://cf.geekdo-images.com/imagepage/img/_4By2Q78BdjTkK3g3YFwBoL4JbI=/fit-in/900x600/filters:no_upscale()/pic1176894.jpg"
+	
+	title: "7 Wonders Duel",
+	description: {
+			description: "Beginner",
+            uniqueness: "Unique",
+            cooperative: false,
+            length: "15min-1hr"
+        },
+    img: "https://cf.geekdo-images.com/imagepage/img/K29SesN_KgIUDX0O5y71nGX_GsQ=/fit-in/900x600/filters:no_upscale()/pic3376065.jpg"
+	
+	title: "Spirit Island",
+	description: {
+			description: "Challenging",
+            uniqueness: "Unique",
+            cooperative: true,
+            length: "1hr-2hr"
+        },
+    img: "https://cf.geekdo-images.com/imagepage/img/q_b5Jw43Tnyw3hT8l2zMKmLOPvU=/fit-in/900x600/filters:no_upscale()/pic3615739.png"
+	
+	title: "Brass: Birmingham",
+	description: {
+			description: "Challenging",
+            uniqueness: "Very Unique",
+            cooperative: false,
+            length: "1hr-2hr"
+        },
+    img: "https://cf.geekdo-images.com/imagepage/img/9ik7Wc_ANTeGU-V5wXytIxPZ2sE=/fit-in/900x600/filters:no_upscale()/pic3490053.jpg"
+	
+	title: "The 7th Continent",
+	description: {
+			description: "Beginner",
+            uniqueness: "Very Unique",
+            cooperative: true,
+            length: "1hr-2hr"
+        },
+    img: "https://cf.geekdo-images.com/imagepage/img/-2wTSEgRqYRs45f7Lgtm9LNZXEw=/fit-in/900x600/filters:no_upscale()/pic2648303.jpg"
+	
+	title: "Viticulture Essential Edition",
+	description: {
+			description: "Beginner",
+            uniqueness: "Unique",
+            cooperative: true,
+            length: "1hr-2hr"
+        },
+    img: "https://cf.geekdo-images.com/imagepage/img/OU9wLlDb5YahgWq3Drq7xXiRQYo=/fit-in/900x600/filters:no_upscale()/pic2649952.jpg"
+	
+	title: "Condordia",
+	description: {
+			description: "Challenging",
+            uniqueness: "Unique",
+            cooperative: true,
+            length: "1hr-2hr"
+        },
+    img: "https://cf.geekdo-images.com/imagepage/img/RGEIRpbvMY1wk3oo7W5YxRluPO8=/fit-in/900x600/filters:no_upscale()/pic3453267.jpg"
+	
+	title: "Puerto Rico",
+	description: {
+			description: "Challenging",
+            uniqueness: "Unique",
+            cooperative: false,
+            length: "1hr-2hr"
+        },
+    img: "https://cf.geekdo-images.com/imagepage/img/fuWLlv4q0w8Bd6rZC8PGDH-TKbA=/fit-in/900x600/filters:no_upscale()/pic158548.jpg"
+	
+	title: "Arkham Horror",
+	description: {
+			description: "Challenging",
+            uniqueness: "Unique",
+            cooperative: false,
+            length: "1hr-2hr"
+        },
+    img: "https://cf.geekdo-images.com/itemrep/img/BQgvglr7rfFQLzoF2Wv5LND3XhA=/fit-in/246x300/pic175966.jpg"
+	
+	title: "Arkham Horror: The Card Game",
+	description: {
+			description: "Challenging",
+            uniqueness: "Unique",
+            cooperative: false,
+            length: "1hr-2hr"
+        },
+    img: "https://cf.geekdo-images.com/imagepage/img/sKUvzQNCqEbJ-mk84VzQX947v2M=/fit-in/900x600/filters:no_upscale()/pic3122349.jpg"
+	
+	title: "Caverna: The Cave Farmers",
+	description: {
+			description: "Challenging",
+            uniqueness: "Very Unique",
+            cooperative: false,
+            length: "1hr-2hr"
+        },
+    img: "https://cf.geekdo-images.com/imagepage/img/EJEPrFsGdEwpi5gZqjB5UX6bbOI=/fit-in/900x600/filters:no_upscale()/pic1790789.jpg"
+	
+	title: "Brass: Lancashier",
+	description: {
+			description: "Challenging",
+            uniqueness: "Unique",
+            cooperative: false,
+            length: "1hr-2hr"
+        },
+    img: "https://cf.geekdo-images.com/imagepage/img/qJ14fKk1UiBwiNh9ddRydvGQ7zI=/fit-in/900x600/filters:no_upscale()/pic3469216.jpg"
+	
+	title: "Mage Knight Board Game",
+	description: {
+			description: "Very Challenging",
+            uniqueness: "Unique",
+            cooperative: false,
+            length: "1hr-2hr"
+        },
+    img: "https://cf.geekdo-images.com/imagepage/img/99jI1AXEfv3y1z0ZZmy2z8Ltxpc=/fit-in/900x600/filters:no_upscale()/pic1083380.jpg"
+	
+	title: "Agricola",
+	description: {
+			description: "Challenging",
+            uniqueness: "Unique",
+            cooperative: false,
+            length: "1hr-2hr"
+        },
+    img: "https://cf.geekdo-images.com/imagepage/img/lz9lR3hs-27immcniEQ4fsYJ7EM=/fit-in/900x600/filters:no_upscale()/pic259085.jpg"
+	
+	title: "Mansion of Madness",
+	description: {
+			description: "Beginner",
+            uniqueness: "Unique",
+            cooperative: true,
+            length: "1hr-2hr"
+        },
+    img: "https://cf.geekdo-images.com/imagepage/img/95t_Zd-hp6vM1eLmoddCrdfOiIU=/fit-in/900x600/filters:no_upscale()/pic3118622.jpg"
+	
+	title: "Orleans",
+	description: {
+			description: "Challenging",
+            uniqueness: "Unique",
+            cooperative: false,
+            length: "1hr-2hr"
+        },
+    img: "https://cf.geekdo-images.com/imagepage/img/fHNOQSGQkAUmlBwpLDOiPUoGSyM=/fit-in/900x600/filters:no_upscale()/pic2578828.png"
+	
+	title: "A Feast for Odin",
+	description: {
+			description: "Challenging",
+            uniqueness: "Unique",
+            cooperative: false,
+            length: "1hr-2hr"
+        },
+    img: "https://cf.geekdo-images.com/imagepage/img/p5cFyzJjEeXzBwfg2vof3R8h4Ac=/fit-in/900x600/filters:no_upscale()/pic3146943.png"
+	
+	title: "Food Chain Magnate",
+	description: {
+			description: "Very Challenging",
+            uniqueness: "Very Unique",
+            cooperative: false,
+            length: "1hr-2hr"
+        },
+    img: "https://cf.geekdo-images.com/imagepage/img/F73bZwEZ_tEJ5Z8aPHmzVdwS-Zo=/fit-in/900x600/filters:no_upscale()/pic2649434.png"
+	
+	title: "Blood Rage",
+	description: {
+			description: "Beginner",
+            uniqueness: "Very Unique",
+            cooperative: false,
+            length: "1hr-2hr"
+        },
+    img: "https://cf.geekdo-images.com/imagepage/img/op_BYsCGVw_PftIoCa-OWucsUFc=/fit-in/900x600/filters:no_upscale()/pic2439223.jpg"
+	
+	
+	
+	
+	
+	
+	
+	
