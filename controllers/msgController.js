@@ -38,6 +38,8 @@ module.exports = {
       //   console.log(msg);
       //   return msg;
       // });
+      dbMsg = dbMsg.toJSON();
+      dbMsg.createdAt = moment(dbMsg.createdAt).calendar();
       res.json(dbMsg);
     }).catch((err) => {
       res.status(422).json(err);
