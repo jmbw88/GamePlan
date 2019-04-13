@@ -28,6 +28,22 @@ module.exports = {
     });
   },
 
+  findNewest: (req, res) => {
+    const userid = req.params.userid;
+    const otherid = req.params.otherid
+    db.Message.findOne({ $or: [{ to: userid, from: otherid }, { to: otherid, from: userid }] }).sort({ createdAt: -1 }).then((dbMsg) => {
+      // dbMsg = dbMsg.map((msg) => {
+      //   msg = msg.toJSON();
+      //   msg.createdAt = moment(msg.createdAt).calendar();
+      //   console.log(msg);
+      //   return msg;
+      // });
+      res.json(dbMsg);
+    }).catch((err) => {
+      res.status(422).json(err);
+    });
+  },
+
   // Return username and id for all users that this user has sent a message to or received a message from
   // TODO if contact has unread messages by user, send that info to the client
   findContacts: (req, res) => {

@@ -94,15 +94,6 @@ class Messages extends Component {
                         <div class="inbox_chat">
                             <div class="chat_list active_chat">
                                 <div class="chat_people">
-                                    <div class="chat_img"> <img class="msg-img" src="https://via.placeholder.com/100" alt="avatar"/></div>
-                                    <div class="chat_ib">
-                                        <h5>Username<span class="timestamp">TIMESTAMP</span></h5>
-                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="chat_list">
-                                <div class="chat_people">
                                     <div class="chat_img"><img class="msg-img" src="https://via.placeholder.com/100" alt="avatar"/></div>
                                     <div class="chat_ib">
                                         <h5>Username<span class="timestamp">TIMESTAMP</span></h5>
@@ -158,9 +149,6 @@ class Messages extends Component {
                             </div>
                         </div>
                     </div>
-
-
-
                     <div class="messages">
                         <div class="msg_history">
                             <div class="incoming_msg">
