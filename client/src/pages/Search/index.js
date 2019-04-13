@@ -136,32 +136,44 @@ class Search extends Component {
     };
     return (
       <React.Fragment>
-        <h1>Search</h1>
-        <h2>Search For Users By Game</h2>
-        <Autosuggest 
-        suggestions={suggestions}
-        onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
-        onSuggestionsClearRequested={this.onSuggestionsClearRequested}
-        getSuggestionValue={getSuggestionValue}
-        renderSuggestion={renderSuggestion}
-        inputProps={inputProps} />
-        <button className="btn btn-primary" onClick={this.getUsersByGame}>Users</button>
+        <body className="background" id ="mainContainer">
+          <h2>Search</h2>
+            <div id="signup-row" className="row justify-content-center align-items-center">
+              <div id="signup-column" className="col-md-8">
+                <div id="signup-box" className="col-md-12">
+                  <h3>Search for Users by Game <br></br>
+                      or <br></br>
+                      View Groups &amp; Events</h3>
+                  <div className="autosuggest col-md-12 justify-content-center">
+                    <Autosuggest
+                    suggestions={suggestions}
+                    onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
+                    onSuggestionsClearRequested={this.onSuggestionsClearRequested}
+                    getSuggestionValue={getSuggestionValue}
+                    renderSuggestion={renderSuggestion}
+                    inputProps={inputProps} />
+                    <button className="btn btn-primary" onClick={this.getEvents}>Events</button>
+                    <button className="btn btn-primary" onClick={this.getGroups}>Groups</button>
+                    <button className="btn btn-primary" onClick={this.getUsersByGame}>Users</button>
+                  </div>
+                </div>
 
-        <h2>View Groups/Events</h2>
-        <button className="btn btn-primary" onClick={this.getGroups}>Groups</button>
-        <button className="btn btn-primary" onClick={this.getEvents}>Events</button>
+                <div id="signup-box" className="col-md-12">
+                  <h3>Results</h3>
+                  {this.state.users ? this.state.users.map((user) => (
+                    <Link to={`/${user._id}`}><p>{user.account.username}</p></Link>
+                  )) : ""}
+                  {this.state.groups ? this.state.groups.map((group) => (
+                    <Link to={`/groups/${group._id}`}><p>{group.name}</p></Link>
+                  )) : ""}
+                  {this.state.events ? this.state.events.map((event) => (
+                    <Link to={`/events/${event._id}`}><p>{event.title}</p></Link>
+                  )) : ""}
+                </div>
 
-        <h2>Results</h2>
-        {this.state.users ? this.state.users.map((user) => (
-          <Link to={`/${user._id}`}><p>{user.account.username}</p></Link>
-        )) : ""}
-        {this.state.groups ? this.state.groups.map((group) => (
-          <Link to={`/groups/${group._id}`}><p>{group.name}</p></Link>
-        )) : ""}
-        {this.state.events ? this.state.events.map((event) => (
-          <Link to={`/events/${event._id}`}><p>{event.title}</p></Link>
-        )) : ""}
-
+              </div>
+            </div>
+        </body>
       </React.Fragment>
     )
   }

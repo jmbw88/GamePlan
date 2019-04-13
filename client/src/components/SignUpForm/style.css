@@ -1,11 +1,3 @@
-:root {
-	--color-lightBlue: #AECCE9;
-	--color-darkBlue: #265C91;
-	--color-pink: #F38072;
-	--color-yellow: #F4D81E;
-	--color-text: #13324C;
-}
-
 body {
   margin: 0;
   padding: 0;
@@ -14,8 +6,8 @@ body {
 } 
 
 h4 {
-    text-align: center;
-    font-size: 22px;
+  text-align: center;
+  font-size: 22px;
 }
 
 .text-info {
@@ -34,7 +26,7 @@ h4 {
 #signup {
   background-image: url(../../assets/images/bgTop.jpg);
   min-height: calc(100vh - 56px);
-  background-size: cover
+  /* background-size: cover */
 }
 
 #signup .container #signup-row #signup-column #signup-box {
@@ -83,10 +75,12 @@ h4 {
   color: #fff;
   background-color:var(--color-darkBlue);
   cursor: url(../../assets/images/cursors/select.cur), pointer;
+  border-color: var(--color-darkBlue);
 }
 
 .btn-info:hover{
   background: var(--color-text);
+  border-color: var(--color-text);
   cursor: url(../../assets/images/cursors/select.cur), pointer;
 }
   

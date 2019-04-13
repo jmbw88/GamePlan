@@ -1,0 +1,39 @@
+.form-group .eventForm {
+  text-align: left;
+  margin-bottom: -5px;
+  font-size: 35px;
+  font-family: 'Lobster Two', cursive;
+  clear: both;
+}
+
+#signup-box {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  background-color: rgba(173, 204, 233, 0.753);
+  border-radius: 20px;
+  color: var(--color-darkBlue);
+  font-size: 18px;
+  padding: 20px 0 60px 0;
+}
+
+h2.newEvent  {
+  text-align: center;
+  font-size: 60px;
+  padding-top: 40px;
+  color: #FFF;
+  font-family: 'Lobster Two', cursive;
+}
+h2.myEvents  {
+  text-align: center;
+  font-size: 60px;
+  padding-top: 40px;
+  font-family: 'Lobster Two', cursive;
+  color: var(--color-darkBlue);
+}
+
+.container.App {
+  background-color: #fff;
+  border-radius: 20px;
+  margin-bottom: 50px;
+  padding: 0 30px 30px 30px;
+}

@@ -4,6 +4,7 @@ import Axios from "axios";
 import Calendar from "react-big-calendar";
 import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
+import "./style.css";
 
 const localizer = Calendar.momentLocalizer(moment);
 
@@ -98,64 +99,69 @@ class Events extends Component {
     console.log(this.state);
     return (
       <React.Fragment>
-        <div className="container">
-        <h2>Create New Event</h2>
-        <form>
-          <div className="form-group">
-            <label for="eventTitle" className="text-info">Group Name:</label><br/>
-            <input id="eventTitle" 
-                    placeholder="Title"
-                    name="eventTitle"
-                    value={this.state.eventTitle}
-                    onChange={this.handleChange}
-                    className="form-control"/>
-          </div>
-          <div className="form-group">
-            <label for="eventDesc" className="text-info">Event Description:</label><br/>
-            <input id="eventDesc" 
-                    placeholder="Description"
-                    name="eventDesc"
-                    value={this.state.eventDesc}
-                    onChange={this.handleChange}
-                    className="form-control"/>
-          </div>
-          <div className="form-group">
-            <label for="eventZip" className="text-info">Zipcode:</label><br/>
-            <input id="eventZip" 
-                    placeholder="Zipcode"
-                    name="eventZip"
-                    value={this.state.eventZip}
-                    onChange={this.handleChange}
-                    className="form-control"/>
-          </div>
-          <div className="form-group">
-            <label for="eventDateTime" className="text-info">Schedule Event:</label><br/>
-            <input id="eventDateTime" 
-                    type="datetime-local"
-                    name="eventDateTime"
-                    value={this.state.eventDateTime}
-                    onChange={this.handleChange}
-                    className="form-control"/>
-          </div>
-          <div className="submitBtn">
-            <button className="btn btn-info float-right mb-2" onClick={this.handleSubmit}>Submit</button>
-          </div>
-        </form>
+        <body className="background" id ="eventsPage">
+          <h2 className="newEvent">Create New Event</h2>
+          <div id="signup-row" className="row justify-content-center align-items-center">
+              <div id="signup-column" className="col-md-8">
+                <div id="signup-box" className="col-md-12">
+                  <form>
+                    <div className="form-group">
+                      <h3 className="eventForm"> <label for="eventTitle">Group Name:</label><br/></h3>
+                      <input id="eventTitle" 
+                              placeholder="Title"
+                              name="eventTitle"
+                              value={this.state.eventTitle}
+                              onChange={this.handleChange}
+                              className="form-control"/>
+                    </div>
+                    <div className="form-group">
+                    <h3 className="eventForm"><label for="eventDesc">Event Description:</label><br/></h3>
+                      <input id="eventDesc" 
+                              placeholder="Description"
+                              name="eventDesc"
+                              value={this.state.eventDesc}
+                              onChange={this.handleChange}
+                              className="form-control"/>
+                    </div>
+                    <div className="form-group">
+                    <h3 className="eventForm"><label for="eventZip">Zipcode:</label><br/></h3>
+                      <input id="eventZip" 
+                              placeholder="Zipcode"
+                              name="eventZip"
+                              value={this.state.eventZip}
+                              onChange={this.handleChange}
+                              className="form-control"/>
+                    </div>
+                    <div className="form-group">
+                    <h3 className="eventForm"> <label for="eventDateTime">Schedule Event:</label><br/> </h3>
+                      <input id="eventDateTime" 
+                              type="datetime-local"
+                              name="eventDateTime"
+                              value={this.state.eventDateTime}
+                              onChange={this.handleChange}
+                              className="form-control"/>
+                    </div>
+                    <div className="submitBtn">
+                      <button className="btn btn-info float-right mb-2" onClick={this.handleSubmit}>Submit</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
 
-        <div className="App">
-        <h2>My Events</h2>
-        <Calendar
-          localizer={localizer}
-          defaultDate={new Date()}
-          defaultView="month"
-          views={['month', 'week', 'day']}
-          events={this.state.calendarEvents}
-          style={{ height: "100vh" }}
-          onSelectEvent={(event) => this.viewEvent(event.id)}
-        />
-      </div>
-        
-        </div>
+          <div className="container App">
+            <h2 className="myEvents">My Events</h2>
+            <Calendar
+              localizer={localizer}
+              defaultDate={new Date()}
+              defaultView="month"
+              views={['month', 'week', 'day']}
+              events={this.state.calendarEvents}
+              style={{ height: "100vh" }}
+              onSelectEvent={(event) => this.viewEvent(event.id)}
+            />
+          </div>
+        </body>
       </React.Fragment>
     )
   }
