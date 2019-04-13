@@ -26,19 +26,46 @@ class Messages extends Component {
   getContacts = () => {
     Axios.get(`/api/messages/${this.props.userid}`).then((res) => {
       console.log(res.data);
-      res.data = res.data.map((contact) => {
-        Axios.get(`/api/messages/newest/${this.props.userid}/${contact.id}`).then((res) => {
-          console.log(res);
-          contact.newest = res.data;
-          console.log(contact);
-          return contact;
-        }).catch((err) => {
-          console.log(err);
+      const getNewest = (contact) => {
+        return new Promise ((resolve, reject) => {
+          Axios.get(`/api/messages/newest/${this.props.userid}/${contact.id}`).then((res) => {
+            contact.newest = res.data;
+            console.log(contact);
+            resolve(contact)
+          }).catch((err) => {
+            reject(err);
+          });
         })
-        this.setState({
-          contacts: res.data
+      }
+
+      let promises = res.data.map((contact) => {
+        return getNewest(contact).then((contact) => {
+          return contact;
         });
       });
+
+      Promise.all(promises).then((results) => {
+        console.log(results);
+        this.setState({
+          contacts: results
+        });
+      });
+
+      
+
+      // res.data = res.data.map((contact) => {
+      //   Axios.get(`/api/messages/newest/${this.props.userid}/${contact.id}`).then((res) => {
+      //     console.log(res);
+      //     contact.newest = res.data;
+      //   }).catch((err) => {
+      //     console.log(err);
+      //   });
+      //   console.log(contact);
+      //   return contact;
+      // });
+      // this.setState({
+      //   contacts: res.data
+      // });
       
       // sessionStorage.setItem("contacts", JSON.stringify(res.data));
     }).catch((err) => {
@@ -81,6 +108,14 @@ class Messages extends Component {
     });
   }
 
+  setActive = (target) => {
+    const chatPeople = Array.from(document.querySelectorAll(".chatPeople"));
+    chatPeople.forEach((person) => {
+      person.classList.remove("active_chat");
+    });
+    target.classList.add("active_chat");
+  }
+
   render() {
     console.log(this.state);
     if (!this.props.loggedIn) {
@@ -109,13 +144,19 @@ class Messages extends Component {
                         </div>
                         <div class="inbox_chat">
                         <div class="chat_list">
+                        {console.log(this.state.contacts)}
                           {this.state.contacts.map((contact) => (
-                            <div class="chat_people">
+                            <div class="chat_people" onClick={(event) => {
+                              this.getThread(contact.id);
+                              console.log("event", event.currentTarget);
+                              this.setActive(event.currentTarget);
+                            }}>
                               <div class="chat_img">
                                 <img class="msg-img" src={contact.img} alt="avatar"/>
                               </div>
                               <div class="chat_ib">
                                 <h5>{contact.username} <span class="timestamp">{contact.newest ? contact.newest.createdAt : ""}</span></h5>
+                                <p>{contact.newest ? contact.newest.body : ""}</p>
                               </div>
                             </div>
                           ))}
