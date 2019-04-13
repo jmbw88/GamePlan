@@ -49,9 +49,9 @@ module.exports = {
       // Return other user involved with message whether they are the sender or recipient
       const users = dbMsg.map((msg) => {
         if (String(msg.to._id) === id) {
-          return {username: msg.from.account.username, id: msg.from._id};
+          return {username: msg.from.account.username, id: msg.from._id, img: msg.from.profile.img};
         } else {
-          return {username: msg.to.account.username, id: msg.to._id};
+          return {username: msg.to.account.username, id: msg.to._id, img: msg.to.profile.img};
         }
         // Remove duplicate users from array
       }).reduce((unique, o) => {

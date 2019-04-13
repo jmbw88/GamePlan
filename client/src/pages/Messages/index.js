@@ -8,7 +8,11 @@ class Messages extends Component {
     super();
     // const contacts = JSON.parse(sessionStorage.getItem("contacts"));
     // const thread = JSON.parse(sessionStorage.getItem("thread"));
-    this.state = {}
+    this.state = {
+      contacts: [],
+      contact: null,
+      thread: []
+    }
     // if (contacts) {
     //   this.state.contacts = contacts
     // }
@@ -36,7 +40,7 @@ class Messages extends Component {
         });
       });
       
-      sessionStorage.setItem("contacts", JSON.stringify(res.data));
+      // sessionStorage.setItem("contacts", JSON.stringify(res.data));
     }).catch((err) => {
       console.log(err);
     });
@@ -104,7 +108,19 @@ class Messages extends Component {
                             </div> --> */}
                         </div>
                         <div class="inbox_chat">
-                            <div class="chat_list active_chat">
+                        <div class="chat_list">
+                          {this.state.contacts.map((contact) => (
+                            <div class="chat_people">
+                              <div class="chat_img">
+                                <img class="msg-img" src={contact.img} alt="avatar"/>
+                              </div>
+                              <div class="chat_ib">
+                                <h5>{contact.username} <span class="timestamp">{contact.newest ? contact.newest.createdAt : ""}</span></h5>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                            {/* <div class="chat_list active_chat">
                                 <div class="chat_people">
                                     <div class="chat_img"><img class="msg-img" src="https://via.placeholder.com/100" alt="avatar"/></div>
                                     <div class="chat_ib">
@@ -158,7 +174,7 @@ class Messages extends Component {
                                         <p>Tenetur maxime eaque illum natus.</p>
                                     </div>
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                     <div class="messages">
