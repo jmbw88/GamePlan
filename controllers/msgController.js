@@ -28,6 +28,18 @@ module.exports = {
     });
   },
 
+  findNewest: (req, res) => {
+    const userid = req.params.userid;
+    const otherid = req.params.otherid
+    db.Message.findOne({ $or: [{ to: userid, from: otherid }, { to: otherid, from: userid }] }).sort({ createdAt: -1 }).then((dbMsg) => {
+      dbMsg = dbMsg.toJSON();
+      dbMsg.createdAt = moment(dbMsg.createdAt).calendar();
+      res.json(dbMsg);
+    }).catch((err) => {
+      res.status(422).json(err);
+    });
+  },
+
   // Return username and id for all users that this user has sent a message to or received a message from
   // TODO if contact has unread messages by user, send that info to the client
   findContacts: (req, res) => {
@@ -37,9 +49,9 @@ module.exports = {
       // Return other user involved with message whether they are the sender or recipient
       const users = dbMsg.map((msg) => {
         if (String(msg.to._id) === id) {
-          return {username: msg.from.account.username, id: msg.from._id};
+          return {username: msg.from.account.username, id: msg.from._id, img: msg.from.profile.img};
         } else {
-          return {username: msg.to.account.username, id: msg.to._id};
+          return {username: msg.to.account.username, id: msg.to._id, img: msg.to.profile.img};
         }
         // Remove duplicate users from array
       }).reduce((unique, o) => {

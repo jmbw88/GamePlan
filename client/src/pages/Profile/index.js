@@ -60,7 +60,7 @@ class Profile extends Component {
     const message = {
       to: this.props.match.params.id,
       from: this.props.userid,
-      body: " wants to start a conversation!",
+      body: `${this.props.username} wants to start a conversation!`,
     }
     Axios.post("/api/messages", message).then((res) => {
       this.setState({

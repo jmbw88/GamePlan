@@ -8,6 +8,9 @@ Router.route("/")
 Router.route("/:userid/:otherid")
     .get(msgController.findThread);
 
+Router.route("/newest/:userid/:otherid/")
+    .get(msgController.findNewest);
+
 Router.route("/:id")
     .get(msgController.findContacts);
 // Router.route("/:userid")
