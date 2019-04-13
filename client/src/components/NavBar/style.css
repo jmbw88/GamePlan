@@ -98,6 +98,18 @@
 	color: var(--color-pink);
 }
 
+p.username {
+  color: var(--color-yellow);
+}
+
+p.logout:hover {
+  color: var(--color-yellow);
+}
+
+p.logout {
+  color: var(--color-lightBlue);
+}
+
 
 @media screen and (max-width: 991px) {
   .floatRight {
@@ -107,6 +119,23 @@
 
   .navbar-toggler {
     margin: 0 0 0 90px;
+  }
+
+  .menu li a {
+    text-align: right;
+    margin-right:30px;
+  }
+
+  .navbar-text.m-0.px-1 {
+    text-align: right;
+  }
+
+  .navbar-nav .nav-link {
+    padding-left: 30px;
+  }
+
+  .navbar-text.m-0.px-1 {
+    padding-left: 10px;
   }
  
 }

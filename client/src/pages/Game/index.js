@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Axios from "axios";
 import { Link, Redirect } from "react-router-dom";
+import "./style.css";
 
 class Game extends Component {
   constructor(props) {
@@ -40,12 +41,34 @@ class Game extends Component {
   render() {
     return (
       <React.Fragment>
-        <h1>{this.state.title}</h1>
-        {this.state.img ? <img src={this.state.img} alt="game-image"/> : ""}
-        <p>{this.state.difficulty}</p>
-        <p>{this.state.length}</p>
-        <p>{this.state.uniqueness}</p>
-        <p>{this.state.cooperative ? "Cooperative" : ""}</p>
+        <body class="background">
+          <h2 className="newEvent">{this.state.title} Coup</h2>
+          {/* {this.state.img ? <img className="game-img" src={this.state.img} alt="game-image"/> : ""} */}
+
+          <div id="signup-row" className="row justify-content-center align-items-center">
+            <div id="signup-column" className="col-md-8">
+              <div id="signup-box" className="game-box col-md-12">
+                <img className="game-img" src="https://theboardgameshow.files.wordpress.com/2014/01/coup.jpg"></img>
+                <div className="difficulty col-md-3">
+                  <h4>Difficulty:</h4>
+                  <p>{this.state.difficulty} Beginner</p>
+                </div>
+                <div className="length col-md-3">
+                  <h4>Play Length:</h4>
+                  <p>{this.state.length}15min-1hr</p>
+                </div>
+                <div className="uniqueness col-md-3">
+                  <h4>Uniqueness:</h4>
+                  <p>{this.state.uniqueness}Unique</p>
+                </div>
+                <div className="cooperative col-md-3">
+                  <h4>Cooperative:</h4>
+                  <p>{this.state.cooperative ? "Cooperative" : ""}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </body>
       </React.Fragment>
 
     )
