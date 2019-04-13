@@ -6,12 +6,12 @@ import "./style.css";
 class Messages extends Component {
   constructor(props) {
     super();
-    const contacts = JSON.parse(sessionStorage.getItem("contacts"));
+    // const contacts = JSON.parse(sessionStorage.getItem("contacts"));
     // const thread = JSON.parse(sessionStorage.getItem("thread"));
     this.state = {}
-    if (contacts) {
-      this.state.contacts = contacts
-    }
+    // if (contacts) {
+    //   this.state.contacts = contacts
+    // }
     this.componentDidMount = this.componentDidMount.bind(this);
   }
   
@@ -21,9 +21,21 @@ class Messages extends Component {
   
   getContacts = () => {
     Axios.get(`/api/messages/${this.props.userid}`).then((res) => {
-      this.setState({
-        contacts: res.data
+      console.log(res.data);
+      res.data = res.data.map((contact) => {
+        Axios.get(`/api/messages/newest/${this.props.userid}/${contact.id}`).then((res) => {
+          console.log(res);
+          contact.newest = res.data;
+          console.log(contact);
+          return contact;
+        }).catch((err) => {
+          console.log(err);
+        })
+        this.setState({
+          contacts: res.data
+        });
       });
+      
       sessionStorage.setItem("contacts", JSON.stringify(res.data));
     }).catch((err) => {
       console.log(err);
@@ -228,34 +240,34 @@ class Messages extends Component {
             </div>
         </div>
       
+      <React.Fragment>
+        <h1>Messages</h1>
+        <h3>Contacts</h3>
+        {this.state.contacts ? this.state.contacts.map((contact) => (
+          <React.Fragment>
+            <button className="btn btn-primary d-block my-2" onClick={() => this.getThread(contact.id)}>{contact.username}</button> 
+            <Link to={`/${contact.id}`}>View Profile</Link>
+          </React.Fragment>
+        )) : ""}
+        {this.state.thread ? this.state.thread.map((msg) => (
+          <p className={msg.to === this.props.userid ? "text-info" : "text-danger"}>
+            {msg.to === this.props.userid ? this.state.contacts.filter((contact) => contact.id === this.state.contact)[0].username : this.props.username}: {msg.body} {msg.createdAt}
+          </p>
+        )) 
+        : ""}
+        {this.state.thread ? (
+          <React.Fragment>
+            <input type="text" 
+                          id="chatMsg" 
+                          placeholder="Enter message"
+                          name="message"
+                          value={this.state.message}
+                          onChange={this.handleChange}/>
+            <button className="btn btn-secondary" onClick={this.sendMessage}>Submit</button>
+          </React.Fragment>
+        ) : ""}
+      </React.Fragment>
       </div>
-      // <React.Fragment>
-      //   <h1>Messages</h1>
-      //   <h3>Contacts</h3>
-      //   {this.state.contacts ? this.state.contacts.map((contact) => (
-      //     <React.Fragment>
-      //       <button className="btn btn-primary d-block my-2" onClick={() => this.getThread(contact.id)}>{contact.username}</button> 
-      //       <Link to={`/${contact.id}`}>View Profile</Link>
-      //     </React.Fragment>
-      //   )) : ""}
-      //   {this.state.thread ? this.state.thread.map((msg) => (
-      //     <p className={msg.to === this.props.userid ? "text-info" : "text-danger"}>
-      //       {msg.to === this.props.userid ? this.state.contacts.filter((contact) => contact.id === this.state.contact)[0].username : this.props.username}: {msg.body} {msg.createdAt}
-      //     </p>
-      //   )) 
-      //   : ""}
-      //   {this.state.thread ? (
-      //     <React.Fragment>
-      //       <input type="text" 
-      //                     id="chatMsg" 
-      //                     placeholder="Enter message"
-      //                     name="message"
-      //                     value={this.state.message}
-      //                     onChange={this.handleChange}/>
-      //       <button className="btn btn-secondary" onClick={this.sendMessage}>Submit</button>
-      //     </React.Fragment>
-      //   ) : ""}
-      // </React.Fragment>
     )
   }
 }
