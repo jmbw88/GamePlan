@@ -1,8 +1,7 @@
-body {
-  margin: 0;
-  padding: 0;
-  color: var(--color-darkBlue);
-  cursor: url(../../assets/images/cursors/default.cur), default;
+.background {
+  background-image: url(../../assets/images/bgTop.jpg);
+  /* background-size: cover; */
+  overflow: hidden
 } 
 
 h4 {
@@ -11,40 +10,47 @@ h4 {
 }
 
 .text-info {
-    color: var(--color-darkBlue)!important;
+  color: var(--color-darkBlue)!important;
 }
 
-#logo img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 30%;
-}
-
-#signup {
-  background-image: url(../../assets/images/bgTop.jpg);
-  min-height: calc(100vh - 56px);
-  /* background-size: cover */
-}
-
-#signup .container #signup-row #signup-column #signup-box {
-  margin-top: 40px;
-  margin-bottom: 40px;
-  max-width: 600px;
-  background-color: rgba(173, 204, 233, 0.753);
-  border-radius: 20px;
+#mainContainer h2 {
+  text-align: center;
+  font-size: 60px;
+  padding-top: 40px;
+  color: #FFF;
   font-family: 'Lobster Two', cursive;
-  color: var(--color-darkBlue);
-  font-size: 18px;
-  padding: 20px 0 20px 0;
 }
 
-#signup-form h3 {
+.react-autosuggest__input {
+  width: 100%;
+}
+
+.autosuggest .btn.btn-primary {
+  float: right;
+  font-family: 'raleway', 'sans-serif';
+  color: #fff;
+  background-color:var(--color-darkBlue);
+  border-color:var(--color-darkBlue);
+  cursor: url(../../assets/images/cursors/select.cur), pointer;
+  margin: 10px 0 0 10px;
+}
+
+.autosuggest .btn.btn-primary:hover{
+  background: var(--color-text);
+  border-color: var(--color-text);
+  cursor: url(../../assets/images/cursors/select.cur), pointer;
+}
+
+.row.justify-content-center.align-items-center {
+  overflow: hidden;
+}
+
+#mainContainer h3 {
   font-size: 45px;
   text-align: center;
   align-content: center;
+  font-family: 'Lobster Two', cursive;
+  clear: both;
 }
 
 .form-group {
@@ -65,8 +71,6 @@ h4 {
 }
 
 .submitBtn {
-  color: var(--color-darkBlue);
-  font-family: 'raleway', 'sans-serif';
   float: right;
   margin-right: 15px;
 }
@@ -75,12 +79,10 @@ h4 {
   color: #fff;
   background-color:var(--color-darkBlue);
   cursor: url(../../assets/images/cursors/select.cur), pointer;
-  border-color: var(--color-darkBlue);
 }
 
 .btn-info:hover{
   background: var(--color-text);
-  border-color: var(--color-text);
   cursor: url(../../assets/images/cursors/select.cur), pointer;
 }
   

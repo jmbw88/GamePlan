@@ -43,15 +43,18 @@ class Nav extends Component {
     }
     const loggedIn = this.props.loggedIn;
     return (
-      <nav className="navbar navbar-expand-lg menu">
-        <Link className="navbar-brand" to="/"><img src={logo}/></Link>
-        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <nav className="navbar navbar-expand-lg menu justify-content-end">
+        <div className="navLogo justify-content-start">
+          <Link className="navbar-brand" to="/"><img src={logo}/></Link>
+        </div>
+        <div className="floatRight">
+        <button className="navbar-toggler" id="navButton" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarNav">
+        <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
           <ul className="navbar-nav">
-
-            {loggedIn ? (
+          
+          {loggedIn ? (
               <React.Fragment>
                 <li className="nav-item">
                   <p className="navbar-text m-0 px-1">Hi {this.props.username}!</p>
@@ -87,6 +90,7 @@ class Nav extends Component {
               </React.Fragment>
             )}
           </ul>
+        </div>
         </div>
       </nav>
     )

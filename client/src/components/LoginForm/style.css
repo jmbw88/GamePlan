@@ -29,7 +29,7 @@ body {
 
 #login {
     background-image: url(../../assets/images/bgTop.jpg);
-    background-size: cover;
+    /* background-size: cover; */
     min-height: calc(100vh - 56px);
 }
 
@@ -76,6 +76,7 @@ body {
 
 .submitBtn {
     color: var(--color-darkBlue);
+    border-color:var(--color-darkBlue);
     font-family: 'raleway', 'sans-serif';
     float: right;
     margin-right: 15px;
@@ -89,6 +90,7 @@ body {
 
 .btn-info:hover{
     background: var(--color-text);
+    border-color: var(--color-text);
     cursor: url(../../assets/images/cursors/select.cur), pointer;
 }
   
