@@ -6,27 +6,13 @@ import "./style.css";
 class Group extends Component {
   constructor(props) {
     super();
-    const group = JSON.parse(sessionStorage.getItem("group"));
-    if(group) {
-      this.state = {
-          name: group.name,
-          description: group.description,
-          admins: group.admins,
-          events: group.events,
-          zipcode: group.zipcode,
-          id: group._id
-      }
-    }
-    else {
-      this.state = {
-        name: null,
-        description: null,
-        admins: null,
-        events: null,
-        zipcode: null,
-        id: null
-      }
-      
+    this.state = {
+      name: null,
+      description: null,
+      admins: null,
+      events: null,
+      zipcode: null,
+      id: null
     }
     this.componentDidMount = this.componentDidMount.bind(this);
   }
@@ -37,7 +23,6 @@ class Group extends Component {
 
   getGroup = (id) => {
     Axios.get(`/api/groups/${id}`).then((res) => {
-      console.log(res);
       this.setState({
         name: res.data.name,
         description: res.data.description,
@@ -47,7 +32,7 @@ class Group extends Component {
         id: res.data._id
       });
 
-      sessionStorage.setItem("group", JSON.stringify(res.data));
+      // sessionStorage.setItem("group", JSON.stringify(res.data));
     }).catch((err) => {
       console.log(err);
     });
@@ -57,7 +42,9 @@ class Group extends Component {
     const { match: { params } } = this.props;
     const id = params.id;
     Axios.put(`/api/user/${this.props.userid}/groups/${id}`).then((res) => {
-      console.log(res);
+      this.setState({
+        redirectTo: "/groups"
+      });
     }).catch((err) => {
       console.log(err);
     });
@@ -73,16 +60,17 @@ class Group extends Component {
       date: this.state.eventDateTime,
       createdBy: this.props.userid
     }
-
-    Axios.post("/api/events", newEvent).then((res) => {
-      console.log(res);
-      const eventID = res.data._id;
-      Axios.put(`/api/user/${this.props.userid}/events/${res.data._id}`).then((res) => {
-        console.log(res);
-        Axios.put(`/api/groups/${this.state.id}/events/${eventID}`).then((res) => {
-          console.log(res);
-          this.setState({
-            redirectTo: `/events/${res.data._id}`
+    const formComplete = Object.values(newEvent).every(val => val);
+    if(formComplete) {
+      Axios.post("/api/events", newEvent).then((res) => {
+        const eventID = res.data._id;
+        Axios.put(`/api/user/${this.props.userid}/events/${res.data._id}`).then((res) => {
+          Axios.put(`/api/groups/${this.state.id}/events/${eventID}`).then((res) => {
+            this.setState({
+              redirectTo: `/events/${eventID}`
+            });
+          }).catch((err) => {
+            console.log(err);
           });
         }).catch((err) => {
           console.log(err);
@@ -90,9 +78,11 @@ class Group extends Component {
       }).catch((err) => {
         console.log(err);
       });
-    }).catch((err) => {
-      console.log(err);
-    });
+    } else {
+      this.setState({
+        errorMsg: "Please complete form"
+      });
+    }
   }
 
   handleChange = (event) => {
@@ -108,7 +98,6 @@ class Group extends Component {
     if(this.state.redirectTo) {
       return <Redirect to={{ pathname: this.state.redirectTo }}/>
     }
-    console.log(this.state);
     return (
       <React.Fragment>
         <body className="background">
@@ -118,6 +107,10 @@ class Group extends Component {
               <div id="signup-column" className="col-md-8">
                 <div id="signup-box" className="col-md-12">
                   <form>
+                  {this.state.errorMsg ? (
+                    <div className="alert alert-danger" role="alert">
+                      {this.state.errorMsg}
+                    </div>) : ""}
                     <div className="form-group">
                     <h3 className="eventForm"> <label for="eventTitle">Group Name:</label><br/></h3>
                       <input id="eventTitle" 

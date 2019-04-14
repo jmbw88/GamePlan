@@ -24,6 +24,11 @@ h2.newEvent  {
   color: #FFF;
   font-family: 'Lobster Two', cursive;
 }
+
+.rbc-row-content {
+  z-index: 1 !important;
+}
+
 h2.myEvents  {
   text-align: center;
   font-size: 60px;

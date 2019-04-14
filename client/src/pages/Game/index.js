@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Axios from "axios";
-import { Link, Redirect } from "react-router-dom";
 import "./style.css";
 
 class Game extends Component {
@@ -24,7 +23,7 @@ class Game extends Component {
 
   getGame = (id) => {
     Axios.get(`/api/games/${id}`).then((res) => {
-      console.log(res);
+      // console.log(res);
       this.setState({
         title: res.data.title,
         difficulty: res.data.description.difficulty,
@@ -41,12 +40,12 @@ class Game extends Component {
   render() {
     return (
       <React.Fragment>
-        <body class="background">
+        <div className="background">
           <h2 className="newEvent">{this.state.title}</h2>
           <div id="signup-row" className="row justify-content-center align-items-center">
             <div id="signup-column" className="col-md-8">
+              {/* {this.state.img ? <img src={this.state.img} alt="Game Image"/> : ""} */}
               <div id="signup-box" className="game-box col-md-12">
-                {this.state.img ? <img className="game-img" src={this.state.img} alt="game-image"/> : ""}
                 <div className="difficulty col-md-3">
                   <h4>Difficulty:</h4>
                   <p>{this.state.difficulty}</p>
@@ -66,7 +65,7 @@ class Game extends Component {
               </div>
             </div>
           </div>
-        </body>
+        </div>
       </React.Fragment>
 
     )

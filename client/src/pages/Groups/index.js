@@ -5,13 +5,13 @@ import Axios from "axios";
 class Groups extends Component {
   constructor(props) {
     super();
-    const groups = JSON.parse(sessionStorage.getItem("groups"));
+    // const groups = JSON.parse(sessionStorage.getItem("groups"));
     this.state = {};
-    if(groups) {
-      this.state = {
-        groups: groups
-      }
-    }
+    // if(groups) {
+    //   this.state = {
+    //     groups: groups
+    //   }
+    // }
     this.componentDidMount = this.componentDidMount.bind(this);
   }
   
@@ -21,11 +21,10 @@ class Groups extends Component {
 
   getGroups = () => {      
     Axios.get(`/api/user/${this.props.userid}/groups`).then((res) => {
-      console.log(res);
       this.setState({
         groups: res.data
       });
-      sessionStorage.setItem("groups", JSON.stringify(res.data));
+      // sessionStorage.setItem("groups", JSON.stringify(res.data));
     }).catch((err) => {
       console.log(err);
     });
@@ -49,19 +48,26 @@ class Groups extends Component {
       admins: [this.props.userid]
     }
 
-    Axios.post(`/api/groups`, newGroup).then((res) => {
-      console.log(res);
-      Axios.put(`/api/user/${this.props.userid}/groups/${res.data._id}`).then((res) => {
-        console.log(res);
-        this.setState({
-          redirectTo: `/groups/${res.data._id}`
+    const formComplete = Object.values(newGroup).every(val => val);
+    if(formComplete) {
+      Axios.post(`/api/groups`, newGroup).then((res) => {
+        // console.log(res);
+        Axios.put(`/api/user/${this.props.userid}/groups/${res.data._id}`).then((res) => {
+          // console.log(res);
+          this.setState({
+            redirectTo: `/groups/${res.data._id}`
+          });
+        }).catch((err) => {
+          console.log(err);
         });
       }).catch((err) => {
         console.log(err);
       });
-    }).catch((err) => {
-      console.log(err);
-    });
+    } else {
+      this.setState({
+        errorMsg: "Please complete form"
+      });
+    }
   }
 
   render() {
@@ -71,7 +77,7 @@ class Groups extends Component {
     if(this.state.redirectTo) {
       return <Redirect to={{ pathname: this.state.redirectTo }}/>
     }
-    console.log(this.state);
+    // console.log(this.state);
     return (
       <React.Fragment>
         <body className="background">
@@ -80,6 +86,10 @@ class Groups extends Component {
               <div id="signup-column" className="col-md-8">
                 <div id="signup-box" className="col-md-12">
                   <form>
+                    {this.state.errorMsg ? (
+                      <div className="alert alert-danger" role="alert">
+                        {this.state.errorMsg}
+                      </div>) : ""}
                     <div className="form-group">
                     <h3 className="eventForm"> <label for="groupName">Group Name:</label><br/></h3>
                       <input id="groupName" 
@@ -131,7 +141,6 @@ class Groups extends Component {
               </div>
             </div>
                           
-       
         </body>
       </React.Fragment>
     )

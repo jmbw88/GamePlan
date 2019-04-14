@@ -1,3 +1,7 @@
+.background {
+  min-height: calc(100vh);
+}
+
 .game-img {
   border-radius: 20px;
 	margin-left: auto;
