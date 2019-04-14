@@ -166,12 +166,6 @@ body {
     font-weight: 400;
     line-height: 24px;
     margin: auto;
-    border-radius: 20px;
-}
-
-.modal-header h2 {
-    text-align: center;
-    font-family: 'Lobster Two';
 }
 
 h4 {
@@ -186,6 +180,8 @@ h4 {
     text-shadow: 4px 4px #13324C;
     padding: 20px;
     margin: 25px 0px 0px 0px;
+    border-top-right-radius: 30px;
+    border-top-left-radius: 30px;
 }
 
 .block {
@@ -196,6 +192,7 @@ h4 {
 
 .container {
     margin: auto;
+    border-radius: 30px;
 }
 
 #game-library-block {
@@ -211,6 +208,8 @@ h4 {
     background-repeat: repeat;
     color: #13324C;
     box-shadow: 0 2px 6px -2px rgba(0, 0, 0, 0.26);
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
 }
 
 .inline {
@@ -228,7 +227,7 @@ h4 {
     border-color: transparent;
 }
 
-.modal {
+#gameModal {
     display: none;
     /* Hidden by default */
     position: fixed;
@@ -239,20 +238,12 @@ h4 {
     /* Location of the box */
     left: 0;
     top: 0;
-    width: 100%;
-    /* Full width */
-    height: 100%;
-    /* Full height */
     overflow: auto;
     /* Enable scroll if needed */
     background-color: rgb(0, 0, 0);
     /* Fallback color */
     background-color: rgba(0, 0, 0, 0.4);
     /* Black w/ opacity */
-    max-width: 100%;
-    max-height: 100%;
-    height: auto;
-    width: auto;
 }
 
 /* Modal Content */
@@ -263,13 +254,17 @@ h4 {
     font-size: 16px;
     margin: auto;
     padding: 0;
-    border: 1px solid #888;
+    border: none;
+    border-radius: 30px;
     width: 50%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    -webkit-animation-name: animatetop;
-    -webkit-animation-duration: 0.4s;
     animation-name: animatetop;
     animation-duration: 0.4s
+}
+
+.modal-header h2 {
+    text-align: center;
+    font-family: 'Lobster Two';
 }
 
 #addGameBtn {
@@ -349,9 +344,11 @@ a:visited {
 }
 
 .modal-header {
-    padding: 2px 16px;
+    padding: 8px 16px;
     background-image: url(../images/meeples2.jpg);
     color: white;
+    border-top-right-radius: 30px;
+    border-top-left-radius: 30px;
 }
 
 .modal-body {
@@ -362,52 +359,8 @@ a:visited {
     width: auto;
 }
 
-#game-1 {
+#game {
     background-image: url(https://cdn.shopify.com/s/files/1/0229/9777/products/citadels_grande.jpg?v=1518281599);
-}
-
-#game-2 {
-    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSF19fr-DXgy79lwR9mCcrUUmmT6ZO43qknLdC77O1RNypnVW3R);
-}
-
-#game-3 {
-    background-image: url(https://images-na.ssl-images-amazon.com/images/I/81yob9x41dL._SY550_.jpg);
-}
-
-#game-4 {
-    background-image: url("https://cf.geekdo-images.com/imagepage/img/VrePp6I9_HXw_NtBe4NFcwF5dRQ=/fit-in/900x600/filters:no_upscale()/pic3163924.jpg")
-}
-
-#game-5 {
-    background-image: url("https://cf.geekdo-images.com/imagepage/img/JS90_q_U-h5Xe9Dn2jTTky-FqOs=/fit-in/900x600/filters:no_upscale()/pic1356616.jpg");
-}
-
-#game-6 {
-    background-image: url("https://cf.geekdo-images.com/imagepage/img/p5cFyzJjEeXzBwfg2vof3R8h4Ac=/fit-in/900x600/filters:no_upscale()/pic3146943.png");
-}
-
-#game-7 {
-    background-image: url("https://cf.geekdo-images.com/imagepage/img/YwXMZ0QbFGuiD6iWZFVu8KmSnfg=/fit-in/900x600/filters:no_upscale()/pic4459753.jpg");
-}
-
-#game-8 {
-    background-image: url("https://cf.geekdo-images.com/imagepage/img/iCiVQ8UnKtO4wt9wBYS51_DXTFo=/fit-in/900x600/filters:no_upscale()/pic860217.jpg");
-}
-
-#game-9 {
-    background-image: url("https://cf.geekdo-images.com/imagepage/img/HR1V4BanUbsX5iBMhN6G0gmCCJI=/fit-in/900x600/filters:no_upscale()/pic2278942.jpg");
-}
-
-#game-10 {
-    background-image: url("https://cf.geekdo-images.com/imagepage/img/_ggLHVsBgMyFjSMJJNYAuNkFtKE=/fit-in/900x600/filters:no_upscale()/pic3880340.jpg");
-}
-
-#game-11 {
-    background-image: url("https://cf.geekdo-images.com/imagepage/img/zemPGqup_Yeve-4N-H0ufktr9Fg=/fit-in/900x600/filters:no_upscale()/pic2055255.jpg");
-}
-
-#game-12 {
-    background-image: url("https://cf.geekdo-images.com/imagepage/img/P3lT-iY1cp6aJBXQMD0Ol2KG2uw=/fit-in/900x600/filters:no_upscale()/pic2591224.png");
 }
 
 .profile-card {
@@ -447,10 +400,10 @@ a:visited {
         display: none;
     }
 
-    #messageBtn {
-        size: 30%;
+    .image {
+        height: 50%;
+        width: 50%;
     }
-
 }
 
 @media screen and (max-width: 991px) {
@@ -477,12 +430,9 @@ a:visited {
         padding: 5px;
     }
 
-    .cont {
-        margin-top: 124px;
-    }
-
-    #messageBtn {
-        size: 30%;
+    .image {
+        height: 40%;
+        width: 40%;
     }
 
 }
