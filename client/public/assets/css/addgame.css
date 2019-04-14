@@ -8,6 +8,7 @@
     --color-yellow: #F4D81E;
     --color-text: #13324C;
 }
+
 .logo {
     margin-top: 60px;
 }
@@ -107,7 +108,6 @@ hr {
     color: #fff;
 }
 
-
 #downMenu {
     float: right;
 }
@@ -150,10 +150,6 @@ hr {
     margin-top: 29px;
 }
 
-#avatar {
-    margin-left: 15px;
-}
-
 html {
     background-image: url(../images/bgTop.jpg);
     background-repeat: repeat;
@@ -167,9 +163,15 @@ body {
     background-color: transparent;
     font-family: 'raleway', 'sans-serif';
     font-size: 18px;
-    letter-spacing: 2px;
     font-weight: 400;
     line-height: 24px;
+    margin: auto;
+    border-radius: 20px;
+}
+
+.modal-header h2 {
+    text-align: center;
+    font-family: 'Lobster Two';
 }
 
 h4 {
@@ -178,11 +180,12 @@ h4 {
     font-size: 35px;
     line-height: 35px;
     background-image: url(../images/meeples2.jpg);
-    width: 80%;
+    width: 100%;
     text-align: center;
     color: white;
-    padding: 10px;
-    margin: 0px 0px 0px 0px;
+    text-shadow: 4px 4px #13324C;
+    padding: 20px;
+    margin: 25px 0px 0px 0px;
 }
 
 .block {
@@ -197,10 +200,11 @@ h4 {
 
 #game-library-block {
     align-content: center;
+    width: 55%;
 }
 
 #game-library {
-    width: 80%;
+    padding: 45px 15px 10px 15px;
     align-content: center;
     text-align: center;
     background-image: url(../images/cubes.png);
@@ -213,6 +217,149 @@ h4 {
     display: inline-block;
     position: relative;
     margin: auto;
+}
+
+#viewGame {
+    padding: 5px;
+    margin-top: 70px;
+    opacity: 0.9;
+    color: white;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    padding-top: 100px;
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
+    width: auto;
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    color: var(--color-text);
+    font-size: 16px;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 50%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+#addGameBtn {
+    color: white;
+    background-color: var(--color-darkBlue);
+}
+
+a:visited {
+    color: var(--color-pink);
+    text-decoration: none;
+    font-weight: 900;
+}
+
+.btn-link {
+    font-weight: 400;
+    color: white;
+    text-decoration: none;
+}
+
+.btn-link:hover {
+    color: #AECCE9;
+    text-decoration: none;
+}
+
+#modal-img {
+    padding: 15px;
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
+    width: auto;
+}
+
+.game-specs {
+    padding: 15px;
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+@keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+/* The Close Button */
+.close {
+    color: white;
+    float: right;
+    font-size: 50px;
+    font-weight: bold;
+    opacity: 0.9;
+    line-height: 0.8;
+}
+
+.close:hover,
+.close:focus {
+    color: var(--color-yellow);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 2px 16px;
+    background-image: url(../images/meeples2.jpg);
+    color: white;
+}
+
+.modal-body {
+    padding: 2px 16px;
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
+    width: auto;
 }
 
 #game-1 {
@@ -231,35 +378,35 @@ h4 {
     background-image: url("https://cf.geekdo-images.com/imagepage/img/VrePp6I9_HXw_NtBe4NFcwF5dRQ=/fit-in/900x600/filters:no_upscale()/pic3163924.jpg")
 }
 
-#game-5{
+#game-5 {
     background-image: url("https://cf.geekdo-images.com/imagepage/img/JS90_q_U-h5Xe9Dn2jTTky-FqOs=/fit-in/900x600/filters:no_upscale()/pic1356616.jpg");
 }
 
-#game-6{
+#game-6 {
     background-image: url("https://cf.geekdo-images.com/imagepage/img/p5cFyzJjEeXzBwfg2vof3R8h4Ac=/fit-in/900x600/filters:no_upscale()/pic3146943.png");
 }
 
-#game-7{
+#game-7 {
     background-image: url("https://cf.geekdo-images.com/imagepage/img/YwXMZ0QbFGuiD6iWZFVu8KmSnfg=/fit-in/900x600/filters:no_upscale()/pic4459753.jpg");
 }
 
-#game-8{
+#game-8 {
     background-image: url("https://cf.geekdo-images.com/imagepage/img/iCiVQ8UnKtO4wt9wBYS51_DXTFo=/fit-in/900x600/filters:no_upscale()/pic860217.jpg");
 }
 
-#game-9{
+#game-9 {
     background-image: url("https://cf.geekdo-images.com/imagepage/img/HR1V4BanUbsX5iBMhN6G0gmCCJI=/fit-in/900x600/filters:no_upscale()/pic2278942.jpg");
 }
 
-#game-10{
+#game-10 {
     background-image: url("https://cf.geekdo-images.com/imagepage/img/_ggLHVsBgMyFjSMJJNYAuNkFtKE=/fit-in/900x600/filters:no_upscale()/pic3880340.jpg");
 }
 
-#game-11{
+#game-11 {
     background-image: url("https://cf.geekdo-images.com/imagepage/img/zemPGqup_Yeve-4N-H0ufktr9Fg=/fit-in/900x600/filters:no_upscale()/pic2055255.jpg");
 }
 
-#game-12{
+#game-12 {
     background-image: url("https://cf.geekdo-images.com/imagepage/img/P3lT-iY1cp6aJBXQMD0Ol2KG2uw=/fit-in/900x600/filters:no_upscale()/pic2591224.png");
 }
 
@@ -268,7 +415,7 @@ h4 {
     padding-top: 25px;
     margin: 70px auto 30px;
     box-shadow: 0 2px 6px -2px rgba(0, 0, 0, 0.26);
-    background-image: url();(../images/cubes.png);
+    background-image: url(../images/cubes.png);
     background-repeat: repeat;
 }
 
@@ -303,6 +450,7 @@ h4 {
     #messageBtn {
         size: 30%;
     }
+
 }
 
 @media screen and (max-width: 991px) {
@@ -332,10 +480,11 @@ h4 {
     .cont {
         margin-top: 124px;
     }
-    
+
     #messageBtn {
         size: 30%;
     }
+
 }
 
 .default {
