@@ -66,13 +66,38 @@ class Event extends Component {
     }
     return (
       <React.Fragment>
-        <h1>Event</h1>
-        <h2>{this.state.title}</h2>
-        <p>{this.state.description}</p>
-        <p>Date: {this.state.date}</p>
-        <p>Zipcode: {this.state.zipcode}</p>
-        {this.state.createdBy ? <p>Created by: <Link to={`/${this.state.createdBy._id}`}>{this.state.createdBy.account.username}</Link></p> : ""}
-        <button className="btn btn-primary" onClick={this.joinEvent}>Join Event</button>
+
+        <body className="background">
+          <h2 className="newEvent">Event</h2>
+            <div id="signup-row" className="row justify-content-center align-items-center">
+              <div id="signup-column" className="col-md-8">
+                <div id="signup-box" className="col-md-12">
+                  <h3 className="eventForm col-md-12">{this.state.title}</h3>
+                  <p className="description col-md-12">{this.state.description}</p>
+                  <div className="date col-md-4">
+                    <h4>Date:</h4>
+                    <p>{this.state.date}</p>
+                  </div>
+
+                  <div className="zip col-md-4">
+                    <h4>Zipcode:</h4>
+                    <p>{this.state.zipcode}</p>
+                  </div>
+
+                  <div className="creator col-md-4">
+                    <h4>Creator: </h4>
+                    {this.state.createdBy ? <p> <Link to={`/${this.state.createdBy._id}`}>{this.state.createdBy.account.username}</Link></p> : ""}
+                  </div>
+
+
+                  <div id="button-row" className="row justify-content-center align-items-center">
+                    <button className="eventBtn btn btn-primary" onClick={this.joinEvent}>Join Event</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </body>
+
       </React.Fragment>
     )
   }

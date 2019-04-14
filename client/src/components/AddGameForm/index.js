@@ -113,14 +113,16 @@ class AddGameForm extends Component {
     return (
       <React.Fragment>
         <h1>Add game</h1>
-        <Autosuggest 
-        suggestions={suggestions}
-        onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
-        onSuggestionsClearRequested={this.onSuggestionsClearRequested}
-        getSuggestionValue={getSuggestionValue}
-        renderSuggestion={renderSuggestion}
-        inputProps={inputProps} />
-        <button className="btn btn-primary" onClick={() => this.addGame(this.state.value)}>Submit</button>
+        <form>
+          <Autosuggest 
+          suggestions={suggestions}
+          onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
+          onSuggestionsClearRequested={this.onSuggestionsClearRequested}
+          getSuggestionValue={getSuggestionValue}
+          renderSuggestion={renderSuggestion}
+          inputProps={inputProps} />
+          <button className="btn btn-primary" onClick={(event) => {event.preventDefault(); this.addGame(this.state.value)}}>Submit</button>
+        </form>
           {/* {this.state.games ? this.state.games.map((game) => (
             <React.Fragment>
               <p>{game.title}</p> 
