@@ -5,13 +5,13 @@ import Axios from "axios";
 class Groups extends Component {
   constructor(props) {
     super();
-    const groups = JSON.parse(sessionStorage.getItem("groups"));
+    // const groups = JSON.parse(sessionStorage.getItem("groups"));
     this.state = {};
-    if(groups) {
-      this.state = {
-        groups: groups
-      }
-    }
+    // if(groups) {
+    //   this.state = {
+    //     groups: groups
+    //   }
+    // }
     this.componentDidMount = this.componentDidMount.bind(this);
   }
   
@@ -21,11 +21,10 @@ class Groups extends Component {
 
   getGroups = () => {      
     Axios.get(`/api/user/${this.props.userid}/groups`).then((res) => {
-      console.log(res);
       this.setState({
         groups: res.data
       });
-      sessionStorage.setItem("groups", JSON.stringify(res.data));
+      // sessionStorage.setItem("groups", JSON.stringify(res.data));
     }).catch((err) => {
       console.log(err);
     });
@@ -50,9 +49,9 @@ class Groups extends Component {
     }
 
     Axios.post(`/api/groups`, newGroup).then((res) => {
-      console.log(res);
+      // console.log(res);
       Axios.put(`/api/user/${this.props.userid}/groups/${res.data._id}`).then((res) => {
-        console.log(res);
+        // console.log(res);
         this.setState({
           redirectTo: `/groups/${res.data._id}`
         });
@@ -71,7 +70,7 @@ class Groups extends Component {
     if(this.state.redirectTo) {
       return <Redirect to={{ pathname: this.state.redirectTo }}/>
     }
-    console.log(this.state);
+    // console.log(this.state);
     return (
       <React.Fragment>
         <body className="background">
