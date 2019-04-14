@@ -104,3 +104,18 @@ h4 {
 #signup-form #passwordHelp .form-text .text-muted{
   color: #fff !important;
 }
+
+.searchResults {
+  display: inline-block;
+  text-align: center;
+}
+
+a {
+  cursor: url(../../assets/images/cursors/select.cur), pointer;
+  color: #fff;
+}
+
+a:hover {
+  color: var(--color-pink);
+  text-decoration: none;
+}

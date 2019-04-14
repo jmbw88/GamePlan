@@ -45,27 +45,31 @@ class Events extends Component {
       date: this.state.eventDateTime,
       createdBy: this.props.userid
     }
-
-    Axios.post("/api/events", newEvent).then((res) => {
-      console.log(res);
-      Axios.put(`/api/user/${this.props.userid}/events/${res.data._id}`).then((res) => {
-        console.log(res);
-        this.setState({
-          redirectTo: `/events/${res.data._id}`
+    const formComplete = Object.values(newEvent).every(val => val);
+    if(formComplete) {
+      Axios.post("/api/events", newEvent).then((res) => {
+        const eventID = res.data._id;
+        Axios.put(`/api/user/${this.props.userid}/events/${eventID}`).then((res) => {
+          this.setState({
+            redirectTo: `/events/${eventID}`
+          });
+        }).catch((err) => {
+          console.log(err);
         });
       }).catch((err) => {
         console.log(err);
       });
-    }).catch((err) => {
-      console.log(err);
-    });
+    }
+    else {
+      this.setState({
+        errorMsg: "Please complete form"
+      });
+    }
   }
 
   getEvents = () => {      
     Axios.get(`/api/user/${this.props.userid}/events`).then((res) => {
-      console.log(res);
       const calendarEvents = res.data.map((event) => {
-        console.log(event._id);
         return {
           start: new Date(event.date),
           end: new Date(event.date),
@@ -77,7 +81,6 @@ class Events extends Component {
         events: res.data,
         calendarEvents: calendarEvents
       });
-      sessionStorage.setItem("events", JSON.stringify(res.data));
     }).catch((err) => {
       console.log(err);
     });
@@ -96,7 +99,6 @@ class Events extends Component {
     if(this.state.redirectTo) {
       return <Redirect to={{ pathname: this.state.redirectTo }}/>
     }
-    console.log(this.state);
     return (
       <React.Fragment>
         <body className="background" id ="eventsPage">
@@ -105,8 +107,12 @@ class Events extends Component {
               <div id="signup-column" className="col-md-8">
                 <div id="signup-box" className="col-md-12">
                   <form>
+                  {this.state.errorMsg ? (
+                    <div className="alert alert-danger" role="alert">
+                      {this.state.errorMsg}
+                    </div>) : ""}
                     <div className="form-group">
-                      <h3 className="eventForm"> <label for="eventTitle">Group Name:</label><br/></h3>
+                      <h3 className="eventForm"> <label for="eventTitle">Event Name:</label><br/></h3>
                       <input id="eventTitle" 
                               placeholder="Title"
                               name="eventTitle"

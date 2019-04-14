@@ -5,25 +5,32 @@ import Axios from "axios";
 class Event extends Component {
   constructor(props) {
     super();
-    const event = JSON.parse(sessionStorage.getItem("event"));
-    if(event) {
-      this.state = {
-        title: event.title,
-        description: event.description,
-        date: event.date,
-        zipcode: event.zipcode,
-        createdBy: event.createdBy
-      }
-    }
-    else {
-      this.state = {
-        title: null,
-        description: null,
-        date: null,
-        zipcode: null,
-        createdBy: null
-      }
+    // const event = JSON.parse(sessionStorage.getItem("event"));
+    // if(event) {
+    //   this.state = {
+    //     title: event.title,
+    //     description: event.description,
+    //     date: event.date,
+    //     zipcode: event.zipcode,
+    //     createdBy: event.createdBy
+    //   }
+    // }
+    // else {
+    //   this.state = {
+    //     title: null,
+    //     description: null,
+    //     date: null,
+    //     zipcode: null,
+    //     createdBy: null
+    //   }
       
+    // }
+    this.state = {
+      title: null,
+      description: null,
+      date: null,
+      zipcode: null,
+      createdBy: null
     }
     this.componentDidMount = this.componentDidMount.bind(this);
   }
@@ -35,7 +42,7 @@ class Event extends Component {
 
   getEvent = (id) => {
     Axios.get(`/api/events/${id}`).then((res) => {
-      console.log(res);
+      // console.log(res);
       this.setState({
         title: res.data.title,
         description: res.data.description,
@@ -54,7 +61,10 @@ class Event extends Component {
     const { match: { params } } = this.props;
     const id = params.id;
     Axios.put(`/api/user/${this.props.userid}/events/${id}`).then((res) => {
-      console.log(res);
+      // console.log(res);
+      this.setState({
+        redirectTo: `/events/`
+      });
     }).catch((err) => {
       console.log(err);
     });
@@ -63,6 +73,9 @@ class Event extends Component {
   render() {
     if(!this.props.loggedIn) {
       return <Redirect to={{ pathname: "/login" }}/>
+    }
+    if(this.state.redirectTo) {
+      return <Redirect to={{ pathname : this.state.redirectTo }}/>
     }
     return (
       <React.Fragment>

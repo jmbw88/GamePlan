@@ -13,9 +13,6 @@ Router.route("/newest/:userid/:otherid/")
 
 Router.route("/:id")
     .get(msgController.findContacts);
-// Router.route("/:userid")
-//   .get(msgController.getThread)
-//   .delete(msgController.deleteMessage)
-//   .post(msgController.sendMessage);
+
 
 module.exports = Router;
