@@ -6,27 +6,13 @@ import "./style.css";
 class Group extends Component {
   constructor(props) {
     super();
-    const group = JSON.parse(sessionStorage.getItem("group"));
-    if(group) {
-      this.state = {
-          name: group.name,
-          description: group.description,
-          admins: group.admins,
-          events: group.events,
-          zipcode: group.zipcode,
-          id: group._id
-      }
-    }
-    else {
-      this.state = {
-        name: null,
-        description: null,
-        admins: null,
-        events: null,
-        zipcode: null,
-        id: null
-      }
-      
+    this.state = {
+      name: null,
+      description: null,
+      admins: null,
+      events: null,
+      zipcode: null,
+      id: null
     }
     this.componentDidMount = this.componentDidMount.bind(this);
   }
@@ -37,7 +23,6 @@ class Group extends Component {
 
   getGroup = (id) => {
     Axios.get(`/api/groups/${id}`).then((res) => {
-      console.log(res);
       this.setState({
         name: res.data.name,
         description: res.data.description,
@@ -57,7 +42,9 @@ class Group extends Component {
     const { match: { params } } = this.props;
     const id = params.id;
     Axios.put(`/api/user/${this.props.userid}/groups/${id}`).then((res) => {
-      console.log(res);
+      this.setState({
+        redirectTo: "/groups"
+      });
     }).catch((err) => {
       console.log(err);
     });
@@ -75,14 +62,11 @@ class Group extends Component {
     }
 
     Axios.post("/api/events", newEvent).then((res) => {
-      console.log(res);
       const eventID = res.data._id;
       Axios.put(`/api/user/${this.props.userid}/events/${res.data._id}`).then((res) => {
-        console.log(res);
         Axios.put(`/api/groups/${this.state.id}/events/${eventID}`).then((res) => {
-          console.log(res);
           this.setState({
-            redirectTo: `/events/${res.data._id}`
+            redirectTo: `/events/${eventID}`
           });
         }).catch((err) => {
           console.log(err);
@@ -108,7 +92,6 @@ class Group extends Component {
     if(this.state.redirectTo) {
       return <Redirect to={{ pathname: this.state.redirectTo }}/>
     }
-    console.log(this.state);
     return (
       <React.Fragment>
         <body className="background">
