@@ -65,14 +65,12 @@ class Search extends Component {
 
   getGames = () => {
     Axios.get("/api/games").then((res) => {
-      console.log(res);
       this.setState({
         games: res.data
       });
       games = res.data.map((game) => {
         return {name: game.title, id: game._id}
       });
-      console.log(games);
     }).catch((err) => {
       console.log(err);
     });
@@ -85,7 +83,6 @@ class Search extends Component {
     if(gameNames.includes(this.state.value)) {
       const id = games.filter((game) => game.name === this.state.value)[0].id;
       Axios.get(`/api/user/games/${id}`).then((res) => {
-        console.log(res.data);
         this.setState({
           users: res.data,
           groups: null,
@@ -101,7 +98,6 @@ class Search extends Component {
 
   getGroups = () => {
     Axios.get("/api/groups").then((res) => {
-      console.log(res.data);
       this.setState({
         groups: res.data,
         users: null,
@@ -114,7 +110,6 @@ class Search extends Component {
 
   getEvents = () => {
     Axios.get("/api/events").then((res) => {
-      console.log(res.data);
       this.setState({
         events: res.data,
         users: null,
@@ -168,13 +163,13 @@ class Search extends Component {
                   <h3>Results</h3>
                   <div className="searchResults col-md-4">
                     {this.state.users ? this.state.users.map((user) => (
-                      <Link to={`/${user._id}`}><p className="searchResults col-md-4">{user.account.username}</p></Link>
+                      <p className="searchResults"><Link to={`/${user._id}`}>{user.account.username}</Link></p>
                     )) : ""}
                     {this.state.groups ? this.state.groups.map((group) => (
-                      <Link to={`/groups/${group._id}`}><p className="searchResults col-md-4">{group.name}</p></Link>
+                      <p className="searchResults"><Link to={`/groups/${group._id}`}>{group.name}</Link></p>
                     )) : ""}
                     {this.state.events ? this.state.events.map((event) => (
-                      <Link to={`/events/${event._id}`}><p className="searchResults col-md-4">{event.title}</p></Link>
+                      <p className="searchResults"><Link to={`/events/${event._id}`}>{event.title}</Link></p>
                     )) : ""}
 
                     <p className="searchResults col-md-4"><a href="#">TEST</a></p>

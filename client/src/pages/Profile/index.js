@@ -6,22 +6,21 @@ import "./style.css";
 class Profile extends Component {
   constructor(props) {
     super();
-    const profile = JSON.parse(sessionStorage.getItem("profile"));
-        this.state = {
-            name: null,
-            about: null,
-            sex: null,
-            zipcode: null,
-            img: null,
-            
-        }
+    // const profile = JSON.parse(sessionStorage.getItem("profile"));
+    this.state = {
+        name: null,
+        about: null,
+        sex: null,
+        zipcode: null,
+        img: null,
+        
+    }
     this.componentDidMount = this.componentDidMount.bind(this);
   }
   
 
   componentDidMount() {
     const { match: { params } } = this.props;
-    console.log(params.id);
     this.getProfile(params.id);
   }
 
@@ -36,7 +35,6 @@ class Profile extends Component {
 
   getProfile = (id) => {      
       Axios.get(`/api/user/${id}`).then((res) => {
-        console.log(res);
         if(res.data.profile) {
           this.setState({
               name: res.data.profile.name,
@@ -47,7 +45,7 @@ class Profile extends Component {
               img: res.data.profile.img,
               games: res.data.games
           });
-          sessionStorage.setItem("profile", JSON.stringify(res.data.profile));
+          // sessionStorage.setItem("profile", JSON.stringify(res.data.profile));
         }
       }).catch((err) => {
           console.log(err);
@@ -79,22 +77,12 @@ class Profile extends Component {
     if(this.state.redirectTo) {
       return <Redirect to={{ pathname: this.state.redirectTo }}/>
     }
-    console.log(this.props.userid, this.props.match.params.id);
+    // console.log(this.props.userid, this.props.match.params.id);
     return (
       <React.Fragment>
         <div id="profile">
           <div className="block container">
                   <div className="block profile-card">
-                  {/* <div className="message-button">
-                    <button type="button" className="btn btn-secondary" id="messageBtn">
-                    <i className="far fa-envelope fa-sm"></i> Message Me</button>
-                  </div> */}
-                      {/* <div className="message-button">
-                          <button type="button" className="btn btn-secondary" id="messageBtn">
-                              <i className="far fa-envelope fa-2x"></i>
-                              <div className="button-text">Message Me</div>
-                          </button></div> */}
-
                       <div className="profile-pic" 
                            id="profile_pic"
                            style={ { backgroundImage: `url(${this.state.img || "http://www.stleos.uq.edu.au/wp-content/uploads/2016/08/image-placeholder.png"})` }}
@@ -129,75 +117,17 @@ class Profile extends Component {
                       <h4 align="center">My Favorite Games:</h4>
                       <br/>
                       {this.state.games ? this.state.games.map((game) => (
-                        // <p><Link to={`/games/${game._id}`}>{game.title}</Link></p>
                         <Link to={`/games/${game._id}`}>
                           <div className="inline image" 
                                title={game.title} 
                                style={ { backgroundImage: `url(${game.img || "http://www.stleos.uq.edu.au/wp-content/uploads/2016/08/image-placeholder-350x350.png"})` }}/>
                         </Link>
                       )) : ""}
-                      {/* <div className="inline image" id="game-1"></div>
-                      <div className="inline image" id="game-2"></div>
-                      <div className="inline image" id="game-3"></div> */}
                   </div>
-            
-              {/* <div className="block container text-left">
-                  <div className="block events-card">
-                      <div className="row">
-                          <div className="column col-md-6">
-                              <h4 align="center">My Upcoming Events:</h4>
-                              <br/>
-                              <ul>
-                                  <li>
-                                      <div className="block event"><a href="#">Event Title</a></div>
-                                  </li>
-                                  <li>
-                                      <div className="block event"><a href="#">Event Title</a></div>
-                                  </li>
-                                  <li>
-                                      <div className="block event"><a href="#">Event Title</a></div>
-                                  </li>
-                              </ul>
-                          </div>
-                          <div className="column col-md-6">
-                              <h4 align="center">My Groups:</h4>
-                              <br/>
-                              <ul>
-                                  <li>
-                                      <div className="block event"><a href="#">Group Name</a></div>
-                                  </li>
-                                  <li>
-                                      <div className="block event"><a href="#">Group Name</a></div>
-                                  </li>
-                                  <li>
-                                      <div className="block event"><a href="#">Group Name</a></div>
-                                  </li>
-
-                              </ul>
-                          </div>
-                      </div>
-                  </div>
-              </div> */}
             </div>
         
         </div>
         </React.Fragment>
-        /* <h1>Profile</h1>
-        {this.state.img ? <img className="float-left" src={this.state.img}></img> : ""}
-        {this.state.name ? <p>{this.state.name}</p> : ""}
-        {this.state.about ? <p>{this.state.about}</p> : ""}
-        {this.state.sex ? <p>{this.state.sex}</p> : ""}
-        {this.state.zipcode ? <p>{this.state.zipcode}</p> : ""}
-        {this.state.games ? this.state.games.map((game) => (
-          <p><Link to={`/games/${game._id}`}>{game.title}</Link></p>
-        )) : ""}
-        
-        {this.props.userid === this.props.match.params.id ? (
-          <React.Fragment>
-            <Link to="/profile/edit">Edit</Link><br></br> 
-            <Link to="/profile/addGame">Add Game</Link>
-          </React.Fragment>
-        ): ""} */
     )
   }
 }
