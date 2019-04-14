@@ -1,10 +1,26 @@
-# Create React Express App
+# Welcome to Gameplan!
 
-## About This Boilerplate
+## A MERN stack application to connect those with a love of games.
 
-This setup allows for a Node/Express/React app which can be easily deployed to Heroku.
+Game nights are great! Finding a game night, or planning your own, is less great.
 
-The front-end React app will auto-reload as it's updated via webpack dev server, and the backend Express app will auto-reload independently with nodemon.
+GamePlan is designed to take the intimdiation, discomfort and frustration out of finding players to join you in your favorite game, and planning events around town.
+
+## Find players, reach out, and make a plan!
+
+Each user makes a brief profile,including listing some of thier favorite games to play. Then, when searching for those games, the players who've marked those as their favorite will appear for you to see! After that, send them a message!
+
+Using our built-in messenger service, GamePlan users can chat ahead of time, building rapport and discussing their favorite things about the games they play; no player ever has to wander into a meet up of total strangers again!
+
+Players who decide to plan their next game night can do so by creating a group on Gameplan, as well as an event, which wil appear on their personal calendar. 
+
+## Improvements still to come
+
+- Converting to an instant message format.
+- Implementing invite system, to allow users to invite their friends into private groups and events.
+- Continuing to grow the database of games for our users to enjoy. 
+
+----------------------------------------------------------------------------------------------------------------------------------------
 
 ## Starting the app locally
 
@@ -24,6 +40,3 @@ npm start
 
 Your app should now be running on <http://localhost:3000>. The Express server should intercept any AJAX requests from the client.
 
-## Deployment (Heroku)
-
-To deploy, simply add and commit your changes, and push to Heroku. As is, the NPM scripts should take care of the rest.
