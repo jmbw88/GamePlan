@@ -60,7 +60,7 @@ class Game extends Component {
                 </div>
                 <div className="cooperative col-md-3">
                   <h4>Cooperative:</h4>
-                  <p>{this.state.cooperative ? "Cooperative" : ""}</p>
+                  <p>{this.state.cooperative ? "Yes" : "No"}</p>
                 </div>
               </div>
             </div>
