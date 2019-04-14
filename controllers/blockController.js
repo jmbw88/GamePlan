@@ -1,5 +1,5 @@
 const db = require("../models");
-const util = require("../utils/userUtils"); // TODO HIDE SENSITIVE DATA
+const util = require("../utils/userUtils");
 
 module.exports = {
   findAll: (req, res) => {

@@ -1,6 +1,5 @@
 const Router = require("express").Router();
 const userController = require("../../controllers/userController");
-// const passport = require("../passport");
 
 Router.route("/")
     .get(userController.findAll);
@@ -31,10 +30,6 @@ Router.route("/games/:id")
 
 Router.route("/:id/games/:gameid")
     .put(userController.addGame);
-// Router.route("/invite/groups/:groupid")
-//   .put(userController.acceptGroup)
 
-// Router.route("/invite/events/:eventid")
-//   .put(userController.acceptEvent)
   
 module.exports = Router;

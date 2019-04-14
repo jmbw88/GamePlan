@@ -20,7 +20,6 @@ module.exports = {
             password: password
           }}
           );
-        console.log(newUser);
         newUser.save((err, savedUser) => {
           if (err) {
             console.log(err);
@@ -38,7 +37,6 @@ module.exports = {
 
   // TODO UPDATE LAST ACTIVE
   completeLogin: (req, res) => {
-    console.log("usercontroller req" + req.user);
     res.send({ username: req.user.account.username, id: req.user._id });
   },
 
