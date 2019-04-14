@@ -18,7 +18,7 @@
 .navbar {
   position: sticky;
   top: 0;
-  z-index: 2;
+  z-index: 100;
   background-color: var(--color-darkBlue);
   cursor: url(../../assets/images/cursors/default.cur), default;
   padding: 20px 0 20px 0;
@@ -103,11 +103,11 @@ p.username {
 }
 
 p.logout:hover {
-  color: var(--color-yellow);
+  color: var(--color-pink);
 }
 
 p.logout {
-  color: var(--color-lightBlue);
+  color: var(--color-yellow);
 }
 
 

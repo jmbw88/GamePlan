@@ -161,21 +161,28 @@ class Search extends Component {
                     <button className="btn btn-primary" onClick={this.getGroups}>Groups</button>
                   </div>
                 </div>
+              </div>
 
+              <div id="signup-column" className="col-md-8">
                 <div id="signup-box" className="col-md-12">
                   <h3>Results</h3>
-                  {this.state.users ? this.state.users.map((user) => (
-                    <Link to={`/${user._id}`}><p>{user.account.username}</p></Link>
-                  )) : ""}
-                  {this.state.groups ? this.state.groups.map((group) => (
-                    <Link to={`/groups/${group._id}`}><p>{group.name}</p></Link>
-                  )) : ""}
-                  {this.state.events ? this.state.events.map((event) => (
-                    <Link to={`/events/${event._id}`}><p>{event.title}</p></Link>
-                  )) : ""}
-                </div>
+                  <div className="searchResults col-md-4">
+                    {this.state.users ? this.state.users.map((user) => (
+                      <Link to={`/${user._id}`}><p className="searchResults col-md-4">{user.account.username}</p></Link>
+                    )) : ""}
+                    {this.state.groups ? this.state.groups.map((group) => (
+                      <Link to={`/groups/${group._id}`}><p className="searchResults col-md-4">{group.name}</p></Link>
+                    )) : ""}
+                    {this.state.events ? this.state.events.map((event) => (
+                      <Link to={`/events/${event._id}`}><p className="searchResults col-md-4">{event.title}</p></Link>
+                    )) : ""}
 
+                    <p className="searchResults col-md-4"><a href="#">TEST</a></p>
+
+                  </div>
+                </div>
               </div>
+
             </div>
         </body>
       </React.Fragment>
