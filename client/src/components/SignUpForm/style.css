@@ -10,9 +10,22 @@ h4 {
   font-size: 22px;
 }
 
-.text-info {
-    color: var(--color-darkBlue)!important;
+h4 a {
+  cursor: url(../../assets/images/cursors/text.cur), text;
 }
+
+.text-info {
+  color: var(--color-darkBlue)!important;
+  cursor: url(../../assets/images/cursors/default.cur), default;
+}
+
+label {
+  cursor: url(../../assets/images/cursors/default.cur), default;
+}
+
+/* input {
+  cursor: url(../../assets/images/cursors/text.cur), text;
+} */
 
 #logo img {
   max-width: 100%;
@@ -29,7 +42,7 @@ h4 {
   /* background-size: cover */
 }
 
-#signup .container #signup-row #signup-column #signup-box {
+#signup .container #signup-row #signup-column {
   margin-top: 40px;
   margin-bottom: 40px;
   max-width: 600px;
@@ -74,7 +87,7 @@ h4 {
 .btn-info {
   color: #fff;
   background-color:var(--color-darkBlue);
-  cursor: url(../../assets/images/cursors/select.cur), pointer;
+  cursor: url(../../assets/images/cursors/text.cur), text;
   border-color: var(--color-darkBlue);
 }
 

@@ -119,9 +119,6 @@ class Groups extends Component {
             <div id="signup-row" className="row justify-content-center align-items-center">
               <div id="signup-column" className="col-md-8">
                 <div id="signup-box" className="col-md-12">
-                  <div>
-                    <h4>blah blah</h4>
-                  </div>
                   {this.state.groups ? this.state.groups.map((group) => (
                     <div>
                       <h4><Link to={`/groups/${group._id}`}>{group.name}</Link></h4>

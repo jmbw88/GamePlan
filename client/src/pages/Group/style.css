@@ -1,0 +1,25 @@
+h3.groupName {
+  font-size: 45px;
+  text-align: center;
+  align-content: center;
+  font-family: 'Lobster Two', cursive;
+  clear: both;
+}
+
+.groupEvents {
+  float:left;
+  text-align: center;
+}
+
+.groupAdmins {
+  float:right;
+  text-align: center;
+}
+
+.submitBtn {
+  clear:both;
+}
+
+#signup-box p.groupDescription {
+  padding-bottom: 0;
+}

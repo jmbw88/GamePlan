@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Redirect, Link } from "react-router-dom";
 import Axios from "axios";
+import "./style.css";
 
 class Group extends Component {
   constructor(props) {
@@ -109,71 +110,92 @@ class Group extends Component {
     }
     console.log(this.state);
     return (
-      <div className="container">
       <React.Fragment>
         <body className="background">
-          <h2>Create Group Event</h2>
-          <form>
-            <div className="form-group">
-              <label for="eventTitle" className="text-info">Group Name:</label><br/>
-              <input id="eventTitle" 
-                      placeholder="Title"
-                      name="eventTitle"
-                      value={this.state.eventTitle}
-                      onChange={this.handleChange}
-                      className="form-control"/>
+          <h2 className="newEvent">Create Group Event</h2>
+
+          <div id="signup-row" className="row justify-content-center align-items-center">
+              <div id="signup-column" className="col-md-8">
+                <div id="signup-box" className="col-md-12">
+                  <form>
+                    <div className="form-group">
+                      <label for="eventTitle" className="text-info">Group Name:</label><br/>
+                      <input id="eventTitle" 
+                              placeholder="Title"
+                              name="eventTitle"
+                              value={this.state.eventTitle}
+                              onChange={this.handleChange}
+                              className="form-control"/>
+                    </div>
+                    <div className="form-group">
+                      <label for="eventDesc" className="text-info">Event Description:</label><br/>
+                      <input id="eventDesc" 
+                              placeholder="Description"
+                              name="eventDesc"
+                              value={this.state.eventDesc}
+                              onChange={this.handleChange}
+                              className="form-control"/>
+                    </div>
+                    <div className="form-group">
+                      <label for="eventZip" className="text-info">Zipcode:</label><br/>
+                      <input id="eventZip" 
+                              placeholder="Zipcode"
+                              name="eventZip"
+                              value={this.state.eventZip}
+                              onChange={this.handleChange}
+                              className="form-control"/>
+                    </div>
+                    <div className="form-group">
+                      <label for="eventDateTime" className="text-info">Schedule Event:</label><br/>
+                      <input id="eventDateTime" 
+                              type="datetime-local"
+                              name="eventDateTime"
+                              value={this.state.eventDateTime}
+                              onChange={this.handleChange}
+                              className="form-control"/>
+                    </div>
+                    <div className="submitBtn">
+                      <button className="btn btn-info float-right mb-2" onClick={this.handleSubmit}>Submit</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div> 
+
+            <div id="signup-row" className="row justify-content-center align-items-center">
+              <div id="signup-column" className="col-md-8">
+                <div id="signup-box" className="group-box col-md-12">
+                  <h3 className="groupName">{this.state.name}</h3>
+                  <p className="text-center groupDescription">{this.state.description}</p>
+                  <p className="text-center groupDescription">{this.state.zipcode}</p>
+
+                  <div class="groupEvents col-md-6">
+                    <h4>Events</h4>
+                    {this.state.events ? this.state.events.map((event) => (
+                      <React.Fragment>
+                        <p><Link to={`/events/${event._id}`}>{event.title}</Link></p>
+                        <p>{event.date}</p>
+                      </React.Fragment>
+                    )) : <p>No events</p>}
+                  </div>
+
+                  <div class="groupAdmins col-md-6">
+                    <h4>Admins</h4>
+                    {this.state.admins ? this.state.admins.map((admin) => (
+                      <p><Link to={`/${admin._id}`}>{admin.account.username}</Link></p>
+                    )) : <p>No admins</p>}
+                  </div>
+
+                  <div className="submitBtn">
+                    <button className="btn btn-primary" onClick={this.joinGroup}>Join Group</button>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="form-group">
-              <label for="eventDesc" className="text-info">Event Description:</label><br/>
-              <input id="eventDesc" 
-                      placeholder="Description"
-                      name="eventDesc"
-                      value={this.state.eventDesc}
-                      onChange={this.handleChange}
-                      className="form-control"/>
-            </div>
-            <div className="form-group">
-              <label for="eventZip" className="text-info">Zipcode:</label><br/>
-              <input id="eventZip" 
-                      placeholder="Zipcode"
-                      name="eventZip"
-                      value={this.state.eventZip}
-                      onChange={this.handleChange}
-                      className="form-control"/>
-            </div>
-            <div className="form-group">
-              <label for="eventDateTime" className="text-info">Schedule Event:</label><br/>
-              <input id="eventDateTime" 
-                      type="datetime-local"
-                      name="eventDateTime"
-                      value={this.state.eventDateTime}
-                      onChange={this.handleChange}
-                      className="form-control"/>
-            </div>
-            <div className="submitBtn">
-              <button className="btn btn-info float-right mb-2" onClick={this.handleSubmit}>Submit</button>
-            </div>
-          </form>
-          
-          <h2>{this.state.name}</h2>
-          <p>{this.state.description}</p>
-          <p>{this.state.zipcode}</p>
-          <h2>Events</h2>
-          {this.state.events ? this.state.events.map((event) => (
-            <React.Fragment>
-              <p><Link to={`/events/${event._id}`}>{event.title}</Link></p>
-              <p>{event.date}</p>
-            </React.Fragment>
-          )) : <p>No events</p>}
-          <h2>Admins</h2>
-          {this.state.admins ? this.state.admins.map((admin) => (
-            <p><Link to={`/${admin._id}`}>{admin.account.username}</Link></p>
-          )) : <p>No admins</p>}
-          <button className="btn btn-primary" onClick={this.joinGroup}>Join Group</button>
+
         </body>
       </React.Fragment>
-      
-      </div>
+    
     )
   }
 }

@@ -42,24 +42,22 @@ class Game extends Component {
     return (
       <React.Fragment>
         <body class="background">
-          <h2 className="newEvent">{this.state.title} Coup</h2>
-          {/* {this.state.img ? <img className="game-img" src={this.state.img} alt="game-image"/> : ""} */}
-
+          <h2 className="newEvent">{this.state.title}</h2>
           <div id="signup-row" className="row justify-content-center align-items-center">
             <div id="signup-column" className="col-md-8">
               <div id="signup-box" className="game-box col-md-12">
-                <img className="game-img" src="https://theboardgameshow.files.wordpress.com/2014/01/coup.jpg"></img>
+                {/* {this.state.img ? <img className="game-img" src={this.state.img} alt="game-image"/> : ""} */}
                 <div className="difficulty col-md-3">
                   <h4>Difficulty:</h4>
-                  <p>{this.state.difficulty} Beginner</p>
+                  <p>{this.state.difficulty}</p>
                 </div>
                 <div className="length col-md-3">
                   <h4>Play Length:</h4>
-                  <p>{this.state.length}15min-1hr</p>
+                  <p>{this.state.length}</p>
                 </div>
                 <div className="uniqueness col-md-3">
                   <h4>Uniqueness:</h4>
-                  <p>{this.state.uniqueness}Unique</p>
+                  <p>{this.state.uniqueness}</p>
                 </div>
                 <div className="cooperative col-md-3">
                   <h4>Cooperative:</h4>
