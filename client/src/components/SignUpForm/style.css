@@ -11,7 +11,7 @@ h4 {
 }
 
 h4 a {
-  cursor: url(../../assets/images/cursors/text.cur), text;
+  cursor: url(../../assets/images/cursors/select.cur), pointer;
 }
 
 .text-info {

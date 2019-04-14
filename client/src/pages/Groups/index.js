@@ -130,12 +130,13 @@ class Groups extends Component {
               <div id="signup-column" className="col-md-8">
                 <div id="signup-box" className="col-md-12">
                   {this.state.groups ? this.state.groups.map((group) => (
-                    <div>
+                    <div className="yourGroups col-md-6">
                       <h4><Link to={`/groups/${group._id}`}>{group.name}</Link></h4>
-                      <p className="text-center">{group.description}</p>
-                      <p className="text-center">{group.zipcode}</p>
+                      <p className="text-center noPadding">{group.description}</p>
+                      <p className="text-center noPadding">{group.zipcode}</p>
                     </div>
                   )) : ""}
+                  
                 </div>
               </div>
             </div>

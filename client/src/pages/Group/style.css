@@ -23,3 +23,11 @@ h3.groupName {
 #signup-box p.groupDescription {
   padding-bottom: 0;
 }
+
+#signup-box p.noPadding {
+  padding-bottom: 0;
+}
+
+.yourGroups {
+  display: inline-block;
+}
