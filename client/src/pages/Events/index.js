@@ -106,7 +106,7 @@ class Events extends Component {
                 <div id="signup-box" className="col-md-12">
                   <form>
                     <div className="form-group">
-                      <h3 className="eventForm"> <label for="eventTitle">Group Name:</label><br/></h3>
+                      <h3 className="eventForm"> <label for="eventTitle">Event Name:</label><br/></h3>
                       <input id="eventTitle" 
                               placeholder="Title"
                               name="eventTitle"

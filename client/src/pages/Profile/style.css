@@ -129,7 +129,7 @@ hr {
 .image {
     width: 240px;
     height: 200px;
-    cursor: pointer;
+    cursor: url(../../assets/images/cursors/select.cur), pointer !important;
     margin: 0 20px 40px;
     overflow: hidden;
     border-radius: 20px;
@@ -177,11 +177,12 @@ a {
 .profile-btn:hover {
   background-color: #13324C;
   color: white;
+  cursor: url(../../assets/images/cursors/select.cur), pointer;
 }
 
 .btn-link, .btn-link:hover {
   color: white;
-  text-decoration: none
+  text-decoration: none;
 }
 
 .button-text {
