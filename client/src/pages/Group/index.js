@@ -119,7 +119,7 @@ class Group extends Component {
                 <div id="signup-box" className="col-md-12">
                   <form>
                     <div className="form-group">
-                      <label for="eventTitle" className="text-info">Group Name:</label><br/>
+                    <h3 className="eventForm"> <label for="eventTitle">Group Name:</label><br/></h3>
                       <input id="eventTitle" 
                               placeholder="Title"
                               name="eventTitle"
@@ -128,7 +128,7 @@ class Group extends Component {
                               className="form-control"/>
                     </div>
                     <div className="form-group">
-                      <label for="eventDesc" className="text-info">Event Description:</label><br/>
+                    <h3 className="eventForm"><label for="eventDesc">Event Description:</label><br/></h3>
                       <input id="eventDesc" 
                               placeholder="Description"
                               name="eventDesc"
@@ -137,7 +137,7 @@ class Group extends Component {
                               className="form-control"/>
                     </div>
                     <div className="form-group">
-                      <label for="eventZip" className="text-info">Zipcode:</label><br/>
+                    <h3 className="eventForm"> <label for="eventZip">Zipcode:</label><br/></h3>
                       <input id="eventZip" 
                               placeholder="Zipcode"
                               name="eventZip"
@@ -146,7 +146,7 @@ class Group extends Component {
                               className="form-control"/>
                     </div>
                     <div className="form-group">
-                      <label for="eventDateTime" className="text-info">Schedule Event:</label><br/>
+                    <h3 className="eventForm"><label for="eventDateTime">Schedule Event:</label><br/></h3>
                       <input id="eventDateTime" 
                               type="datetime-local"
                               name="eventDateTime"

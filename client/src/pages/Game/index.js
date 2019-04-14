@@ -46,7 +46,7 @@ class Game extends Component {
           <div id="signup-row" className="row justify-content-center align-items-center">
             <div id="signup-column" className="col-md-8">
               <div id="signup-box" className="game-box col-md-12">
-                {/* {this.state.img ? <img className="game-img" src={this.state.img} alt="game-image"/> : ""} */}
+                {this.state.img ? <img className="game-img" src={this.state.img} alt="game-image"/> : ""}
                 <div className="difficulty col-md-3">
                   <h4>Difficulty:</h4>
                   <p>{this.state.difficulty}</p>
