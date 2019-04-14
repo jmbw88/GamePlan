@@ -161,18 +161,16 @@ class Search extends Component {
               <div id="signup-column" className="col-md-8">
                 <div id="signup-box" className="col-md-12">
                   <h3>Results</h3>
-                  <div className="searchResults col-md-4">
+                  <div>
                     {this.state.users ? this.state.users.map((user) => (
-                      <p className="searchResults"><Link to={`/${user._id}`}>{user.account.username}</Link></p>
+                      <p className="searchResults col-md-4"><Link to={`/${user._id}`}>{user.account.username}</Link></p>
                     )) : ""}
                     {this.state.groups ? this.state.groups.map((group) => (
-                      <p className="searchResults"><Link to={`/groups/${group._id}`}>{group.name}</Link></p>
+                      <p className="searchResults col-md-4"><Link to={`/groups/${group._id}`}>{group.name}</Link></p>
                     )) : ""}
                     {this.state.events ? this.state.events.map((event) => (
-                      <p className="searchResults"><Link to={`/events/${event._id}`}>{event.title}</Link></p>
+                      <p className="searchResults col-md-4"><Link to={`/events/${event._id}`}>{event.title}</Link></p>
                     )) : ""}
-
-                    <p className="searchResults col-md-4"><a href="#">TEST</a></p>
 
                   </div>
                 </div>
