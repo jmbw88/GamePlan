@@ -151,7 +151,7 @@ class SignUpForm extends Component {
                                                 name="email"
                                                 value={this.state.email}
                                                 onChange={this.handleChange}
-                                                className="form-control"
+                                                className="form-control input"
                                           />
                                             {/* <label for="email" className="text-info">Email Address:</label><br/>
                                             <input type="text" name="email" id="email" className="form-control"/> */}

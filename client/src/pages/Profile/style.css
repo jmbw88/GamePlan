@@ -48,6 +48,12 @@ hr {
     border-radius: 20px;
 }
 
+#fave-games h4 {
+    font-size: 30px;
+    font-family: 'Lobster Two', cursive;
+    color: var(--color-darkBlue);
+}
+
 .inline {
     display: inline-block;
     position: relative;

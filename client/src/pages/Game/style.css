@@ -35,21 +35,10 @@
   padding-bottom: 20px;
 }
 
-.game-box {
-  margin-top: 40px;
-  margin-bottom: 40px;
-  height: auto;
-  background-color: rgba(173, 204, 233, 0.753);
-  border-radius: 20px;
-  color: var(--color-darkBlue);
-  font-size: 18px;
-  padding: 20px 0 120px 0 !important;
-}
-
 @media screen and (max-width: 991px) {
-  .game-box {
+  /* .game-box {
     padding: 20px 0 500px 0 !important;
-  }
+  } */
 
   #signup-row{
     margin-right: 10px;
