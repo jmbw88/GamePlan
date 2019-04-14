@@ -29,11 +29,14 @@ body {
 #edit-block {
   align-content: center;
   background-image: url(../../assets/images/bgTop.jpg);
+  min-height: calc(100vh - 56px);
+  /* padding-bottom: 20px; */
 }
 
 .profile-form {
     background-image: url(../../assets/images/cubes.png);
-
+    min-height: calc(100vh - 56px);
+    /* padding-bottom: 20px; */
 }
 
 .headerLine {

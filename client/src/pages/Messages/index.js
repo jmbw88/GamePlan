@@ -334,7 +334,7 @@ class Messages extends Component {
                           value={this.state.message}
                           onChange={this.handleChange}/>
             <button className="btn btn-secondary" onClick={this.sendMessage}>Submit</button> */}
-                        <div class="type_msg">
+                        <form class="type_msg">
                             <div class="input_msg_write">
                                 <input type="text" 
                                       class="write_msg" 
@@ -347,7 +347,7 @@ class Messages extends Component {
                                   <i class="far fa-envelope fa-2"aria-hidden="true"></i>
                                 </button>
                             </div>
-                        </div>
+                        </form>
 
                     </div>
                 </div>
