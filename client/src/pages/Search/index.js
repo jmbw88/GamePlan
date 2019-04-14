@@ -79,7 +79,8 @@ class Search extends Component {
   }
 
   // get users by game
-  getUsersByGame = () => {
+  getUsersByGame = (event) => {
+    event.preventDefault();
     const gameNames = games.map((game) => game.name);
     if(gameNames.includes(this.state.value)) {
       const id = games.filter((game) => game.name === this.state.value)[0].id;
@@ -145,16 +146,19 @@ class Search extends Component {
                       or <br></br>
                       View Groups &amp; Events</h3>
                   <div className="autosuggest col-md-12 justify-content-center">
-                    <Autosuggest
-                    suggestions={suggestions}
-                    onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
-                    onSuggestionsClearRequested={this.onSuggestionsClearRequested}
-                    getSuggestionValue={getSuggestionValue}
-                    renderSuggestion={renderSuggestion}
-                    inputProps={inputProps} />
+                    <form>
+                      <Autosuggest
+                      suggestions={suggestions}
+                      onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
+                      onSuggestionsClearRequested={this.onSuggestionsClearRequested}
+                      getSuggestionValue={getSuggestionValue}
+                      renderSuggestion={renderSuggestion}
+                      inputProps={inputProps} />
+                      <button className="btn btn-primary" onClick={this.getUsersByGame}>Users</button>
+                    </form>
+
                     <button className="btn btn-primary" onClick={this.getEvents}>Events</button>
                     <button className="btn btn-primary" onClick={this.getGroups}>Groups</button>
-                    <button className="btn btn-primary" onClick={this.getUsersByGame}>Users</button>
                   </div>
                 </div>
 
