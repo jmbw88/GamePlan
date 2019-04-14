@@ -22,12 +22,10 @@ module.exports = {
   findById: (req, res) => {
     db.Group.findById(req.params.id).populate("events admins").then((dbGroup) => {
       dbGroup = dbGroup.toJSON();
-      console.log("BEFORE\n",dbGroup);
       dbGroup.events = dbGroup.events.map((event) => {
         event.date = moment(event.date).format("MMMM Do YYYY, h:mm a");
         return event;
       });
-      console.log("AFTER\n",dbGroup);
       res.json(dbGroup);
     }).catch((err) => {
       console.log(err);
@@ -35,7 +33,6 @@ module.exports = {
     });
   },
 
-  // TODO Add user who created it and add as admin
   create: (req, res) => {
     db.Group.create(req.body).then((dbGroup) => {
       res.json(dbGroup);
@@ -46,11 +43,13 @@ module.exports = {
 
   // TODO add auth for user and check if admin of group
   update: (req, res) => {
-    db.Group.findOneAndUpdate({ _id: req.params.id }, { $set: req.body }, { new: true }).then((dbGroup) => {
-      res.json(dbGroup);
-    }).catch((err) => {
-      res.status(422).json(err);
-    });
+    if(req.user) {
+      db.Group.findOneAndUpdate({ _id: req.params.id }, { $set: req.body }, { new: true }).then((dbGroup) => {
+        res.json(dbGroup);
+      }).catch((err) => {
+        res.status(422).json(err);
+      });
+    }
   },
 
   findAdmins: (req, res) => {
@@ -91,24 +90,11 @@ module.exports = {
     });
   },
   
-  // Create new event, save to group, save to user creating it
   addGroupEvent: (req, res) => {
     db.Group.findByIdAndUpdate(req.params.id, { $addToSet: { events: req.params.eventID } }, { new: true }).then((dbGroup) => {
       res.json(dbGroup);
     }).catch((err) => {
       res.status(422).json(err);
     })
-    // req.body.date = new Date(req.body.date);
-    // let event;
-    // db.Event.create(req.body).then((dbEvent) => {
-    //   event = dbEvent;
-    //   return db.User.findByIdAndUpdate(req.body.createdBy, { $push: { events: dbEvent._id } });
-    // }).then(() => {
-    //   return db.Group.findByIdAndUpdate(id, { $push: { events: event._id } });
-    // }).then(() => {
-    //   res.json(event);
-    // }).catch((err) => {
-    //   res.status(422).json(err);
-    // });
   }
 }

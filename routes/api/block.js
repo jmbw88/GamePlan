@@ -11,7 +11,6 @@ Router.route("/user/:id")
 Router.route("/user/:id/:blocked")
     .get(blockController.getBlockedUser)
     .delete(blockController.unblock);
-    // .post(blockController.create);
 
 
 

@@ -21,6 +21,8 @@ Router.route("/admins/:id")
 
 Router.route("/:id/events")
     .get(groupController.findGroupEvents)
+    
 Router.route("/:id/events/:eventID")
-    .put(groupController.addGroupEvent); // TODO
+    .put(groupController.addGroupEvent);
+
 module.exports = Router;
