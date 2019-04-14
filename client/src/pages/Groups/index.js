@@ -140,7 +140,6 @@ class Groups extends Component {
               </div>
             </div>
                           
-       
         </body>
       </React.Fragment>
     )
