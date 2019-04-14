@@ -32,7 +32,7 @@ class Group extends Component {
         id: res.data._id
       });
 
-      sessionStorage.setItem("group", JSON.stringify(res.data));
+      // sessionStorage.setItem("group", JSON.stringify(res.data));
     }).catch((err) => {
       console.log(err);
     });

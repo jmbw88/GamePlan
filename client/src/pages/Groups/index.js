@@ -48,19 +48,26 @@ class Groups extends Component {
       admins: [this.props.userid]
     }
 
-    Axios.post(`/api/groups`, newGroup).then((res) => {
-      // console.log(res);
-      Axios.put(`/api/user/${this.props.userid}/groups/${res.data._id}`).then((res) => {
+    const formComplete = Object.values(newGroup).every(val => val);
+    if(formComplete) {
+      Axios.post(`/api/groups`, newGroup).then((res) => {
         // console.log(res);
-        this.setState({
-          redirectTo: `/groups/${res.data._id}`
+        Axios.put(`/api/user/${this.props.userid}/groups/${res.data._id}`).then((res) => {
+          // console.log(res);
+          this.setState({
+            redirectTo: `/groups/${res.data._id}`
+          });
+        }).catch((err) => {
+          console.log(err);
         });
       }).catch((err) => {
         console.log(err);
       });
-    }).catch((err) => {
-      console.log(err);
-    });
+    } else {
+      this.setState({
+        errorMsg: "Please complete form"
+      });
+    }
   }
 
   render() {
@@ -79,6 +86,10 @@ class Groups extends Component {
               <div id="signup-column" className="col-md-8">
                 <div id="signup-box" className="col-md-12">
                   <form>
+                    {this.state.errorMsg ? (
+                      <div className="alert alert-danger" role="alert">
+                        {this.state.errorMsg}
+                      </div>) : ""}
                     <div className="form-group">
                     <h3 className="eventForm"> <label for="groupName">Group Name:</label><br/></h3>
                       <input id="groupName" 
