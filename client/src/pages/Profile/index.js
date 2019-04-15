@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Axios from "axios";
 import { Link, Redirect } from "react-router-dom";
-import "./style.css";
 
 class Profile extends Component {
   constructor(props) {

@@ -4,7 +4,6 @@ import Axios from "axios";
 import Calendar from "react-big-calendar";
 import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
-import "./style.css";
 
 const localizer = Calendar.momentLocalizer(moment);
 
@@ -102,9 +101,9 @@ class Events extends Component {
     return (
       <React.Fragment>
         <body className="background" id ="eventsPage">
-          <h2 className="newEvent">Create New Event</h2>
           <div id="signup-row" className="row justify-content-center align-items-center">
               <div id="signup-column" className="col-md-8">
+              <h3 className="newEvent">Create New Event</h3>
                 <div id="signup-box" className="col-md-12">
                   <form>
                   {this.state.errorMsg ? (

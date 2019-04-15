@@ -1,5 +1,6 @@
-@import url('https://fonts.googleapis.com/css?family=Lobster+Two:700|Raleway:500');
+/*  UNIVERSAL STYLES  */
 
+@import url('https://fonts.googleapis.com/css?family=Lobster+Two:700|Raleway:500');
 
 *{
   outline: none !important;
@@ -13,6 +14,8 @@
 	--color-text: #13324C;
 }
 
+/*------------------------------------------------------------------------------------------------*/
+/*  HOME CSS  */
 hr.hrGames {
   margin-bottom: 20px;
 }
@@ -48,74 +51,6 @@ body {
   margin-top: 60px;
 }
 
-#menu a:active {
-	color: var(--color-lightBlue);;
-}
-
-#menu select {
-  display: none;
-}
-
-#menu .active a {
-  border: 0;
-  color: var(--color-lightBlue);
-}
-
-#menu .active a:focus {
-  outline: none;
-  border: none;
-}
-
-#menu .active a:active {
-  outline: none;
-  border: none;
-}
-
-#menu .active a:link {
-  outline: none;
-  border: none;
-}
-
-#menu .active a:visited {
-  outline: none;
-  border: none;
-}
-
-#menu li {
-  border-right: 1px solid #000;
-  padding-left: 17px;
-  padding-right: 16px;
-  float: left;
-  font-family: 'raleway', 'sans-serif';
-  font-size: 14px;
-  color: #fff;
-  list-style: none;
-  text-transform: uppercase;
-  font-weight: 700;
-}
-
-#menu li:last-child {
-  border-right: 0;
-  padding-right: 0px;
-}
-
-#menu {
-  margin-top: 33px;
-  margin-top: 74px;
-  float: right;
-}
-
-#menu li a {
-  color: #fff;
-  text-decoration: none;
-}
-
-#menu li a:hover {
-  border: none;
-  outline: none;
-	color: var(--color-pink);
-}
-
 .gallery {
   min-height: 350px;
 }
@@ -142,14 +77,6 @@ body {
   .game img {
     display: inline;
   }
-
-  #menu {
-    display: none;
-  }
-
-  #menuF {
-    opacity: 0 !important;
-  }
 }
 
 @media screen and (max-width: 460px) {
@@ -164,35 +91,6 @@ body {
   }
 }
 
-@media screen and (max-width: 323px) {
-  .footer .fEmail {
-    border-radius: 4px !important;
-    margin-bottom: 10px;
-  }
-
-  .footer {
-    border-radius: 4px !important;
-  }
-
-  .game p {
-    text-align: justify;
-  }
-
-}
-
-@media screen and (max-width: 1229px) {
-
-  .name {
-    width: 100% !important;
-  }
-
-  .game p {
-    text-align: justify;
-  }
-
-}
-
-/**/
 .about {
   margin-top: 20px;
   text-align: center;
@@ -212,8 +110,6 @@ body {
   line-height: 22px;
 }
 
-/**/
-
 .app {
   margin-top: 25px;
 }
@@ -228,13 +124,6 @@ body {
 .games {
   margin-top: 201px;
   margin-bottom: 133px;
-}
-
-@media screen and (min-device-width:1919px) {
-  .games {
-    margin-top: 246px;
-    margin-bottom: 164px;
-  }
 }
 
 .games h3 {
@@ -256,7 +145,6 @@ body {
   max-width: 100%;
 }
 
-/**/
 .line4 {
   position: relative;
   width: 100%;
@@ -274,7 +162,6 @@ body {
   bottom: 0;
   left: 0;
   width: 100%;
-  /* height: 240px; */
   background-size: cover;
   border-bottom: 150px solid #fff;
   border-left: 3000px solid transparent;
@@ -296,7 +183,6 @@ body {
   bottom: 489px;
 }
 
-/**/
 .game {
   margin-top: 50px;
 }
@@ -312,7 +198,7 @@ body {
 
 .game h3 {
 	padding-top: 15px;
-  font-size: 26px;
+  font-size: 30px;
   font-family: 'Lobster Two', 'cursive';
   font-weight: 300;
   color: var(--color-pink);
@@ -335,31 +221,9 @@ body {
   margin-bottom: 17px;
 }
 
-.fEmail {
-  float: left;
-  font-size: 13px;
-  font-family: 'raleway', 'sans-serif';
-  font-weight: 300;
-  border: 0;
-  background-color: var(--color-darkBlue);
-  color: #fff;
-  padding: 11px;
-  width: 350px;
-  border-radius: 4px 0px 0px 4px;
-  padding-left: 20px;
-}
-
-
-/**/
 .lineBlack {
   height: 80%;
   background: var(--color-darkBlue) !important;
-}
-
-.downLine p {
-  font-size: 16px;
-  font-family: 'raleway', 'sans-serif';
-  color: #fff;
 }
 
 .lineBlack:before {
@@ -374,23 +238,14 @@ body {
   background-size: cover;
 }
 
-.lineBlack input {
-  margin-top: 3px;
-}
-
 #downMenu {
   float: right;
 }
 
 #downMenu li {
   height: 16px;
-  border-right: 1px solid var(--color-darkBlue);
   float: left;
   list-style: none;
-}
-
-#downMenu li:last-child {
-  border-right: none;
 }
 
 #downMenu li a {
@@ -404,12 +259,27 @@ body {
   margin-bottom: 10px;
 }
 
-#downMenu li:last-child a {
-  padding-right: 0;
-}
-
 #downMenu li a:hover {
   color: var(--color-pink);
+}
+
+.copy {
+  margin-top: 29px;
+}
+
+
+/*------------------------------------------------------------------------------------------------*/
+/*  PROFILE CSS  */
+
+.pageTitle h2 {
+  font-size: 30px;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-bottom: 0px;
+}
+
+hr {
+  margin: 8px;
 }
 
 .copy {
@@ -420,40 +290,227 @@ body {
   margin-top: 29px;
 }
 
-@media screen and (max-width: 1190px) {
-  .horL {
-    display: none;
-  }
+#avatar {
+  margin-left: 15px;
+}
+
+.block {
+  display: block;
+  position: relative;
+  margin: auto;
+  padding: 2px;
+}
+
+#profile {
+background-image: url(../../assets/images/bgTop.jpg);
+min-height: calc(100vh - 56px);
+}
+
+#fave-games {
+  width: calc(100% - 40px);
+  align-content: center;
+  text-align: center;
+  background-image: url(../../assets/images/cubes.png);
+  background-repeat: repeat;
+  color: #13324C;
+  padding-top: 20px;
+  margin: 70px auto 30px;
+  margin-top: 50px;
+  margin-bottom: 0;
+  box-shadow: 0 2px 6px -2px rgba(0, 0, 0, 0.26);
+  border-radius: 20px;
+}
+
+#fave-games h4 {
+  font-size: 30px;
+  font-family: 'Lobster Two', cursive;
+  color: var(--color-darkBlue);
+}
+
+.inline {
+  display: inline-block;
+  position: relative;
+  margin: auto;
+}
+
+#game-1 {
+  background-image: url(https://cdn.shopify.com/s/files/1/0229/9777/products/citadels_grande.jpg?v=1518281599);
+}
+
+#game-2 {
+  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSF19fr-DXgy79lwR9mCcrUUmmT6ZO43qknLdC77O1RNypnVW3R);
+}
+
+#game-3 {
+  background-image: url(https://images-na.ssl-images-amazon.com/images/I/81yob9x41dL._SY550_.jpg);
+}
+
+.profile-card {
+  width: calc(100% - 40px);
+  padding-top: 25px;
+  margin: 100px auto 30px;
+  box-shadow: 0 2px 6px -2px rgba(0, 0, 0, 0.26);
+  background-image: url(../../assets/images/cubes.png);
+  background-repeat: repeat;
+  border-radius: 20px;
+}
+
+.profile-pic {
+  display: false;
+  position: absolute;
+  margin: false;
+  top: -90px;
+  left: 50%;
+  right: false;
+  bottom: false;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  height: 250px;
+  width: 250px;
+  border: 10px solid #fff;
+  border-radius: 100%;
+  background: url("http://www.stleos.uq.edu.au/wp-content/uploads/2016/08/image-placeholder.png") center no-repeat;
+  background-size: cover;
+  margin-bottom: 80px;
+}
+
+.profile-name-container {
+  text-align: center;
+  padding-top: 35px;
+}
+
+.user-name {
+  font-family: 'raleway', 'sans-serif';
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 35px;
+  padding-top: 100px;
+  margin-bottom: 6px;
+}
+
+.user-location {
+  margin-bottom: 5px;
+}
+
+.user-desc {
+  letter-spacing: 1px;
+  color: #999;
+  max-width: 800px;
+}
+
+.profile-card-stats {
+  height: 75px;
+  padding: 10px 0px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.image {
+  width: 240px;
+  height: 200px;
+  cursor: url(../../assets/images/cursors/select.cur), pointer !important;
+  margin: 0 20px 40px;
+  overflow: hidden;
+  border-radius: 20px;
+  /* border: 10px solid #fff; */
+  box-shadow: 0 2px 6px -2px rgba(0, 0, 0, 0.26);
+  background-color: rgba(0, 0, 0, 0.4);
+  background-size: cover !important;
+  -webkit-transition: 0.2s cubic-bezier(0.5, 0, 0.2, 1);
+  transition: 0.2s cubic-bezier(0.5, 0, 0.2, 1);
+}
+
+.image:hover {
+  -webkit-transform: scale(1.06);
+  transform: scale(1.06);
+  box-shadow: 0 2px 18px -2px rgba(0, 0, 0, 0.3);
+}
+
+.events-card {
+  width: calc(100% - 40px);
+  padding: 50px;
+  margin-top: 50px;
+  background-image: url(../../assets/images/cubes.png);
+  background-repeat: repeat;
+  box-shadow: 0 2px 6px -2px rgba(0, 0, 0, 0.26);
+  align-content: center;
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: #265C91;
+}
+
+.profile-btn {
+  background-color: #265C91;
+  color: white;
+  transition: .5s all;
+}
+
+.profile-btn:hover {
+background-color: #13324C;
+color: white;
+cursor: url(../../assets/images/cursors/select.cur), pointer;
+}
+
+.btn-link, .btn-link:hover {
+color: white;
+text-decoration: none;
+}
+
+.button-text {
+  text-align: right;
+  margin: 5px;
+  padding: 5px;
 
 }
 
+@media screen and (max-width: 1190px) {
+  .horL {
+      display: none;
+  }
+
+  #messageBtn {
+      size: 30%;
+  }
+}
 
 @media screen and (max-width: 991px) {
   .copy p {
-    text-align: center;
+      text-align: center;
   }
 
   #downMenu ul li {
-    float: none;
-    text-align: center;
+      float: none;
+      text-align: center;
   }
 
   .downLine input {
-    margin-top: 25px;
+      margin-top: 25px;
   }
 
   .footer .fEmail {
-    float: left;
-    max-width: 350px;
-    max-width: 163px;
+      float: left;
+      max-width: 350px;
+      max-width: 163px;
   }
 
   #downMenu li a {
-    padding: 5px;
+      padding: 5px;
   }
 
   .cont {
-    margin-top: 124px;
+      margin-top: 124px;
+  }
+  
+  #messageBtn {
+      size: 30%;
   }
 }
 
@@ -468,5 +525,1020 @@ body {
   top: -65px;
   padding: 20px 0;
   width: 100%;
+} 
+
+
+/*------------------------------------------------------------------------------------------------*/
+/*  MESSAGES CSS  */
+
+.msg {
+  background-image: url(../../assets/images/bgTop.jpg);
+  min-height: calc(100vh - 56px);
+  font-family: Raleway;
+}
+
+/* TODO CHANGE */
+.msg-h3 {
+  color: #AECCE9;
+  background-color: #265C91;
+  padding-left: 12px;
+  margin: 0px;
+  font-size: 35px;
+  border-color: #265C91;
+  font-family: 'Lobster Two';
+  font-weight: normal;
+}
+
+/* TODO CHANGE */
+.msg-hr {
+  background-color: lightgray;
+  margin: 0;
+}
+
+/* TODO CHANGE */
+.msg-container {
+  max-width: 1100px;
+  margin: auto;
+  background: white;
+  border-radius: 20px;
+}
+
+/* TODO CHANGE */
+.msg-img {
+  max-width: 100%;
+  border-radius: 50%;
+}
+
+.inbox_people {
+  background: #f8f8f8 none repeat scroll 0 0;
+  float: left;
+  overflow: hidden;
+  width: 40%;
+  border-right: 1px solid #c4c4c4;
+  padding: 2.5px;
+}
+
+.inbox_msg {
+  clear: both;
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+.top_spac {
+  margin: 20px 0 0;
+}
+
+.recent_heading {
+  float: left;
+  width: 40%;
+}
+
+.srch_bar {
+  display: inline-block;
+  text-align: right;
+  width: 60%;
+  padding: 0;
+}
+
+.heading_srch {
+  padding: 10px 29px 10px 20px;
+  overflow: hidden;
+  border-bottom: 1px solid #c4c4c4;
+}
+
+.recent_heading h4 {
+  color: #13324C;
+  font-size: 21px;
+  margin: auto;
+}
+
+.srch_bar input {
+  border: 1px solid #cdcdcd;
+  border-width: 0 0 1px 0;
+  width: 80%;
+  padding: 2px 0 4px 6px;
+  background: none;
+}
+
+.srch_bar .input-group-addon button {
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+  border: medium none;
+  padding: 0;
+  color: #707070;
+  font-size: 18px;
+}
+
+.srch_bar .input-group-addon {
+  margin: 0 0 0 -27px;
+}
+
+.chat_ib h5 {
+  font-size: 15px;
+  color: #464646;
+  margin: 0 0 8px 0;
+}
+
+.chat_ib h5 span {
+  font-size: 13px;
+  float: right;
+}
+
+.chat_ib p {
+  font-size: 14px;
+  color: #989898;
+  margin: auto
+}
+
+.chat_img {
+  float: left;
+  width: 11%;
+}
+
+.chat_ib {
+  float: left;
+  padding: 0 0 0 15px;
+  width: 85%;
+}
+
+.chat_people {
+  overflow: hidden;
+  clear: both;
+  padding: 18px 16px 10px;
+}
+
+.chat_list {
+  margin: 0;
+  /* padding: 18px 16px 10px; */
+}
+
+.inbox_chat {
+  height: 550px;
+  overflow-y: scroll;
+}
+
+.active_chat {
+  background: #AECCE9;
+}
+
+.incoming_msg_img {
+  display: inline-block;
+  width: 6%;
+}
+
+.received_msg {
+  display: inline-block;
+  padding: 0 0 0 10px;
+  vertical-align: top;
+  width: 92%;
+}
+
+.received_withd_msg p {
+  background: #ebebeb none repeat scroll 0 0;
+  border-radius: 3px;
+  color: #646464;
+  font-size: 14px;
+  margin: 0;
+  padding: 5px 10px 5px 12px;
+  width: 100%;
+}
+
+.timestamp {
+  color: #747474;
+  display: block;
+  font-size: 12px;
+  margin: 8px 0 0;
+}
+
+.received_withd_msg {
+  width: 57%;
+}
+
+.messages {
+  float: left;
+  padding: 30px 10px 0px 10px;
+  width: 60%;
+  background-color: white;
+}
+
+.sent_msg p {
+  background: #265C91 none repeat scroll 0 0;
+  border-radius: 3px;
+  font-size: 14px;
+  margin: 0;
+  color: #fff;
+  padding: 5px 10px 5px 12px;
+  width: 100%;
+}
+
+.outgoing_msg {
+  overflow: hidden;
+  margin: 26px 0 26px;
+}
+
+.sent_msg {
+  float: right;
+  width: 46%;
+}
+
+.input_msg_write input {
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+  color: #4c4c4c;
+  font-size: 15px;
+  min-height: 50px;
+  width: 100%;
+  border-radius: 10px;
+  outline: none;
+}
+
+.type_msg {
+  position: relative;
+}
+
+.msg_send_btn {
+  background: #265C91 none repeat scroll 0 0;
+  border: medium none;
+  border-radius: 50%;
+  color: #fff;
+  cursor: url(../../assets/images/cursors/select.cur), pointer !important;
+  font-size: 17px;
+  height: 33px;
+  position: absolute;
+  right: 0;
+  top: 11px;
+  width: 33px;
+  padding: 5px;
+  margin-right: 8px;
+}
+
+.messaging {
+  box-shadow: 8px 8px 8px 3px #1f2021;
+  border-radius: 20px;
+}
+
+.msg_history {
+  height: 521px;
+  overflow-y: auto;
+}
+
+.copy {
+  margin-top: 29px;
+}
+
+.dm {
+  margin-top: 29px;
+}
+
+#saveBtn {
   background-color: var(--color-darkBlue);
+  border-color: var(--color-darkBlue);
+}
+
+#cancelBtn {
+  background-color: #AECCE9;
+  border-color: #AECCE9;
+}
+
+#avatar {
+  margin-left: 15px;
+}
+
+/* media queries */
+
+@media screen and (max-width: 1190px) {
+  .horL {
+      display: none;
+  }
+
+}
+
+@media screen and (max-width: 991px) {
+  .copy p {
+      text-align: center;
+  }
+
+  #downMenu ul li {
+      float: none;
+      text-align: center;
+  }
+
+  .downLine input {
+      margin-top: 25px;
+  }
+
+  .footer .fEmail {
+      float: left;
+      max-width: 350px;
+      max-width: 163px;
+  }
+
+  #downMenu li a {
+      padding: 5px;
+  }
+
+  .cont {
+      margin-top: 124px;
+  }
+}
+
+.default {
+  transition-duration: 1s;
+}
+
+.fixed {
+  transition-duration: 1s;
+  z-index: 999;
+  position: fixed;
+  top: -65px;
+  padding: 20px 0;
+  width: 100%;
+}
+
+
+/*------------------------------------------------------------------------------------------------*/
+/*  EVENT / EVENTS CSS  */
+
+.form-group .eventForm {
+  text-align: left;
+  margin-bottom: -5px;
+  font-size: 35px;
+  font-family: 'Lobster Two', cursive;
+  clear: both;
+}
+
+#signup-column {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  height: auto;
+  background-image: url(../../assets/images/cubes.png);
+  border-radius: 20px;
+  color: var(--color-darkBlue);
+  font-size: 18px;
+  padding: 0 0 20px 0;
+}
+
+h3.newEvent  {
+  font-size: 45px;
+  text-align: center;
+  align-content: center;
+  background-image: url(../../assets/images/meeples2.jpg);
+  color: #fff;
+  text-shadow: 4px 4px #13324C;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  padding: 20px 0 20px 0;
+  font-family: 'Lobster Two', cursive;
+}
+
+.rbc-row-content {
+  z-index: 1 !important;
+}
+
+h2.myEvents  {
+  text-align: center;
+  font-size: 45px;
+  padding-top: 40px;
+  font-family: 'Lobster Two', cursive;
+  color: var(--color-darkBlue);
+}
+
+.container.App {
+  background-color: #fff;
+  border-radius: 20px;
+  margin-bottom: 50px;
+  padding: 0 30px 30px 30px;
+}
+
+h3.eventForm {
+  font-size: 45px;
+  text-align: center;
+  align-content: center;
+  font-family: 'Lobster Two', cursive;
+  clear: both;
+}
+
+#signup-box h4 {
+  font-size: 30px;
+  font-family: 'Lobster Two', cursive;
+  clear: both;
+}
+
+p.description {
+  text-align: center;
+}
+
+p {
+  color: var(--color-text);
+}
+
+#button-row.row.justify-content-center.align-items-center {
+  clear: both;
+}
+ 
+.eventBtn.btn.btn-primary {
+  margin-top: 30px;
+}
+
+.date {
+  float:left;
+  text-align: center;
+}
+
+.zip {
+  float: left;
+  text-align: center;
+}
+
+.creator {
+  float:right;
+  text-align: center
+}
+
+
+/*------------------------------------------------------------------------------------------------*/
+/*  GROUP / GROUPS CSS */
+
+h3.groupName {
+  font-size: 45px;
+  text-align: center;
+  align-content: center;
+  font-family: 'Lobster Two', cursive;
+  clear: both;
+}
+
+.groupEvents {
+  float:left;
+  text-align: center;
+}
+
+.groupAdmins {
+  float:right;
+  text-align: center;
+}
+
+.submitBtn {
+  clear:both;
+}
+
+#signup-box p.groupDescription {
+  padding-bottom: 0;
+}
+
+#signup-box p.noPadding {
+  padding-bottom: 0;
+}
+
+.yourGroups {
+  display: inline-block;
+}
+
+
+/*------------------------------------------------------------------------------------------------*/
+/*  GAME CSS  */
+
+.background {
+  min-height: calc(100vh);
+}
+
+.game-img {
+  margin-top: 30px;
+  border-radius: 20px;
+	margin-left: auto;
+	margin-right: auto;
+  display: block;
+  box-shadow: 0 2px 6px -2px rgba(0, 0, 0, 0.26);
+}
+
+.difficulty {
+  margin-top: 20px;
+  float: left;
+  text-align: center;
+  clear: both;
+}
+
+.length {
+  margin-top: 20px;
+  float: left;
+  text-align: center;
+}
+
+.uniqueness {
+  margin-top: 20px;
+  float: left;
+  text-align: center;
+}
+
+.cooperative {
+  margin-top: 20px;
+  float: right;
+  text-align: center;
+}
+
+#signup-box p {
+  padding-bottom: 20px;
+}
+
+@media screen and (max-width: 991px) {
+  /* .game-box {
+    padding: 20px 0 500px 0 !important;
+  } */
+
+  #signup-row{
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+}
+
+
+/*------------------------------------------------------------------------------------------------*/
+/*  SIGNUP CSS  */
+
+body {
+  margin: 0;
+  padding: 0;
+  color: var(--color-darkBlue);
+  cursor: url(../../assets/images/cursors/default.cur), default;
+} 
+
+h4 {
+  text-align: center;
+  font-size: 22px;
+}
+
+h4 a {
+  cursor: url(../../assets/images/cursors/select.cur), pointer;
+}
+
+.text-info {
+  color: var(--color-darkBlue)!important;
+  cursor: url(../../assets/images/cursors/default.cur), default;
+}
+
+label {
+  cursor: url(../../assets/images/cursors/default.cur), default;
+  font-family: 'Lobster Two', cursive;
+  font-size: 22px;
+}
+
+/* input {
+  cursor: url(../../assets/images/cursors/text.cur), text;
+} */
+
+#logo img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+}
+
+#signup {
+  background-image: url(../../assets/images/bgTop.jpg);
+  min-height: calc(100vh - 56px);
+}
+
+#signup .container #signup-row #signup-column {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  max-width: 600px;
+  /* background-color: rgba(173, 204, 233, 0.753); */
+  background-image: url(../../assets/images/cubes.png);
+  border-radius: 20px;
+  font-family: 'Lobster Two', cursive;
+  color: var(--color-darkBlue);
+  font-size: 18px;
+  padding: 0 0 20px 0;
+}
+
+#signup-form h3 {
+  font-size: 45px;
+  text-align: center;
+  align-content: center;
+  background-image: url(../../assets/images/meeples2.jpg);
+  color: #fff;
+  text-shadow: 4px 4px #13324C;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  padding: 20px 0 20px 0;
+  font-family: 'Lobster Two', cursive;
+}
+
+.form-group {
+  align-content: center;
+  margin: 15px;
+  color: var(--color-darkBlue);
+  font-family: 'raleway', 'sans-serif';
+}
+
+.form-control {
+  font-family: 'raleway', 'sans-serif';
+}
+
+#signup .container #signup-row #signup-column #signup-box #signup-form #register-link {
+  margin: 10px 5px 10px 5px;
+  color: var(--color-darkBlue);
+  font-size: 22px;
+}
+
+.submitBtn {
+  color: var(--color-darkBlue);
+  font-family: 'raleway', 'sans-serif';
+  float: right;
+  margin-right: 30px;
+}
+
+.btn-info {
+  color: #fff;
+  background-color:var(--color-darkBlue);
+  cursor: url(../../assets/images/cursors/text.cur), text;
+  border-color: var(--color-darkBlue);
+}
+
+.btn-info:hover{
+  background: var(--color-text);
+  border-color: var(--color-text);
+  cursor: url(../../assets/images/cursors/select.cur), pointer;
+}
+  
+#signIn a {
+  cursor: url(../../assets/images/cursors/select.cur), pointer;
+  font-family: 'Lobster Two', cursive;
+  color: var(--color-darkBlue) !important;
+}
+
+#signIn a:hover {
+  color: var(--color-pink) !important;
+  text-decoration: none;
+}
+
+#signIn {
+  clear: both;
+}
+
+#signuup-form {
+  margin: 0 15px;
+}
+
+#signup-box {
+  padding: 0;
+}
+
+#signup-box #signup-form.form.p-1 {
+  padding: 0 !important;
+}
+
+
+/*------------------------------------------------------------------------------------------------*/
+/*  LOGIN CSS  */
+body {
+  margin: 0;
+  padding: 0;
+  color: var(--color-darkBlue);
+  cursor: url(../../assets/images/cursors/default.cur), default;
+} 
+
+.text-info {
+  color: var(--color-text)!important;
+  font-family: 'raleway', 'sans-serif';
+}
+
+#logo img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+}
+
+#login {
+  background-image: url(../../assets/images/bgTop.jpg);
+  /* background-size: cover; */
+  min-height: calc(100vh - 56px);
+}
+
+#loginPassword, #loginUsername {
+  width: 100%
+}
+
+#login .container #login-row #login-column #login-box #login-form {
+  /* padding: 1.5em; */
+  color: var(--color-darkBlue);
+}
+
+.form-group {
+  align-content: center;
+  color: var(--color-darkBlue);
+  font-family: 'raleway', 'sans-serif';
+}
+
+#login .container #login-row #login-column #login-box #login-form #register-link {
+  margin: 10px 5px 10px 5px;
+  color: var(--color-darkBlue);
+  font-size: 22px;
+}
+.form-control {
+  /* cursor: url(../images/cursors/text.cur), text; */
+  font-family: 'raleway', 'sans-serif';
+  width: 100%;
+}
+
+.submitBtn {
+  color: var(--color-darkBlue);
+  border-color:var(--color-darkBlue);
+  font-family: 'raleway', 'sans-serif';
+  float: right;
+  margin-right: 15px;
+}
+
+.btn-info {
+  color: #fff;
+  background-color:var(--color-darkBlue);
+  cursor: url(../../assets/images/cursors/select.cur), pointer;
+}
+
+.btn-info:hover{
+  background: var(--color-text);
+  border-color: var(--color-text);
+  cursor: url(../../assets/images/cursors/select.cur), pointer;
+}
+
+#signUp a {
+  /* cursor: url(../images/cursors/select.cur), pointer; */
+  cursor: url(../../assets/images/cursors/select.cur), pointer;
+  color: var(--color-darkBlue);
+}
+#signUp a:hover {
+  /* cursor: url(../images/cursors/select.cur), pointer; */
+  cursor: url(../../assets/images/cursors/select.cur), pointer;
+  color: var(--color-pink);
+  text-decoration: none;
+}
+
+#signUp {
+  clear: both;
+}
+
+
+/*------------------------------------------------------------------------------------------------*/
+/*  NAVBAR CSS  */
+
+#logout-link:hover {
+  cursor: url(../../assets/images/cursors/select.cur), pointer;
+}
+
+.navLogo {
+  position: absolute;
+  left: 0;
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--color-darkBlue);
+  cursor: url(../../assets/images/cursors/default.cur), default;
+  padding: 20px 0 20px 0;
+}
+
+.navbar-brand {
+  max-width: 250px;
+}
+
+.navbar-nav {
+  max-width: 800px;
+  overflow:hidden;
+  margin-right: 50px;
+}
+
+.navbar-brand img {
+  width: 80%;
+  cursor: url(../../assets/images/cursors/select.cur), pointer;
+  float:right;
+  margin-right: 20px;
+  margin-top: 10px;
+}
+
+.floatRight {
+  float: right;
+}
+
+.navbar-toggler {
+  /* src: url(../../assets/images/icon.png); */
+  /* background-color: red; */
+  background-image: url(../../assets/images/icon-01.png);
+  background-repeat: no-repeat;
+  background-size: 40px;
+  margin-right: 40px;
+}
+
+.menu a:active {
+	color: var(--color-lightBlue);;
+}
+
+.menu select {
+  display: none;
+}
+
+.menu .active a {
+  border: 0;
+  color: var(--color-lightBlue);
+}
+
+.menu li {
+  border-right: 1px solid var(--color-text);
+  text-align: center;
+  float: left;
+  font-family: 'raleway', 'sans-serif';
+  font-size: 14px;
+  color: #fff;
+  list-style: none;
+  text-transform: uppercase;
+  font-weight: 700;
+  width: 150px;
+}
+
+.menu li:last-child {
+  border-right: 0;
+  padding-right: 0px;
+}
+
+.menu li a {
+  color: #fff;
+  text-decoration: none;
+  cursor: url(../../assets/images/cursors/select.cur), pointer;
+}
+
+.menu li a:hover {
+  border: none;
+  outline: none;
+	color: var(--color-pink);
+}
+
+p.username {
+  color: var(--color-yellow);
+}
+
+p.logout:hover {
+  color: var(--color-pink);
+}
+
+p.logout {
+  color: var(--color-yellow);
+}
+
+
+@media screen and (max-width: 991px) {
+  .floatRight {
+    justify-content: end;
+    width: 180px;
+  }
+
+  .navbar-toggler {
+    margin: 0 0 0 90px;
+  }
+
+  .menu li a {
+    text-align: right;
+    margin-right:30px;
+  }
+
+  .navbar-text.m-0.px-1 {
+    text-align: right;
+  }
+
+  .navbar-nav .nav-link {
+    padding-left: 30px;
+  }
+
+  .navbar-text.m-0.px-1 {
+    padding-left: 10px;
+  }
+ 
+}
+
+
+/*------------------------------------------------------------------------------------------------*/
+/*  SEARCH CSS  */
+
+.background {
+  background-image: url(../../assets/images/bgTop.jpg);
+  /* background-size: cover; */
+  overflow: hidden
+} 
+
+h4 {
+  text-align: center;
+  font-size: 22px;
+}
+
+.text-info {
+  color: var(--color-darkBlue)!important;
+}
+
+#mainContainer h2 {
+  text-align: center;
+  font-size: 60px;
+  padding-top: 40px;
+  color: #FFF;
+  font-family: 'Lobster Two', cursive;
+}
+
+.react-autosuggest__input {
+  width: 100%;
+}
+
+.btn.btn-primary {
+  float: right;
+  font-family: 'raleway', 'sans-serif';
+  color: #fff;
+  background-color:var(--color-darkBlue);
+  border-color:var(--color-darkBlue);
+  cursor: url(../../assets/images/cursors/select.cur), pointer;
+  margin: 10px 0 0 10px;
+}
+
+ .btn.btn-primary:hover{
+  background: var(--color-text);
+  border-color: var(--color-text);
+  cursor: url(../../assets/images/cursors/select.cur), pointer;
+}
+
+.row.justify-content-center.align-items-center {
+  overflow: hidden;
+}
+
+#mainContainer h3 {
+  font-size: 45px;
+  text-align: center;
+  align-content: center;
+  font-family: 'Lobster Two', cursive;
+  clear: both;
+}
+
+.form-group {
+  align-content: center;
+  margin: 15px;
+  color: var(--color-darkBlue);
+  font-family: 'raleway', 'sans-serif';
+}
+
+.form-control {
+  font-family: 'raleway', 'sans-serif';
+}
+
+#signup .container #signup-row #signup-column #signup-box #signup-form #register-link {
+  margin: 10px 5px 10px 5px;
+  color: var(--color-darkBlue);
+  font-size: 22px;
+}
+
+.submitBtn {
+  float: right;
+  margin-right: 15px;
+}
+
+.btn-info {
+  color: #fff;
+  background-color:var(--color-darkBlue);
+  cursor: url(../../assets/images/cursors/select.cur), pointer;
+}
+
+.btn-info:hover{
+  background: var(--color-text);
+  cursor: url(../../assets/images/cursors/select.cur), pointer;
+}
+  
+#signIn a {
+  cursor: url(../../assets/images/cursors/select.cur), pointer;
+  font-family: 'Lobster Two', cursive;
+  color: var(--color-darkBlue) !important;
+}
+
+#signIn a:hover {
+  color: var(--color-pink) !important;
+  text-decoration: none;
+}
+
+#signIn {
+  clear: both;
+}
+
+#signup-form #passwordHelp .form-text .text-muted{
+  color: #fff !important;
+}
+
+.searchResults {
+  display: inline-block;
+  text-align: center;
+}
+
+a {
+  cursor: url(../../assets/images/cursors/select.cur), pointer;
+  color: #fff;
+}
+
+a:hover {
+  color: var(--color-pink);
+  text-decoration: none;
 }

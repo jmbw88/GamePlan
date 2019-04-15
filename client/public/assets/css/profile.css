@@ -1,3 +1,105 @@
+@import url('https://fonts.googleapis.com/css?family=Lobster+Two:700|Open+Sans:700|Raleway:300');
+
+
+:root {
+    --color-lightBlue: #AECCE9;
+    --color-darkBlue: #265C91;
+    --color-pink: #F38072;
+    --color-yellow: #F4D81E;
+    --color-text: #13324C;
+}
+
+.headerLine {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background-size: cover;
+    padding: 15px;
+}
+
+.headerLine:after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    pointer-events: none;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-size: cover;
+}
+
+.logo {
+    margin-top: 60px;
+}
+
+#menu a:active {
+    color: var(--color-lightBlue);
+}
+
+#menu select {
+    display: none;
+}
+
+#menu .active a {
+    border: 0;
+    color: var(--color-lightBlue);
+}
+
+#menu .active a:focus {
+    outline: none;
+    border: none;
+}
+
+#menu .active a:active {
+    outline: none;
+    border: none;
+}
+
+#menu .active a:link {
+    outline: none;
+    border: none;
+}
+
+#menu .active a:visited {
+    outline: none;
+    border: none;
+}
+
+#menu li {
+    border-right: 1px solid #000;
+    padding-left: 17px;
+    padding-right: 16px;
+    float: left;
+    font-family: 'raleway', 'sans-serif';
+    font-size: 14px;
+    color: #fff;
+    list-style: none;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+#menu li:last-child {
+    border-right: 0;
+    padding-right: 0px;
+}
+
+#menu {
+    margin-top: 33px;
+    margin-top: 74px;
+    float: right;
+}
+
+#menu li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+#menu li a:hover {
+    border: none;
+    outline: none;
+    color: var(--color-pink);
+}
+
 .pageTitle h2 {
     font-size: 30px;
     margin-top: 10px;
@@ -7,6 +109,57 @@
 
 hr {
     margin: 8px;
+}
+
+.lineBlack {
+    position: relative;
+    overflow: hidden;
+}
+
+.downLine {
+    margin-bottom: 35px;
+    margin-top: 127px;
+}
+
+.downLine p {
+    font-size: 16px;
+    font-family: 'raleway', 'sans-serif';
+    color: #fff;
+}
+
+
+#downMenu {
+    float: right;
+}
+
+#downMenu li {
+    height: 16px;
+    border-right: 1px solid var(--color-darkBlue);
+    float: left;
+    list-style: none;
+}
+
+#downMenu li:last-child {
+    border-right: none;
+}
+
+#downMenu li a {
+    padding: 15px;
+    text-decoration: none;
+    font-size: 16px;
+    font-family: 'raleway', 'sans-serif';
+    font-weight: 300;
+    color: #fff;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#downMenu li:last-child a {
+    padding-right: 0;
+}
+
+#downMenu li a:hover {
+    color: var(--color-pink);
 }
 
 .copy {
@@ -21,6 +174,23 @@ hr {
     margin-left: 15px;
 }
 
+html {
+    background-image: url(../images/bgTop.jpg);
+    background-repeat: repeat;
+    background-color: transparent;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+body {
+    background-color: transparent;
+    font-family: 'raleway', 'sans-serif';
+    font-size: 18px;
+    letter-spacing: 2px;
+    font-weight: 400;
+    line-height: 24px;
+}
+
 .block {
     display: block;
     position: relative;
@@ -28,16 +198,11 @@ hr {
     padding: 2px;
 }
 
-#profile {
-  background-image: url(../../assets/images/bgTop.jpg);
-  min-height: calc(100vh - 56px);
-}
-
 #fave-games {
     width: calc(100% - 40px);
     align-content: center;
     text-align: center;
-    background-image: url(../../assets/images/cubes.png);
+    background-image: url(../images/cubes.png);
     background-repeat: repeat;
     color: #13324C;
     padding-top: 20px;
@@ -45,13 +210,6 @@ hr {
     margin-top: 50px;
     margin-bottom: 0;
     box-shadow: 0 2px 6px -2px rgba(0, 0, 0, 0.26);
-    border-radius: 20px;
-}
-
-#fave-games h4 {
-    font-size: 30px;
-    font-family: 'Lobster Two', cursive;
-    color: var(--color-darkBlue);
 }
 
 .inline {
@@ -75,11 +233,10 @@ hr {
 .profile-card {
     width: calc(100% - 40px);
     padding-top: 25px;
-    margin: 100px auto 30px;
+    margin: 70px auto 30px;
     box-shadow: 0 2px 6px -2px rgba(0, 0, 0, 0.26);
-    background-image: url(../../assets/images/cubes.png);
+    background-image: url(../images/cubes.png);
     background-repeat: repeat;
-    border-radius: 20px;
 }
 
 .profile-pic {
@@ -98,7 +255,6 @@ hr {
     border-radius: 100%;
     background: url("http://www.stleos.uq.edu.au/wp-content/uploads/2016/08/image-placeholder.png") center no-repeat;
     background-size: cover;
-    margin-bottom: 80px;
 }
 
 .profile-name-container {
@@ -111,7 +267,7 @@ hr {
     font-size: 22px;
     font-weight: 800;
     line-height: 35px;
-    padding-top: 100px;
+    padding-top: 80px;
     margin-bottom: 6px;
 }
 
@@ -122,7 +278,6 @@ hr {
 .user-desc {
     letter-spacing: 1px;
     color: #999;
-    max-width: 800px;
 }
 
 .profile-card-stats {
@@ -135,11 +290,11 @@ hr {
 .image {
     width: 240px;
     height: 200px;
-    cursor: url(../../assets/images/cursors/select.cur), pointer !important;
+    cursor: pointer;
     margin: 0 20px 40px;
     overflow: hidden;
-    border-radius: 20px;
-    /* border: 10px solid #fff; */
+    border-radius: 5px;
+    border: 10px solid #fff;
     box-shadow: 0 2px 6px -2px rgba(0, 0, 0, 0.26);
     background-color: rgba(0, 0, 0, 0.4);
     background-size: cover !important;
@@ -157,7 +312,7 @@ hr {
     width: calc(100% - 40px);
     padding: 50px;
     margin-top: 50px;
-    background-image: url(../../assets/images/cubes.png);
+    background-image: url(../images/cubes.png);
     background-repeat: repeat;
     box-shadow: 0 2px 6px -2px rgba(0, 0, 0, 0.26);
     align-content: center;
@@ -174,21 +329,24 @@ a {
     color: #265C91;
 }
 
-.profile-btn {
+#messageBtn {
+    padding-right: 20px;
     background-color: #265C91;
     color: white;
-    transition: .5s all;
+    position: relative;
+    line-height: 1px;
+    border-radius: 10%;
+    float: right;
+    
 }
 
-.profile-btn:hover {
-  background-color: #13324C;
-  color: white;
-  cursor: url(../../assets/images/cursors/select.cur), pointer;
-}
-
-.btn-link, .btn-link:hover {
-  color: white;
-  text-decoration: none;
+.message-button {
+    padding: 10px;
+    margin: 5px;
+    margin-right: 20px;
+    text-align: center;
+    line-height: 1px;
+    position: relative;
 }
 
 .button-text {
@@ -254,4 +412,4 @@ a {
     top: -65px;
     padding: 20px 0;
     width: 100%;
-} 
+}

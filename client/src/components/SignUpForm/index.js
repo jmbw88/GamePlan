@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Axios from "axios";
 import { Redirect, Link } from "react-router-dom";
-import "./style.css";
 
 class SignUpForm extends Component {
   constructor(props) {
@@ -128,15 +127,12 @@ class SignUpForm extends Component {
     }
     return (
       <div id="signup">
-        {/* <div id="logo">
-            <img src="assets/images/logo2.png"/>
-        </div> */}
         <div className="container">
             <div id="signup-row" className="row justify-content-center align-items-center">
                 <div id="signup-column" className="col-md-6">
                     <div id="signup-box" className="col-md-12">
                         <form id="signup-form" className="form p-1" action="" method="post">
-                                <h3>Fill out the form <br></br>to get started!</h3>
+                                <h3>Fill out the form to get started!</h3>
                                 {this.state.errorMsg ? (
                                   <div className="alert alert-danger" role="alert">
                                     {this.state.errorMsg}

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Board Game Library</title>
+    <meta charset="UTF-8">
+    <!-- <--stylesheets-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+        integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous">
+    </script>
+    <link href="assets/css/addgame.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="block container" id="game-library-block">
+        <div class="header" id="game-header">
+            <h4 align="center">Game Library</h4>
+        </div>
+        <div class="block content" id="game-library">
+            <div class="inline image" id="game">
+                <!--Trigger/Open The Modal-->
+                <button type="button" class="btn btn-light" id="viewGame"><i
+                        class="fas fa-search-plus fa-3x"></i></button>
+            </div>
+            <!-- The Modal -->
+            <div id="gameModal" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2>Citadels</h2>
+                        <span class="close">&times;</span>
+                    </div>
+                    <div class="modal-body">
+                        <img src="./assets/images/modal_games/citadels.jpg" alt="Citadels" id="modal-img">
+                        <div class="game-specs">
+                            <p id="game-desc">In Citadels, players take on new roles each round to represent characters
+                                they
+                                hire in order to help them acquire gold and erect buildings. The game ends at the close
+                                of a
+                                round in which a player erects their eighth building. Players then tally their points,
+                                and
+                                the player with the highest score wins.</p>
+                            <button type="button" class="btn m-2 profile-btn" id="addGameBtn">
+                                <a class="btn-link" href="/profile/addGame">
+                                    <i class="fas fa-dice-five fa-lg"></i> Add to Favorites</a></button>
+                            <p id="game-players">Players: 2 - 8</p>
+                            <p id="game-length">Play Time: 30 - 60 Minutes</p>
+                            <p id="game-info">For more info, visit <a
+                                    href="https://boardgamegeek.com/boardgame/205398/citadels"
+                                    id="bgg">BoardGameGeek</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="inline image" id="game"></div>
+            <div class="inline image" id="game"></div>
+            <div class="inline image" id="game"></div>
+            <div class="inline image" id="game"></div>
+            <div class="inline image" id="game"></div>
+            <div class="inline image" id="game"></div>
+            <div class="inline image" id="game"></div>
+            <div class="inline image" id="game"></div>
+            <div class="inline image" id="game"></div>
+            <div class="inline image" id="game"></div>
+            <div class="inline image" id="game"></div>
+        </div>
+    </div>
+
+    <div class="lineBlack">
+        <div class="container">
+            <div class="row downLine">
+                <div class="col-md-6 text-left copy">
+                    <p>Copyright GamePlan &copy; 2019. All Rights Reserved.</p>
+                </div>
+                <div class="col-md-6 text-right dm">
+                    <ul id="downMenu">
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="editprofile.html">Edit Profile</a></li>
+                        <li><a href="search.html">Search</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Get the modal
+        var modal = document.getElementById('gameModal');
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("viewGame");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks the button, open the modal 
+        btn.onclick = function () {
+            modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+
+</html>

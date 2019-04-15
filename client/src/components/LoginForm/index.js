@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Redirect, Link } from "react-router-dom";
 import Axios from "axios";
-import "./style.css";
 
 class LoginForm extends Component {
   constructor() {
@@ -54,21 +53,18 @@ class LoginForm extends Component {
     }
     return (
       <div id="login">
-      {/* <div id="logo">
-          <img src="assets/images/logo2.png"/>
-      </div> */}
       <div className="container">
-          <div id="login-row" className="row justify-content-center align-items-center">
-              <div id="login-column" className="col-md-6">
-                  <div id="login-box">
-                      <form id="login-form" className="form p-1" action="" method="post">
+          <div id="signup-row" className="row justify-content-center align-items-center">
+                <div id="signup-column" className="col-md-6">
+                    <div id="signup-box" className="col-md-12">
+                        <form id="signup-form" className="form p-1" action="" method="post">
                           <h3 className="text-center">Sign In</h3>
                           {this.state.errorMsg ? (
                             <div className="alert alert-danger" role="alert">
                               {this.state.errorMsg}
                             </div>) : ""}
                           <div className="form-group ">
-                              <label for="loginUsername" className="text-info">Username:</label><br/>
+                              <label for="loginUsername">Username</label><br/>
                               <input id="loginUsername" 
                                     placeholder="Enter username"
                                     name="username"
@@ -77,7 +73,7 @@ class LoginForm extends Component {
                                     className="form-control"/>
                           </div>
                           <div className="form-group">
-                              <label for="password" className="text-info">Password:</label><br/>
+                              <label for="password">Password</label><br/>
                               <input type="password" 
                                       id="loginPassword" 
                                       name="password"

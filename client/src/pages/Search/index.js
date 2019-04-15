@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Redirect, Link } from "react-router-dom";
 import Axios from "axios";
-import "./style.css";
 import Autosuggest from "react-autosuggest";
 
 let games = [];
@@ -133,13 +132,13 @@ class Search extends Component {
     return (
       <React.Fragment>
         <body className="background" id ="mainContainer">
-          <h2>Search</h2>
             <div id="signup-row" className="row justify-content-center align-items-center">
               <div id="signup-column" className="col-md-8">
+              <h3 className="newEvent">Search</h3>
                 <div id="signup-box" className="col-md-12">
-                  <h3>Search for Users by Game <br></br>
+                  <h4>Search for Users by Game <br></br>
                       or <br></br>
-                      View Groups &amp; Events</h3>
+                      View Groups &amp; Events</h4>
                   <div className="autosuggest col-md-12 justify-content-center">
                     <form>
                       <Autosuggest
@@ -160,7 +159,7 @@ class Search extends Component {
 
               <div id="signup-column" className="col-md-8">
                 <div id="signup-box" className="col-md-12">
-                  <h3>Results</h3>
+                  <h3 className="newEvent">Results</h3>
                   <div>
                     {this.state.users ? this.state.users.map((user) => (
                       <p className="searchResults col-md-4"><Link to={`/${user._id}`}>{user.account.username}</Link></p>

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Axios from "axios";
-import "./style.css";
 
 class Game extends Component {
   constructor(props) {
@@ -41,9 +40,9 @@ class Game extends Component {
     return (
       <React.Fragment>
         <div className="background">
-          <h2 className="newEvent">{this.state.title}</h2>
           <div id="signup-row" className="row justify-content-center align-items-center">
             <div id="signup-column" className="col-md-8">
+            <h3 className="newEvent">{this.state.title}</h3>
               {this.state.img ? <img className="game-img" src={this.state.img} alt="Game Image"/> : ""}
               <div id="signup-box" className="game-box col-md-12">
                 <div className="difficulty col-md-3">
