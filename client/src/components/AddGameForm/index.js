@@ -115,6 +115,7 @@ class AddGameForm extends Component {
               <div id="signup-column" className="col-md-8">
                <h3 className="newEvent">Add game</h3>
                <div id="signup-box" className="col-md-8 mx-auto my-3">
+               <h4>Select Game From Dropdown</h4>
                   <form>
                   {this.state.errorMsg ? (
                     <div className="alert alert-danger" role="alert">
