@@ -1,11 +1,3 @@
-:root {
-	--color-lightBlue: #AECCE9;
-	--color-darkBlue: #265C91;
-	--color-pink: #F38072;
-	--color-yellow: #F4D81E;
-	--color-text: #13324C;
-}
-
 body {
     margin: 0;
     padding: 0;
@@ -33,23 +25,8 @@ body {
     min-height: calc(100vh - 56px);
 }
 
-#login .container #login-row #login-column #login-box {
-    margin-top: 60px;
-    max-width: 600px;
-    background-color: rgba(173, 204, 233, 0.753);
-    border-radius: 20px;
-    font-family: 'Lobster Two', cursive;
-    color: var(--color-darkBlue);
-    font-size: 18px;
-    padding: 20px 0 20px 0;
-}
-
 #loginPassword, #loginUsername {
     width: 100%
-}
-
-#login h3 {
-    font-size: 45px;
 }
 
 #login .container #login-row #login-column #login-box #login-form {

@@ -81,9 +81,9 @@ class Groups extends Component {
     return (
       <React.Fragment>
         <body className="background">
-          <h2 className="newEvent">Create New Group</h2>
             <div id="signup-row" className="row justify-content-center align-items-center">
               <div id="signup-column" className="col-md-8">
+              <h3 className="newEvent">Create New Group</h3>
                 <div id="signup-box" className="col-md-12">
                   <form>
                     {this.state.errorMsg ? (
@@ -91,7 +91,7 @@ class Groups extends Component {
                         {this.state.errorMsg}
                       </div>) : ""}
                     <div className="form-group">
-                    <h3 className="eventForm"> <label for="groupName">Group Name:</label><br/></h3>
+                    <h3 className="eventForm"> <label for="groupName">Group Name</label><br/></h3>
                       <input id="groupName" 
                               placeholder="Name"
                               name="groupName"
@@ -100,7 +100,7 @@ class Groups extends Component {
                               className="form-control"/>
                     </div>
                     <div className="form-group">
-                      <h3 className="eventForm"> <label for="groupDesc">Group Description:</label><br/></h3>
+                      <h3 className="eventForm"> <label for="groupDesc">Group Description</label><br/></h3>
                       <input id="groupDesc" 
                               placeholder="Description"
                               name="groupDesc"
@@ -125,9 +125,9 @@ class Groups extends Component {
               </div>
             </div> 
 
-            <h2 className="newEvent">Your Groups</h2>
             <div id="signup-row" className="row justify-content-center align-items-center">
               <div id="signup-column" className="col-md-8">
+              <h3 className="newEvent">Your Groups</h3>
                 <div id="signup-box" className="col-md-12">
                   {this.state.groups ? this.state.groups.map((group) => (
                     <div className="yourGroups col-md-6">

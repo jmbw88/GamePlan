@@ -101,10 +101,10 @@ class Group extends Component {
     return (
       <React.Fragment>
         <body className="background">
-          <h2 className="newEvent">Create Group Event</h2>
 
           <div id="signup-row" className="row justify-content-center align-items-center">
               <div id="signup-column" className="col-md-8">
+              <h3 className="newEvent">Create Group Event</h3>
                 <div id="signup-box" className="col-md-12">
                   <form>
                   {this.state.errorMsg ? (
@@ -158,7 +158,7 @@ class Group extends Component {
             <div id="signup-row" className="row justify-content-center align-items-center">
               <div id="signup-column" className="col-md-8">
                 <div id="signup-box" className="group-box col-md-12">
-                  <h3 className="groupName">{this.state.name}</h3>
+                  <h3 className="newEvent">Group Name{this.state.name}</h3>
                   <p className="text-center groupDescription">{this.state.description}</p>
                   <p className="text-center groupDescription">{this.state.zipcode}</p>
 

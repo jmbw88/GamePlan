@@ -21,6 +21,8 @@ h4 a {
 
 label {
   cursor: url(../../assets/images/cursors/default.cur), default;
+  font-family: 'Lobster Two', cursive;
+  font-size: 22px;
 }
 
 /* input {
@@ -46,18 +48,26 @@ label {
   margin-top: 40px;
   margin-bottom: 40px;
   max-width: 600px;
-  background-color: rgba(173, 204, 233, 0.753);
+  /* background-color: rgba(173, 204, 233, 0.753); */
+  background-image: url(../../assets/images/cubes.png);
   border-radius: 20px;
   font-family: 'Lobster Two', cursive;
   color: var(--color-darkBlue);
   font-size: 18px;
-  padding: 20px 0 20px 0;
+  padding: 0 0 20px 0;
 }
 
 #signup-form h3 {
   font-size: 45px;
   text-align: center;
   align-content: center;
+  background-image: url(../../assets/images/meeples2.jpg);
+  color: #fff;
+  text-shadow: 4px 4px #13324C;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  padding: 20px 0 20px 0;
+  font-family: 'Lobster Two', cursive;
 }
 
 .form-group {
@@ -81,7 +91,7 @@ label {
   color: var(--color-darkBlue);
   font-family: 'raleway', 'sans-serif';
   float: right;
-  margin-right: 15px;
+  margin-right: 30px;
 }
 
 .btn-info {
@@ -112,6 +122,14 @@ label {
   clear: both;
 }
 
-#signup-form #passwordHelp .form-text .text-muted{
-  color: #fff !important;
+#signuup-form {
+  margin: 0 15px;
+}
+
+#signup-box {
+  padding: 0;
+}
+
+#signup-box #signup-form.form.p-1 {
+  padding: 0 !important;
 }

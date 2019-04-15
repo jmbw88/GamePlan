@@ -136,7 +136,7 @@ class SignUpForm extends Component {
                 <div id="signup-column" className="col-md-6">
                     <div id="signup-box" className="col-md-12">
                         <form id="signup-form" className="form p-1" action="" method="post">
-                                <h3>Fill out the form <br></br>to get started!</h3>
+                                <h3>Fill out the form to get started!</h3>
                                 {this.state.errorMsg ? (
                                   <div className="alert alert-danger" role="alert">
                                     {this.state.errorMsg}
