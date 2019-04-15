@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Axios from "axios";
 import { Redirect, Link } from "react-router-dom";
-import "./style.css";
 
 class SignUpForm extends Component {
   constructor(props) {
@@ -128,9 +127,6 @@ class SignUpForm extends Component {
     }
     return (
       <div id="signup">
-        {/* <div id="logo">
-            <img src="assets/images/logo2.png"/>
-        </div> */}
         <div className="container">
             <div id="signup-row" className="row justify-content-center align-items-center">
                 <div id="signup-column" className="col-md-6">

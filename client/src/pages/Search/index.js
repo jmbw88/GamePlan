@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Redirect, Link } from "react-router-dom";
 import Axios from "axios";
-import "./style.css";
 import Autosuggest from "react-autosuggest";
 
 let games = [];

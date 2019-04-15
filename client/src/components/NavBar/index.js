@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Link, Redirect } from "react-router-dom";
 import Axios from "axios";
-import "./style.css";
 import logo from "../../assets/images/logo.png";
 
 class Nav extends Component {

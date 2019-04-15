@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Redirect, Link } from "react-router-dom";
 import Axios from "axios";
-import "./style.css";
 
 class Group extends Component {
   constructor(props) {

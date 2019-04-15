@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Axios from "axios";
-import "./style.css";
 
 class Game extends Component {
   constructor(props) {

@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Axios from "axios";
 import { Redirect, Link } from "react-router-dom";
 import { animateScroll } from "react-scroll";
-import "./style.css";
 
 class Messages extends Component {
   constructor(props) {
