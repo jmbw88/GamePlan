@@ -133,8 +133,12 @@ class Home extends Component {
                   </div>
                   <div className="col-md-6 text-right dm">
                     <ul id="downMenu">
-                      <li><Link to="/signup">Sign Up</Link></li>
-                      <li><Link to="/login">Sign In</Link></li>
+                      {!this.props.loggedIn ? (
+                        <React.Fragment>
+                          <li><Link to="/signup">Sign Up</Link></li>
+                          <li><Link to="/login">Sign In</Link></li>
+                        </React.Fragment>
+                      ) : ""}
                     </ul>
                   </div>
                 </div>
