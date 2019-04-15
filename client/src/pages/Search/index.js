@@ -91,7 +91,10 @@ class Search extends Component {
         console.log(err);
       });
     } else {
-      alert("Pick a game from the list");
+      // alert("Pick a game from the list");
+      this.setState({
+        errorMsg: "Select a game from the list"
+      });
     }
   }
 
@@ -141,6 +144,10 @@ class Search extends Component {
                       View Groups &amp; Events</h4>
                   <div className="autosuggest col-md-12 justify-content-center">
                     <form>
+                    {this.state.errorMsg ? (
+                      <div className="alert alert-danger" role="alert">
+                        {this.state.errorMsg}
+                      </div>) : ""}
                       <Autosuggest
                       suggestions={suggestions}
                       onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
