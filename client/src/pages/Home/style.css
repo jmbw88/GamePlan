@@ -1557,3 +1557,14 @@ a:hover {
   color: var(--color-lightBlue);
   text-decoration: none;
 }
+
+.react-autosuggest__suggestions-list li:hover {
+  color: var(--color-pink);
+}
+
+.react-autosuggest__suggestions-list li {
+  background-color: #e0dfea;
+  border: 1px solid var(--color-text);
+  border-top: 0;
+  padding-left: 10px;
+}
