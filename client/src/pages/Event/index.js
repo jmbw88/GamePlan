@@ -81,9 +81,9 @@ class Event extends Component {
       <React.Fragment>
 
         <body className="background">
-          <h2 className="newEvent">Event</h2>
             <div id="signup-row" className="row justify-content-center align-items-center">
               <div id="signup-column" className="col-md-8">
+              <h3 className="newEvent">Event</h3>
                 <div id="signup-box" className="col-md-12">
                   <h3 className="eventForm col-md-12">{this.state.title}</h3>
                   <p className="description col-md-12">{this.state.description}</p>
