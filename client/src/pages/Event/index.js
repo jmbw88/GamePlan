@@ -5,26 +5,6 @@ import Axios from "axios";
 class Event extends Component {
   constructor(props) {
     super();
-    // const event = JSON.parse(sessionStorage.getItem("event"));
-    // if(event) {
-    //   this.state = {
-    //     title: event.title,
-    //     description: event.description,
-    //     date: event.date,
-    //     zipcode: event.zipcode,
-    //     createdBy: event.createdBy
-    //   }
-    // }
-    // else {
-    //   this.state = {
-    //     title: null,
-    //     description: null,
-    //     date: null,
-    //     zipcode: null,
-    //     createdBy: null
-    //   }
-      
-    // }
     this.state = {
       title: null,
       description: null,
@@ -41,6 +21,26 @@ class Event extends Component {
   }
 
   getEvent = (id) => {
+    Axios.get(`/api/user/${this.props.userid}`).then((res) => {
+      console.log("user events: ", res.data.events);
+      const userEvents = res.data.events;
+      const userJoinedEvent = userEvents.some((event) => {
+        return event._id === id
+      });
+      if(userJoinedEvent) {
+        console.log("USER JOINED EVENT");
+        this.setState({
+          userJoined: true
+        });
+      } else {
+        console.log("USER HAS NOT JOINED EVENT");
+        this.setState({
+          userJoined: false
+        });
+      }
+    }).catch((err) => {
+      console.log(err);
+    });
     Axios.get(`/api/events/${id}`).then((res) => {
       // console.log(res);
       this.setState({
@@ -51,7 +51,7 @@ class Event extends Component {
         createdBy: res.data.createdBy
       });
 
-      sessionStorage.setItem("event", JSON.stringify(res.data));
+      // sessionStorage.setItem("event", JSON.stringify(res.data));
     }).catch((err) => {
       console.log(err);
     });
@@ -104,7 +104,9 @@ class Event extends Component {
 
 
                   <div id="button-row" className="row justify-content-center align-items-center">
-                    <button className="eventBtn btn btn-primary" onClick={this.joinEvent}>Join Event</button>
+                    {!this.state.userJoined ? (
+                      <button className="eventBtn btn btn-primary" onClick={this.joinEvent}>Join Event</button>
+                     ) : ""}
                   </div>
                 </div>
               </div>

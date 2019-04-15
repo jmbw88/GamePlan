@@ -1,0 +1,323 @@
+@import url('https://fonts.googleapis.com/css?family=Lobster+Two:700|Open+Sans:700|Raleway:300');
+
+
+:root {
+    --color-lightBlue: #AECCE9;
+    --color-darkBlue: #265C91;
+    --color-pink: #F38072;
+    --color-yellow: #F4D81E;
+    --color-text: #13324C;
+}
+
+.copy {
+    margin-top: 29px;
+}
+
+.dm {
+    margin-top: 29px;
+}
+
+html {
+    /* background-image: url(../images/bgTop.jpg);
+    background-repeat: repeat;
+    background-color: transparent;
+    margin-top: 25px;
+    margin-bottom: 25px; */
+}
+
+body {
+    /* align-content: center;
+    background-color: transparent;
+    font-family: 'raleway', 'sans-serif';
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
+    margin: auto; */
+}
+
+.add-game-h4 {
+    margin: auto;
+    font-family: 'Lobster Two';
+    font-size: 35px;
+    line-height: 35px;
+    /* background-image: url(../images/meeples2.jpg); */
+    background-image: url(../../assets/images/meeples2.jpg);
+    width: 100%;
+    text-align: center;
+    color: white;
+    text-shadow: 4px 4px #13324C;
+    padding: 20px;
+    margin: 25px 0px 0px 0px;
+    border-top-right-radius: 30px;
+    border-top-left-radius: 30px;
+}
+
+.block {
+    display: block;
+    position: relative;
+    padding: 2px;
+}
+
+/* CHANGE */
+.container {
+    margin: auto;
+    border-radius: 30px;
+}
+
+#game-library-block {
+    align-content: center;
+    width: 55%;
+}
+
+#game-library {
+    padding: 45px 15px 10px 15px;
+    align-content: center;
+    text-align: center;
+    /* background-image: url(../images/cubes.png); */
+    background-image: url(../../assets/images/cubes.png);
+    background-repeat: repeat;
+    color: #13324C;
+    box-shadow: 0 2px 6px -2px rgba(0, 0, 0, 0.26);
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+.inline {
+    display: inline-block;
+    position: relative;
+    margin: auto;
+}
+
+#viewGame {
+    padding: 5px;
+    margin-top: 70px;
+    opacity: 0.9;
+    color: white;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+#gameModal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    padding-top: 100px;
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    color: var(--color-text);
+    font-size: 16px;
+    margin: auto;
+    padding: 0;
+    border: none;
+    border-radius: 30px;
+    width: 50%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+.modal-header h2 {
+    text-align: center;
+    font-family: 'Lobster Two';
+}
+
+#addGameBtn {
+    color: white;
+    background-color: var(--color-darkBlue);
+}
+
+a:visited {
+    color: var(--color-pink);
+    text-decoration: none;
+    font-weight: 900;
+}
+
+.btn-link {
+    font-weight: 400;
+    color: white;
+    text-decoration: none;
+}
+
+.btn-link:hover {
+    color: #AECCE9;
+    text-decoration: none;
+}
+
+#modal-img {
+    padding: 15px;
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
+    width: auto;
+}
+
+.game-specs {
+    padding: 15px;
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+@keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+/* The Close Button */
+.close {
+    color: white;
+    float: right;
+    font-size: 50px;
+    font-weight: bold;
+    opacity: 0.9;
+    line-height: 0.8;
+}
+
+.close:hover,
+.close:focus {
+    color: var(--color-yellow);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 8px 16px;
+    /* background-image: url(../images/meeples2.jpg); */
+    background-image: url(../../assets/images/meeples2.jpg);
+    color: white;
+    border-top-right-radius: 30px;
+    border-top-left-radius: 30px;
+}
+
+.modal-body {
+    padding: 2px 16px;
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
+    width: auto;
+}
+
+#game {
+    background-image: url(https://cdn.shopify.com/s/files/1/0229/9777/products/citadels_grande.jpg?v=1518281599);
+}
+
+.profile-card {
+    width: calc(100% - 40px);
+    padding-top: 25px;
+    margin: 70px auto 30px;
+    box-shadow: 0 2px 6px -2px rgba(0, 0, 0, 0.26);
+    /* background-image: url(../images/cubes.png); */
+    background-image: url(../../assets/images/cubes.png);
+    background-repeat: repeat;
+}
+
+.image {
+    width: 240px;
+    height: 200px;
+    cursor: pointer;
+    margin: 0 20px 40px;
+    overflow: hidden;
+    border-radius: 5px;
+    border: 10px solid #fff;
+    box-shadow: 0 2px 6px -2px rgba(0, 0, 0, 0.26);
+    background-color: rgba(0, 0, 0, 0.4);
+    background-size: cover !important;
+    -webkit-transition: 0.2s cubic-bezier(0.5, 0, 0.2, 1);
+    transition: 0.2s cubic-bezier(0.5, 0, 0.2, 1);
+}
+
+.image:hover {
+    -webkit-transform: scale(1.06);
+    transform: scale(1.06);
+    box-shadow: 0 2px 18px -2px rgba(0, 0, 0, 0.3);
+}
+
+/* media queries */
+
+@media screen and (max-width: 1190px) {
+    .horL {
+        display: none;
+    }
+
+    .image {
+        height: 50%;
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .copy p {
+        text-align: center;
+    }
+
+    #downMenu ul li {
+        float: none;
+        text-align: center;
+    }
+
+    .downLine input {
+        margin-top: 25px;
+    }
+
+    .footer .fEmail {
+        float: left;
+        max-width: 350px;
+        max-width: 163px;
+    }
+
+    #downMenu li a {
+        padding: 5px;
+    }
+
+    .image {
+        height: 40%;
+        width: 40%;
+    }
+
+}
+
+.default {
+    transition-duration: 1s;
+}
+
+.fixed {
+    transition-duration: 1s;
+    z-index: 999;
+    position: fixed;
+    top: -65px;
+    padding: 20px 0;
+    width: 100%;
+}

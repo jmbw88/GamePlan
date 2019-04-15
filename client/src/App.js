@@ -54,7 +54,7 @@ class App extends Component {
     const userid = JSON.parse(sessionStorage.getItem("userid"));
     if(user) {
       console.log("GET FROM SESSION STORAGE");
-      console.log(user);
+      // console.log(user);
       this.setState({
         loggedIn: true,
         username: user,
@@ -93,7 +93,6 @@ class App extends Component {
               <Route exact path="/signup" render={() => <SignUpForm updateUser={this.updateUser}/>} />
               <Route exact path="/login" render={() => <LoginForm updateUser={this.updateUser}/>} />
               <Route exact path="/messages" render={() => <Messages loggedIn={this.state.loggedIn} username={this.state.username} userid={this.state.userid}/>} />
-              {/* <Route exact path="/profile" render={() => <Profile loggedIn={this.state.loggedIn} username={this.state.username}/>} /> */}
               <Route exact path="/profile/edit" render={() => <EditProfileForm loggedIn={this.state.loggedIn} username={this.state.username} />} />
               <Route exact path="/profile/addGame" render={() => <AddGameForm loggedIn={this.state.loggedIn} username={this.state.username} userid={this.state.userid} />} />
               <Route exact path="/groups" render={() => <Groups loggedIn={this.state.loggedIn} userid={this.state.userid}/>} />

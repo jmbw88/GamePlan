@@ -21,6 +21,26 @@ class Group extends Component {
   }
 
   getGroup = (id) => {
+    Axios.get(`/api/user/${this.props.userid}`).then((res) => {
+      console.log("user groups: ", res.data.groups);
+      const userGroups = res.data.groups;
+      const userJoinedGroup = userGroups.some((group) => {
+        return group._id === id
+      });
+      if(userJoinedGroup) {
+        console.log("USER JOINED GROUP");
+        this.setState({
+          userJoined: true
+        });
+      } else {
+        console.log("USER HAS NOT JOINED GROUP");
+        this.setState({
+          userJoined: false
+        });
+      }
+    }).catch((err) => {
+      console.log(err);
+    });
     Axios.get(`/api/groups/${id}`).then((res) => {
       this.setState({
         name: res.data.name,
@@ -179,7 +199,10 @@ class Group extends Component {
                   </div>
 
                   <div className="submitBtn">
-                    <button className="btn btn-primary" onClick={this.joinGroup}>Join Group</button>
+                    {!this.state.userJoined ? (
+                        <button className="btn btn-primary" onClick={this.joinGroup}>Join Group</button>
+                      ) : ""}
+                    
                   </div>
                 </div>
               </div>
