@@ -177,7 +177,7 @@ class Group extends Component {
             <div id="signup-row" className="row justify-content-center align-items-center">
               <div id="signup-column" className="col-md-8">
                 <div id="signup-box" className="group-box col-md-12">
-                  <h3 className="newEvent">Group Name{this.state.name}</h3>
+                  <h3 className="newEvent">{this.state.name}</h3>
                   <p className="text-center groupDescription">{this.state.description}</p>
                   <p className="text-center groupDescription">{this.state.zipcode}</p>
 
