@@ -63,14 +63,12 @@ class AddGameForm extends Component {
 
   getGames = () => {
     Axios.get("/api/games").then((res) => {
-      console.log(res);
       this.setState({
         games: res.data
       });
       games = res.data.map((game) => {
         return {name: game.title, id: game._id}
       });
-      console.log(games);
     }).catch((err) => {
       console.log(err);
     });
@@ -79,11 +77,8 @@ class AddGameForm extends Component {
   addGame = (selection) => {
     const gameNames = games.map((game) => game.name);
     if(gameNames.includes(this.state.value)) {
-      console.log(selection);
       const id = games.filter((game) => game.name === selection)[0].id;
-      console.log(id);
       Axios.put(`/api/user/${this.props.userid}/games/${id}`).then((res) => {
-        console.log(res);
         this.setState({
           value: "",
           redirectTo: `/${this.props.userid}`
@@ -115,27 +110,31 @@ class AddGameForm extends Component {
     };
     return (
       <React.Fragment>
-        <h1>Add game</h1>
-        <form>
-        {this.state.errorMsg ? (
-          <div className="alert alert-danger" role="alert">
-            {this.state.errorMsg}
-          </div>) : ""}
-          <Autosuggest 
-          suggestions={suggestions}
-          onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
-          onSuggestionsClearRequested={this.onSuggestionsClearRequested}
-          getSuggestionValue={getSuggestionValue}
-          renderSuggestion={renderSuggestion}
-          inputProps={inputProps} />
-          <button className="btn btn-primary" onClick={(event) => {event.preventDefault(); this.addGame(this.state.value)}}>Submit</button>
-        </form>
-          {/* {this.state.games ? this.state.games.map((game) => (
-            <React.Fragment>
-              <p>{game.title}</p> 
-              <button className="btn btn-primary" onClick={() => this.addGame(game._id)}>Add</button>
-            </React.Fragment>
-          )) : ""} */}
+          <body className="background" id ="mainContainer">
+            <div id="signup-row" className="row justify-content-center align-items-center">
+              <div id="signup-column" className="col-md-8">
+               <h3 className="newEvent">Add game</h3>
+               <div id="signup-box" className="col-md-8 mx-auto my-3">
+               <h4>Select Game From Dropdown</h4>
+                  <form>
+                  {this.state.errorMsg ? (
+                    <div className="alert alert-danger" role="alert">
+                      {this.state.errorMsg}
+                    </div>) : ""}
+                    <Autosuggest 
+                    suggestions={suggestions}
+                    onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
+                    onSuggestionsClearRequested={this.onSuggestionsClearRequested}
+                    getSuggestionValue={getSuggestionValue}
+                    renderSuggestion={renderSuggestion}
+                    inputProps={inputProps} />
+                    <button className="btn btn-primary" onClick={(event) => {event.preventDefault(); this.addGame(this.state.value)}}>Submit</button>
+                  </form>
+               </div>
+
+              </div>
+            </div>
+          </body>
       </React.Fragment>
     );
   }
