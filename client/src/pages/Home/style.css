@@ -897,6 +897,11 @@ h3.newEvent  {
   cursor: url(../../assets/images/cursors/select.cur), pointer;
 }
 
+.rbc-btn-group button:hover {
+  cursor: url(../../assets/images/cursors/select.cur), pointer;
+}
+
+
 h2.myEvents  {
   text-align: center;
   font-size: 45px;
