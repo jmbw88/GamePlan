@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link, Redirect } from "react-router-dom";
 import Axios from "axios";
 import logo from "../../assets/images/logo.png";
+import "./style.css";
 
 class Nav extends Component {
   constructor(props) {
@@ -29,6 +30,15 @@ class Nav extends Component {
       console.log("Logout error");
       console.log(err);
     })
+  }
+
+  setActive = (event) => {
+    console.log(event.currentTarget);
+    console.log(document.querySelectorAll(".page-nav"));
+    document.querySelectorAll(".page-nav").forEach((nav) => {
+      nav.classList.remove("active");
+    });
+    event.currentTarget.classList.add("active");
   }
   
   render() {
@@ -59,19 +69,19 @@ class Nav extends Component {
                   <p className="navbar-text m-0 px-1 username">Hi {this.props.username}!</p>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to={`/${this.props.userid}`}>Profile</Link>
+                  <Link className="nav-link page-nav" onClick={this.setActive} to={`/${this.props.userid}`}>Profile</Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/messages">Messages</Link>
+                  <Link className="nav-link page-nav" onClick={this.setActive} to="/messages">Messages</Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/events">Events</Link>
+                  <Link className="nav-link page-nav" onClick={this.setActive} to="/events">Events</Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/groups">Groups</Link>
+                  <Link className="nav-link page-nav" onClick={this.setActive} to="/groups">Groups</Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/search">Search</Link>
+                  <Link className="nav-link page-nav" onClick={this.setActive} to="/search">Search</Link>
                 </li>
                 <li className="nav-item">
                   <p className="nav-link m-0 logout" id="logout-link" onClick={this.logout}>Sign Out</p>
