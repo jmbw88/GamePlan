@@ -91,7 +91,10 @@ class Search extends Component {
         console.log(err);
       });
     } else {
-      alert("Pick a game from the list");
+      // alert("Pick a game from the list");
+      this.setState({
+        errorMsg: "Select a game from the list"
+      });
     }
   }
 
@@ -136,11 +139,16 @@ class Search extends Component {
               <div id="signup-column" className="col-md-8">
               <h3 className="newEvent">Search</h3>
                 <div id="signup-box" className="col-md-12">
-                  <h4>Search for Users by Game <br></br>
+                  {/* <h4>Search for Users by Game <br></br>
                       or <br></br>
-                      View Groups &amp; Events</h4>
+                      View Groups &amp; Events</h4> */}
+                  <h4>Search for Users by Game</h4>
                   <div className="autosuggest col-md-12 justify-content-center">
                     <form>
+                    {this.state.errorMsg ? (
+                      <div className="alert alert-danger" role="alert">
+                        {this.state.errorMsg}
+                      </div>) : ""}
                       <Autosuggest
                       suggestions={suggestions}
                       onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
@@ -148,11 +156,13 @@ class Search extends Component {
                       getSuggestionValue={getSuggestionValue}
                       renderSuggestion={renderSuggestion}
                       inputProps={inputProps} />
-                      <button className="btn btn-primary" onClick={this.getUsersByGame}>Users</button>
+                      <button className="btn btn-primary float-right" onClick={this.getUsersByGame}>Users</button>
                     </form>
-
-                    <button className="btn btn-primary" onClick={this.getEvents}>Events</button>
-                    <button className="btn btn-primary" onClick={this.getGroups}>Groups</button>
+                    <h4>View Groups &amp; Events</h4>
+                    <div className="text-center">
+                      <button className="btn btn-primary float-none" onClick={this.getEvents}>Events</button>
+                      <button className="btn btn-primary float-none" onClick={this.getGroups}>Groups</button>
+                    </div>
                   </div>
                 </div>
               </div>

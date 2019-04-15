@@ -92,7 +92,10 @@ class AddGameForm extends Component {
         console.log(err);
       });
     } else {
-      alert("Please select a game from the list");
+      // alert("Please select a game from the list");
+      this.setState({
+        errorMsg: "Please select a game from the list"
+      });
     }
   }
 
@@ -114,6 +117,10 @@ class AddGameForm extends Component {
       <React.Fragment>
         <h1>Add game</h1>
         <form>
+        {this.state.errorMsg ? (
+          <div className="alert alert-danger" role="alert">
+            {this.state.errorMsg}
+          </div>) : ""}
           <Autosuggest 
           suggestions={suggestions}
           onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
