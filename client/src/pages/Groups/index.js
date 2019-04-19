@@ -125,6 +125,7 @@ class Groups extends Component {
               </div>
             </div> 
 
+            
             <div id="signup-row" className="row justify-content-center align-items-center">
               <div id="signup-column" className="col-md-8">
               <h3 className="newEvent">Your Groups</h3>
