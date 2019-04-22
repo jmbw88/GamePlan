@@ -167,23 +167,24 @@ class Search extends Component {
                 </div>
               </div>
 
-              <div id="signup-column" className="col-md-8">
-                <div id="signup-box" className="col-md-12">
-                  <h3 className="newEvent">Results</h3>
-                  <div>
-                    {this.state.users ? this.state.users.map((user) => (
-                      <p className="searchResults col-md-4"><Link to={`/${user._id}`}>{user.account.username}</Link></p>
-                    )) : ""}
-                    {this.state.groups ? this.state.groups.map((group) => (
-                      <p className="searchResults col-md-4"><Link to={`/groups/${group._id}`}>{group.name}</Link></p>
-                    )) : ""}
-                    {this.state.events ? this.state.events.map((event) => (
-                      <p className="searchResults col-md-4"><Link to={`/events/${event._id}`}>{event.title}</Link></p>
-                    )) : ""}
-
+              {this.state.users || this.state.groups || this.state.events ? (
+                <div id="signup-column" className="col-md-8">
+                  <div id="signup-box" className="col-md-12">
+                    <h3 className="newEvent">Results</h3>
+                    <div>
+                      {this.state.users ? this.state.users.map((user) => (
+                        <p className="searchResults col-md-4"><Link to={`/${user._id}`}>{user.account.username}</Link></p>
+                      )) : ""}
+                      {this.state.groups ? this.state.groups.map((group) => (
+                        <p className="searchResults col-md-4"><Link to={`/groups/${group._id}`}>{group.name}</Link></p>
+                      )) : ""}
+                      {this.state.events ? this.state.events.map((event) => (
+                        <p className="searchResults col-md-4"><Link to={`/events/${event._id}`}>{event.title}</Link></p>
+                      )) : ""}
+                    </div>
                   </div>
                 </div>
-              </div>
+              ) : ""}
 
             </div>
         </body>

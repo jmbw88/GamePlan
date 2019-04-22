@@ -34,6 +34,11 @@ class Profile extends Component {
 
   getProfile = (id) => {      
       Axios.get(`/api/user/${id}`).then((res) => {
+        if(res.data) {
+          this.setState({
+            games: res.data.games
+          });
+        }
         if(res.data.profile) {
           this.setState({
               name: res.data.profile.name,
@@ -42,7 +47,7 @@ class Profile extends Component {
               sex: res.data.profile.sex,
               zipcode: res.data.profile.zipcode,
               img: res.data.profile.img,
-              games: res.data.games
+              // games: res.data.games
           });
           // sessionStorage.setItem("profile", JSON.stringify(res.data.profile));
         }
@@ -77,6 +82,7 @@ class Profile extends Component {
       return <Redirect to={{ pathname: this.state.redirectTo }}/>
     }
     // console.log(this.props.userid, this.props.match.params.id);
+    console.log(this.state);
     return (
       <React.Fragment>
         <div id="profile">
