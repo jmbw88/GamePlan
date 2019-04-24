@@ -43,11 +43,13 @@ module.exports = {
   },
 
   // Return username and id for all users that this user has sent a message to or received a message from
-  // TODO if contact has unread messages by user, send that info to the client
   findContacts: (req, res) => {
     const id = req.params.id;
     // Find all messages that user has sent or received
-    db.Message.find({ $or: [{ to: id }, { from: id }] }).select("to from -_id").populate("to from").then((dbMsg) => {
+    db.Message.find({ $or: [{ to: id }, { from: id }] }).select("to read from -_id").populate("to from").then((dbMsg) => {
+      const unread = dbMsg.filter((msg) => !msg.read && String(msg.to._id) === id);
+      console.log("UNREAD: ", unread);
+
       // Return other user involved with message whether they are the sender or recipient
       const users = dbMsg.map((msg) => {
         if (String(msg.to._id) === id) {
@@ -61,7 +63,17 @@ module.exports = {
           unique.push(o);
         }
         return unique
-      }, []);
+      }, []).map((user) => {
+        let unreadCount = 0;
+        unread.forEach((msg) => {
+          console.log("MSG, USER", msg.from._id, user.id);
+          if (msg.from._id === user.id) unreadCount++;
+        });
+        user.unreadCount = unreadCount;
+        return user;
+      });
+
+      console.log(users);
       res.json(users);
     }).catch((err) => {
       res.status(422).json(err);
