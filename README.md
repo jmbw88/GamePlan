@@ -22,6 +22,11 @@ Players who decide to plan their next game night can do so by creating a group o
 
 ----------------------------------------------------------------------------------------------------------------------------------------
 
+## Guest Account
+If you do not wish to create an account, you can sign in using these credentials:
+Username: Guest
+Password: guest123
+
 ## Starting the app locally
 
 Start by installing front and backend dependencies. While in this directory, run the following command:
