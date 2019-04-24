@@ -18,6 +18,7 @@ class Messages extends Component {
     this.getContacts();
   }
   
+  // TODO REFACTOR NEWEST
   getContacts = () => {
     Axios.get(`/api/messages/${this.props.userid}`).then((res) => {
       const getNewest = (contact) => {
@@ -74,9 +75,16 @@ class Messages extends Component {
       body: this.state.message,
     }
     Axios.post("/api/messages", message).then((res) => {
+      const newest = res.data;
       this.setState({
         thread: [...this.state.thread, res.data],
-        message: ""
+        message: "",
+        contacts: this.state.contacts.map((contact) => {
+          if (this.state.contact === contact.id) {
+            contact.newest = newest;
+          }
+          return contact;
+        })
       }, this.scrollToBottom);
     }).catch((err) => {
       console.log(err);
@@ -103,6 +111,7 @@ class Messages extends Component {
     if (!this.props.loggedIn) {
       return <Redirect to={{ pathname: "/login" }}/>
     }
+    console.log(this.state);
     return (
       <div class="msg p-5">
           <div class="container msg-container p-0">
@@ -126,8 +135,14 @@ class Messages extends Component {
                               <div class="chat_img">
                                 <img class="msg-img" src={contact.img || "https://via.placeholder.com/100"} alt="avatar"/>
                               </div>
+                              {/* UNREAD */}
+                              {contact.unreadCount > 0 ? <span class="badge badge-danger unread"> {contact.unreadCount} </span> : ""}
+                              {/* END UNREAD */}
                               <div class="chat_ib">
-                                <h5>{contact.username} <span class="timestamp">{contact.newest ? contact.newest.createdAt : ""}</span></h5>
+                                <h5>
+                                    {contact.username} 
+                                    <span class="timestamp">{contact.newest ? contact.newest.createdAt : ""}</span>
+                                </h5>
                                 <p>{contact.newest ? contact.newest.body : ""}</p>
                               </div>
                             </div>
