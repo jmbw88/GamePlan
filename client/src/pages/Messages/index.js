@@ -53,7 +53,13 @@ class Messages extends Component {
     Axios.get(`/api/messages/${this.props.userid}/${otherid}`).then((res) => {
       this.setState({
         thread: res.data,
-        contact: otherid
+        contact: otherid,
+        contacts: this.state.contacts.map((contact) => {
+          if (otherid === contact.id) {
+            contact.unreadCount = 0;
+          }
+          return contact;
+        }),
       }, this.scrollToBottom);
     }).catch((err) => {
       console.log(err);
@@ -84,7 +90,7 @@ class Messages extends Component {
             contact.newest = newest;
           }
           return contact;
-        })
+        }),
       }, this.scrollToBottom);
     }).catch((err) => {
       console.log(err);

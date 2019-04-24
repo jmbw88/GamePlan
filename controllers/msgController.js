@@ -65,9 +65,11 @@ module.exports = {
         return unique
       }, []).map((user) => {
         let unreadCount = 0;
+        console.log("USER", user);
+        console.log("UNREAD", unread);
         unread.forEach((msg) => {
-          console.log("MSG, USER", msg.from._id, user.id);
-          if (msg.from._id === user.id) unreadCount++;
+          console.log("FROM ID, USER", msg.from._id, id);
+          if (String(msg.from._id) === String(user.id)) unreadCount++;
         });
         user.unreadCount = unreadCount;
         return user;
