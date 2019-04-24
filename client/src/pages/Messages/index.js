@@ -39,7 +39,6 @@ class Messages extends Component {
       });
 
       Promise.all(promises).then((results) => {
-        console.log(results);
         this.setState({
           contacts: results
         });
@@ -117,7 +116,6 @@ class Messages extends Component {
     if (!this.props.loggedIn) {
       return <Redirect to={{ pathname: "/login" }}/>
     }
-    console.log(this.state);
     return (
       <div class="msg p-5">
           <div class="container msg-container p-0">

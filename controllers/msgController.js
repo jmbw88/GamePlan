@@ -48,8 +48,6 @@ module.exports = {
     // Find all messages that user has sent or received
     db.Message.find({ $or: [{ to: id }, { from: id }] }).select("to read from -_id").populate("to from").then((dbMsg) => {
       const unread = dbMsg.filter((msg) => !msg.read && String(msg.to._id) === id);
-      console.log("UNREAD: ", unread);
-
       // Return other user involved with message whether they are the sender or recipient
       const users = dbMsg.map((msg) => {
         if (String(msg.to._id) === id) {
@@ -65,17 +63,12 @@ module.exports = {
         return unique
       }, []).map((user) => {
         let unreadCount = 0;
-        console.log("USER", user);
-        console.log("UNREAD", unread);
         unread.forEach((msg) => {
-          console.log("FROM ID, USER", msg.from._id, id);
           if (String(msg.from._id) === String(user.id)) unreadCount++;
         });
         user.unreadCount = unreadCount;
         return user;
       });
-
-      console.log(users);
       res.json(users);
     }).catch((err) => {
       res.status(422).json(err);
