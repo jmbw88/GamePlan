@@ -11,17 +11,20 @@ module.exports = {
   },
 
   // Find all messages user has sent/received for a particular user
-  // TODO If user clicks thread, mark all messages with to: userid to read
   findThread: (req, res) => {
     const userid = req.params.userid;
     const otherid = req.params.otherid;
-    db.Message.find({ $or: [{ to: userid, from: otherid }, { to: otherid, from: userid }] }).sort("createdAt").then((dbMsg) => {
-      dbMsg = dbMsg.map((msg) => {
-        msg = msg.toJSON();
-        msg.createdAt = moment(msg.createdAt).calendar();
-        return msg;
+    db.Message.updateMany({ to: userid, from: otherid }, { $set: { read: true }}).then(() => {
+      db.Message.find({ $or: [{ to: userid, from: otherid }, { to: otherid, from: userid }] }).sort("createdAt").then((dbMsg) => {
+        dbMsg = dbMsg.map((msg) => {
+          msg = msg.toJSON();
+          msg.createdAt = moment(msg.createdAt).calendar();
+          return msg;
+        });
+        res.json(dbMsg);
+      }).catch((err) => {
+        res.status(422).json(err);
       });
-      res.json(dbMsg);
     }).catch((err) => {
       res.status(422).json(err);
     });
