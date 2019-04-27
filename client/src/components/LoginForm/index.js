@@ -28,16 +28,23 @@ class LoginForm extends Component {
       password: this.state.password
     })
     .then((res) => {
+      console.log(res.data);
+      const userid = res.data.id;
+      const username = res.data.username;
       if(res.status === 200) {
-        this.props.updateUser({
-          loggedIn: true,
-          username: res.data.username,
-          userid: res.data.id
-        });
-        sessionStorage.setItem("user", JSON.stringify(res.data.username));
-        sessionStorage.setItem("userid", JSON.stringify(res.data.id));
-        this.setState({
-          redirectTo: `/${res.data.id}`
+        Axios.get(`/api/messages/unread/${userid}`).then((res) => {
+          console.log(res.data);
+          this.props.updateUser({
+            loggedIn: true,
+            username: username,
+            userid: userid,
+            unread: res.data
+          });
+          sessionStorage.setItem("user", JSON.stringify(username));
+          sessionStorage.setItem("userid", JSON.stringify(userid));
+          this.setState({
+            redirectTo: `/${userid}`
+          });
         });
       }
     }).catch((err) => {

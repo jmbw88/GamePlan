@@ -5,14 +5,19 @@ Router.route("/")
     .get(msgController.findAll)
     .post(msgController.sendMsg);
 
+Router.route("/unread/:id")
+    .get(msgController.findUnread);
+    
 Router.route("/:userid/:otherid")
     .get(msgController.findThread);
 
 Router.route("/newest/:userid/:otherid/")
     .get(msgController.findNewest);
+    
 
 Router.route("/:id")
     .get(msgController.findContacts);
+
 
 
 module.exports = Router;
