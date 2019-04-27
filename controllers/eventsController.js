@@ -34,16 +34,20 @@ module.exports = {
   },
 
   create: (req, res) => {
-    req.body.date = new Date(req.body.date);
-    let event;
-    db.Event.create(req.body).then((dbEvent) => {
-      event = dbEvent;
-      return db.User.findByIdAndUpdate(req.body.createdBy, { $addToSet: { events: dbEvent._id } }, { new: true });
-    }).then(() => {
-      res.json(event);
-    })
-    .catch((err) => {
-      res.status(422).json(err);
-    });
+    if (req.user) {
+      req.body.date = new Date(req.body.date);
+      let event;
+      db.Event.create(req.body).then((dbEvent) => {
+        event = dbEvent;
+        return db.User.findByIdAndUpdate(req.body.createdBy, { $addToSet: { events: dbEvent._id } }, { new: true });
+      }).then(() => {
+        res.json(event);
+      })
+      .catch((err) => {
+        res.status(422).json(err);
+      });
+    } else {
+      res.status(403);
+    }
   }
 }
