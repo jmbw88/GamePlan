@@ -55,8 +55,6 @@ class Messages extends Component {
         contact: otherid,
         contacts: this.state.contacts.map((contact) => {
           if (otherid === contact.id) {
-            console.log(contact.unreadCount);
-            console.log(this.props.unread);
             this.props.updateUser({
               unread: Number(this.props.unread) - Number(contact.unreadCount)
             });
@@ -122,35 +120,35 @@ class Messages extends Component {
       return <Redirect to={{ pathname: "/login" }}/>
     }
     return (
-      <div class="msg p-5">
-          <div class="container msg-container p-0">
-            <div class="messaging">
-                <div class="inbox_msg">
-                    <h3 class="text-left msg-h3">Inbox</h3>
-                    <hr class="msg-hr"/>
-                    <div class="inbox_people">
-                        <div class="heading_srch">
-                            <div class="recent_heading">
+      <div className="msg p-5">
+          <div className="container msg-container p-0">
+            <div className="messaging">
+                <div className="inbox_msg">
+                    <h3 className="text-left msg-h3">Inbox</h3>
+                    <hr className="msg-hr"/>
+                    <div className="inbox_people">
+                        <div className="heading_srch">
+                            <div className="recent_heading">
                                 <h4>Recent</h4>
                             </div>
                         </div>
-                        <div class="inbox_chat">
-                        <div class="chat_list">
+                        <div className="inbox_chat">
+                        <div className="chat_list">
                           {this.state.contacts.map((contact) => (
-                            <div class="chat_people" onClick={(event) => {
+                            <div className="chat_people" onClick={(event) => {
                               this.getThread(contact.id);
                               this.setActive(event.currentTarget);
                             }}>
-                              <div class="chat_img">
-                                <img class="msg-img" src={contact.img || "https://via.placeholder.com/100"} alt="avatar"/>
+                              <div className="chat_img">
+                                <img className="msg-img" src={contact.img || "https://via.placeholder.com/100"} alt="avatar"/>
                               </div>
                               {/* UNREAD */}
-                              {contact.unreadCount > 0 ? <span class="badge badge-danger unread"> {contact.unreadCount} </span> : ""}
+                              {contact.unreadCount > 0 ? <span className="badge badge-danger unread"> {contact.unreadCount} </span> : ""}
                               {/* END UNREAD */}
-                              <div class="chat_ib">
+                              <div className="chat_ib">
                                 <h5>
                                     {contact.username} 
-                                    <span class="timestamp">{contact.newest ? contact.newest.createdAt : ""}</span>
+                                    <span className="timestamp">{contact.newest ? contact.newest.createdAt : ""}</span>
                                 </h5>
                                 <p>{contact.newest ? contact.newest.body : ""}</p>
                               </div>
@@ -159,45 +157,45 @@ class Messages extends Component {
                         </div>
                         </div>
                     </div>
-                    <div class="messages">
-                        <div class="msg_history" id="chatbox">
+                    <div className="messages">
+                        <div className="msg_history" id="chatbox">
                         {this.state.thread ? this.state.thread.map((msg) => (
                           msg.to === this.props.userid ? (
-                            <div class="incoming_msg">
-                              <div class="incoming_msg_img">
+                            <div className="incoming_msg">
+                              <div className="incoming_msg_img">
                                 <Link to={`/${this.state.contact}`}>
-                                  <img class="msg-img" src={this.state.contacts.filter((contact) => contact.id === this.state.contact)[0].img || "https://via.placeholder.com/100"} alt="avatar"/>
+                                  <img className="msg-img" src={this.state.contacts.filter((contact) => contact.id === this.state.contact)[0].img || "https://via.placeholder.com/100"} alt="avatar"/>
                                 </Link>
                               </div>
-                              <div class="received_msg">
-                                    <div class="received_withd_msg">
+                              <div className="received_msg">
+                                    <div className="received_withd_msg">
                                         <p>{msg.body}</p>
-                                        <span class="timestamp">{msg.createdAt}</span>
+                                        <span className="timestamp">{msg.createdAt}</span>
                                     </div>
                                 </div>
                             </div>
                           ) : (
-                            <div class="outgoing_msg">
-                                <div class="sent_msg">
+                            <div className="outgoing_msg">
+                                <div className="sent_msg">
                                     <p>{msg.body}</p>
-                                    <span class="timestamp">{msg.createdAt}</span>
+                                    <span className="timestamp">{msg.createdAt}</span>
                                 </div>
                             </div>
                           )
                         )) 
                         : ""}
                         </div>
-                        <form class="type_msg">
-                            <div class="input_msg_write">
+                        <form className="type_msg">
+                            <div className="input_msg_write">
                                 <input type="text" 
-                                      class="write_msg" 
+                                      className="write_msg" 
                                       placeholder="Type a message"
                                       name="message"
                                       value={this.state.message}
                                       onChange={this.handleChange}
                                 />
-                                <button class="msg_send_btn" onClick={this.sendMessage}>
-                                  <i class="far fa-envelope fa-2"aria-hidden="true"></i>
+                                <button className="msg_send_btn" onClick={this.sendMessage}>
+                                  <i className="far fa-envelope fa-2"aria-hidden="true"></i>
                                 </button>
                             </div>
                         </form>

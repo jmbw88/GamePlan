@@ -88,7 +88,6 @@ module.exports = {
   findUnread: (req, res) => {
     const id = req.params.id;
     db.Message.count({to: id, read: false}).then((dbMsg) => {
-      console.log(dbMsg);
       res.json(dbMsg);
     }).catch((err) => {
       res.status(422).json(err);

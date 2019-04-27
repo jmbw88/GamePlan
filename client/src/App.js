@@ -54,7 +54,6 @@ class App extends Component {
     const userid = JSON.parse(sessionStorage.getItem("userid"));
     if(user) {
       console.log("GET FROM SESSION STORAGE");
-      // console.log(user);
       this.setState({
         loggedIn: true,
         username: user,
@@ -81,7 +80,7 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state);
+    console.log("APP JS STATE", this.state);
     return (
       <Router>
           <NavBar username={this.state.username} 
