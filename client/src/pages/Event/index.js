@@ -21,28 +21,30 @@ class Event extends Component {
   }
 
   getEvent = (id) => {
-    Axios.get(`/api/user/${this.props.userid}`).then((res) => {
-      console.log("user events: ", res.data.events);
-      const userEvents = res.data.events;
-      const userJoinedEvent = userEvents.some((event) => {
-        return event._id === id
-      });
-      if(userJoinedEvent) {
-        console.log("USER JOINED EVENT");
+    Axios.get(`/api/user/${this.props.userid}/events`).then((res) => {
+      if (res.status === 403) {
         this.setState({
-          userJoined: true
+          redirectTo: "/login"
         });
       } else {
-        console.log("USER HAS NOT JOINED EVENT");
-        this.setState({
-          userJoined: false
+        const userEvents = res.data;
+        const userJoinedEvent = userEvents.some((event) => {
+          return event._id === id
         });
+        if(userJoinedEvent) {
+          this.setState({
+            userJoined: true
+          });
+        } else {
+          this.setState({
+            userJoined: false
+          });
+        }
       }
     }).catch((err) => {
       console.log(err);
     });
     Axios.get(`/api/events/${id}`).then((res) => {
-      // console.log(res);
       this.setState({
         title: res.data.title,
         description: res.data.description,
@@ -50,8 +52,6 @@ class Event extends Component {
         zipcode: res.data.zipcode,
         createdBy: res.data.createdBy
       });
-
-      // sessionStorage.setItem("event", JSON.stringify(res.data));
     }).catch((err) => {
       console.log(err);
     });
@@ -61,10 +61,15 @@ class Event extends Component {
     const { match: { params } } = this.props;
     const id = params.id;
     Axios.put(`/api/user/${this.props.userid}/events/${id}`).then((res) => {
-      // console.log(res);
-      this.setState({
-        redirectTo: `/events/`
-      });
+      if(res.status === 403) {
+        this.setState({
+          redirectTo: "/login"
+        });
+      } else {
+        this.setState({
+          redirectTo: `/events/`
+        });
+      }
     }).catch((err) => {
       console.log(err);
     });

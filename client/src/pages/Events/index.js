@@ -92,6 +92,7 @@ class Events extends Component {
   }
 
   render() {
+    console.log(this.state);
     if (!this.props.loggedIn) {
       return <Redirect to={{ pathname: "/login" }}/>
     }

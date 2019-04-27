@@ -59,11 +59,15 @@ module.exports = {
   },
 
   getUsersEvents: (req, res) => {
-    db.User.findById(req.params.id).populate("events").then((dbUser) => {
-      res.json(dbUser.events);
-    }).catch((err) => {
-      res.status(422).json(err);
-    });
+    if (req.user) {
+      db.User.findById(req.params.id).populate("events").then((dbUser) => {
+        res.json(dbUser.events);
+      }).catch((err) => {
+        res.status(422).json(err);
+      });
+    } else {
+      res.status(403);
+    }
   },
 
   joinGroup: (req, res) => {
@@ -75,11 +79,15 @@ module.exports = {
   },
   
   joinEvent: (req, res) => {
-    db.User.findByIdAndUpdate(req.params.id, { $addToSet: { events: req.params.eventid } }, { new: true }).then((dbUser) => {
-      res.json(dbUser);
-    }).catch((err) => {
-      res.status(422).json(err);
-    });
+    if (req.user) {
+      db.User.findByIdAndUpdate(req.params.id, { $addToSet: { events: req.params.eventid } }, { new: true }).then((dbUser) => {
+        res.json(dbUser);
+      }).catch((err) => {
+        res.status(422).json(err);
+      });
+    } else {
+      res.status(403);
+    }
   },
     
   addGame: (req, res) => {
