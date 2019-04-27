@@ -55,6 +55,11 @@ class Messages extends Component {
         contact: otherid,
         contacts: this.state.contacts.map((contact) => {
           if (otherid === contact.id) {
+            console.log(contact.unreadCount);
+            console.log(this.props.unread);
+            this.props.updateUser({
+              unread: Number(this.props.unread) - Number(contact.unreadCount)
+            });
             contact.unreadCount = 0;
           }
           return contact;

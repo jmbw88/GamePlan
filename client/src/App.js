@@ -87,12 +87,13 @@ class App extends Component {
           <NavBar username={this.state.username} 
                   userid={this.state.userid}
                   loggedIn={this.state.loggedIn} 
-                  updateUser={this.updateUser} />
+                  updateUser={this.updateUser}
+                  unread={this.state.unread} />
             <Switch>
               <Route exact path="/" render={() => <Home loggedIn={this.state.loggedIn}/>}/>
               <Route exact path="/signup" render={() => <SignUpForm updateUser={this.updateUser}/>} />
               <Route exact path="/login" render={() => <LoginForm updateUser={this.updateUser}/>} />
-              <Route exact path="/messages" render={() => <Messages loggedIn={this.state.loggedIn} username={this.state.username} userid={this.state.userid}/>} />
+              <Route exact path="/messages" render={() => <Messages loggedIn={this.state.loggedIn} username={this.state.username} userid={this.state.userid} updateUser={this.updateUser} unread={this.state.unread}/>} />
               <Route exact path="/profile/edit" render={() => <EditProfileForm loggedIn={this.state.loggedIn} username={this.state.username} userid={this.state.userid} />} />
               <Route exact path="/profile/addGame" render={() => <AddGameForm loggedIn={this.state.loggedIn} username={this.state.username} userid={this.state.userid} />} />
               <Route exact path="/groups" render={() => <Groups loggedIn={this.state.loggedIn} userid={this.state.userid}/>} />
