@@ -53,7 +53,7 @@ class Nav extends Component {
     return (
       <nav className="navbar navbar-expand-lg menu justify-content-end">
         <div className="navLogo justify-content-start">
-          <Link className="navbar-brand" to="/"><img src={logo}/></Link>
+          <Link className="navbar-brand" to="/"><img src={logo} alt="logo"/></Link>
         </div>
         <div className="floatRight">
         <button className="navbar-toggler" id="navButton" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

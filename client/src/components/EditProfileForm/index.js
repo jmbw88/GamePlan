@@ -88,7 +88,7 @@ class EditProfileForm extends Component {
                         {this.state.errorMsg}
                       </div>
                     ) : ""}
-                    <form class="form-horizontal" role="form">
+                    <form class="form-horizontal">
                         <div class="form-group">
                             <label class="col-lg-3 control-label">Name:</label>
                             <div class="col-lg-8">

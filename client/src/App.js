@@ -54,7 +54,6 @@ class App extends Component {
     const userid = JSON.parse(sessionStorage.getItem("userid"));
     if(user) {
       console.log("GET FROM SESSION STORAGE");
-      // console.log(user);
       this.setState({
         loggedIn: true,
         username: user,
