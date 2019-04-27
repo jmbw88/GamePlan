@@ -140,7 +140,9 @@ class Messages extends Component {
                               this.setActive(event.currentTarget);
                             }}>
                               <div className="chat_img">
+                              <Link to={`/${this.state.contact}`}>
                                 <img className="msg-img" src={contact.img || "https://via.placeholder.com/100"} alt="avatar"/>
+                              </Link>
                               </div>
                               {/* UNREAD */}
                               {contact.unreadCount > 0 ? <span className="badge badge-danger unread"> {contact.unreadCount} </span> : ""}
