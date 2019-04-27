@@ -122,7 +122,7 @@ class Profile extends Component {
                       <h4 align="center">My Favorite Games:</h4>
                       <br/>
                       {this.state.games ? this.state.games.map((game) => (
-                        <Link to={`/games/${game._id}`}>
+                        <Link to={`/games/${game._id}`} key={game._id}>
                           <div className="inline image" 
                                title={game.title} 
                                style={ { backgroundImage: `url(${game.img || "http://www.stleos.uq.edu.au/wp-content/uploads/2016/08/image-placeholder-350x350.png"})` }}/>

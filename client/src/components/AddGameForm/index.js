@@ -63,12 +63,18 @@ class AddGameForm extends Component {
 
   getGames = () => {
     Axios.get("/api/games").then((res) => {
-      this.setState({
-        games: res.data
-      });
-      games = res.data.map((game) => {
-        return {name: game.title, id: game._id}
-      });
+      if(res.status === 403) {
+        this.setState({
+          redirectTo: "/login"
+        });
+      } else {
+        this.setState({
+          games: res.data
+        });
+        games = res.data.map((game) => {
+          return {name: game.title, id: game._id}
+        });
+      }
     }).catch((err) => {
       console.log(err);
     });
@@ -79,10 +85,16 @@ class AddGameForm extends Component {
     if(gameNames.includes(this.state.value)) {
       const id = games.filter((game) => game.name === selection)[0].id;
       Axios.put(`/api/user/${this.props.userid}/games/${id}`).then((res) => {
-        this.setState({
-          value: "",
-          redirectTo: `/${this.props.userid}`
-        });
+        if (res.status === 403) {
+          this.setState({
+            redirectTo: "/login"
+          });
+        } else {
+          this.setState({
+            value: "",
+            redirectTo: `/${this.props.userid}`
+          });
+        }
       }).catch((err) => {
         console.log(err);
       });
