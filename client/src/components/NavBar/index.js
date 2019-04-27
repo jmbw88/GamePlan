@@ -33,31 +33,11 @@ class Nav extends Component {
   }
 
   setActive = (event) => {
-    // console.log(event.currentTarget.id);
-    // console.log(document.querySelectorAll(".page-nav"));
-    // if(event.currentTarget.id === "nav-msg") {
-    //   this.props.updateUser({
-    //     unread: 0
-    //   });
-    // }
     document.querySelectorAll(".page-nav").forEach((nav) => {
       nav.classList.remove("active");
     });
     event.currentTarget.classList.add("active");
   }
-
-  /*
-    When the user logs in, we want to get the number of unread messages and set the state of the navbar
-  */
-
-  // getUnread = () => {
-    // Axios.get(`/api/messages/unread/${this.props.userid}`).then((res) => {
-    //   console.log(res.data);
-    //   this.setState({
-    //     unread: res.data
-    //   });
-    // });
-  // }
   
   render() {
     // Triggers a warning so maybe figure out another way to do this :)
@@ -84,12 +64,11 @@ class Nav extends Component {
           
           {loggedIn ? (
             <React.Fragment>
-                {/* {(this.state.unread || window.location.pathname === "/messages") || this.getUnread()}   */}
                 <li className="nav-item">
                   <p className="navbar-text m-0 px-1 username">Hi {this.props.username}!</p>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link page-nav" onClick={this.setActive} to={`/${this.props.userid}`}>Profile</Link>
+                  <Link className="nav-link page-nav active" onClick={this.setActive} to={`/${this.props.userid}`}>Profile</Link>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link page-nav" id="nav-msg" onClick={this.setActive} to="/messages">Messages {this.props.unread ? <span className="badge badge-danger unread">{this.props.unread}</span> : ""}</Link>

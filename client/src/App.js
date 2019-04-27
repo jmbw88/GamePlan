@@ -81,7 +81,7 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state);
+    console.log("APP JS STATE", this.state);
     return (
       <Router>
           <NavBar username={this.state.username} 
