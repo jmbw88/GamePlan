@@ -51,11 +51,15 @@ module.exports = {
   },
 
   getUsersGroups: (req, res) => {
-    db.User.findById(req.params.id).populate("groups").then((dbUser) => {
-      res.json(dbUser.groups);
-    }).catch((err) => {
-      res.status(422).json(err);
-    });
+    if (req.user) {
+      db.User.findById(req.params.id).populate("groups").then((dbUser) => {
+        res.json(dbUser.groups);
+      }).catch((err) => {
+        res.status(422).json(err);
+      });
+    } else {
+      res.status(403);
+    }
   },
 
   getUsersEvents: (req, res) => {
@@ -71,11 +75,15 @@ module.exports = {
   },
 
   joinGroup: (req, res) => {
-    db.User.findByIdAndUpdate(req.params.id, { $addToSet: { groups: req.params.groupid } }, { new: true }).then((dbUser) => {
-      res.json(dbUser);
-    }).catch((err) => {
-      res.status(422).json(err);
-    });
+    if (req.user) {
+      db.User.findByIdAndUpdate(req.params.id, { $addToSet: { groups: req.params.groupid } }, { new: true }).then((dbUser) => {
+        res.json(dbUser);
+      }).catch((err) => {
+        res.status(422).json(err);
+      });
+    } else {
+      res.status(403);
+    }
   },
   
   joinEvent: (req, res) => {
