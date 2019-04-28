@@ -12,12 +12,16 @@ module.exports = {
   },
 
   findById: (req, res) => {
-    const userID = req.params.id;
-    db.User.findById(userID).populate("games events groups").then((dbUser) => {
-      res.json(util.filterUserAccountInfo(dbUser));
-    }).catch((err) => {
-      res.status(422).json(err);
-    });
+    if(req.user) {
+      const userID = req.params.id;
+      db.User.findById(userID).populate("games events groups").then((dbUser) => {
+        res.json(util.filterUserAccountInfo(dbUser));
+      }).catch((err) => {
+        res.status(422).json(err);
+      });
+    } else {
+      res.status(403);
+    }
   },
 
   findByUsername: (req, res) => {
@@ -47,43 +51,63 @@ module.exports = {
   },
 
   getUsersGroups: (req, res) => {
-    db.User.findById(req.params.id).populate("groups").then((dbUser) => {
-      res.json(dbUser.groups);
-    }).catch((err) => {
-      res.status(422).json(err);
-    });
+    if (req.user) {
+      db.User.findById(req.params.id).populate("groups").then((dbUser) => {
+        res.json(dbUser.groups);
+      }).catch((err) => {
+        res.status(422).json(err);
+      });
+    } else {
+      res.status(403);
+    }
   },
 
   getUsersEvents: (req, res) => {
-    db.User.findById(req.params.id).populate("events").then((dbUser) => {
-      res.json(dbUser.events);
-    }).catch((err) => {
-      res.status(422).json(err);
-    });
+    if (req.user) {
+      db.User.findById(req.params.id).populate("events").then((dbUser) => {
+        res.json(dbUser.events);
+      }).catch((err) => {
+        res.status(422).json(err);
+      });
+    } else {
+      res.status(403);
+    }
   },
 
   joinGroup: (req, res) => {
-    db.User.findByIdAndUpdate(req.params.id, { $addToSet: { groups: req.params.groupid } }, { new: true }).then((dbUser) => {
-      res.json(dbUser);
-    }).catch((err) => {
-      res.status(422).json(err);
-    });
+    if (req.user) {
+      db.User.findByIdAndUpdate(req.params.id, { $addToSet: { groups: req.params.groupid } }, { new: true }).then((dbUser) => {
+        res.json(dbUser);
+      }).catch((err) => {
+        res.status(422).json(err);
+      });
+    } else {
+      res.status(403);
+    }
   },
   
   joinEvent: (req, res) => {
-    db.User.findByIdAndUpdate(req.params.id, { $addToSet: { events: req.params.eventid } }, { new: true }).then((dbUser) => {
-      res.json(dbUser);
-    }).catch((err) => {
-      res.status(422).json(err);
-    });
+    if (req.user) {
+      db.User.findByIdAndUpdate(req.params.id, { $addToSet: { events: req.params.eventid } }, { new: true }).then((dbUser) => {
+        res.json(dbUser);
+      }).catch((err) => {
+        res.status(422).json(err);
+      });
+    } else {
+      res.status(403);
+    }
   },
     
   addGame: (req, res) => {
-    db.User.findByIdAndUpdate(req.params.id, { $addToSet: { games: req.params.gameid } }, { new: true }).then((dbUser) => {
-      res.json(dbUser);
-    }).catch((err) => {
-      res.status(422).json(err);
-    });
+    if (req.user) {
+      db.User.findByIdAndUpdate(req.params.id, { $addToSet: { games: req.params.gameid } }, { new: true }).then((dbUser) => {
+        res.json(dbUser);
+      }).catch((err) => {
+        res.status(422).json(err);
+      });
+    } else {
+      res.status(403);
+    }
   },
 
   getUsersByGame: (req, res) => {

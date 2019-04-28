@@ -24,12 +24,18 @@ class EditProfileForm extends Component {
 
   getUser = () => {
     Axios.get(`/api/user/${this.props.userid}`).then((res) => {
-      this.setState({
-        name: res.data.profile.name,
-        about: res.data.profile.about,
-        zipcode: res.data.profile.zipcode,
-        img: res.data.profile.img
-      });
+      if(res.status === 403) {
+        this.setState({
+          redirectTo: "/login"
+        });
+      } else {
+        this.setState({
+          name: res.data.profile.name,
+          about: res.data.profile.about,
+          zipcode: res.data.profile.zipcode,
+          img: res.data.profile.img
+        });
+      }
     }).catch((err) => {
       console.log(err);
     });
@@ -67,82 +73,82 @@ class EditProfileForm extends Component {
     }
     return (
       <div id="edit-block">
-      <div class="container profile-form">
-            <div class="pageTitle">
+      <div className="container profile-form">
+            <div className="pageTitle">
                 <br/>
                 <h2>Edit Profile</h2>
                 <hr/>
             </div>
-            <div class="row">
-                <div class="col-md-3" id="profImage">
-                    <div class="text-center">
-                        <div class="img-circle m-auto" 
+            <div className="row">
+                <div className="col-md-3" id="profImage">
+                    <div className="text-center">
+                        <div className="img-circle m-auto" 
                              alt="avatar"
                              style={ { backgroundImage: `url(${this.state.img})` }}
                         />
                     </div>
                 </div>
-                <div class="col-md-9 personal-info">
+                <div className="col-md-9 personal-info">
                     {this.state.errorMsg ? (
                       <div className="alert alert-danger" role="alert">
                         {this.state.errorMsg}
                       </div>
                     ) : ""}
-                    <form class="form-horizontal">
-                        <div class="form-group">
-                            <label class="col-lg-3 control-label">Name:</label>
-                            <div class="col-lg-8">
+                    <form className="form-horizontal">
+                        <div className="form-group">
+                            <label className="col-lg-3 control-label">Name:</label>
+                            <div className="col-lg-8">
                               <input type="text" 
                                     id="updateName" 
                                     placeholder="Name"
                                     name="name"
-                                    value={this.state.name}
+                                    value={this.state.name || ""}
                                     onChange={this.handleChange}
                                     className="form-control"
                               />
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label class="col-lg-3 control-label">Zipcode:</label>
-                            <div class="col-lg-8">
+                        <div className="form-group">
+                            <label className="col-lg-3 control-label">Zipcode:</label>
+                            <div className="col-lg-8">
                               <input type="text" 
                                 id="updateZipcode" 
                                 placeholder="Zipcode"
                                 name="zipcode"
-                                value={this.state.zipcode}
+                                value={this.state.zipcode || ""}
                                 onChange={this.handleChange}
                                 className="form-control"
                               />
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label class="col-lg-3 control-label">About:</label>
-                            <div class="col-lg-8">
+                        <div className="form-group">
+                            <label className="col-lg-3 control-label">About:</label>
+                            <div className="col-lg-8">
                               <input type="text" 
                                 id="updateAbout" 
                                 name="about"
-                                value={this.state.about}
+                                value={this.state.about || ""}
                                 onChange={this.handleChange}
                                 className="form-control"
                               />
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label class="col-md-3 control-label">Image Link:</label>
-                            <div class="col-md-8">
+                        <div className="form-group">
+                            <label className="col-md-3 control-label">Image Link:</label>
+                            <div className="col-md-8">
                               <input type="text" 
                                     id="updateImg"
                                     name="img"
-                                    value={this.state.img}
+                                    value={this.state.img || ""}
                                     onChange={this.handleChange}
                                     className="form-control"
                               />
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label class="col-md-3 control-label"></label>
-                            <div class="col-md-8">
-                                <button class="btn btn-primary" id="saveBtn" value="Save Changes" onClick={this.handleSubmit}>Save Changes</button>
+                        <div className="form-group">
+                            <label className="col-md-3 control-label"></label>
+                            <div className="col-md-8">
+                                <button className="btn btn-primary" id="saveBtn" value="Save Changes" onClick={this.handleSubmit}>Save Changes</button>
                             </div>
                         </div>
                     </form>

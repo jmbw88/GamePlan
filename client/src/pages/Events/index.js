@@ -10,13 +10,6 @@ const localizer = Calendar.momentLocalizer(moment);
 class Events extends Component {
   constructor(props) {
     super();
-    // const events = JSON.parse(sessionStorage.getItem("events"));
-    // this.state = { };
-    // if(events) {
-    //   this.state = {
-    //     events: events
-    //   }
-    // }
     this.state = {
     calendarEvents: [
     ]
@@ -47,14 +40,20 @@ class Events extends Component {
     const formComplete = Object.values(newEvent).every(val => val);
     if(formComplete) {
       Axios.post("/api/events", newEvent).then((res) => {
-        const eventID = res.data._id;
-        Axios.put(`/api/user/${this.props.userid}/events/${eventID}`).then((res) => {
+        if (res.status === 403) {
           this.setState({
-            redirectTo: `/events/${eventID}`
+            redirectTo: "/login"
           });
-        }).catch((err) => {
-          console.log(err);
-        });
+        } else {
+          const eventID = res.data._id;
+          Axios.put(`/api/user/${this.props.userid}/events/${eventID}`).then((res) => {
+            this.setState({
+              redirectTo: `/events/${eventID}`
+            });
+          }).catch((err) => {
+            console.log(err);
+          });
+        }
       }).catch((err) => {
         console.log(err);
       });
@@ -68,18 +67,24 @@ class Events extends Component {
 
   getEvents = () => {      
     Axios.get(`/api/user/${this.props.userid}/events`).then((res) => {
-      const calendarEvents = res.data.map((event) => {
-        return {
-          start: new Date(event.date),
-          end: new Date(event.date),
-          title: event.title,
-          id: event._id
-        }
-      });
-      this.setState({
-        events: res.data,
-        calendarEvents: calendarEvents
-      });
+      if (res.status === 403) {
+        this.setState({
+          redirectTo: "/login"
+        });
+      } else {
+        const calendarEvents = res.data.map((event) => {
+          return {
+            start: new Date(event.date),
+            end: new Date(event.date),
+            title: event.title,
+            id: event._id
+          }
+        });
+        this.setState({
+          events: res.data,
+          calendarEvents: calendarEvents
+        });
+      }
     }).catch((err) => {
       console.log(err);
     });

@@ -71,7 +71,7 @@ class LoginForm extends Component {
                               {this.state.errorMsg}
                             </div>) : ""}
                           <div className="form-group ">
-                              <label for="loginUsername">Username</label><br/>
+                              <label htmlFor="loginUsername">Username</label><br/>
                               <input id="loginUsername" 
                                     placeholder="Enter username"
                                     name="username"
@@ -80,7 +80,7 @@ class LoginForm extends Component {
                                     className="form-control"/>
                           </div>
                           <div className="form-group">
-                              <label for="password">Password</label><br/>
+                              <label htmlFor="password">Password</label><br/>
                               <input type="password" 
                                       id="loginPassword" 
                                       name="password"

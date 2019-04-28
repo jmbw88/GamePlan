@@ -2,11 +2,15 @@ const db = require("../models");
 
 module.exports = {
   findAll: (req, res) => {
-    db.Game.find({}).then((dbGame) => {
-      res.json(dbGame);
-    }).catch((err) => {
-      res.status(422).json(err);
-    });
+    if (req.user) {
+      db.Game.find({}).then((dbGame) => {
+        res.json(dbGame);
+      }).catch((err) => {
+        res.status(422).json(err);
+      });
+    } else {
+      res.status(403);
+    }
   },
 
   findById: (req, res) => {

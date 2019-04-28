@@ -34,11 +34,15 @@ module.exports = {
   },
 
   create: (req, res) => {
-    db.Group.create(req.body).then((dbGroup) => {
-      res.json(dbGroup);
-    }).catch((err) => {
-      res.status(422).json(err);
-    });
+    if (req.user) {
+      db.Group.create(req.body).then((dbGroup) => {
+        res.json(dbGroup);
+      }).catch((err) => {
+        res.status(422).json(err);
+      });
+    } else {
+      res.status(403);
+    }
   },
 
   // TODO add auth for user and check if admin of group

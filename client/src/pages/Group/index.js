@@ -22,21 +22,27 @@ class Group extends Component {
 
   getGroup = (id) => {
     Axios.get(`/api/user/${this.props.userid}`).then((res) => {
-      console.log("user groups: ", res.data.groups);
-      const userGroups = res.data.groups;
-      const userJoinedGroup = userGroups.some((group) => {
-        return group._id === id
-      });
-      if(userJoinedGroup) {
-        console.log("USER JOINED GROUP");
+      if (res.status === 403) {
         this.setState({
-          userJoined: true
+          redirectTo: "/login"
         });
       } else {
-        console.log("USER HAS NOT JOINED GROUP");
-        this.setState({
-          userJoined: false
+        console.log("user groups: ", res.data.groups);
+        const userGroups = res.data.groups;
+        const userJoinedGroup = userGroups.some((group) => {
+          return group._id === id
         });
+        if(userJoinedGroup) {
+          console.log("USER JOINED GROUP");
+          this.setState({
+            userJoined: true
+          });
+        } else {
+          console.log("USER HAS NOT JOINED GROUP");
+          this.setState({
+            userJoined: false
+          });
+        }
       }
     }).catch((err) => {
       console.log(err);
@@ -61,9 +67,15 @@ class Group extends Component {
     const { match: { params } } = this.props;
     const id = params.id;
     Axios.put(`/api/user/${this.props.userid}/groups/${id}`).then((res) => {
-      this.setState({
-        redirectTo: "/groups"
-      });
+      if (res.status === 403) {
+        this.setState({
+          redirectTo: "/login"
+        });
+      } else {
+        this.setState({
+          redirectTo: "/groups"
+        });
+      }
     }).catch((err) => {
       console.log(err);
     });
@@ -82,18 +94,24 @@ class Group extends Component {
     const formComplete = Object.values(newEvent).every(val => val);
     if(formComplete) {
       Axios.post("/api/events", newEvent).then((res) => {
-        const eventID = res.data._id;
-        Axios.put(`/api/user/${this.props.userid}/events/${res.data._id}`).then((res) => {
-          Axios.put(`/api/groups/${this.state.id}/events/${eventID}`).then((res) => {
-            this.setState({
-              redirectTo: `/events/${eventID}`
+        if(res.status === 403) {
+          this.setState({
+            redirectTo: "/login"
+          });
+        } else {
+          const eventID = res.data._id;
+          Axios.put(`/api/user/${this.props.userid}/events/${res.data._id}`).then((res) => {
+            Axios.put(`/api/groups/${this.state.id}/events/${eventID}`).then((res) => {
+              this.setState({
+                redirectTo: `/events/${eventID}`
+              });
+            }).catch((err) => {
+              console.log(err);
             });
           }).catch((err) => {
             console.log(err);
           });
-        }).catch((err) => {
-          console.log(err);
-        });
+        }
       }).catch((err) => {
         console.log(err);
       });
@@ -119,7 +137,41 @@ class Group extends Component {
     }
     return (
       <React.Fragment>
-        <body className="background">
+        <div className="background">
+
+        <div id="signup-row" className="row justify-content-center align-items-center">
+              <div id="signup-column" className="col-md-8">
+                <div id="signup-box" className="group-box col-md-12">
+                  <h3 className="newEvent">{this.state.name}</h3>
+                  <p className="text-center groupDescription">{this.state.description}</p>
+                  <p className="text-center groupDescription">{this.state.zipcode}</p>
+
+                  <div class="groupEvents col-md-6">
+                    <h4>Events</h4>
+                    {this.state.events ? this.state.events.map((event) => (
+                      <React.Fragment>
+                        <p><Link to={`/events/${event._id}`}>{event.title}</Link></p>
+                        <p>{event.date}</p>
+                      </React.Fragment>
+                    )) : <p>No events</p>}
+                  </div>
+
+                  <div class="groupAdmins col-md-6">
+                    <h4>Admins</h4>
+                    {this.state.admins ? this.state.admins.map((admin) => (
+                      <p><Link to={`/${admin._id}`}>{admin.account.username}</Link></p>
+                    )) : <p>No admins</p>}
+                  </div>
+
+                  <div className="submitBtn">
+                    {!this.state.userJoined ? (
+                        <button className="btn btn-primary" onClick={this.joinGroup}>Join Group</button>
+                      ) : ""}
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
 
           <div id="signup-row" className="row justify-content-center align-items-center">
               <div id="signup-column" className="col-md-8">
@@ -174,41 +226,9 @@ class Group extends Component {
               </div>
             </div> 
 
-            <div id="signup-row" className="row justify-content-center align-items-center">
-              <div id="signup-column" className="col-md-8">
-                <div id="signup-box" className="group-box col-md-12">
-                  <h3 className="newEvent">{this.state.name}</h3>
-                  <p className="text-center groupDescription">{this.state.description}</p>
-                  <p className="text-center groupDescription">{this.state.zipcode}</p>
+            
 
-                  <div class="groupEvents col-md-6">
-                    <h4>Events</h4>
-                    {this.state.events ? this.state.events.map((event) => (
-                      <React.Fragment>
-                        <p><Link to={`/events/${event._id}`}>{event.title}</Link></p>
-                        <p>{event.date}</p>
-                      </React.Fragment>
-                    )) : <p>No events</p>}
-                  </div>
-
-                  <div class="groupAdmins col-md-6">
-                    <h4>Admins</h4>
-                    {this.state.admins ? this.state.admins.map((admin) => (
-                      <p><Link to={`/${admin._id}`}>{admin.account.username}</Link></p>
-                    )) : <p>No admins</p>}
-                  </div>
-
-                  <div className="submitBtn">
-                    {!this.state.userJoined ? (
-                        <button className="btn btn-primary" onClick={this.joinGroup}>Join Group</button>
-                      ) : ""}
-                    
-                  </div>
-                </div>
-              </div>
-            </div>
-
-        </body>
+        </div>
       </React.Fragment>
     
     )

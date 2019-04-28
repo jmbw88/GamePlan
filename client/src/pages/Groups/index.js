@@ -5,13 +5,7 @@ import Axios from "axios";
 class Groups extends Component {
   constructor(props) {
     super();
-    // const groups = JSON.parse(sessionStorage.getItem("groups"));
     this.state = {};
-    // if(groups) {
-    //   this.state = {
-    //     groups: groups
-    //   }
-    // }
     this.componentDidMount = this.componentDidMount.bind(this);
   }
   
@@ -21,10 +15,15 @@ class Groups extends Component {
 
   getGroups = () => {      
     Axios.get(`/api/user/${this.props.userid}/groups`).then((res) => {
-      this.setState({
-        groups: res.data
-      });
-      // sessionStorage.setItem("groups", JSON.stringify(res.data));
+      if (res.status === 403) {
+        this.setState({
+          redirectTo: "/login"
+        });
+      } else {
+        this.setState({
+          groups: res.data
+        });
+      }
     }).catch((err) => {
       console.log(err);
     });
@@ -51,15 +50,19 @@ class Groups extends Component {
     const formComplete = Object.values(newGroup).every(val => val);
     if(formComplete) {
       Axios.post(`/api/groups`, newGroup).then((res) => {
-        // console.log(res);
-        Axios.put(`/api/user/${this.props.userid}/groups/${res.data._id}`).then((res) => {
-          // console.log(res);
-          this.setState({
-            redirectTo: `/groups/${res.data._id}`
+        if (res.status === 403) {
+          Axios.put(`/api/user/${this.props.userid}/groups/${res.data._id}`).then((res) => {
+            this.setState({
+              redirectTo: `/groups/${res.data._id}`
+            });
+          }).catch((err) => {
+            console.log(err);
           });
-        }).catch((err) => {
-          console.log(err);
-        });
+        } else {
+          this.setState({
+            redirectTo: "/login"
+          });
+        }
       }).catch((err) => {
         console.log(err);
       });
@@ -80,7 +83,22 @@ class Groups extends Component {
     // console.log(this.state);
     return (
       <React.Fragment>
-        <body className="background">
+        <div className="background">
+        <div id="signup-row" className="row justify-content-center align-items-center">
+              <div id="signup-column" className="col-md-8">
+              <h3 className="newEvent">Your Groups</h3>
+                <div id="signup-box" className="col-md-12">
+                  {this.state.groups ? this.state.groups.map((group) => (
+                    <div className="yourGroups col-md-6">
+                      <h4><Link to={`/groups/${group._id}`}>{group.name}</Link></h4>
+                      <p className="text-center noPadding">{group.description}</p>
+                      <p className="text-center noPadding">{group.zipcode}</p>
+                    </div>
+                  )) : ""}
+                  
+                </div>
+              </div>
+            </div>
             <div id="signup-row" className="row justify-content-center align-items-center">
               <div id="signup-column" className="col-md-8">
               <h3 className="newEvent">Create New Group</h3>
@@ -123,26 +141,8 @@ class Groups extends Component {
                   </form>
                 </div>
               </div>
-            </div> 
-
-            
-            <div id="signup-row" className="row justify-content-center align-items-center">
-              <div id="signup-column" className="col-md-8">
-              <h3 className="newEvent">Your Groups</h3>
-                <div id="signup-box" className="col-md-12">
-                  {this.state.groups ? this.state.groups.map((group) => (
-                    <div className="yourGroups col-md-6">
-                      <h4><Link to={`/groups/${group._id}`}>{group.name}</Link></h4>
-                      <p className="text-center noPadding">{group.description}</p>
-                      <p className="text-center noPadding">{group.zipcode}</p>
-                    </div>
-                  )) : ""}
-                  
-                </div>
-              </div>
-            </div>
-                          
-        </body>
+            </div>         
+        </div>
       </React.Fragment>
     )
   }
