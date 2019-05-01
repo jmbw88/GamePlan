@@ -32,7 +32,7 @@ class Home extends Component {
               <div className="row">
                 <div className="col-md-4 about">
                   <h2>Profile</h2>
-                  <p>When you sign up, create a profile to help other games find you. Add your favortie games and your location to get started. </p>
+                  <p>When you sign up, create a profile to help other users find you. Add your favorite games and your location to get started. </p>
                 </div>
                 <div className="col-md-4 about">
                   <h2>Explore</h2>
@@ -100,8 +100,8 @@ class Home extends Component {
               <div className="row game2 game">
                 <div className="col-md-6 text-left">
                   <img className="img-responsive picsGall" src="assets/images/games/DD.jpg" alt="dungeons and dragons"/>
-                  <h3>Dungeons & Dragons</h3>
-                  <p>A roleplaying game about storytelling in worlds of sword and sorcery. It shares elements with childhood games of make-believe. Like those games, D&D is driven by imagination. It’s about picturing the towering castle beneath the stormy night sky and imagining how a fantasy adventurer might react to the challenges that scene presents.</p>
+                  <h3>Dungeons &amp; Dragons</h3>
+                  <p>A roleplaying game about storytelling in worlds of sword and sorcery. It shares elements with childhood games of make-believe. Like those games, D&amp;D is driven by imagination. It’s about picturing the towering castle beneath the stormy night sky and imagining how a fantasy adventurer might react to the challenges that scene presents.</p>
                   <hr className="hrGames"/>
                 </div>
                 <div className="col-md-6 text-right">
