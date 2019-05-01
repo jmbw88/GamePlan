@@ -1,5 +1,6 @@
 require("dotenv").config();
 const express = require("express");
+const sslRedirect = require("heroku-ssl-redirect");
 const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -15,6 +16,7 @@ const passport = require("passport");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(logger('dev'));
+app.use(sslRedirect());
 
 // Sessions
 app.use(
