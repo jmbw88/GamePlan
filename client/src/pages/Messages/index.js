@@ -144,15 +144,17 @@ class Messages extends Component {
                                 <img className="msg-img" src={contact.img || "https://via.placeholder.com/100"} alt="avatar"/>
                               </Link>
                               </div>
-                              {/* UNREAD */}
-                              {contact.unreadCount > 0 ? <span className="badge badge-danger unread"> {contact.unreadCount} </span> : ""}
-                              {/* END UNREAD */}
                               <div className="chat_ib">
                                 <h5>
                                     {contact.username} 
                                     <span className="timestamp">{contact.newest ? contact.newest.createdAt : ""}</span>
                                 </h5>
-                                <p>{contact.newest ? contact.newest.body : ""}</p>
+                                <p>
+                                {/* UNREAD */}
+                                {contact.unreadCount > 0 ? <span className="badge badge-danger unread"> {contact.unreadCount} </span> : ""}  {contact.newest ? contact.newest.body : ""}
+                                {/* END UNREAD */}
+                                
+                                </p>
                               </div>
                             </div>
                           ))}
